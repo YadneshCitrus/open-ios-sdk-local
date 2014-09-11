@@ -10,12 +10,12 @@
 #define RestFulltester_TestParams_h
 // TestParams.h should be populated according to your needs
 
-#define TEST_EMAIL @"pappu.a.Yadav5@gmail.com"
-#define TEST_PASSWORD @"tester@123"
-#define TEST_MOBILE @"1234567890"
+#define TEST_EMAIL @"mukeshpatil1@gmail.com"
+#define TEST_PASSWORD @"19dec@1985am"
+#define TEST_MOBILE @"9742544508"
 
-#define TEST_FIRST_NAME @"dongGing"
-#define TEST_LAST_NAME @"wankhede"
+#define TEST_FIRST_NAME @"mukesh"
+#define TEST_LAST_NAME @"patil"
 
 //#define TEST_DEBIT_CARD_NUMBER @"4028530012345678"
 #define TEST_DEBIT_CARD_NUMBER @"4028530052708001"
@@ -56,5 +56,13 @@
   @"https://stgadmin.citruspay.com/prepaid/resources/mobile/onload.html"
 #define MLC_PAYMENT_REDIRECT_URLCOMPLETE \
   @"https://stgadmin.citruspay.com/service/v2/mycard/load/complete"
+
+
+#define DEBIT_CARD_TYPE @"DEBIT_CARD_TYPE"
+#define CREDIT_CARD_TYPE @"CREDIT_CARD_TYPE"
+
+
+#define GUEST_PAY_TYPE @"GUEST_PAY_TYPE"
+#define MEMBER_PAY_TYPE @"MEMBER_PAY_TYPE"
 
 #endif

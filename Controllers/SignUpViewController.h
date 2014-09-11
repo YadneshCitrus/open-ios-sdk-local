@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CitrusSdk.h"
 
-@interface SignUpViewController : UIViewController
+@interface SignUpViewController : UIViewController <CTSAuthenticationProtocol>
+{
+    IBOutlet __weak UITextField *emailTextField;
+    IBOutlet __weak UITextField *mobileTextField;
+    IBOutlet __weak UITextField *passwordTextField;
+    
+    CTSAuthLayer* authLayer;
+}
+@property(nonatomic,weak) IBOutlet UITextField *emailTextField;
+@property(nonatomic,weak) IBOutlet UITextField *mobileTextField;
+@property(nonatomic,weak) IBOutlet UITextField *passwordTextField;
 
+-(IBAction)signUpAction:(id)sender;
 @end

@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
 @interface SavedOptionsViewController : UIViewController
+{
+    IBOutlet __weak UITableView *tableView;
+}
+@property(nonatomic,weak) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) AppDelegate *appDelegate;
 
 @end

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CitrusSdk.h"
 
 @interface HomeViewController : UIViewController
-
+-(IBAction)signUpAction:(id)sender;
+-(IBAction)signInAction:(id)sender;
+-(IBAction)guestPayAction:(id)sender;
 @end

@@ -12,7 +12,6 @@
 #import "CTSOauthManager.h"
 #import "CTSAuthLayerConstants.h"
 
-
 @implementation CTSRestPluginBase
 @synthesize requestBlockCallbackMap;
 - (instancetype)initWithRequestSelectorMapping:(NSDictionary*)mapping
@@ -24,6 +23,7 @@
     requestSelectorMap = mapping;
 
     requestBlockCallbackMap = [[NSMutableDictionary alloc] init];
+    dataCache = [[NSMutableDictionary alloc] init];
     if (self != [CTSRestPluginBase class] &&
         ![self conformsToProtocol:@protocol(CTSRestCoreDelegate)]) {
       @throw
@@ -97,6 +97,26 @@
   return callback;
 }
 
+- (void)addData:(id)object atCacheIndex:(long)index {
+  [dataCache setValue:object forKey:toLongNSString(index)];
+}
+- (id)fetchDataFromCache:(long)index {
+  return [dataCache valueForKey:toLongNSString(index)];
+}
+- (id)fetchAndRemoveDataFromCache:(long)index {
+  id object = [self fetchDataFromCache:index];
+  [dataCache removeObjectForKey:toLongNSString(index)];
+  return object;
+}
 
+- (long)addDataToCacheAtAutoIndex:(id)object {
+  long index = [self getNewIndex];
+  [self addData:object atCacheIndex:index];
+  return index;
+}
+
+- (long)getNewIndex {
+  return cacheId++;
+}
 
 @end

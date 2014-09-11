@@ -245,6 +245,11 @@
   [restCore requestAsyncServer:request];
 }
 
+- (BOOL)signOut {
+  [CTSOauthManager resetOauthData];
+  return YES;
+}
+
 #pragma mark - pseudo password generator methods
 - (NSString*)generatePseudoRandomPassword {
   // Build the password using C strings - for speed
@@ -410,6 +415,7 @@ enum {
         [[CTSOauthTokenRes alloc] initWithString:response.responseString
                                            error:&jsonError];
     [CTSOauthManager saveSignupToken:resultObject.accessToken];
+
     [self requestInternalSignupMobile:mobileSignUp email:userNameSignup];
   } else {
     [self signupHelperUsername:userNameSignup
@@ -435,6 +441,7 @@ enum {
     [CTSOauthManager saveOauthData:resultObject];
     if (wasSignupCalled == YES) {
       // in case of sign up flow
+
       [self usePassword:passwordSignUp
           hashedUsername:[self generateBigIntegerString:userNameSignup]];
       wasSignupCalled = NO;
@@ -481,6 +488,10 @@ enum {
                          password:[self generateBigIntegerString:userNameSignup]
                 completionHandler:nil];
 
+    //    [self requestSigninWithUsername:userNameSignup
+    //                           password:passwordSignUp
+    //                  completionHandler:nil];
+
   } else {
     [self signupHelperUsername:userNameSignup
                          oauth:[CTSOauthManager readOauthToken]
@@ -490,7 +501,6 @@ enum {
 
 - (void)handleReqUsePassword:(CTSRestCoreResponse*)response {
   LogTrace(@"password changed ");
-  [self resetSignupCredentials];
 
   [self signupHelperUsername:userNameSignup
                        oauth:[CTSOauthManager readOauthToken]
@@ -539,7 +549,6 @@ enum {
   ASSigninCallBack callBack =
       [self retrieveAndRemoveCallbackForReqId:SignupOauthTokenReqId];
 
-  [self resetSignupCredentials];
   wasSignupCalled = NO;
 
   if (error != nil) {
@@ -554,6 +563,8 @@ enum {
                oauthToken:token
                     error:error];
   }
+
+  [self resetSignupCredentials];
 }
 
 - (void)changePasswordHelper:(NSError*)error {

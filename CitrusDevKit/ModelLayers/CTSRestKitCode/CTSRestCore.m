@@ -32,6 +32,7 @@
   [mainQueue setMaxConcurrentOperationCount:5];
 
   __block id<CTSRestCoreDelegate> blockDelegate = delegate;
+  __block long dataIndex = restRequest.index;
   LogTrace(@"URL > %@ ", request);
   LogTrace(@"restRequest JSON> %@", restRequest.requestJson);
   // LogTrace(@"allHeaderFields %@", [request allHeaderFields]);
@@ -45,7 +46,8 @@
                 CTSRestCoreResponse* restResponse =
                     [CTSRestCore toCTSRestCoreResponse:response
                                           responseData:data
-                                                 reqId:requestId];
+                                                 reqId:requestId
+                                             dataIndex:dataIndex];
                 [blockDelegate restCore:self didReceiveResponse:restResponse];
             }];
 }
@@ -64,7 +66,8 @@
   CTSRestCoreResponse* restResponse =
       [CTSRestCore toCTSRestCoreResponse:response
                             responseData:data
-                                   reqId:restRequest.requestId];
+                                   reqId:restRequest.requestId
+                               dataIndex:restRequest.index];
 
   return restResponse;
 }
@@ -192,7 +195,8 @@ NSRange statusCodeRangeForClass(CTSStatusCodeClass statusCodeClass) {
 
 + (CTSRestCoreResponse*)toCTSRestCoreResponse:(NSURLResponse*)response
                                  responseData:(NSData*)data
-                                        reqId:(int)requestId {
+                                        reqId:(int)requestId
+                                    dataIndex:(long)dataIndex {
   CTSRestCoreResponse* restResponse = [[CTSRestCoreResponse alloc] init];
   NSError* error = nil;
   NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
@@ -205,6 +209,7 @@ NSRange statusCodeRangeForClass(CTSStatusCodeClass statusCodeClass) {
       [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
   restResponse.requestId = requestId;
   restResponse.error = error;
+  restResponse.indexData = dataIndex;
   [restResponse logProperties];
   return restResponse;
 }

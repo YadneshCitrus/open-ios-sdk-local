@@ -40,5 +40,7 @@
 
 - (CTSErrorCode)validate;
 
--(void)clearCVV;
+- (void)clearCVV;
+
+- (void)clearNetbankCode;
 @end

@@ -21,6 +21,11 @@ typedef enum PasswordUseType {
   SET_FIRSTTIME_PASSWORD
 } PasswordUseType;
 
+typedef enum SignOutResponseState {
+  SIGNOUT_SUCCESFUL,
+  SIGNOUT_WAS_NOT_SIGNED_IN
+} SignOutResponseState;
+
 #pragma mark - class constants
 #define MLC_SIGNUP_ACCESS_OAUTH_TOKEN @"signup_oauth_token"
 #define MLC_SIGNIN_ACCESS_OAUTH_TOKEN @"signin_oauth_token"

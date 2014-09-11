@@ -26,4 +26,5 @@
 + (BOOL)validateCVV:(NSString*)cvv cardNumber:(NSString*)cardNumber;
 + (BOOL)toBool:(NSString*)boolString;
 + (NSString*)fetchCardSchemeForCardNumber:(NSString *)cardNumber;
++ (NSDictionary*)getResponseIfTransactionIsFinished:(NSData*)postData;
 @end

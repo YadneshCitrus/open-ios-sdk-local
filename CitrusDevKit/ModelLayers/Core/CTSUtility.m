@@ -266,4 +266,31 @@
   return NO;
 }
 
+
++ (NSDictionary*)getResponseIfTransactionIsFinished:(NSData*)postData {
+    // contains the HTTP body as in an HTTP POST request.
+    NSString* dataString =
+    [[NSString alloc] initWithData:postData encoding:NSASCIIStringEncoding];
+    LogTrace(@"dataString %@ ", dataString);
+    
+    NSMutableDictionary* responseDictionary = nil;
+    if ([dataString rangeOfString:@"TxStatus" options:NSCaseInsensitiveSearch]
+        .location != NSNotFound) {
+        responseDictionary = [[NSMutableDictionary alloc] init];
+        
+        NSArray* separatedByAMP = [dataString componentsSeparatedByString:@"&"];
+        LogTrace(@"separated by & %@", separatedByAMP);
+        
+        for (NSString* string in separatedByAMP) {
+            NSArray* separatedByEQ = [string componentsSeparatedByString:@"="];
+            LogTrace(@"separatedByEQ %@ ", separatedByEQ);
+            
+            [responseDictionary setObject:[separatedByEQ objectAtIndex:1]
+                                   forKey:[separatedByEQ objectAtIndex:0]];
+        }
+        LogTrace(@" final dictionary %@ ", responseDictionary);
+    }
+    return responseDictionary;
+}
+
 @end

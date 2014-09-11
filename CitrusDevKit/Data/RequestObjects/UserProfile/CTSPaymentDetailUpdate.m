@@ -47,4 +47,10 @@
   }
 }
 
+- (void)clearNetbankCode {
+  for (CTSPaymentOption* payment in paymentOptions) {
+    payment.code = nil;
+  }
+}
+
 @end

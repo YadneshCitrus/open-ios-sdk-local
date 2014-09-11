@@ -10,4 +10,6 @@
 
 @interface CTSAlertView : UIAlertView
 
+-(void)hideCTSAlertView:(BOOL)activity;
+-(void)createProgressionAlertWithMessage:(NSString *)message withActivity:(BOOL)activity;
 @end

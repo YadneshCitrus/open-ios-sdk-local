@@ -11,5 +11,7 @@
 @interface CTSRestCoreResponse : NSObject
 @property(strong) NSString* responseString;
 @property(assign) int requestId;
+@property(assign) long indexData;
+
 @property(strong) NSError* error;
 @end

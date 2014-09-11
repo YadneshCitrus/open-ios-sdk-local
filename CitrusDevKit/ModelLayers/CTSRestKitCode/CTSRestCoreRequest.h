@@ -13,11 +13,21 @@
 @property(strong) NSMutableDictionary* parameters, *headers;
 @property(assign) int requestId;
 @property(assign) HTTPMethod httpMethod;
+@property(assign) long index;
+
 - (instancetype)initWithPath:(NSString*)path
                    requestId:(int)reqId
                      headers:(NSDictionary*)reqHeaders
                   parameters:(NSDictionary*)params
                         json:(NSString*)json
                   httpMethod:(HTTPMethod)method;
+
+- (instancetype)initWithPath:(NSString*)path
+                   requestId:(int)reqId
+                     headers:(NSDictionary*)reqHeaders
+                  parameters:(NSDictionary*)params
+                        json:(NSString*)json
+                  httpMethod:(HTTPMethod)method
+                   dataIndex:(long)index;
 
 @end

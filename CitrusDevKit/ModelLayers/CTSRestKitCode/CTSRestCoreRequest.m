@@ -9,7 +9,8 @@
 #import "CTSRestCoreRequest.h"
 
 @implementation CTSRestCoreRequest
-@synthesize requestJson, urlPath, parameters, headers, requestId, httpMethod;
+@synthesize requestJson, urlPath, parameters, headers, requestId, httpMethod,
+    index;
 
 - (instancetype)initWithPath:(NSString*)path
                    requestId:(int)reqId
@@ -25,7 +26,26 @@
     headers = [reqHeaders mutableCopy];
     requestId = reqId;
     httpMethod = method;
+    index = -1;
   }
   return self;
+}
+
+- (instancetype)initWithPath:(NSString*)path
+                   requestId:(int)reqId
+                     headers:(NSDictionary*)reqHeaders
+                  parameters:(NSDictionary*)params
+                        json:(NSString*)json
+                  httpMethod:(HTTPMethod)method
+                   dataIndex:(long)indexArg {
+  CTSRestCoreRequest* request =
+      [[CTSRestCoreRequest alloc] initWithPath:path
+                                     requestId:reqId
+                                       headers:reqHeaders
+                                    parameters:params
+                                          json:json
+                                    httpMethod:method];
+  request.index = indexArg;
+  return request;
 }
 @end

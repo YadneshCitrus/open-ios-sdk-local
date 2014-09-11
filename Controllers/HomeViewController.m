@@ -7,6 +7,10 @@
 //
 
 #import "HomeViewController.h"
+#import "SignInViewController.h"
+#import "SignUpViewController.h"
+#import "PayViewController.h"
+#import "TestParams.h"
 
 @interface HomeViewController ()
 
@@ -27,7 +31,39 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.title = @"Home";
+    
+    UIBarButtonItem* logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self
+                                                                  action:@selector(barButtonLogoutPressed:)];
+    self.navigationItem.rightBarButtonItem = logoutButton;
 }
+
+
+-(void)barButtonLogoutPressed:(id)sender{
+}
+
+
+-(IBAction)signUpAction:(id)sender
+{
+    SignUpViewController* signUpViewController = [[SignUpViewController alloc] initWithNibName:@"SignUpViewController" bundle:nil];
+    [self.navigationController pushViewController:signUpViewController animated:YES];
+}
+
+//
+-(IBAction)signInAction:(id)sender
+{
+    SignInViewController* signInViewController = [[SignInViewController alloc] initWithNibName:@"SignInViewController" bundle:nil];
+    [self.navigationController pushViewController:signInViewController animated:YES];
+}
+
+//
+-(IBAction)guestPayAction:(id)sender
+{
+    PayViewController* payViewController = [[PayViewController alloc] initWithNibName:@"PayViewController" bundle:nil];
+    payViewController.payType = GUEST_PAY_TYPE;
+    [self.navigationController pushViewController:payViewController animated:YES];
+}
+
 
 - (void)didReceiveMemoryWarning
 {
