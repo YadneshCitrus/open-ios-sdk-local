@@ -207,6 +207,11 @@
 		76A80BB219C193C0007410EB /* visa.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B9719C193C0007410EB /* visa.png */; };
 		76A80BB319C193C0007410EB /* visa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B9819C193C0007410EB /* visa@2x.png */; };
 		76A80BB419C193C0007410EB /* visa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B9819C193C0007410EB /* visa@2x.png */; };
+		76A80BB619C2CA7F007410EB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A80BB519C2CA7F007410EB /* CoreData.framework */; };
+		76A80BBA19C2CAF6007410EB /* UserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76A80BB819C2CAF6007410EB /* UserData.xcdatamodeld */; };
+		76A80BBB19C2CAF6007410EB /* UserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76A80BB819C2CAF6007410EB /* UserData.xcdatamodeld */; };
+		76A80BBE19C2CD4A007410EB /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80BBD19C2CD4A007410EB /* User.m */; };
+		76A80BBF19C2CD4A007410EB /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80BBD19C2CD4A007410EB /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -411,6 +416,10 @@
 		76A80B9619C193C0007410EB /* rupay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rupay@2x.png"; sourceTree = "<group>"; };
 		76A80B9719C193C0007410EB /* visa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = visa.png; sourceTree = "<group>"; };
 		76A80B9819C193C0007410EB /* visa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "visa@2x.png"; sourceTree = "<group>"; };
+		76A80BB519C2CA7F007410EB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		76A80BB919C2CAF6007410EB /* UserData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserData.xcdatamodel; sourceTree = "<group>"; };
+		76A80BBC19C2CD4A007410EB /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		76A80BBD19C2CD4A007410EB /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -418,6 +427,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76A80BB619C2CA7F007410EB /* CoreData.framework in Frameworks */,
 				764AEDE219B89AA40011FE90 /* CoreGraphics.framework in Frameworks */,
 				764AEDE419B89AA40011FE90 /* UIKit.framework in Frameworks */,
 				764AEDE019B89AA40011FE90 /* Foundation.framework in Frameworks */,
@@ -440,6 +450,7 @@
 		764AEDD319B89AA40011FE90 = {
 			isa = PBXGroup;
 			children = (
+				76A80BB719C2CABA007410EB /* CoreData */,
 				76A80A3019C16D7B007410EB /* CitrusDevKit */,
 				76A80AC619C16D7B007410EB /* Controllers */,
 				76A80AE219C16D7B007410EB /* CTSAlertView */,
@@ -463,6 +474,7 @@
 		764AEDDE19B89AA40011FE90 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				76A80BB519C2CA7F007410EB /* CoreData.framework */,
 				764AEDDF19B89AA40011FE90 /* Foundation.framework */,
 				764AEDE119B89AA40011FE90 /* CoreGraphics.framework */,
 				764AEDE319B89AA40011FE90 /* UIKit.framework */,
@@ -890,6 +902,16 @@
 			path = "Card icon";
 			sourceTree = "<group>";
 		};
+		76A80BB719C2CABA007410EB /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				76A80BB819C2CAF6007410EB /* UserData.xcdatamodeld */,
+				76A80BBC19C2CD4A007410EB /* User.h */,
+				76A80BBD19C2CD4A007410EB /* User.m */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1033,6 +1055,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76A80BBE19C2CD4A007410EB /* User.m in Sources */,
 				76A80B7119C16D7B007410EB /* ServerSignature.m in Sources */,
 				76A80AFB19C16D7B007410EB /* CTSTokenizedCardPayment.m in Sources */,
 				76A80B1319C16D7B007410EB /* CTSSignUpRes.m in Sources */,
@@ -1064,6 +1087,7 @@
 				76A80B0719C16D7B007410EB /* CTSNetBankingUpdate.m in Sources */,
 				76A80B1D19C16D7B007410EB /* CTSPaymentTransactionRes.m in Sources */,
 				76A80B3719C16D7B007410EB /* CTSRestCoreRequest.m in Sources */,
+				76A80BBA19C2CAF6007410EB /* UserData.xcdatamodeld in Sources */,
 				76A80B4F19C16D7B007410EB /* JSONHTTPClient.m in Sources */,
 				76A80B4D19C16D7B007410EB /* JSONAPI.m in Sources */,
 				76A80B3D19C16D7B007410EB /* CTSRestPluginBase.m in Sources */,
@@ -1137,6 +1161,7 @@
 				76A80B5219C16D7B007410EB /* JSONModel+networking.m in Sources */,
 				76A80B5419C16D7B007410EB /* JSONKeyMapper.m in Sources */,
 				76A80B6619C16D7B007410EB /* NetBankingViewController.m in Sources */,
+				76A80BBF19C2CD4A007410EB /* User.m in Sources */,
 				76A80B6A19C16D7B007410EB /* PayViewController.m in Sources */,
 				76A80B1E19C16D7B007410EB /* CTSPaymentTransactionRes.m in Sources */,
 				76A80B5019C16D7B007410EB /* JSONHTTPClient.m in Sources */,
@@ -1166,6 +1191,7 @@
 				76A80B1A19C16D7B007410EB /* CTSNetbankingOption.m in Sources */,
 				76A80B4419C16D7B007410EB /* JSONModel.m in Sources */,
 				76A80B3019C16D7B007410EB /* CTSObject.m in Sources */,
+				76A80BBB19C2CAF6007410EB /* UserData.xcdatamodeld in Sources */,
 				76A80B3619C16D7B007410EB /* CTSRestCore.m in Sources */,
 				76A80AFE19C16D7B007410EB /* CTSTokenizedPaymentToken.m in Sources */,
 				76A80AEC19C16D7B007410EB /* CTSTypeToParameterMapping.m in Sources */,
@@ -1383,6 +1409,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		76A80BB819C2CAF6007410EB /* UserData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				76A80BB919C2CAF6007410EB /* UserData.xcdatamodel */,
+			);
+			currentVersion = 76A80BB919C2CAF6007410EB /* UserData.xcdatamodel */;
+			path = UserData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 764AEDD419B89AA40011FE90 /* Project object */;
 }

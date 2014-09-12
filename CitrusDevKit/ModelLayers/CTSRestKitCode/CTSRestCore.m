@@ -184,6 +184,8 @@ NSRange statusCodeRangeForClass(CTSStatusCodeClass statusCodeClass) {
                                  parameters:restRequest.parameters];
 
   if (restRequest.requestJson != nil) {
+    if (restRequest.headers == nil)
+      restRequest.headers = [[NSMutableDictionary alloc] init];
     [restRequest.headers setObject:@"application/json" forKey:@"Content-Type"];
     [request setHTTPBody:[restRequest.requestJson
                              dataUsingEncoding:NSUTF8StringEncoding]];

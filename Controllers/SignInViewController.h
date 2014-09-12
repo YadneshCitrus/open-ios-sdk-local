@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CitrusSdk.h"
 #import "PayViewController.h"
-
+#import "AppDelegate.h"
 
 @interface SignInViewController : UIViewController <CTSAuthenticationProtocol,
                                                     UIAlertViewDelegate,

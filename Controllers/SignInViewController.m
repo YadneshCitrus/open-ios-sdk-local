@@ -9,11 +9,13 @@
 #import "SignInViewController.h"
 #import "CTSAlertView.h"
 #import "TestParams.h"
+#import "User.h"
 
 @interface SignInViewController ()
 
 @property(strong) PayViewController *payViewController;
-
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @end
 
 @implementation SignInViewController
@@ -62,47 +64,40 @@
     }else if ([self.passwordTextField isFirstResponder]) {
         [self.passwordTextField resignFirstResponder];
     }
-
+    
     //
     CTSAlertView* alertView = [[CTSAlertView alloc] init];
     [alertView createProgressionAlertWithMessage:@"Checking user" withActivity:YES];
-
-    // Doing something on the main thread
-    dispatch_queue_t myQueue = dispatch_queue_create("My Queue",NULL);
-    dispatch_async(myQueue, ^{
-        // Perform long running process
-        if ([self.usernameTextField.text length] != 0 && [self.passwordTextField.text length] != 0) {
-            //
-            [authLayer requestSigninWithUsername:self.usernameTextField.text
-                                        password:self.passwordTextField.text
-                               completionHandler:^(NSString* userName,
-                                                   NSString* token,
-                                                   NSError* error) {
-                                   LogTrace(@"userName %@ ", userName);
-                                   LogTrace(@"token %@ ", token);
-                                   LogTrace(@"error %@ ", error);
-                                   
-                                   dispatch_async(dispatch_get_main_queue(), ^{
-                                       // Update the UI
-                                       [alertView hideCTSAlertView:YES];
-                                       if (error != nil) {
-                                           self.payViewController.payType = MEMBER_PAY_TYPE;
-                                           [self.navigationController pushViewController:self.payViewController animated:YES];
-                                       }else{
-                                           UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-                                           [alertView show];
-                                       }
-                                   });
-                               }];
-        }else{
-            dispatch_async(dispatch_get_main_queue(), ^{
-                // Update the UI
-                [alertView hideCTSAlertView:YES];
-                UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Information" message:@"Input field can't be blank!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-                [alertView show];
-            });
-        }
-    });
+    
+    if ([self.usernameTextField.text length] != 0 && [self.passwordTextField.text length] != 0) {
+        //
+        [authLayer requestSigninWithUsername:self.usernameTextField.text
+                                    password:self.passwordTextField.text
+                           completionHandler:^(NSString* userName,
+                                               NSString* token,
+                                               NSError* error) {
+                               LogTrace(@"userName %@ ", userName);
+                               LogTrace(@"token %@ ", token);
+                               LogTrace(@"error %@ ", error);
+                               
+                               dispatch_async(dispatch_get_main_queue(), ^{
+                                   // Update the UI
+                                   [alertView hideCTSAlertView:YES];
+                                   if (error == nil) {
+                                       self.payViewController.payType = MEMBER_PAY_TYPE;
+                                       [self.navigationController pushViewController:self.payViewController animated:YES];
+                                   }else{
+                                       UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                                       [alertView show];
+                                   }
+                               });
+                           }];
+    }else{
+        // Update the UI
+        [alertView hideCTSAlertView:YES];
+        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Information" message:@"Input field can't be blank!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alertView show];
+    }
 }
 
 
@@ -131,27 +126,21 @@
     CTSAlertView* alertView = [[CTSAlertView alloc] init];
     [alertView createProgressionAlertWithMessage:@"Requesting" withActivity:YES];
     
-    // Doing something on the main thread
-    dispatch_queue_t myQueue = dispatch_queue_create("My Queue",NULL);
-    dispatch_async(myQueue, ^{
-        // Perform long running process
-        if ([self.usernameTextField.text length] != 0 && [self.passwordTextField.text length] != 0) {
-            //
-            [authLayer requestResetPassword:self.usernameTextField.text
-                          completionHandler:^(NSError* error) {
-                              LogTrace(@"error %@ ", error);
-                              
-                              dispatch_async(dispatch_get_main_queue(), ^{
-                                  // Update the UI
-                                  [alertView hideCTSAlertView:YES];
-                                  if (error == nil) {
-                                      UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Information" message:@"An email sent successfully" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-                                      [alertView show];
-                                  }
-                              });
-                          }];
-        }
-    });
+    // Perform long running process
+    if ([self.usernameTextField.text length] != 0 && [self.passwordTextField.text length] != 0) {
+        //
+        [authLayer requestResetPassword:self.usernameTextField.text
+                      completionHandler:^(NSError* error) {
+                          LogTrace(@"error %@ ", error);
+                          
+                          // Update the UI
+                          [alertView hideCTSAlertView:YES];
+                          if (error == nil) {
+                              UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Information" message:@"An email sent successfully" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                              [alertView show];
+                          }
+                      }];
+    }
 }
 
 #pragma mark - SignOutDelegate delegates
@@ -160,7 +149,33 @@
 {
     if ([authLayer isAnyoneSignedIn]) {
         [self.navigationController popToRootViewControllerAnimated:YES];
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        // Store the data
+        self.managedObjectContext = appDelegate.managedObjectContext;
+        [self deleteAllObjects:@"User"];
     }
+}
+
+- (void) deleteAllObjects: (NSString *) entityDescription  {
+    // Doing something on the main thread
+    dispatch_queue_t myQueue = dispatch_queue_create("My Queue",NULL);
+    dispatch_async(myQueue, ^{
+        // Perform long running process
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:entityDescription inManagedObjectContext:_managedObjectContext];
+        [fetchRequest setEntity:entity];
+        
+        NSError *error;
+        NSArray *items = [_managedObjectContext executeFetchRequest:fetchRequest error:&error];
+        
+        for (NSManagedObject *managedObject in items) {
+            [_managedObjectContext deleteObject:managedObject];
+            NSLog(@"%@ object deleted",entityDescription);
+        }
+        if (![_managedObjectContext save:&error]) {
+            NSLog(@"Error deleting %@ - error:%@",entityDescription,error);
+        }
+    });
 }
 
 #pragma mark - UITextField delegates

@@ -13,9 +13,11 @@
 #import "ServerSignature.h"
 #import "WebViewViewController.h"
 #import "AppDelegate.h"
+#import "User.h"
 
 @interface CardPayViewController ()
 @property (nonatomic, strong)  CTSAlertView* alertView;
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @end
 
 @implementation CardPayViewController
@@ -73,37 +75,30 @@
     }else if ([self.cardHolderNameTextField isFirstResponder]) {
         [self.cardHolderNameTextField resignFirstResponder];
     }
-
+    
     //
     [self.alertView createProgressionAlertWithMessage:@"Connecting..." withActivity:YES];
     
-    // Doing something on the main thread
-    dispatch_queue_t myQueue = dispatch_queue_create("My Queue",NULL);
-    dispatch_async(myQueue, ^{
-        // Perform long running process
-        if ([self.cardNumberTextField.text length] != 0 && [self.expiryDateTextField.text length] != 0 && [self.CVVNumberTextField.text length] != 0 && [self.cardHolderNameTextField.text length] != 0) {
-            if ([self.payType isEqualToString:MEMBER_PAY_TYPE]) {
-                if ([self.cardType isEqualToString:DEBIT_CARD_TYPE]) {
-                    [self doUserDebitCardPayment];
-                }if ([self.cardType isEqualToString:CREDIT_CARD_TYPE]) {
-                    [self doUserCreditCardPayment];
-                }
-            }if ([self.payType isEqualToString:GUEST_PAY_TYPE]) {
-                if ([self.cardType isEqualToString:DEBIT_CARD_TYPE]) {
-                    [self doGuestPaymentDebitCard];
-                }if ([self.cardType isEqualToString:CREDIT_CARD_TYPE]) {
-                    [self doGuestPaymentCreditCard];
-                }
+    if ([self.cardNumberTextField.text length] != 0 && [self.expiryDateTextField.text length] != 0 && [self.CVVNumberTextField.text length] != 0 && [self.cardHolderNameTextField.text length] != 0) {
+        if ([self.payType isEqualToString:MEMBER_PAY_TYPE]) {
+            if ([self.cardType isEqualToString:DEBIT_CARD_TYPE]) {
+                [self doUserDebitCardPayment];
+            }if ([self.cardType isEqualToString:CREDIT_CARD_TYPE]) {
+                [self doUserCreditCardPayment];
             }
-        }else{
-            dispatch_async(dispatch_get_main_queue(), ^{
-                // Update the UI
-                [self.alertView hideCTSAlertView:YES];
-                UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Information" message:@"Input field can't be blank!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-                [alertView show];
-            });
+        }if ([self.payType isEqualToString:GUEST_PAY_TYPE]) {
+            if ([self.cardType isEqualToString:DEBIT_CARD_TYPE]) {
+                [self doGuestPaymentDebitCard];
+            }if ([self.cardType isEqualToString:CREDIT_CARD_TYPE]) {
+                [self doGuestPaymentCreditCard];
+            }
         }
-    });
+    }else{
+        // Update the UI
+        [self.alertView hideCTSAlertView:YES];
+        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Information" message:@"Input field can't be blank!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alertView show];
+    }
 }
 
 
@@ -247,23 +242,18 @@ didMakeUserPayment:(CTSPaymentTransactionRes*)paymentInfo
     ? YES
     : NO;
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-        sleep(5);
-        
-        // Update the UI
-        if (hasSuccess) {
-            [self.alertView hideCTSAlertView:YES];
-            [self.alertView createProgressionAlertWithMessage:@"Connecting to the PG" withActivity:YES];
-            [self loadRedirectUrl:paymentInfo.redirectUrl];
-            if ([self.payType isEqualToString:MEMBER_PAY_TYPE]) {
-                [self saveData];
-            }
-        }else{
-            [self.alertView hideCTSAlertView:YES];
-            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [alertView show];
+    if (hasSuccess) {
+        [self.alertView hideCTSAlertView:YES];
+        [self.alertView createProgressionAlertWithMessage:@"Connecting to the PG" withActivity:YES];
+        [self loadRedirectUrl:paymentInfo.redirectUrl];
+        if ([self.payType isEqualToString:MEMBER_PAY_TYPE]) {
+            [self saveData];
         }
-    });
+    }else{
+        [self.alertView hideCTSAlertView:YES];
+        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alertView show];
+    }
 }
 
 - (void)payment:(CTSPaymentLayer*)layer
@@ -277,35 +267,51 @@ didMakePaymentUsingGuestFlow:(CTSPaymentTransactionRes*)paymentInfo
     ? YES
     : NO;
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-        // Update the UI
-        sleep(5);
-        if (hasSuccess) {
-            [self.alertView hideCTSAlertView:YES];
-            [self.alertView createProgressionAlertWithMessage:@"Connecting to the PG" withActivity:YES];
-            [self loadRedirectUrl:paymentInfo.redirectUrl];
-            if ([self.payType isEqualToString:MEMBER_PAY_TYPE]) {
-                [self saveData];
-            }
-        }else{
-            [self.alertView hideCTSAlertView:YES];
-            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [alertView show];
+    if (hasSuccess) {
+        [self.alertView hideCTSAlertView:YES];
+        [self.alertView createProgressionAlertWithMessage:@"Connecting to the PG" withActivity:YES];
+        [self loadRedirectUrl:paymentInfo.redirectUrl];
+        if ([self.payType isEqualToString:MEMBER_PAY_TYPE]) {
+            [self saveData];
         }
-    });
+    }else{
+        [self.alertView hideCTSAlertView:YES];
+        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alertView show];
+    }
 }
 
 - (void)saveData {
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    // Store the data
-    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-    if ([self.cardType isEqualToString:DEBIT_CARD_TYPE]) {
-        [dict setValue:@"DEBIT" forKey:@"paymentOptions"];
-    }if ([self.cardType isEqualToString:CREDIT_CARD_TYPE]) {
-        [dict setValue:@"CREDIT" forKey:@"paymentOptions"];
-    }
-    [dict setValue:self.cardType forKey:@"paymentType"];
-    [appDelegate.userdata addObject:dict];
+    // Doing something on the main thread
+    dispatch_queue_t myQueue = dispatch_queue_create("My Queue",NULL);
+    dispatch_async(myQueue, ^{
+        // Perform long running process
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        //    // Store the data
+        // Add Entry Data base and reset all fields
+        self.managedObjectContext = appDelegate.managedObjectContext;
+        
+        //  1
+        User * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"User"
+                                                        inManagedObjectContext:self.managedObjectContext];
+        //  2
+        newEntry.username = @"username";
+        if ([self.cardType isEqualToString:DEBIT_CARD_TYPE]) {
+            newEntry.paymentOption = @"DEBIT";
+            newEntry.paymentType = self.cardType;
+        }if ([self.cardType isEqualToString:CREDIT_CARD_TYPE]) {
+            newEntry.paymentOption = @"CREDIT";
+            newEntry.paymentType = self.cardType;
+        }
+        //  3
+        NSError *error;
+        if (![self.managedObjectContext save:&error]) {
+            NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+        }
+        //  4
+        [self.view endEditing:YES];
+    });
+
 }
 
 

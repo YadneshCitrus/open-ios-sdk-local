@@ -117,7 +117,7 @@
 
 - (CTSPaymentToken*)fetchPaymentToken {
   CTSPaymentToken* paymentToken = [[CTSPaymentToken alloc] init];
-  CTSPaymentMode* paymentMode = [[CTSPaymentMode alloc] init];
+  CTSPaymentMode* paymentMode = nil;
   switch ([self fetchPaymentType]) {
     case TokenizedCard:
       paymentToken.id = token;

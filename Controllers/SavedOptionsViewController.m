@@ -7,9 +7,13 @@
 //
 
 #import "SavedOptionsViewController.h"
+#import "User.h"
 
 @interface SavedOptionsViewController ()
 
+@property (strong, nonatomic) NSArray *userdata;
+
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 @end
 
@@ -29,10 +33,87 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-  self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    profileLayer = [[CTSProfileLayer alloc] init];
+    profileLayer.delegate = self;
+
+    [self fetchPaymentInformation];
+
+//    [self getUserRecords];
 }
 
+-(void)getUserRecords
+{
+    // Doing something on the main thread
+    dispatch_queue_t myQueue = dispatch_queue_create("My Queue",NULL);
+    dispatch_async(myQueue, ^{
+        // Perform long running process
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        
+        // Add Entry to PhoneBook Data base and reset all fields
+        self.managedObjectContext = appDelegate.managedObjectContext;
+        
+        // initializing NSFetchRequest
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        
+        //Setting Entity to be Queried
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"User"
+                                                  inManagedObjectContext:self.managedObjectContext];
+        [fetchRequest setEntity:entity];
+        NSError* error;
+        
+        // Query on managedObjectContext With Generated fetchRequest
+        self.userdata = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // Update the UI
+            if ([self.userdata count] > 0) {
+                [self.tableView reloadData];
+            }
+        });
+    });
+}
+
+
+-(void)fetchPaymentInformation
+{
+    [profileLayer requestPaymentInformationWithCompletionHandler:nil];
+}
+
+
+#pragma mark - profile layer delegates
+
+- (void)profile:(CTSProfileLayer*)profile
+didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
+          error:(NSError*)error {
+    LogTrace(@"didReceiveContactInfo");
+    // LogTrace(@"contactInfo %@", contactInfo);
+    //[contactInfo logProperties];
+    LogTrace(@"contactInfo %@", error);
+}
+- (void)profile:(CTSProfileLayer*)profile
+didReceivePaymentInformation:(CTSProfilePaymentRes*)paymentInfo
+          error:(NSError*)error {
+    if (error == nil) {
+        LogTrace(@" paymentInfo.type %@", paymentInfo.type);
+        LogTrace(@" paymentInfo.defaultOption %@", paymentInfo.defaultOption);
+        
+        for (CTSPaymentOption* option in paymentInfo.paymentOptions) {
+//            [option logProperties];
+        }
+        paymentSavedResponse = paymentInfo;
+    } else {
+        LogTrace(@"error received %@", error);
+    }
+}
+
+- (void)profile:(CTSProfileLayer*)profile
+didUpdateContactInfoError:(NSError*)error {
+}
+
+- (void)profile:(CTSProfileLayer*)profile
+didUpdatePaymentInfoError:(NSError*)error {
+    LogTrace(@"didUpdatePaymentInfoError error %@ ", error);
+    [profileLayer requestPaymentInformationWithCompletionHandler:nil];
+}
 
 
 #pragma mark - Table view data source
@@ -46,26 +127,26 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.appDelegate.userdata count];
+    return [self.userdata count];
 }
 
 
- - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
- {
-     static NSString *CellIdentifier = @"Cell";
-     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-     
-     if(cell == nil)
-     {
-         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-     }
-     cell.textLabel.text = [[self.appDelegate.userdata objectAtIndex:indexPath.row] valueForKey:@"paymentOptions"];
-     cell.detailTextLabel.text = [[self.appDelegate.userdata objectAtIndex:indexPath.row] valueForKey:@"paymentType"];
-
- // Configure the cell...
- 
- return cell;
- }
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if(cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    }
+    
+    User *user = [self.userdata objectAtIndex:indexPath.row];
+    cell.textLabel.text = user.paymentOption;
+    cell.detailTextLabel.text = user.paymentType;
+    
+    return cell;
+}
 
 
 /*

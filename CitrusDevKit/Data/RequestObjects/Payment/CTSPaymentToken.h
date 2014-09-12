@@ -11,7 +11,7 @@
 #import "JSONModel.h"
 
 @interface CTSPaymentToken : JSONModel
-@property(strong) CTSPaymentMode* paymentMode;
+@property(strong) CTSPaymentMode<Optional>* paymentMode;
 @property(strong) NSString<Optional>* type;
 @property(strong) NSString<Optional>* id;
 @property(strong) NSString<Optional>* cvv;
