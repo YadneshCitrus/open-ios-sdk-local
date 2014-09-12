@@ -22,6 +22,7 @@
  *  @param contactInfo nil in case of error
  *  @param error       nil when successful
  */
+@optional
 - (void)profile:(CTSProfileLayer*)profile
     didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
                     error:(NSError*)error;
@@ -31,6 +32,7 @@
  *  @param contactInfo nil in case of error
  *  @param error       nil when succesful
  */
+@optional
 - (void)profile:(CTSProfileLayer*)profile
     didReceivePaymentInformation:(CTSProfilePaymentRes*)contactInfo
                            error:(NSError*)error;
@@ -39,6 +41,7 @@
  *
  *  @param error error if happned
  */
+@optional
 - (void)profile:(CTSProfileLayer*)profile
     didUpdateContactInfoError:(NSError*)error;
 
@@ -47,6 +50,7 @@
  *
  *  @param error nil when successful
  */
+@optional
 - (void)profile:(CTSProfileLayer*)profile
     didUpdatePaymentInfoError:(NSError*)error;
 

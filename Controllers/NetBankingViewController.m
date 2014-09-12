@@ -39,7 +39,10 @@
 {
     [super viewDidLoad];
     
+    //
     [self initialize];
+    
+    [self fetchAvailableBanks];
 }
 
 - (void)initialize {
@@ -47,7 +50,6 @@
     
     self.alertView = [[CTSAlertView alloc] init];
     paymentlayerinfo = [[CTSPaymentLayer alloc] init];
-    paymentlayerinfo.delegate = self;
     
     contactInfo = [[CTSContactUpdate alloc] init];
     contactInfo.firstName = TEST_FIRST_NAME;
@@ -64,6 +66,35 @@
     addressInfo.zip = @"401209";
 }
 
+
+-(void)fetchAvailableBanks
+{
+    // Doing something on the main thread
+    dispatch_queue_t myQueue = dispatch_queue_create("My Queue",NULL);
+    dispatch_async(myQueue, ^{
+        // Perform long running process
+        self.pickerData = [[NSMutableArray alloc] init];
+        
+        [paymentlayerinfo requestMerchantPgSettings:VanityUrl
+                              withCompletionHandler:^(CTSPgSettings* pgSettings,
+                                                      NSError* error) {
+                                  LogTrace(@"pgSettings %@ ", pgSettings.netBanking);
+                                  LogTrace(@"error %@ ", error);
+                                  
+                                  dispatch_async(dispatch_get_main_queue(), ^{
+                                      // Update the UI
+                                      if (error == nil) {
+                                          self.pickerData = pgSettings.netBanking;
+                                      }else{
+//                                          UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+//                                          [alertView show];
+                                      }
+                                  });
+                              }];
+    });
+}
+
+
 -(IBAction)selectBankAction:(id)senderx
 {
     [self addPickerView];
@@ -72,9 +103,6 @@
 //
 - (void)addPickerView
 {
-    self.pickerData= [[NSMutableArray alloc] initWithObjects:@"AXIS Bank",@"Central Bank Of Inida",@"Fedral Bank",@"ICICI Bank",
-                 @"Indian Overseas Bank",@"United Bank of India",@"Vijaya Bank", nil];
-    
     self.bankSelect = [[UIPickerView alloc] initWithFrame:CGRectMake(10, 200, 300, 200)];
     self.bankSelect.showsSelectionIndicator = YES;
     self.bankSelect.hidden = NO;
@@ -90,7 +118,10 @@
 //Rows in each Column
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component; {
-    return [self.pickerData count];
+    if(self.pickerData.count > 0){
+        return [self.pickerData count];
+    }
+    return 0;
 }
 
 
@@ -98,15 +129,15 @@
 // these methods return either a plain NSString, a NSAttributedString, or a view (e.g UILabel) to display the row for the component.
 -(NSString*) pickerView:(UIPickerView*)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return [self.pickerData objectAtIndex:row];
+    return [[self.pickerData objectAtIndex:row] valueForKey:@"bankName"];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component;
 {
     //Write the required logic here that should happen after you select a row in Picker View.
-    [selectBankButton setTitle:[self.pickerData objectAtIndex:row] forState:UIControlStateNormal];
+    [selectBankButton setTitle:[[self.pickerData objectAtIndex:row] valueForKey:@"bankName"] forState:UIControlStateNormal];
     [self.bankSelect setHidden:YES];
-    self.selectedbank = [self.pickerData objectAtIndex:row];
+    self.selectedbank = [[self.pickerData objectAtIndex:row] valueForKey:@"bankName"];
 }
 
 //
@@ -179,7 +210,9 @@
                      webViewViewController.redirectURL = paymentInfo.redirectUrl;
                      [self.alertView hideCTSAlertView:YES];
                      [self.rootController.navigationController pushViewController:webViewViewController animated:YES];
-                     [self saveData];
+                     if ([self.payType isEqualToString:MEMBER_PAY_TYPE]) {
+                         [self saveData];
+                     }
                  }else{
                      [self.alertView hideCTSAlertView:YES];
                      UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
@@ -214,7 +247,6 @@
                                       withReturnUrl:MLC_GUESTCHECKOUT_REDIRECTURL
                                       withSignature:signature
                                           withTxnId:transactionId
-                                         isDoSignup:NO
                               withCompletionHandler:^(CTSPaymentTransactionRes* paymentInfo,
                                                        NSError* error) {
                                   LogTrace(@"userName %@ ", paymentInfo);
@@ -233,7 +265,9 @@
                                           webViewViewController.redirectURL = paymentInfo.redirectUrl;
                                           [self.alertView hideCTSAlertView:YES];
                                           [self.rootController.navigationController pushViewController:webViewViewController animated:YES];
-                                          [self saveData];
+                                          if ([self.payType isEqualToString:MEMBER_PAY_TYPE]) {
+                                              [self saveData];
+                                          }
                                       }else{
                                           [self.alertView hideCTSAlertView:YES];
                                           UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
@@ -263,7 +297,6 @@
     
     return transactionId;
 }
-
 
 
 - (void)didReceiveMemoryWarning

@@ -27,7 +27,7 @@
  *successful,nil otherwise.
  *  @param error        error,nil in case of success.
  */
-
+@optional
 - (void)auth:(CTSAuthLayer*)layer
     didSigninUsername:(NSString*)userName
            oauthToken:(NSString*)token
@@ -40,6 +40,7 @@
  *  @param token : oauth token if signin is successful,nil otherwise
  *  @param error
  */
+@optional
 - (void)auth:(CTSAuthLayer*)layer
     didSignupUsername:(NSString*)userName
            oauthToken:(NSString*)token
@@ -51,6 +52,7 @@
  *  @param layer
  *  @param error
  */
+@optional
 - (void)auth:(CTSAuthLayer*)layer didChangePasswordError:(NSError*)error;
 
 /**
@@ -60,6 +62,7 @@
  *  @param isMember Bool that reports membership status
  *  @param error
  */
+@optional
 - (void)auth:(CTSAuthLayer*)layer
     didCheckIsUserCitrusMember:(BOOL)isMember
                          error:(NSError*)error;
@@ -70,6 +73,7 @@
  *  @param layer
  *  @param error
  */
+@optional
 - (void)auth:(CTSAuthLayer*)layer didRequestForResetPassword:(NSError*)error;
 
 @end
@@ -158,4 +162,11 @@ typedef void (^ASResetPasswordCallback)(NSError* error);
  *  @return YES
  */
 - (BOOL)signOut;
+
+/**
+ *  to confirm if anyone is signed in
+ *
+ *  @return yes if anyone is signed in, NO otherwise
+ */
+-(BOOL)isAnyoneSignedIn;
 @end

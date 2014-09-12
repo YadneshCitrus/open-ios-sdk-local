@@ -15,6 +15,7 @@
 #import "CTSError.h"
 #import "CTSOauthManager.h"
 #import "NSObject+logProperties.h"
+
 #import <CommonCrypto/CommonDigest.h>
 #ifndef MIN
 #import <NSObjCRuntime.h>
@@ -100,11 +101,17 @@
 
   userNameSignup = email;
   mobileSignUp = mobile;
-  if (password != nil) {
-    passwordSignUp = password;
-  } else {
+  if (password == nil) {
     passwordSignUp = [self generatePseudoRandomPassword];
+  } else {
+    passwordSignUp = password;
   }
+
+  //  CTSSignupState* signupState = [[CTSSignupState alloc] initWithEmail:email
+  //                                                               mobile:mobile
+  //                                                             password:password];
+  //
+  //  long index = [self addDataToCacheAtAutoIndex:signupState];
 
   [self requestSignUpOauthToken];
 }
@@ -250,6 +257,14 @@
   return YES;
 }
 
+- (BOOL)isAnyoneSignedIn {
+  NSString* signInOauthToken = [CTSOauthManager readOauthTokenWithExpiryCheck];
+  if (signInOauthToken == nil)
+    return NO;
+  else
+    return YES;
+}
+
 #pragma mark - pseudo password generator methods
 - (NSString*)generatePseudoRandomPassword {
   // Build the password using C strings - for speed
@@ -372,6 +387,8 @@ static NSData* digest(NSData* data,
   return large_CSV_String;
 }
 
+
+#pragma mark - main class methods
 enum {
   SignupOauthTokenReqId,
   SigninOauthTokenReqId,

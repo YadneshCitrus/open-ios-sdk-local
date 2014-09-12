@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "CitrusSdk.h"
+#import "PayViewController.h"
+
 
 @interface SignInViewController : UIViewController <CTSAuthenticationProtocol,
-                                                    UIAlertViewDelegate>
+                                                    UIAlertViewDelegate,
+                                                     SignOutDelegate>
 {
     IBOutlet __weak UITextField *usernameTextField;
     IBOutlet __weak UITextField *passwordTextField;

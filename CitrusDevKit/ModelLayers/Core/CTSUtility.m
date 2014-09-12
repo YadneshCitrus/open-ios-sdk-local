@@ -163,7 +163,7 @@
   if (![self validateExpiryYear:year]) {
     return FALSE;
   }
-  return [self hasMonthPassed:expiryYear:expiryMonth];
+  return [self hasMonthPassedYear:expiryYear month:expiryMonth];
 }
 
 + (BOOL)validateExpiryMonth:(int)month year:(int)year {
@@ -193,7 +193,7 @@
   return normalized > currentyear;
 }
 
-+ (BOOL)hasMonthPassed:(int)year:(int)month {
++ (BOOL)hasMonthPassedYear:(int)year month:(int)month {
   NSCalendar* gregorian =
       [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
   NSDateComponents* components =
@@ -266,31 +266,30 @@
   return NO;
 }
 
-
 + (NSDictionary*)getResponseIfTransactionIsFinished:(NSData*)postData {
-    // contains the HTTP body as in an HTTP POST request.
-    NSString* dataString =
-    [[NSString alloc] initWithData:postData encoding:NSASCIIStringEncoding];
-    LogTrace(@"dataString %@ ", dataString);
-    
-    NSMutableDictionary* responseDictionary = nil;
-    if ([dataString rangeOfString:@"TxStatus" options:NSCaseInsensitiveSearch]
-        .location != NSNotFound) {
-        responseDictionary = [[NSMutableDictionary alloc] init];
-        
-        NSArray* separatedByAMP = [dataString componentsSeparatedByString:@"&"];
-        LogTrace(@"separated by & %@", separatedByAMP);
-        
-        for (NSString* string in separatedByAMP) {
-            NSArray* separatedByEQ = [string componentsSeparatedByString:@"="];
-            LogTrace(@"separatedByEQ %@ ", separatedByEQ);
-            
-            [responseDictionary setObject:[separatedByEQ objectAtIndex:1]
-                                   forKey:[separatedByEQ objectAtIndex:0]];
-        }
-        LogTrace(@" final dictionary %@ ", responseDictionary);
+  // contains the HTTP body as in an HTTP POST request.
+  NSString* dataString =
+      [[NSString alloc] initWithData:postData encoding:NSASCIIStringEncoding];
+  LogTrace(@"dataString %@ ", dataString);
+
+  NSMutableDictionary* responseDictionary = nil;
+  if ([dataString rangeOfString:@"TxStatus" options:NSCaseInsensitiveSearch]
+          .location != NSNotFound) {
+    responseDictionary = [[NSMutableDictionary alloc] init];
+
+    NSArray* separatedByAMP = [dataString componentsSeparatedByString:@"&"];
+    LogTrace(@"separated by & %@", separatedByAMP);
+
+    for (NSString* string in separatedByAMP) {
+      NSArray* separatedByEQ = [string componentsSeparatedByString:@"="];
+      LogTrace(@"separatedByEQ %@ ", separatedByEQ);
+
+      [responseDictionary setObject:[separatedByEQ objectAtIndex:1]
+                             forKey:[separatedByEQ objectAtIndex:0]];
     }
-    return responseDictionary;
+    LogTrace(@" final dictionary %@ ", responseDictionary);
+  }
+  return responseDictionary;
 }
 
 @end

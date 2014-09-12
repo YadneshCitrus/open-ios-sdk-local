@@ -19,7 +19,7 @@
 @end
 
 @implementation CardPayViewController
-@synthesize cardNumberTextField, expiryDateTextField, CVVNumberTextField, cardHolderNameTextField;
+@synthesize cardNumberTextField, expiryDateTextField, CVVNumberTextField, cardHolderNameTextField, cardSchemeImage;
 @synthesize cardType, rootController, payType;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -36,11 +36,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.cardNumberTextField.text = TEST_EMAIL;
-    self.expiryDateTextField.text = TEST_DEBIT_EXPIRY_DATE;
-    self.CVVNumberTextField.text = TEST_DEBIT_CVV;
-    self.cardHolderNameTextField.text = TEST_DEBIT_OWNER_NAME;
-
     [self initialize];
 }
 
@@ -78,7 +73,6 @@
     }else if ([self.cardHolderNameTextField isFirstResponder]) {
         [self.cardHolderNameTextField resignFirstResponder];
     }
-
 
     //
     [self.alertView createProgressionAlertWithMessage:@"Connecting..." withActivity:YES];
@@ -196,7 +190,6 @@
                                   withReturnUrl:MLC_GUESTCHECKOUT_REDIRECTURL
                                   withSignature:signature
                                       withTxnId:transactionId
-                                     isDoSignup:NO
                           withCompletionHandler:nil];
 }
 
@@ -225,7 +218,6 @@
                                   withReturnUrl:MLC_GUESTCHECKOUT_REDIRECTURL
                                   withSignature:signature
                                       withTxnId:transactionId
-                                     isDoSignup:NO
                           withCompletionHandler:nil];
 }
 
@@ -263,7 +255,9 @@ didMakeUserPayment:(CTSPaymentTransactionRes*)paymentInfo
             [self.alertView hideCTSAlertView:YES];
             [self.alertView createProgressionAlertWithMessage:@"Connecting to the PG" withActivity:YES];
             [self loadRedirectUrl:paymentInfo.redirectUrl];
-            [self saveData];
+            if ([self.payType isEqualToString:MEMBER_PAY_TYPE]) {
+                [self saveData];
+            }
         }else{
             [self.alertView hideCTSAlertView:YES];
             UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
@@ -290,7 +284,9 @@ didMakePaymentUsingGuestFlow:(CTSPaymentTransactionRes*)paymentInfo
             [self.alertView hideCTSAlertView:YES];
             [self.alertView createProgressionAlertWithMessage:@"Connecting to the PG" withActivity:YES];
             [self loadRedirectUrl:paymentInfo.redirectUrl];
-            [self saveData];
+            if ([self.payType isEqualToString:MEMBER_PAY_TYPE]) {
+                [self saveData];
+            }
         }else{
             [self.alertView hideCTSAlertView:YES];
             UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
@@ -320,6 +316,58 @@ didMakePaymentUsingGuestFlow:(CTSPaymentTransactionRes*)paymentInfo
     webViewViewController.redirectURL = redirectURL;
     [self.alertView hideCTSAlertView:YES];
     [self.rootController.navigationController pushViewController:webViewViewController animated:YES];
+}
+
+#pragma mark - UITextField delegates
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;   // return NO to not change text
+{
+    NSString* cardScheme = [CTSUtility fetchCardSchemeForCardNumber:textField.text];
+    if ([cardScheme isEqualToString:AMEX]) {
+        //return @"AMEX";
+        self.cardSchemeImage.image = [UIImage imageNamed:@"amex.png"];
+    } else if ([cardScheme isEqualToString:DISCOVER]) {
+        //return @"DISCOVER";
+        self.cardSchemeImage.image = [UIImage imageNamed:@"discover"];
+    } else if ([cardScheme isEqualToString:JCB]) {
+        //return @"JCB";
+        self.cardSchemeImage.image = [UIImage imageNamed:nil];
+    } else if ([cardScheme isEqualToString:DINERCLUB]) {
+        //return @"DINERCLUB";
+        self.cardSchemeImage.image = [UIImage imageNamed:nil];
+    } else if ([cardScheme isEqualToString:VISA]) {
+        //return @"VISA";
+        self.cardSchemeImage.image = [UIImage imageNamed:@"visa.png"];
+    } else if ([cardScheme isEqualToString:MAESTRO]) {
+        //return @"MAESTRO";
+        self.cardSchemeImage.image = [UIImage imageNamed:@"maestro.png"];
+    } else if ([cardScheme isEqualToString:MASTER]) {
+        //return @"MASTER";
+        self.cardSchemeImage.image = [UIImage imageNamed:@"mastercard.png"];
+    }else{
+        //return @"UNKNOWN";
+        self.cardSchemeImage.image = [UIImage imageNamed:nil];
+    }
+    return YES;
+}
+
+- (void)dismissTextField
+{
+    if ([self.cardNumberTextField isFirstResponder]) {
+        [self.cardNumberTextField resignFirstResponder];
+    }else if ([self.expiryDateTextField isFirstResponder]) {
+        [self.expiryDateTextField resignFirstResponder];
+    }else if ([self.CVVNumberTextField isFirstResponder]) {
+        [self.CVVNumberTextField resignFirstResponder];
+    }else if ([self.cardHolderNameTextField isFirstResponder]) {
+        [self.cardHolderNameTextField resignFirstResponder];
+    }
 }
 
 - (void)didReceiveMemoryWarning

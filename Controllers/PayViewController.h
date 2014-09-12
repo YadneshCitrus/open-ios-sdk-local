@@ -7,6 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CitrusSdk.h"
+
+
+@protocol SignOutDelegate <NSObject>
+@optional
+- (void)signOutDelegate;
+@end
 
 @interface PayViewController : UIViewController
 {
@@ -15,14 +22,14 @@
     IBOutlet UIButton *debitCardButton;
     IBOutlet UIButton *creditCardButton;
     NSString *payType;
+    __weak id <SignOutDelegate> signOutDelegate;
 }
 @property(nonatomic,strong) NSString *payType;
+@property (nonatomic, weak) id <SignOutDelegate> signOutDelegate;
+
 -(IBAction)savedOptionAction:(id)sender;
-
 -(IBAction)netBankingAction:(id)sender;
-
 -(IBAction)debitCardAction:(id)sender;
-
 -(IBAction)creditCardAction:(id)sender;
 
 @end

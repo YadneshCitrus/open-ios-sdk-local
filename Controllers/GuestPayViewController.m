@@ -1,28 +1,25 @@
 //
-//  PayViewController.m
+//  GuestPayViewController.m
 //  SDKSandbox
 //
-//  Created by Mukesh Patil on 05/09/14.
+//  Created by Mukesh Patil on 11/09/14.
 //  Copyright (c) 2014 CitrusPay. All rights reserved.
 //
 
-#import "PayViewController.h"
-#import "SavedOptionsViewController.h"
+#import "GuestPayViewController.h"
 #import "NetBankingViewController.h"
 #import "CardPayViewController.h"
 #import "TestParams.h"
 
-@interface PayViewController ()
+@interface GuestPayViewController ()
 
-@property(strong) SavedOptionsViewController *savedOptionsViewController;
 @property(strong) NetBankingViewController *netBankingViewController;
 @property(strong) CardPayViewController *cardPayViewController;
 
 @end
 
-@implementation PayViewController
+@implementation GuestPayViewController
 @synthesize payType;
-@synthesize signOutDelegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,66 +35,25 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.navigationItem.hidesBackButton = YES;
+    self.title = @"Guest Pay";
 
-    UIBarButtonItem* logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self
-                                                                    action:@selector(barButtonLogoutPressed:)];
-    self.navigationItem.rightBarButtonItem = logoutButton;
-    [self savedOptionAction:nil];
+    [self netBankingAction:nil];
 }
 
 
--(void)barButtonLogoutPressed:(id)sender{
-    if (signOutDelegate != nil && [signOutDelegate respondsToSelector:@selector(signOutDelegate)]){
-        [signOutDelegate signOutDelegate];
-    }
-}
-
--(IBAction)savedOptionAction:(id)sender
+-(IBAction)netBankingAction:(id)sender
 {
     UIButton *button = (UIButton *)sender;
     if (button) {
         [button setBackgroundImage:[UIImage imageNamed:@"buttonbackground.png"] forState:UIControlStateNormal];
     }else{
-        [savedOptionButton setBackgroundImage:[UIImage imageNamed:@"buttonbackground.png"] forState:UIControlStateNormal];
+        [netBankingButton setBackgroundImage:[UIImage imageNamed:@"buttonbackground.png"] forState:UIControlStateNormal];
     }
     
     //
-    [netBankingButton setBackgroundImage:nil forState:UIControlStateNormal];
     [debitCardButton setBackgroundImage:nil forState:UIControlStateNormal];
     [creditCardButton setBackgroundImage:nil forState:UIControlStateNormal];
     
-    //
-    if ([self.netBankingViewController.view superview]) {
-        [self.netBankingViewController.view removeFromSuperview];
-    }
-    if ([self.cardPayViewController.view superview]) {
-        [self.cardPayViewController dismissTextField];
-        [self.cardPayViewController.view removeFromSuperview];
-    }
-
-    
-    //
-    self.savedOptionsViewController = [[SavedOptionsViewController alloc] initWithNibName:@"SavedOptionsViewController" bundle:nil];
-    self.savedOptionsViewController.view.frame = CGRectMake(0.0f, 92.0f, 320, 448.0f);
-    [self.view addSubview:self.savedOptionsViewController.view];
-    
-}
-
--(IBAction)netBankingAction:(id)sender
-{
-    UIButton *button = (UIButton *)sender;
-    [button setBackgroundImage:[UIImage imageNamed:@"buttonbackground.png"] forState:UIControlStateNormal];
-    
-    //
-    [savedOptionButton setBackgroundImage:nil forState:UIControlStateNormal];
-    [debitCardButton setBackgroundImage:nil forState:UIControlStateNormal];
-    [creditCardButton setBackgroundImage:nil forState:UIControlStateNormal];
-    
-    //
-    if ([self.savedOptionsViewController.view superview]) {
-        [self.savedOptionsViewController.view removeFromSuperview];
-    }
     if ([self.cardPayViewController.view superview]) {
         [self.cardPayViewController dismissTextField];
         [self.cardPayViewController.view removeFromSuperview];
@@ -118,17 +74,13 @@
     
     //
     [netBankingButton setBackgroundImage:nil forState:UIControlStateNormal];
-    [savedOptionButton setBackgroundImage:nil forState:UIControlStateNormal];
     [creditCardButton setBackgroundImage:nil forState:UIControlStateNormal];
     
     //
-    if ([self.savedOptionsViewController.view superview]) {
-        [self.savedOptionsViewController.view removeFromSuperview];
-    }
     if ([self.netBankingViewController.view superview]) {
         [self.netBankingViewController.view removeFromSuperview];
     }
-
+    
     
     //
     self.cardPayViewController = [[CardPayViewController alloc] initWithNibName:@"CardPayViewController" bundle:nil];
@@ -147,16 +99,12 @@
     //
     [netBankingButton setBackgroundImage:nil forState:UIControlStateNormal];
     [debitCardButton setBackgroundImage:nil forState:UIControlStateNormal];
-    [savedOptionButton setBackgroundImage:nil forState:UIControlStateNormal];
     
     //
-    if ([self.savedOptionsViewController.view superview]) {
-        [self.savedOptionsViewController.view removeFromSuperview];
-    }
     if ([self.netBankingViewController.view superview]) {
         [self.netBankingViewController.view removeFromSuperview];
     }
-
+    
     
     //
     self.cardPayViewController = [[CardPayViewController alloc] initWithNibName:@"CardPayViewController" bundle:nil];
@@ -166,7 +114,6 @@
     self.cardPayViewController.rootController = self;
     [self.view addSubview:self.cardPayViewController.view];
 }
-
 
 
 - (void)didReceiveMemoryWarning

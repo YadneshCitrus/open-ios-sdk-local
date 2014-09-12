@@ -16,7 +16,8 @@
     IBOutlet __weak UITextField *expiryDateTextField;
     IBOutlet __weak UITextField *CVVNumberTextField;
     IBOutlet __weak UITextField *cardHolderNameTextField;
-    
+    IBOutlet __weak UIImageView *cardSchemeImage;
+
     CTSPaymentLayer* paymentlayerinfo;
     CTSContactUpdate* contactInfo;
     CTSUserAddress* addressInfo;
@@ -29,9 +30,14 @@
 @property(nonatomic,weak) IBOutlet UITextField *expiryDateTextField;
 @property(nonatomic,weak) IBOutlet UITextField *CVVNumberTextField;
 @property(nonatomic,weak) IBOutlet UITextField *cardHolderNameTextField;
+
+@property(nonatomic,weak) IBOutlet UIImageView *cardSchemeImage;
+
 @property(nonatomic,strong) UIViewController *rootController;
+
 @property(nonatomic,strong) NSString *cardType;
 @property(nonatomic,strong) NSString *payType;
 
 -(IBAction)cardAction:(id)sender;
+- (void)dismissTextField;
 @end

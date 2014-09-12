@@ -7,16 +7,19 @@
 //
 
 #import "SignInViewController.h"
-#import "PayViewController.h"
 #import "CTSAlertView.h"
 #import "TestParams.h"
 
 @interface SignInViewController ()
 
+@property(strong) PayViewController *payViewController;
+
 @end
 
 @implementation SignInViewController
 @synthesize usernameTextField, passwordTextField;
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -32,6 +35,9 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"Sign In";
     
+    self.payViewController = [[PayViewController alloc] initWithNibName:@"PayViewController" bundle:nil];
+    self.payViewController.signOutDelegate = self;
+
     // Test data
     self.usernameTextField.text = TEST_EMAIL;
     self.passwordTextField.text = TEST_PASSWORD;
@@ -44,7 +50,7 @@
 //
 - (void)initialize {
     authLayer = [[CTSAuthLayer alloc] init];
-    authLayer.delegate = self;
+//    authLayer.delegate = self;
 }
 
 
@@ -79,10 +85,9 @@
                                    dispatch_async(dispatch_get_main_queue(), ^{
                                        // Update the UI
                                        [alertView hideCTSAlertView:YES];
-                                       if (error == NULL) {
-                                           PayViewController* payViewController = [[PayViewController alloc] initWithNibName:@"PayViewController" bundle:nil];
-                                           payViewController.payType = MEMBER_PAY_TYPE;
-                                           [self.navigationController pushViewController:payViewController animated:YES];
+                                       if (error != nil) {
+                                           self.payViewController.payType = MEMBER_PAY_TYPE;
+                                           [self.navigationController pushViewController:self.payViewController animated:YES];
                                        }else{
                                            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
                                            [alertView show];
@@ -139,7 +144,7 @@
                               dispatch_async(dispatch_get_main_queue(), ^{
                                   // Update the UI
                                   [alertView hideCTSAlertView:YES];
-                                  if (error == NULL) {
+                                  if (error == nil) {
                                       UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Information" message:@"An email sent successfully" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
                                       [alertView show];
                                   }
@@ -147,6 +152,23 @@
                           }];
         }
     });
+}
+
+#pragma mark - SignOutDelegate delegates
+
+- (void)signOutDelegate
+{
+    if ([authLayer isAnyoneSignedIn]) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+}
+
+#pragma mark - UITextField delegates
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning

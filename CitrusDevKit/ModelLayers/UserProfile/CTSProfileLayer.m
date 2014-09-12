@@ -113,7 +113,7 @@ enum {
   }
 
   [paymentInfo clearCVV];
-    [paymentInfo clearNetbankCode];
+  [paymentInfo clearNetbankCode];
 
   if (oauthStatus.error != nil) {
     [self updatePaymentInfoHelper:[CTSError getErrorForCode:UserNotSignedIn]];

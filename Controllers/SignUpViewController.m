@@ -45,7 +45,7 @@
 //
 - (void)initialize {
     authLayer = [[CTSAuthLayer alloc] init];
-    authLayer.delegate = self;
+//    authLayer.delegate = self;
 }
 
 -(IBAction)signUpAction:(id)sender
@@ -81,10 +81,9 @@
                                 
                                 dispatch_async(dispatch_get_main_queue(), ^{
                                     // Update the UI
-                                    //
                                     [alertView hideCTSAlertView:YES];
 
-                                    if (error == NULL) {
+                                    if (error == nil) {
                                         PayViewController* payViewController = [[PayViewController alloc] initWithNibName:@"PayViewController" bundle:nil];
                                         [self.navigationController pushViewController:payViewController animated:YES];
                                     }else{
@@ -102,6 +101,14 @@
             });
         }
     });
+}
+
+#pragma mark - UITextField delegates
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 

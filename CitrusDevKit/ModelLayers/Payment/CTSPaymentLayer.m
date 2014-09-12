@@ -41,7 +41,6 @@
 @end
 
 @implementation CTSPaymentLayer
-static BOOL isSignatureSuccess;
 @synthesize merchantTxnId;
 @synthesize signature;
 @synthesize objectManager;
@@ -285,10 +284,10 @@ static BOOL isSignatureSuccess;
       userAddress.zip = userAddress.zip;
       userDetails.address = userAddress;
       tokenizedCardPaymentRequest.amount = amount;
-      tokenizedCardPaymentRequest.paymentToken = paymentToken;
+      tokenizedCardPaymentRequest.paymentToken =
+          (CTSPaymentToken<Optional>*)paymentToken;
       tokenizedCardPaymentRequest.userDetails = userDetails;
       OauthStatus* oauthStatus = [CTSOauthManager fetchSigninTokenStatus];
-      NSString* oauthToken = oauthStatus.oauthToken;
       if (oauthStatus.error != nil) {
         [self makeTokenizedPaymentHelper:nil
                                    error:[CTSError
@@ -361,7 +360,6 @@ static BOOL isSignatureSuccess;
       paymentrequest.paymentToken = paymentToken;
       paymentrequest.userDetails = userDetails;
       OauthStatus* oauthStatus = [CTSOauthManager fetchSigninTokenStatus];
-      NSString* oauthToken = oauthStatus.oauthToken;
       if (oauthStatus.error != nil) {
         [self makeUserPaymentHelper:nil
                               error:[CTSError getErrorForCode:UserNotSignedIn]];
@@ -572,54 +570,49 @@ static BOOL isSignatureSuccess;
                            amount:(NSString*)amount
                       withAddress:(CTSUserAddress*)userAddress
                     withReturnUrl:(NSString*)returnUrl
-                    withSignature:(NSString*)signature
-                        withTxnId:(NSString*)merchantTxnId
-                       isDoSignup:(BOOL)isDoSignup
+                    withSignature:(NSString*)signatureArg
+                        withTxnId:(NSString*)merchantTxnIdArg
             withCompletionHandler:(ASMakeGuestPaymentCallBack)callback {
   [self addCallback:callback forRequestId:PaymentAsGuestReqId];
   self.paymentTokenType = @"paymentOptionToken";
-  if (isDoSignup == YES) {
-    CTSAuthLayer* authLayer = [[CTSAuthLayer alloc] init];
-    authLayer.delegate = self;
-    _paymentDetailUpdate = paymentInfo;
-    __block NSString* email = contactInfo.email;
-    __block NSString* mobile = contactInfo.mobile;
-    __block NSString* password = contactInfo.password;
+  CTSAuthLayer* authLayer = [[CTSAuthLayer alloc] init];
+  authLayer.delegate = self;
+  _paymentDetailUpdate = paymentInfo;
+  __block NSString* email = contactInfo.email;
+  __block NSString* mobile = contactInfo.mobile;
+  __block NSString* password = contactInfo.password;
+  dispatch_queue_t backgroundQueue =
+      dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 
-    dispatch_async(backgroundQueue, ^(void) {
-        if (password != nil)
-          [authLayer
-              requestSignUpWithEmail:email
-                              mobile:mobile
-                            password:password
-                   completionHandler:^(NSString* userName,
-                                       NSString* token,
-                                       NSError* error) {
-                       dispatch_async(backgroundQueue, ^(void) {
-                           CTSProfileLayer* profileLayer =
-                               [[CTSProfileLayer alloc] init];
-                           [profileLayer
-                               updatePaymentInformation:_paymentDetailUpdate
-                                  withCompletionHandler:nil];
-                           _paymentDetailUpdate = nil;
-                       });
-                   }];
-    });
-  }
+  dispatch_async(backgroundQueue, ^(void) {
+      [authLayer requestSignUpWithEmail:email
+                                 mobile:mobile
+                               password:password
+                      completionHandler:^(NSString* userName,
+                                          NSString* token,
+                                          NSError* error) {
 
-  //  [self insertGuestValues:paymentInfo
-  //              withContact:contactInfo
-  //              withAddress:userAddress
-  //            withReturnUrl:returnUrl
-  //                withTxnId:merchantTxnId
-  //            withSignature:signature
-  //               withAmount:amount];
+                          dispatch_queue_t backgroundQueueBlock =
+                              dispatch_get_global_queue(
+                                  DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+
+                          dispatch_async(backgroundQueueBlock, ^(void) {
+                              CTSProfileLayer* profileLayer =
+                                  [[CTSProfileLayer alloc] init];
+                              [profileLayer
+                                  updatePaymentInformation:_paymentDetailUpdate
+                                     withCompletionHandler:nil];
+                              _paymentDetailUpdate = nil;
+                          });
+                      }];
+  });
+
   [self insertGuestValues:paymentInfo
               withContact:contactInfo
               withAddress:userAddress
             withReturnUrl:returnUrl
-                withTxnId:merchantTxnId
-            withSignature:signature
+                withTxnId:merchantTxnIdArg
+            withSignature:signatureArg
                withAmount:amount];
 }
 
@@ -653,7 +646,6 @@ static BOOL isSignatureSuccess;
 }
 
 enum {
-  PaymentGetSignatureReqId,
   PaymentAsGuestReqId,
   PaymentUsingtokenizedCardBankReqId,
   PaymentUsingSignedInCardBankReqId,
@@ -661,9 +653,6 @@ enum {
 };
 - (instancetype)init {
   NSDictionary* dict = @{
-    toNSString(PaymentGetSignatureReqId) :
-        toSelector(handleReqPaymentGetSignature
-                   :),
     toNSString(PaymentAsGuestReqId) : toSelector(handleReqPaymentAsGuest
                                                  :),
     toNSString(PaymentUsingtokenizedCardBankReqId) :

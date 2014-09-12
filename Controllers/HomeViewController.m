@@ -11,6 +11,7 @@
 #import "SignUpViewController.h"
 #import "PayViewController.h"
 #import "TestParams.h"
+#import "GuestPayViewController.h"
 
 @interface HomeViewController ()
 
@@ -32,15 +33,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"Home";
-    
-    UIBarButtonItem* logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self
-                                                                  action:@selector(barButtonLogoutPressed:)];
-    self.navigationItem.rightBarButtonItem = logoutButton;
 }
 
 
--(void)barButtonLogoutPressed:(id)sender{
-}
 
 
 -(IBAction)signUpAction:(id)sender
@@ -59,9 +54,9 @@
 //
 -(IBAction)guestPayAction:(id)sender
 {
-    PayViewController* payViewController = [[PayViewController alloc] initWithNibName:@"PayViewController" bundle:nil];
-    payViewController.payType = GUEST_PAY_TYPE;
-    [self.navigationController pushViewController:payViewController animated:YES];
+    GuestPayViewController* guestPayViewController = [[GuestPayViewController alloc] initWithNibName:@"GuestPayViewController" bundle:nil];
+    guestPayViewController.payType = GUEST_PAY_TYPE;
+    [self.navigationController pushViewController:guestPayViewController animated:YES];
 }
 
 

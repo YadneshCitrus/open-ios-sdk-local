@@ -175,6 +175,38 @@
 		76A80B8019C16D7B007410EB /* CTSAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AE419C16D7B007410EB /* CTSAlertView.m */; };
 		76A80B8119C16D7B007410EB /* buttonbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80AE619C16D7B007410EB /* buttonbackground.png */; };
 		76A80B8219C16D7B007410EB /* buttonbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80AE619C16D7B007410EB /* buttonbackground.png */; };
+		76A80B8619C182F5007410EB /* GuestPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80B8419C182F5007410EB /* GuestPayViewController.m */; };
+		76A80B8719C182F5007410EB /* GuestPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80B8419C182F5007410EB /* GuestPayViewController.m */; };
+		76A80B8819C182F5007410EB /* GuestPayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B8519C182F5007410EB /* GuestPayViewController.xib */; };
+		76A80B8919C182F5007410EB /* GuestPayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B8519C182F5007410EB /* GuestPayViewController.xib */; };
+		76A80B9919C193C0007410EB /* amex.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B8B19C193C0007410EB /* amex.png */; };
+		76A80B9A19C193C0007410EB /* amex.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B8B19C193C0007410EB /* amex.png */; };
+		76A80B9B19C193C0007410EB /* amex@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B8C19C193C0007410EB /* amex@2x.png */; };
+		76A80B9C19C193C0007410EB /* amex@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B8C19C193C0007410EB /* amex@2x.png */; };
+		76A80B9D19C193C0007410EB /* AXISlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B8D19C193C0007410EB /* AXISlogo.png */; };
+		76A80B9E19C193C0007410EB /* AXISlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B8D19C193C0007410EB /* AXISlogo.png */; };
+		76A80B9F19C193C0007410EB /* AXISlogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B8E19C193C0007410EB /* AXISlogo@2x.png */; };
+		76A80BA019C193C0007410EB /* AXISlogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B8E19C193C0007410EB /* AXISlogo@2x.png */; };
+		76A80BA119C193C0007410EB /* discover.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B8F19C193C0007410EB /* discover.png */; };
+		76A80BA219C193C0007410EB /* discover.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B8F19C193C0007410EB /* discover.png */; };
+		76A80BA319C193C0007410EB /* discover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B9019C193C0007410EB /* discover@2x.png */; };
+		76A80BA419C193C0007410EB /* discover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B9019C193C0007410EB /* discover@2x.png */; };
+		76A80BA519C193C0007410EB /* maestro.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B9119C193C0007410EB /* maestro.png */; };
+		76A80BA619C193C0007410EB /* maestro.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B9119C193C0007410EB /* maestro.png */; };
+		76A80BA719C193C0007410EB /* maestro@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B9219C193C0007410EB /* maestro@2x.png */; };
+		76A80BA819C193C0007410EB /* maestro@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B9219C193C0007410EB /* maestro@2x.png */; };
+		76A80BA919C193C0007410EB /* mastercard.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B9319C193C0007410EB /* mastercard.png */; };
+		76A80BAA19C193C0007410EB /* mastercard.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B9319C193C0007410EB /* mastercard.png */; };
+		76A80BAB19C193C0007410EB /* mastercard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B9419C193C0007410EB /* mastercard@2x.png */; };
+		76A80BAC19C193C0007410EB /* mastercard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B9419C193C0007410EB /* mastercard@2x.png */; };
+		76A80BAD19C193C0007410EB /* rupay.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B9519C193C0007410EB /* rupay.png */; };
+		76A80BAE19C193C0007410EB /* rupay.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B9519C193C0007410EB /* rupay.png */; };
+		76A80BAF19C193C0007410EB /* rupay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B9619C193C0007410EB /* rupay@2x.png */; };
+		76A80BB019C193C0007410EB /* rupay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B9619C193C0007410EB /* rupay@2x.png */; };
+		76A80BB119C193C0007410EB /* visa.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B9719C193C0007410EB /* visa.png */; };
+		76A80BB219C193C0007410EB /* visa.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B9719C193C0007410EB /* visa.png */; };
+		76A80BB319C193C0007410EB /* visa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B9819C193C0007410EB /* visa@2x.png */; };
+		76A80BB419C193C0007410EB /* visa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B9819C193C0007410EB /* visa@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -362,6 +394,23 @@
 		76A80AE319C16D7B007410EB /* CTSAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSAlertView.h; sourceTree = "<group>"; };
 		76A80AE419C16D7B007410EB /* CTSAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSAlertView.m; sourceTree = "<group>"; };
 		76A80AE619C16D7B007410EB /* buttonbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonbackground.png; sourceTree = "<group>"; };
+		76A80B8319C182F5007410EB /* GuestPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuestPayViewController.h; sourceTree = "<group>"; };
+		76A80B8419C182F5007410EB /* GuestPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuestPayViewController.m; sourceTree = "<group>"; };
+		76A80B8519C182F5007410EB /* GuestPayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuestPayViewController.xib; sourceTree = "<group>"; };
+		76A80B8B19C193C0007410EB /* amex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amex.png; sourceTree = "<group>"; };
+		76A80B8C19C193C0007410EB /* amex@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "amex@2x.png"; sourceTree = "<group>"; };
+		76A80B8D19C193C0007410EB /* AXISlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AXISlogo.png; sourceTree = "<group>"; };
+		76A80B8E19C193C0007410EB /* AXISlogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AXISlogo@2x.png"; sourceTree = "<group>"; };
+		76A80B8F19C193C0007410EB /* discover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = discover.png; sourceTree = "<group>"; };
+		76A80B9019C193C0007410EB /* discover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "discover@2x.png"; sourceTree = "<group>"; };
+		76A80B9119C193C0007410EB /* maestro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maestro.png; sourceTree = "<group>"; };
+		76A80B9219C193C0007410EB /* maestro@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "maestro@2x.png"; sourceTree = "<group>"; };
+		76A80B9319C193C0007410EB /* mastercard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mastercard.png; sourceTree = "<group>"; };
+		76A80B9419C193C0007410EB /* mastercard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mastercard@2x.png"; sourceTree = "<group>"; };
+		76A80B9519C193C0007410EB /* rupay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rupay.png; sourceTree = "<group>"; };
+		76A80B9619C193C0007410EB /* rupay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rupay@2x.png"; sourceTree = "<group>"; };
+		76A80B9719C193C0007410EB /* visa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = visa.png; sourceTree = "<group>"; };
+		76A80B9819C193C0007410EB /* visa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "visa@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -780,6 +829,9 @@
 				76A80AD019C16D7B007410EB /* PayViewController.h */,
 				76A80AD119C16D7B007410EB /* PayViewController.m */,
 				76A80AD219C16D7B007410EB /* PayViewController.xib */,
+				76A80B8319C182F5007410EB /* GuestPayViewController.h */,
+				76A80B8419C182F5007410EB /* GuestPayViewController.m */,
+				76A80B8519C182F5007410EB /* GuestPayViewController.xib */,
 				76A80AD319C16D7B007410EB /* SavedOptionsViewController.h */,
 				76A80AD419C16D7B007410EB /* SavedOptionsViewController.m */,
 				76A80AD519C16D7B007410EB /* SavedOptionsViewController.xib */,
@@ -812,8 +864,30 @@
 			isa = PBXGroup;
 			children = (
 				76A80AE619C16D7B007410EB /* buttonbackground.png */,
+				76A80B8A19C193C0007410EB /* Card icon */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		76A80B8A19C193C0007410EB /* Card icon */ = {
+			isa = PBXGroup;
+			children = (
+				76A80B8B19C193C0007410EB /* amex.png */,
+				76A80B8C19C193C0007410EB /* amex@2x.png */,
+				76A80B8D19C193C0007410EB /* AXISlogo.png */,
+				76A80B8E19C193C0007410EB /* AXISlogo@2x.png */,
+				76A80B8F19C193C0007410EB /* discover.png */,
+				76A80B9019C193C0007410EB /* discover@2x.png */,
+				76A80B9119C193C0007410EB /* maestro.png */,
+				76A80B9219C193C0007410EB /* maestro@2x.png */,
+				76A80B9319C193C0007410EB /* mastercard.png */,
+				76A80B9419C193C0007410EB /* mastercard@2x.png */,
+				76A80B9519C193C0007410EB /* rupay.png */,
+				76A80B9619C193C0007410EB /* rupay@2x.png */,
+				76A80B9719C193C0007410EB /* visa.png */,
+				76A80B9819C193C0007410EB /* visa@2x.png */,
+			);
+			path = "Card icon";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -892,16 +966,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				76A80B7D19C16D7B007410EB /* WebViewViewController.xib in Resources */,
+				76A80BB319C193C0007410EB /* visa@2x.png in Resources */,
+				76A80BB119C193C0007410EB /* visa.png in Resources */,
+				76A80BAD19C193C0007410EB /* rupay.png in Resources */,
+				76A80B9B19C193C0007410EB /* amex@2x.png in Resources */,
+				76A80B9F19C193C0007410EB /* AXISlogo@2x.png in Resources */,
+				76A80B9919C193C0007410EB /* amex.png in Resources */,
+				76A80BA119C193C0007410EB /* discover.png in Resources */,
 				76A80B7519C16D7B007410EB /* SignInViewController.xib in Resources */,
+				76A80BA719C193C0007410EB /* maestro@2x.png in Resources */,
 				764AEDEA19B89AA40011FE90 /* InfoPlist.strings in Resources */,
+				76A80BAB19C193C0007410EB /* mastercard@2x.png in Resources */,
 				764AEDF219B89AA40011FE90 /* Images.xcassets in Resources */,
+				76A80BA919C193C0007410EB /* mastercard.png in Resources */,
 				76A80B6719C16D7B007410EB /* NetBankingViewController.xib in Resources */,
 				76A80B7919C16D7B007410EB /* SignUpViewController.xib in Resources */,
 				76A80B6B19C16D7B007410EB /* PayViewController.xib in Resources */,
 				76A80B5F19C16D7B007410EB /* CardPayViewController.xib in Resources */,
+				76A80B8819C182F5007410EB /* GuestPayViewController.xib in Resources */,
+				76A80BA519C193C0007410EB /* maestro.png in Resources */,
+				76A80BAF19C193C0007410EB /* rupay@2x.png in Resources */,
 				76A80B8119C16D7B007410EB /* buttonbackground.png in Resources */,
 				76A80B6319C16D7B007410EB /* HomeViewController.xib in Resources */,
 				76A80B6F19C16D7B007410EB /* SavedOptionsViewController.xib in Resources */,
+				76A80B9D19C193C0007410EB /* AXISlogo.png in Resources */,
+				76A80BA319C193C0007410EB /* discover@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -909,16 +998,31 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76A80B9C19C193C0007410EB /* amex@2x.png in Resources */,
+				76A80BA019C193C0007410EB /* AXISlogo@2x.png in Resources */,
+				76A80BA419C193C0007410EB /* discover@2x.png in Resources */,
 				764AEE0319B89AA40011FE90 /* InfoPlist.strings in Resources */,
+				76A80B8919C182F5007410EB /* GuestPayViewController.xib in Resources */,
+				76A80B9E19C193C0007410EB /* AXISlogo.png in Resources */,
+				76A80B9A19C193C0007410EB /* amex.png in Resources */,
+				76A80BAA19C193C0007410EB /* mastercard.png in Resources */,
 				76A80B7019C16D7B007410EB /* SavedOptionsViewController.xib in Resources */,
 				76A80B6819C16D7B007410EB /* NetBankingViewController.xib in Resources */,
 				76A80B6019C16D7B007410EB /* CardPayViewController.xib in Resources */,
+				76A80BB019C193C0007410EB /* rupay@2x.png in Resources */,
 				76A80B7619C16D7B007410EB /* SignInViewController.xib in Resources */,
+				76A80BB419C193C0007410EB /* visa@2x.png in Resources */,
+				76A80BAC19C193C0007410EB /* mastercard@2x.png in Resources */,
+				76A80BB219C193C0007410EB /* visa.png in Resources */,
+				76A80BAE19C193C0007410EB /* rupay.png in Resources */,
 				76A80B6419C16D7B007410EB /* HomeViewController.xib in Resources */,
 				76A80B7E19C16D7B007410EB /* WebViewViewController.xib in Resources */,
 				76A80B7A19C16D7B007410EB /* SignUpViewController.xib in Resources */,
+				76A80BA819C193C0007410EB /* maestro@2x.png in Resources */,
 				76A80B6C19C16D7B007410EB /* PayViewController.xib in Resources */,
+				76A80BA219C193C0007410EB /* discover.png in Resources */,
 				76A80B8219C16D7B007410EB /* buttonbackground.png in Resources */,
+				76A80BA619C193C0007410EB /* maestro.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -933,6 +1037,7 @@
 				76A80AFB19C16D7B007410EB /* CTSTokenizedCardPayment.m in Sources */,
 				76A80B1319C16D7B007410EB /* CTSSignUpRes.m in Sources */,
 				76A80B2119C16D7B007410EB /* CTSProfileContactRes.m in Sources */,
+				76A80B8619C182F5007410EB /* GuestPayViewController.m in Sources */,
 				76A80B0919C16D7B007410EB /* CTSPaymentDetailUpdate.m in Sources */,
 				76A80B2B19C16D7B007410EB /* CTSError.m in Sources */,
 				76A80B6119C16D7B007410EB /* HomeViewController.m in Sources */,
@@ -1041,6 +1146,7 @@
 				76A80B2019C16D7B007410EB /* CTSPgSettings.m in Sources */,
 				76A80AEE19C16D7B007410EB /* CTSAmount.m in Sources */,
 				76A80B4619C16D7B007410EB /* JSONModelArray.m in Sources */,
+				76A80B8719C182F5007410EB /* GuestPayViewController.m in Sources */,
 				76A80B0619C16D7B007410EB /* CTSElectronicCardUpdate.m in Sources */,
 				76A80B4019C16D7B007410EB /* CreditCard-Validator.m in Sources */,
 				76A80B0419C16D7B007410EB /* CTSContactUpdate.m in Sources */,

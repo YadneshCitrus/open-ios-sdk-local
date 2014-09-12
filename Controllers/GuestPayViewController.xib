@@ -4,12 +4,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PayViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GuestPayViewController">
             <connections>
-                <outlet property="creditCardButton" destination="94B-n3-G6V" id="ULx-j1-OE5"/>
-                <outlet property="debitCardButton" destination="ufm-AT-xz3" id="Bjb-Wl-suS"/>
-                <outlet property="netBankingButton" destination="Tyg-TC-max" id="C9q-io-UQV"/>
-                <outlet property="savedOptionButton" destination="yfj-nT-iUP" id="M47-KL-ix4"/>
+                <outlet property="creditCardButton" destination="eLe-1m-sHm" id="p0r-r7-FBx"/>
+                <outlet property="debitCardButton" destination="Cn2-hH-Wn3" id="CJh-H9-es2"/>
+                <outlet property="netBankingButton" destination="go7-FI-bpf" id="3zb-MA-HYn"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,20 +17,8 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yfj-nT-iUP">
-                    <rect key="frame" x="0.0" y="62" width="80" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
-                    <state key="normal" title="Saved options">
-                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="savedOptionAction:" destination="-1" eventType="touchUpInside" id="W3J-iG-nua"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tyg-TC-max">
-                    <rect key="frame" x="87" y="62" width="80" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="go7-FI-bpf">
+                    <rect key="frame" x="0.0" y="62" width="106" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                     <state key="normal" title="Net Banking">
@@ -39,11 +26,11 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="netBankingAction:" destination="-1" eventType="touchUpInside" id="nZa-xE-ujc"/>
+                        <action selector="netBankingAction:" destination="-1" eventType="touchUpInside" id="pKZ-w0-epb"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufm-AT-xz3">
-                    <rect key="frame" x="166" y="62" width="80" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cn2-hH-Wn3">
+                    <rect key="frame" x="109" y="62" width="106" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                     <state key="normal" title="Debit Card">
@@ -51,11 +38,11 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="debitCardAction:" destination="-1" eventType="touchUpInside" id="grO-lp-GVQ"/>
+                        <action selector="debitCardAction:" destination="-1" eventType="touchUpInside" id="lQk-o7-vfi"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="94B-n3-G6V">
-                    <rect key="frame" x="240" y="62" width="80" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLe-1m-sHm">
+                    <rect key="frame" x="214" y="62" width="106" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                     <state key="normal" title="Credit Card">
@@ -63,7 +50,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="creditCardAction:" destination="-1" eventType="touchUpInside" id="6Fl-s2-bYI"/>
+                        <action selector="creditCardAction:" destination="-1" eventType="touchUpInside" id="3W9-Jq-lRT"/>
                     </connections>
                 </button>
             </subviews>

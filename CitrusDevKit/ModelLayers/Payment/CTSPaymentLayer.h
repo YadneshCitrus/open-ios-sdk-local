@@ -29,7 +29,7 @@
 @class CTSAuthenticationProtocol;
 @class CTSPaymentLayer;
 @protocol CTSPaymentProtocol<NSObject>
-
+@optional
 - (void)payment:(CTSPaymentLayer*)layer
     didMakeUserPayment:(CTSPaymentTransactionRes*)paymentInfo
                  error:(NSError*)error;
@@ -41,6 +41,7 @@
  *  @param paymentInfo
  *  @param error
  */
+@optional
 - (void)payment:(CTSPaymentLayer*)layer
     didMakePaymentUsingGuestFlow:(CTSPaymentTransactionRes*)paymentInfo
                            error:(NSError*)error;
@@ -52,6 +53,7 @@
  *  @param paymentInfo
  *  @param error
  */
+@optional
 - (void)payment:(CTSPaymentLayer*)layer
     didMakeTokenizedPayment:(CTSPaymentTransactionRes*)paymentInfo
                       error:(NSError*)error;
@@ -62,14 +64,13 @@
  *  @param pgSetting pegsetting,nil in case of error
  *  @param error     ctserror
  */
-
+@optional
 - (void)payment:(CTSPaymentLayer*)layer
     didRequestMerchantPgSettings:(CTSPgSettings*)pgSettings
                            error:(NSError*)error;
 
 @end
 @interface CTSPaymentLayer : CTSRestPluginBase<CTSAuthenticationProtocol> {
-  dispatch_queue_t backgroundQueue;
 }
 @property(strong) NSString* merchantTxnId;
 @property(strong) NSString* signature;
@@ -154,7 +155,6 @@ typedef void (^ASGetMerchantPgSettingsCallBack)(CTSPgSettings* pgSettings,
                     withReturnUrl:(NSString*)returnUrl
                     withSignature:(NSString*)signature
                         withTxnId:(NSString*)merchantTxnId
-                       isDoSignup:(BOOL)isDoSignup
             withCompletionHandler:(ASMakeGuestPaymentCallBack)callback;
 
 /**
