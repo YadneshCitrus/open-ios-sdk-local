@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>30BD8E33-74DE-4590-B905-87E90367895D</string>
+	<string>E5B0072A-7921-42E9-A166-BF1F9305E59A</string>
 	<key>IDESourceControlProjectName</key>
 	<string>SDKSandbox</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>A90F97B3-444A-4717-94E0-1E8A458531A9</key>
-		<string>https://github.com/YadneshCitrus/open-ios-sdk-local.git</string>
+		<key>8E2BCF37-4366-4104-86DF-32B5EDAEFB8E</key>
+		<string>https://github.com/YadneshCitrus/open-ios-sdk-local</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>SDKSandbox.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>A90F97B3-444A-4717-94E0-1E8A458531A9</key>
+		<key>8E2BCF37-4366-4104-86DF-32B5EDAEFB8E</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/YadneshCitrus/open-ios-sdk-local.git</string>
+	<string>https://github.com/YadneshCitrus/open-ios-sdk-local</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>A90F97B3-444A-4717-94E0-1E8A458531A9</string>
+	<string>8E2BCF37-4366-4104-86DF-32B5EDAEFB8E</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>A90F97B3-444A-4717-94E0-1E8A458531A9</string>
+			<string>8E2BCF37-4366-4104-86DF-32B5EDAEFB8E</string>
 			<key>IDESourceControlWCCName</key>
-			<string>New</string>
+			<string>open-ios-sdk-local</string>
 		</dict>
 	</array>
 </dict>

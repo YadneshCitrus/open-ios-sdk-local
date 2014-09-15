@@ -11,6 +11,7 @@
 #import "CTSAlertView.h"
 #import "TestParams.h"
 
+
 @interface SignUpViewController ()
 
 @end
@@ -34,10 +35,19 @@
     self.title = @"Sign Up";
     
     
-    // Test data
+    /**
+     *  TestData
+     *
+     *  use testdata for SDKSandboxTestData applicatin Target
+     */
+#if defined (TESTDATA_VERSION)
+    self.firstnameTextField.text = TEST_FIRST_NAME;
+    self.lastnameTextField.text = TEST_LAST_NAME;
     self.emailTextField.text = TEST_EMAIL;
     self.mobileTextField.text = TEST_MOBILE;
     self.passwordTextField.text = TEST_PASSWORD;
+#endif
+
 
     [self initialize];
 }
@@ -46,7 +56,7 @@
 //
 - (void)initialize {
     authLayer = [[CTSAuthLayer alloc] init];
-//    authLayer.delegate = self;
+    authLayer.delegate = self;
     
     profileLayer = [[CTSProfileLayer alloc] init];
     profileLayer.delegate = self;
@@ -58,7 +68,7 @@
         [self.emailTextField resignFirstResponder];
     }else if ([self.mobileTextField isFirstResponder]) {
         [self.mobileTextField resignFirstResponder];
-    }else if ([self.emailTextField isFirstResponder]) {
+    }else if ([self.passwordTextField isFirstResponder]) {
         [self.passwordTextField resignFirstResponder];
     }
     
@@ -69,28 +79,68 @@
     
     if ([self.emailTextField.text length] != 0 && [self.mobileTextField.text length] != 0 && [self.passwordTextField.text length] != 0) {
         //
-        [authLayer requestSignUpWithEmail:self.emailTextField.text
-                                   mobile:self.mobileTextField.text
-                                 password:self.passwordTextField.text
-                        completionHandler:^(NSString* userName,
-                                            NSString* token,
+        [authLayer requestIsUserCitrusMemberUsername:self.emailTextField.text
+                        completionHandler:^(BOOL isUserCitrusMember,
                                             NSError* error) {
-                            LogTrace(@"userName %@ ", userName);
-                            LogTrace(@"token %@ ", token);
+                            LogTrace(@"isUserCitrusMember %i ", isUserCitrusMember);
                             LogTrace(@"error %@ ", error);
                             
-                            // Update the UI
-                            [alertView hideCTSAlertView:YES];
                             
-                            if (error == nil) {
-                                PayViewController* payViewController = [[PayViewController alloc] initWithNibName:@"PayViewController" bundle:nil];
-                                [self.navigationController pushViewController:payViewController animated:YES];
-                                [self updateContactInformation];
+                            if (isUserCitrusMember && error == nil) {
+                                dispatch_async(dispatch_get_main_queue(), ^{
+                                    // Update the UI
+                                    [alertView hideCTSAlertView:YES];
+                                    
+                                    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Information" message:@"Email Id is already registered as a citrus member. You can do Sign In directly." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                                    [alertView show];
+                                    
+                                    if ([self.firstnameTextField text]) {
+                                        self.firstnameTextField.text = @"";
+                                    }
+                                    if ([self.lastnameTextField text]) {
+                                        self.lastnameTextField.text = @"";
+                                    }
+                                    if ([self.emailTextField text]) {
+                                        self.emailTextField.text = @"";
+                                    }
+                                    if ([self.mobileTextField text]) {
+                                        self.mobileTextField.text = @"";
+                                    }
+                                    if ([self.passwordTextField text]) {
+                                        self.passwordTextField.text = @"";
+                                    }
+                                });
                             }else{
-                                UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-                                [alertView show];
+                                //
+                                [authLayer requestSignUpWithEmail:self.emailTextField.text
+                                                           mobile:self.mobileTextField.text
+                                                         password:self.passwordTextField.text
+                                                completionHandler:^(NSString* userName,
+                                                                    NSString* token,
+                                                                    NSError* error) {
+                                                    LogTrace(@"userName %@ ", userName);
+                                                    LogTrace(@"token %@ ", token);
+                                                    LogTrace(@"error %@ ", error);
+                                                    
+                                                    dispatch_async(dispatch_get_main_queue(), ^{
+                                                        
+                                                        // Update the UI
+                                                        [alertView hideCTSAlertView:YES];
+                                                        
+                                                        if (error == nil) {
+                                                            PayViewController* payViewController = [[PayViewController alloc] initWithNibName:@"PayViewController" bundle:nil];
+                                                            [self.navigationController pushViewController:payViewController animated:YES];
+                                                            [self updateContactInformation];
+                                                        }else{
+                                                            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                                                            [alertView show];
+                                                        }
+                                                    });
+                                                    
+                                                }];
                             }
                         }];
+        
     }else{
         // Update the UI
         [alertView hideCTSAlertView:YES];

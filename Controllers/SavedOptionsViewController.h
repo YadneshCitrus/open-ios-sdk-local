@@ -10,7 +10,7 @@
 #import "AppDelegate.h"
 #import "CitrusSdk.h"
 
-@interface SavedOptionsViewController : UIViewController <CTSPaymentProtocol>
+@interface SavedOptionsViewController : UIViewController <CTSProfileProtocol>
 {
     IBOutlet __weak UITableView *tableView;
     CTSProfileLayer* profileLayer;

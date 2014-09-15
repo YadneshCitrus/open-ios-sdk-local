@@ -41,6 +41,28 @@
     [self initialize];
 }
 
+-(void)setTestData
+{
+    /**
+     *  TestData
+     *
+     *  use testdata for SDKSandboxTestData applicatin Target
+     */
+#if defined (TESTDATA_VERSION)
+    if ([self.cardType isEqualToString:DEBIT_CARD_TYPE]) {
+        self.cardNumberTextField.text = TEST_DEBIT_CARD_NUMBER;
+        self.expiryDateTextField.text = TEST_DEBIT_EXPIRY_DATE;
+        self.CVVNumberTextField.text = TEST_DEBIT_CVV;
+        self.cardHolderNameTextField.text = TEST_OWNER_NAME;
+    }if ([self.cardType isEqualToString:CREDIT_CARD_TYPE]) {
+        self.cardNumberTextField.text = TEST_CREDIT_CARD_NUMBER;
+        self.expiryDateTextField.text = TEST_CREDIT_CARD_EXPIRY_DATE;
+        self.CVVNumberTextField.text = TEST_CREDIT_CARD_CVV;
+        self.cardHolderNameTextField.text = TEST_CREDIT_CARD_OWNER_NAME;
+    }
+    self.cardSchemeImage.image = [UIImage imageNamed:@"visa.png"];
+#endif
+}
 
 - (void)initialize {
     // Do any additional setup after loading the view from its nib.
@@ -48,19 +70,74 @@
     paymentlayerinfo = [[CTSPaymentLayer alloc] init];
     paymentlayerinfo.delegate = self;
     
+    profileLayer = [[CTSProfileLayer alloc] init];
+    profileLayer.delegate = self;
+
+    [self fetchContactInformation];
+    
+    [self fetchAddressInformation];
+    
+}
+
+-(void)fetchAddressInformation
+{
+    addressInfo = [[CTSUserAddress alloc] init];
+    
+    /**
+     *  TestData
+     *
+     *  use testdata for SDKSandboxTestData applicatin Target
+     */
+#if defined (TESTDATA_VERSION)
+    addressInfo.city = TEST_CITY;
+    addressInfo.country = TEST_COUNTRY;
+    addressInfo.state = TEST_STATE;
+    addressInfo.street1 = TEST_STREET1;
+    addressInfo.street2 = TEST_STREET2;
+    addressInfo.zip = TEST_ZIP;
+#else
+    //
+    
+#endif
+    
+}
+
+-(void)fetchContactInformation
+{
     contactInfo = [[CTSContactUpdate alloc] init];
+    
+    /**
+     *  TestData
+     *
+     *  use testdata for SDKSandboxTestData applicatin Target
+     */
+#if defined (TESTDATA_VERSION)
     contactInfo.firstName = TEST_FIRST_NAME;
     contactInfo.lastName = TEST_LAST_NAME;
     contactInfo.email = TEST_EMAIL;
     contactInfo.mobile = TEST_MOBILE;
+#else
+    [profileLayer requestContactInformationWithCompletionHandler:nil];
     
-    addressInfo = [[CTSUserAddress alloc] init];
-    addressInfo.city = @"Mumbai";
-    addressInfo.country = @"India";
-    addressInfo.state = @"Maharashtra";
-    addressInfo.street1 = @"Golden Road";
-    addressInfo.street2 = @"Pink City";
-    addressInfo.zip = @"401209";
+    contactInfo.firstName = contactSavedResponse.firstName;
+    contactInfo.lastName = contactSavedResponse.lastName;
+    contactInfo.email = contactSavedResponse.email;
+    contactInfo.mobile = contactSavedResponse.mobile;
+#endif
+    
+}
+
+#pragma mark - profile layer delegates
+
+- (void)profile:(CTSProfileLayer*)profile
+didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
+          error:(NSError*)error {
+    LogTrace(@"didReceiveContactInfo");
+    // LogTrace(@"contactInfo %@", contactInfo);
+    //[contactInfo logProperties];
+    LogTrace(@"contactInfo %@", error);
+    
+    contactSavedResponse = contactInfo;
 }
 
 
@@ -108,10 +185,12 @@
     [[CTSElectronicCardUpdate alloc] initCreditCard];
     debitCard.number = self.cardNumberTextField.text;
     debitCard.expiryDate = self.expiryDateTextField.text;
-    debitCard.scheme = TEST_DEBIT_SCHEME;
-    debitCard.ownerName = self.CVVNumberTextField.text;
+    debitCard.scheme = [CTSUtility fetchCardSchemeForCardNumber:debitCard.number];
+    debitCard.ownerName = self.cardHolderNameTextField.text;
+#if defined (TESTDATA_VERSION)
     debitCard.name = TEST_DEBIT_CARD_BANK_NAME;
-    debitCard.cvv = self.cardHolderNameTextField.text;
+#endif
+    debitCard.cvv = self.CVVNumberTextField.text;
     [debitCardInfo addCard:debitCard];
     NSString* txnId = [self createTXNId];
     
@@ -135,9 +214,12 @@
     [[CTSElectronicCardUpdate alloc] initCreditCard];
     creditCard.number = self.cardNumberTextField.text;
     creditCard.expiryDate = self.expiryDateTextField.text;
-    creditCard.scheme = TEST_CREDIT_CARD_SCHEME;
+    creditCard.scheme = [CTSUtility fetchCardSchemeForCardNumber:creditCard.number];
     creditCard.ownerName = self.cardHolderNameTextField.text;
+#if defined (TESTDATA_VERSION)
     creditCard.name = TEST_CREDIT_CARD_BANK_NAME;
+#endif
+    
     creditCard.cvv = self.CVVNumberTextField.text;
     [creditCardInfo addCard:creditCard];
     
@@ -169,12 +251,11 @@
     
     CTSElectronicCardUpdate* creditCard =
     [[CTSElectronicCardUpdate alloc] initCreditCard];
-    creditCard.number = TEST_CREDIT_CARD_NUMBER;
-    creditCard.expiryDate = TEST_CREDIT_CARD_EXPIRY_DATE;
-    creditCard.scheme =
-    [CTSUtility fetchCardSchemeForCardNumber:creditCard.number];
-    creditCard.cvv = TEST_CREDIT_CARD_CVV;
-    creditCard.ownerName = TEST_CREDIT_CARD_OWNER_NAME;
+    creditCard.number = self.cardNumberTextField.text;
+    creditCard.expiryDate = self.expiryDateTextField.text;
+    creditCard.scheme = [CTSUtility fetchCardSchemeForCardNumber:creditCard.number];
+    creditCard.cvv = self.CVVNumberTextField.text;
+    creditCard.ownerName = self.cardHolderNameTextField.text;
     
     [paymentInfo addCard:creditCard];
     
@@ -198,11 +279,11 @@
     
     CTSElectronicCardUpdate* debitCard =
     [[CTSElectronicCardUpdate alloc] initDebitCard];
-    debitCard.number = TEST_DEBIT_CARD_NUMBER;
-    debitCard.expiryDate = TEST_DEBIT_EXPIRY_DATE;
-    debitCard.scheme = TEST_DEBIT_SCHEME;
-    debitCard.cvv = TEST_DEBIT_CVV;
-    debitCard.ownerName = TEST_OWNER_NAME;
+    debitCard.number = self.cardNumberTextField.text;
+    debitCard.expiryDate = self.expiryDateTextField.text;
+    debitCard.scheme = [CTSUtility fetchCardSchemeForCardNumber:debitCard.number];
+    debitCard.cvv = self.CVVNumberTextField.text;
+    debitCard.ownerName = self.cardHolderNameTextField.text;
     
     [paymentInfo addCard:debitCard];
     
@@ -242,18 +323,23 @@ didMakeUserPayment:(CTSPaymentTransactionRes*)paymentInfo
     ? YES
     : NO;
     
-    if (hasSuccess) {
-        [self.alertView hideCTSAlertView:YES];
-        [self.alertView createProgressionAlertWithMessage:@"Connecting to the PG" withActivity:YES];
-        [self loadRedirectUrl:paymentInfo.redirectUrl];
-        if ([self.payType isEqualToString:MEMBER_PAY_TYPE]) {
-            [self saveData];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        // Update the UI
+        if (hasSuccess) {
+            [self.alertView hideCTSAlertView:YES];
+            [self.alertView createProgressionAlertWithMessage:@"Connecting to the PG" withActivity:YES];
+            [self loadRedirectUrl:paymentInfo.redirectUrl];
+            if ([self.payType isEqualToString:MEMBER_PAY_TYPE]) {
+                [self saveData];
+            }
+        }else{
+            [self.alertView hideCTSAlertView:YES];
+            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alertView show];
         }
-    }else{
-        [self.alertView hideCTSAlertView:YES];
-        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [alertView show];
-    }
+    });
+    
+
 }
 
 - (void)payment:(CTSPaymentLayer*)layer
@@ -267,18 +353,24 @@ didMakePaymentUsingGuestFlow:(CTSPaymentTransactionRes*)paymentInfo
     ? YES
     : NO;
     
-    if (hasSuccess) {
-        [self.alertView hideCTSAlertView:YES];
-        [self.alertView createProgressionAlertWithMessage:@"Connecting to the PG" withActivity:YES];
-        [self loadRedirectUrl:paymentInfo.redirectUrl];
-        if ([self.payType isEqualToString:MEMBER_PAY_TYPE]) {
-            [self saveData];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        // Update the UI
+        if (hasSuccess) {
+            [self.alertView hideCTSAlertView:YES];
+            [self.alertView createProgressionAlertWithMessage:@"Connecting to the PG" withActivity:YES];
+            [self loadRedirectUrl:paymentInfo.redirectUrl];
+            if ([self.payType isEqualToString:MEMBER_PAY_TYPE]) {
+                [self saveData];
+            }
+        }else{
+            [self.alertView hideCTSAlertView:YES];
+            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alertView show];
         }
-    }else{
-        [self.alertView hideCTSAlertView:YES];
-        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [alertView show];
-    }
+    });
+    
+
 }
 
 - (void)saveData {
@@ -334,31 +426,33 @@ didMakePaymentUsingGuestFlow:(CTSPaymentTransactionRes*)paymentInfo
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;   // return NO to not change text
 {
-    NSString* cardScheme = [CTSUtility fetchCardSchemeForCardNumber:textField.text];
-    if ([cardScheme isEqualToString:AMEX]) {
-        //return @"AMEX";
-        self.cardSchemeImage.image = [UIImage imageNamed:@"amex.png"];
-    } else if ([cardScheme isEqualToString:DISCOVER]) {
-        //return @"DISCOVER";
-        self.cardSchemeImage.image = [UIImage imageNamed:@"discover"];
-    } else if ([cardScheme isEqualToString:JCB]) {
-        //return @"JCB";
-        self.cardSchemeImage.image = [UIImage imageNamed:nil];
-    } else if ([cardScheme isEqualToString:DINERCLUB]) {
-        //return @"DINERCLUB";
-        self.cardSchemeImage.image = [UIImage imageNamed:nil];
-    } else if ([cardScheme isEqualToString:VISA]) {
-        //return @"VISA";
-        self.cardSchemeImage.image = [UIImage imageNamed:@"visa.png"];
-    } else if ([cardScheme isEqualToString:MAESTRO]) {
-        //return @"MAESTRO";
-        self.cardSchemeImage.image = [UIImage imageNamed:@"maestro.png"];
-    } else if ([cardScheme isEqualToString:MASTER]) {
-        //return @"MASTER";
-        self.cardSchemeImage.image = [UIImage imageNamed:@"mastercard.png"];
-    }else{
-        //return @"UNKNOWN";
-        self.cardSchemeImage.image = [UIImage imageNamed:nil];
+    if ([self.cardNumberTextField isEqual:textField]) {
+        NSString* cardScheme = [CTSUtility fetchCardSchemeForCardNumber:textField.text];
+        if ([cardScheme isEqualToString:AMEX]) {
+            //return @"AMEX";
+            self.cardSchemeImage.image = [UIImage imageNamed:@"amex.png"];
+        } else if ([cardScheme isEqualToString:DISCOVER]) {
+            //return @"DISCOVER";
+            self.cardSchemeImage.image = [UIImage imageNamed:@"discover"];
+        } else if ([cardScheme isEqualToString:JCB]) {
+            //return @"JCB";
+            self.cardSchemeImage.image = [UIImage imageNamed:nil];
+        } else if ([cardScheme isEqualToString:DINERCLUB]) {
+            //return @"DINERCLUB";
+            self.cardSchemeImage.image = [UIImage imageNamed:nil];
+        } else if ([cardScheme isEqualToString:VISA]) {
+            //return @"VISA";
+            self.cardSchemeImage.image = [UIImage imageNamed:@"visa.png"];
+        } else if ([cardScheme isEqualToString:MAESTRO]) {
+            //return @"MAESTRO";
+            self.cardSchemeImage.image = [UIImage imageNamed:@"maestro.png"];
+        } else if ([cardScheme isEqualToString:MASTER]) {
+            //return @"MASTER";
+            self.cardSchemeImage.image = [UIImage imageNamed:@"mastercard.png"];
+        }else{
+            //return @"UNKNOWN";
+            self.cardSchemeImage.image = [UIImage imageNamed:nil];
+        }
     }
     return YES;
 }

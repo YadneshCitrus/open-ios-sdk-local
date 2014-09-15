@@ -28,6 +28,18 @@
 @property(nonatomic,strong) UIViewController *rootController;
 @property(nonatomic,strong) NSString *payType;
 @property(nonatomic,strong) NSString *issuerCode;
+
+/**
+ *  called when user request to get bank type for net banking payment as a user or guest
+ *
+ *  @param dynamic object sender
+ */
 -(IBAction)selectBankAction:(id)sender;
+
+/**
+ *  called when user request to make net banking payment as a user or guest
+ *
+ *  @param dynamic object sender
+ */
 -(IBAction)netBankingAction:(id)sender;
 @end

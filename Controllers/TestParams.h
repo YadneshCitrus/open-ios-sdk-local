@@ -10,14 +10,20 @@
 #define RestFulltester_TestParams_h
 // TestParams.h should be populated according to your needs
 
-#define TEST_EMAIL @"mukeshpatil1@gmail.com"
-#define TEST_PASSWORD @"19dec@1985am"
-#define TEST_MOBILE @"9742544508"
+#define TEST_EMAIL @"testuser1@gmail.com"
+#define TEST_PASSWORD @"testuser1@123"
+#define TEST_MOBILE @"1234567890"
 
-#define TEST_FIRST_NAME @"mukesh"
-#define TEST_LAST_NAME @"patil"
+#define TEST_FIRST_NAME @"test"
+#define TEST_LAST_NAME @"user"
 
-//#define TEST_DEBIT_CARD_NUMBER @"4028530012345678"
+#define TEST_CITY @"Mumbai"
+#define TEST_COUNTRY @"India"
+#define TEST_STATE @"Maharashtra"
+#define TEST_STREET1 @"Golden Road"
+#define TEST_STREET2 @"Pink City"
+#define TEST_ZIP @"401209"
+
 #define TEST_DEBIT_CARD_NUMBER @"4028530052708001"
 #define TEST_DEBIT_EXPIRY_DATE @"03/2015"
 #define TEST_DEBIT_SCHEME @"visa"
@@ -71,5 +77,7 @@
 #define DINERCLUB @"DINERCLUB"
 #define MASTER @"MASTER"
 #define AMEX @"AMEX"
+
+#define LAST_USER @"LAST_USER"
 
 #endif

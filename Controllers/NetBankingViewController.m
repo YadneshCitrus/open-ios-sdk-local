@@ -47,6 +47,8 @@
     
     [self fetchContactInformation];
 
+    [self fetchAddressInformation];
+
     [self fetchAvailableBanks];
 }
 
@@ -58,25 +60,60 @@
     
     profileLayer = [[CTSProfileLayer alloc] init];
     profileLayer.delegate = self;
+    
+    /**
+     *  TestData
+     *
+     *  use testdata for SDKSandboxTestData applicatin Target
+     */
+#if defined (TESTDATA_VERSION)
+    [selectBankButton setTitle:TEST_NETBAK_NAME forState:UIControlStateNormal];
+#endif
+}
 
+-(void)fetchAddressInformation
+{
     addressInfo = [[CTSUserAddress alloc] init];
-    addressInfo.city = @"Mumbai";
-    addressInfo.country = @"India";
-    addressInfo.state = @"Maharashtra";
-    addressInfo.street1 = @"Golden Road";
-    addressInfo.street2 = @"Pink City";
-    addressInfo.zip = @"401209";
+    
+    /**
+     *  TestData
+     *
+     *  use testdata for SDKSandboxTestData applicatin Target
+     */
+#if defined (TESTDATA_VERSION)
+    addressInfo.city = TEST_CITY;
+    addressInfo.country = TEST_COUNTRY;
+    addressInfo.state = TEST_STATE;
+    addressInfo.street1 = TEST_STREET1;
+    addressInfo.street2 = TEST_STREET2;
+    addressInfo.zip = TEST_ZIP;
+#else
+#endif
+    
 }
 
 -(void)fetchContactInformation
 {
-    [profileLayer requestContactInformationWithCompletionHandler:nil];
-    
     contactInfo = [[CTSContactUpdate alloc] init];
+    /**
+     *  TestData
+     *
+     *  use testdata for SDKSandboxTestData applicatin Target
+     */
+#if defined (TESTDATA_VERSION)
+    contactInfo.firstName = TEST_FIRST_NAME;
+    contactInfo.lastName = TEST_LAST_NAME;
+    contactInfo.email = TEST_EMAIL;
+    contactInfo.mobile = TEST_MOBILE;
+#else
+    [profileLayer requestContactInformationWithCompletionHandler:nil];
+
     contactInfo.firstName = contactSavedResponse.firstName;
     contactInfo.lastName = contactSavedResponse.lastName;
     contactInfo.email = contactSavedResponse.email;
     contactInfo.mobile = contactSavedResponse.mobile;
+#endif
+
 }
 
 #pragma mark - profile layer delegates
@@ -166,6 +203,15 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
     //
     [self.alertView createProgressionAlertWithMessage:@"Connecting..." withActivity:YES];
     
+    /**
+     *  TestData
+     *
+     *  use testdata for SDKSandboxTestData applicatin Target
+     */
+#if defined (TESTDATA_VERSION)
+    self.selectedbank = TEST_NETBAK_NAME;
+#endif
+
     if ([self.selectedbank length] != 0) {
         if ([self.payType isEqualToString:MEMBER_PAY_TYPE]) {
             [self doUserNetbankingPayment];
@@ -185,7 +231,18 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
     
     //
     CTSNetBankingUpdate* netbank = [[CTSNetBankingUpdate alloc] init];
+    
+    /**
+     *  TestData
+     *
+     *  use testdata for SDKSandboxTestData applicatin Target
+     */
+#if defined (TESTDATA_VERSION)
+    netbank.code = TEST_NETBAK_CODE;
+#else
     netbank.code = self.issuerCode;
+#endif
+
     
     [netBankingPaymentInfo addNetBanking:netbank];
     
@@ -206,23 +263,25 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
          LogTrace(@"error %@ ", error);
          BOOL hasSuccess = ((paymentInfo != nil) && ([paymentInfo.pgRespCode integerValue] == 0) && (error == nil)) ? YES : NO;
          
-         [self.alertView hideCTSAlertView:YES];
-         if (hasSuccess) {
+         dispatch_async(dispatch_get_main_queue(), ^{
              [self.alertView hideCTSAlertView:YES];
-             [self.alertView createProgressionAlertWithMessage:@"Connecting to the PG" withActivity:YES];
-             //
-             WebViewViewController* webViewViewController = [[WebViewViewController alloc] init];
-             webViewViewController.redirectURL = paymentInfo.redirectUrl;
-             [self.alertView hideCTSAlertView:YES];
-             [self.rootController.navigationController pushViewController:webViewViewController animated:YES];
-             if ([self.payType isEqualToString:MEMBER_PAY_TYPE]) {
-                 [self saveData];
+             if (hasSuccess) {
+                 [self.alertView hideCTSAlertView:YES];
+                 [self.alertView createProgressionAlertWithMessage:@"Connecting to the PG" withActivity:YES];
+                 //
+                 WebViewViewController* webViewViewController = [[WebViewViewController alloc] init];
+                 webViewViewController.redirectURL = paymentInfo.redirectUrl;
+                 [self.alertView hideCTSAlertView:YES];
+                 [self.rootController.navigationController pushViewController:webViewViewController animated:YES];
+                 if ([self.payType isEqualToString:MEMBER_PAY_TYPE]) {
+                     [self saveData];
+                 }
+             }else{
+                 [self.alertView hideCTSAlertView:YES];
+                 UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                 [alertView show];
              }
-         }else{
-             [self.alertView hideCTSAlertView:YES];
-             UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-             [alertView show];
-         }
+         });
      }];
 }
 
@@ -236,7 +295,18 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
     CTSPaymentDetailUpdate* paymentInfo = [[CTSPaymentDetailUpdate alloc] init];
     CTSNetBankingUpdate* netBank = [[CTSNetBankingUpdate alloc] init];
     
+    /**
+     *  TestData
+     *
+     *  use testdata for SDKSandboxTestData applicatin Target
+     */
+#if defined (TESTDATA_VERSION)
+    // Test data
+    netBank.code = TEST_NETBAK_CODE;
+#else
     netBank.code = self.issuerCode;
+#endif
+
     [paymentInfo addNetBanking:netBank];
     
         [paymentlayerinfo makePaymentUsingGuestFlow:paymentInfo

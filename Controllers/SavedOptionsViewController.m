@@ -33,9 +33,15 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    if (_userdata) {
+        _userdata = [[NSArray alloc] init];
+    }
+    
     profileLayer = [[CTSProfileLayer alloc] init];
     profileLayer.delegate = self;
 
+    
     [self fetchPaymentInformation];
 
 //    [self getUserRecords];
@@ -89,6 +95,8 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
     //[contactInfo logProperties];
     LogTrace(@"contactInfo %@", error);
 }
+
+
 - (void)profile:(CTSProfileLayer*)profile
 didReceivePaymentInformation:(CTSProfilePaymentRes*)paymentInfo
           error:(NSError*)error {
@@ -96,10 +104,15 @@ didReceivePaymentInformation:(CTSProfilePaymentRes*)paymentInfo
         LogTrace(@" paymentInfo.type %@", paymentInfo.type);
         LogTrace(@" paymentInfo.defaultOption %@", paymentInfo.defaultOption);
         
-        for (CTSPaymentOption* option in paymentInfo.paymentOptions) {
+//        for (CTSPaymentOption* option in paymentInfo.paymentOptions) {
 //            [option logProperties];
-        }
+//            paymentSavedResponse = paymentInfo;
+//        }
         paymentSavedResponse = paymentInfo;
+        self.userdata = paymentInfo.paymentOptions;
+        if ([self.userdata count] > 0) {
+            [self.tableView reloadData];
+        }
     } else {
         LogTrace(@"error received %@", error);
     }
@@ -141,9 +154,13 @@ didUpdatePaymentInfoError:(NSError*)error {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    User *user = [self.userdata objectAtIndex:indexPath.row];
-    cell.textLabel.text = user.paymentOption;
-    cell.detailTextLabel.text = user.paymentType;
+//    User *user = [self.userdata objectAtIndex:indexPath.row];
+//    cell.textLabel.text = user.paymentOption;
+//    cell.detailTextLabel.text = user.paymentType;
+    
+    cell.textLabel.text = [[self.userdata objectAtIndex:indexPath.row] valueForKey:@"type"];
+//    cell.textLabel.text = [[self.userdata objectAtIndex:indexPath.row] valueForKey:@"bank"];
+    cell.detailTextLabel.text = [[self.userdata objectAtIndex:indexPath.row] valueForKey:@"name"];
     
     return cell;
 }

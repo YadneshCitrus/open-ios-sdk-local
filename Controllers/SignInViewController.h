@@ -23,6 +23,20 @@
 @property(nonatomic,weak) IBOutlet UITextField *usernameTextField;
 @property(nonatomic,weak) IBOutlet UITextField *passwordTextField;
 
+/**
+ *  sign in the user
+ *
+ *  @param dynamic object sender
+ */
 -(IBAction)signInAction:(id)sender;
+
+
+
+/**
+ *  in case of forget password,after recieving this server will send email to
+ *this user to initiate the password reset
+ *
+ *  @param dynamic object sender
+ */
 -(IBAction)resetPasswordAction:(id)sender;
 @end

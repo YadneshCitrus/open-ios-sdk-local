@@ -40,9 +40,18 @@
     self.payViewController = [[PayViewController alloc] initWithNibName:@"PayViewController" bundle:nil];
     self.payViewController.signOutDelegate = self;
 
-    // Test data
+    /**
+     *  TestData
+     *
+     *  use testdata for SDKSandboxTestData applicatin Target
+     */
+#if defined (TESTDATA_VERSION)
     self.usernameTextField.text = TEST_EMAIL;
     self.passwordTextField.text = TEST_PASSWORD;
+#else
+    NSString *username = [self getLastUser];
+    self.usernameTextField.text = username;
+#endif
 
     //
     [self initialize];
@@ -53,6 +62,7 @@
 - (void)initialize {
     authLayer = [[CTSAuthLayer alloc] init];
 //    authLayer.delegate = self;
+    
 }
 
 
@@ -86,11 +96,12 @@
                                    if (error == nil) {
                                        self.payViewController.payType = MEMBER_PAY_TYPE;
                                        [self.navigationController pushViewController:self.payViewController animated:YES];
+                                       [self setLastUser];
                                    }else{
                                        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
                                        [alertView show];
                                    }
-                               });
+                                });
                            }];
     }else{
         // Update the UI
@@ -184,6 +195,18 @@
 {
     [textField resignFirstResponder];
     return YES;
+}
+
+
+- (void)setLastUser {
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    [prefs setObject:self.usernameTextField.text forKey:LAST_USER];
+    [prefs synchronize];
+}
+
+- (NSString*)getLastUser {
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    return [prefs valueForKey:LAST_USER];
 }
 
 - (void)didReceiveMemoryWarning

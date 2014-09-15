@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CitrusSdk.h"
 
-@interface CardPayViewController : UIViewController <CTSPaymentProtocol,
+@interface CardPayViewController : UIViewController <CTSPaymentProtocol, CTSProfileProtocol,
                                                         UIWebViewDelegate>
 {
     IBOutlet __weak UITextField *cardNumberTextField;
@@ -21,7 +21,9 @@
     CTSPaymentLayer* paymentlayerinfo;
     CTSContactUpdate* contactInfo;
     CTSUserAddress* addressInfo;
-    
+    CTSProfileLayer* profileLayer;
+    CTSProfileContactRes* contactSavedResponse;
+
     UIViewController *rootController;
     NSString *cardType;
     NSString *payType;
@@ -38,6 +40,24 @@
 @property(nonatomic,strong) NSString *cardType;
 @property(nonatomic,strong) NSString *payType;
 
+/**
+ *  called when user request to make payment as a user or guest
+ *
+ *  @param dynamic object sender
+ */
 -(IBAction)cardAction:(id)sender;
+
+
+/**
+ *  called when user navigate from card payment view to other
+ *
+ */
 - (void)dismissTextField;
+
+
+/**
+ *  called when user come to card payment view
+ *
+ */
+-(void)setTestData;
 @end

@@ -10,7 +10,8 @@
 #import "CitrusSdk.h"
 
 @interface SignUpViewController : UIViewController <CTSAuthenticationProtocol,
-                                                    CTSPaymentProtocol>
+                                                    CTSPaymentProtocol,
+                                                    CTSProfileProtocol>
 {
     IBOutlet __weak UITextField *firstnameTextField;
     IBOutlet __weak UITextField *lastnameTextField;
@@ -27,6 +28,10 @@
 @property(nonatomic,weak) IBOutlet UITextField *mobileTextField;
 @property(nonatomic,weak) IBOutlet UITextField *passwordTextField;
 
-
+/**
+ *  to sign up the user
+ *
+ *  @param dynamic object sender
+ */
 -(IBAction)signUpAction:(id)sender;
 @end

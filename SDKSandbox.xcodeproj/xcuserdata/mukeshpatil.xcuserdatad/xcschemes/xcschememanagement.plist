@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>SDKSandboxTestData.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -18,6 +23,11 @@
 			<true/>
 		</dict>
 		<key>764AEDF619B89AA40011FE90</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>76A80BC319C6C15E007410EB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
