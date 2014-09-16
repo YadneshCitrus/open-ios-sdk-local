@@ -10,6 +10,18 @@
 
 @interface CTSAlertView : UIAlertView
 
--(void)hideCTSAlertView:(BOOL)activity;
--(void)createProgressionAlertWithMessage:(NSString *)message withActivity:(BOOL)activity;
+/**
+ *  show alertView with activity
+ *
+ *  @param alertView message
+ *  @param show activity if YES
+ */
+- (void)didPresentLoadingAlertView:(NSString *)message withActivity:(BOOL)activity;
+
+/**
+ *  dismiss alertView with activity
+ *
+ *  @param shdismissow activity if YES
+ */
+- (void)dismissLoadingAlertView:(BOOL)activity;
 @end

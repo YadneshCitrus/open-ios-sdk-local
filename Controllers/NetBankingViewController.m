@@ -201,7 +201,7 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
 -(IBAction)netBankingAction:(id)sender
 {
     //
-    [self.alertView createProgressionAlertWithMessage:@"Connecting..." withActivity:YES];
+    [self.alertView didPresentLoadingAlertView:@"Connecting..." withActivity:YES];
     
     /**
      *  TestData
@@ -219,7 +219,7 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
             [self doGuestPaymentNetbanking];
         }
     }else{
-        [self.alertView hideCTSAlertView:YES];
+        [self.alertView dismissLoadingAlertView:YES];
         UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Information" message:@"Input field can't be blank!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alertView show];
     }
@@ -264,20 +264,20 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
          BOOL hasSuccess = ((paymentInfo != nil) && ([paymentInfo.pgRespCode integerValue] == 0) && (error == nil)) ? YES : NO;
          
          dispatch_async(dispatch_get_main_queue(), ^{
-             [self.alertView hideCTSAlertView:YES];
+             [self.alertView dismissLoadingAlertView:YES];
              if (hasSuccess) {
-                 [self.alertView hideCTSAlertView:YES];
-                 [self.alertView createProgressionAlertWithMessage:@"Connecting to the PG" withActivity:YES];
+                 [self.alertView dismissLoadingAlertView:YES];
+                 [self.alertView didPresentLoadingAlertView:@"Connecting to the PG" withActivity:YES];
                  //
                  WebViewViewController* webViewViewController = [[WebViewViewController alloc] init];
                  webViewViewController.redirectURL = paymentInfo.redirectUrl;
-                 [self.alertView hideCTSAlertView:YES];
+                 [self.alertView dismissLoadingAlertView:YES];
                  [self.rootController.navigationController pushViewController:webViewViewController animated:YES];
                  if ([self.payType isEqualToString:MEMBER_PAY_TYPE]) {
                      [self saveData];
                  }
              }else{
-                 [self.alertView hideCTSAlertView:YES];
+                 [self.alertView dismissLoadingAlertView:YES];
                  UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
                  [alertView show];
              }
@@ -323,17 +323,17 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
                                   BOOL hasSuccess = ((paymentInfo != nil) && ([paymentInfo.pgRespCode integerValue] == 0) && (error == nil)) ? YES : NO;
                                   dispatch_async(dispatch_get_main_queue(), ^{
                                       // Update the UI
-                                      [self.alertView hideCTSAlertView:YES];
+                                      [self.alertView dismissLoadingAlertView:YES];
                                       if (hasSuccess) {
-                                          [self.alertView hideCTSAlertView:YES];
-                                          [self.alertView createProgressionAlertWithMessage:@"Connecting to the PG" withActivity:YES];
+                                          [self.alertView dismissLoadingAlertView:YES];
+                                          [self.alertView didPresentLoadingAlertView:@"Connecting to the PG" withActivity:YES];
                                           //
                                           WebViewViewController* webViewViewController = [[WebViewViewController alloc] init];
                                           webViewViewController.redirectURL = paymentInfo.redirectUrl;
-                                          [self.alertView hideCTSAlertView:YES];
+                                          [self.alertView dismissLoadingAlertView:YES];
                                           [self.rootController.navigationController pushViewController:webViewViewController animated:YES];
                                       }else{
-                                          [self.alertView hideCTSAlertView:YES];
+                                          [self.alertView dismissLoadingAlertView:YES];
                                           UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
                                           [alertView show];
                                       }

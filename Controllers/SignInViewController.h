@@ -39,4 +39,11 @@
  *  @param dynamic object sender
  */
 -(IBAction)resetPasswordAction:(id)sender;
+
+/**
+ *  to change the user password
+ *
+ *  @param dynamic object sender
+ */
+-(IBAction)changePasswordAction:(id)sender;
 @end

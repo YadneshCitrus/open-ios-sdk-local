@@ -10,6 +10,7 @@
 #import "CTSAlertView.h"
 #import "TestParams.h"
 #import "User.h"
+#import "ChangePasswordViewController.h"
 
 @interface SignInViewController ()
 
@@ -77,7 +78,7 @@
     
     //
     CTSAlertView* alertView = [[CTSAlertView alloc] init];
-    [alertView createProgressionAlertWithMessage:@"Checking user" withActivity:YES];
+    [alertView didPresentLoadingAlertView:@"Checking user" withActivity:YES];
     
     if ([self.usernameTextField.text length] != 0 && [self.passwordTextField.text length] != 0) {
         //
@@ -92,7 +93,7 @@
                                
                                dispatch_async(dispatch_get_main_queue(), ^{
                                    // Update the UI
-                                   [alertView hideCTSAlertView:YES];
+                                   [alertView dismissLoadingAlertView:YES];
                                    if (error == nil) {
                                        self.payViewController.payType = MEMBER_PAY_TYPE;
                                        [self.navigationController pushViewController:self.payViewController animated:YES];
@@ -105,7 +106,7 @@
                            }];
     }else{
         // Update the UI
-        [alertView hideCTSAlertView:YES];
+        [alertView dismissLoadingAlertView:YES];
         UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Information" message:@"Input field can't be blank!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alertView show];
     }
@@ -121,6 +122,12 @@
 }
 
 
+-(IBAction)changePasswordAction:(id)sender
+{
+    ChangePasswordViewController* changePasswordViewController = [[ChangePasswordViewController alloc] initWithNibName:@"ChangePasswordViewController" bundle:nil];
+    [self.navigationController pushViewController:changePasswordViewController animated:YES];
+}
+
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (alertView.tag == 100 && buttonIndex == 1)
@@ -135,7 +142,7 @@
 {
     //
     CTSAlertView* alertView = [[CTSAlertView alloc] init];
-    [alertView createProgressionAlertWithMessage:@"Requesting" withActivity:YES];
+    [alertView didPresentLoadingAlertView:@"Requesting" withActivity:YES];
     
     // Perform long running process
     if ([self.usernameTextField.text length] != 0 && [self.passwordTextField.text length] != 0) {
@@ -145,7 +152,7 @@
                           LogTrace(@"error %@ ", error);
                           
                           // Update the UI
-                          [alertView hideCTSAlertView:YES];
+                          [alertView dismissLoadingAlertView:YES];
                           if (error == nil) {
                               UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Information" message:@"An email sent successfully" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
                               [alertView show];
@@ -158,7 +165,7 @@
 
 - (void)signOutDelegate
 {
-    if ([authLayer isAnyoneSignedIn]) {
+    if ([authLayer signOut]) {
         [self.navigationController popToRootViewControllerAnimated:YES];
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         // Store the data

@@ -8,6 +8,8 @@
 
 #import "CTSAlertView.h"
 
+#define TITLE @"Please wait..."
+
 @interface CTSAlertView ()
 
 @property(nonatomic,strong) UIActivityIndicatorView* activityView;
@@ -17,49 +19,42 @@
 @implementation CTSAlertView
 @synthesize activityView;
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithTitle:(NSString *)title
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
+    if ( self = [super init] )
+    {
+        self.title = title;
+        self.message = @"\n\n";
+        
+        [self setDelegate:self];
     }
+    
     return self;
 }
 
-
--(void)createProgressionAlertWithMessage:(NSString *)message withActivity:(BOOL)activity
+-(void)didPresentLoadingAlertView:(NSString *)message withActivity:(BOOL)activity
 {
     // Create the progress bar and add it to the alert
-    self.title = @"Please wait...";
+    self.title = TITLE;
     self.message = message;
     if (activity) {
-        self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-        self.activityView.center = CGPointMake(139.5, 75.5); // .5 so it doesn't blur
-        [self addSubview:self.activityView];
-        [self.activityView startAnimating];
-}
-    [self show];
-}
-
--(void)hideCTSAlertView:(BOOL)activity
-{
-    // Create the progress bar and add it to the alert
-    if (activity) {
-        [self.activityView stopAnimating];
-        [self dismissWithClickedButtonIndex:0 animated:NO];
+        self.activityView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+        self.activityView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+        [self setValue:self.activityView forKey:@"accessoryView"];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.activityView startAnimating];
+        });
+        [self show];
     }
 }
 
 
-
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+-(void)dismissLoadingAlertView:(BOOL)activity
 {
-    // Drawing code
+    if (activity) {
+        [self dismissWithClickedButtonIndex:0 animated:YES];
+        [self.activityView stopAnimating];
+    }
 }
-*/
 
 @end

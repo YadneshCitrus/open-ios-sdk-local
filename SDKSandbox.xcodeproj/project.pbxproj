@@ -316,6 +316,12 @@
 		76A80C2C19C6C15E007410EB /* SavedOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A80AD519C16D7B007410EB /* SavedOptionsViewController.xib */; };
 		76A80C2D19C6C15E007410EB /* AXISlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B8D19C193C0007410EB /* AXISlogo.png */; };
 		76A80C2E19C6C15E007410EB /* discover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B9019C193C0007410EB /* discover@2x.png */; };
+		76AED02819C8553E00B6D5F1 /* ChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AED02619C8553E00B6D5F1 /* ChangePasswordViewController.m */; };
+		76AED02919C8553E00B6D5F1 /* ChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AED02619C8553E00B6D5F1 /* ChangePasswordViewController.m */; };
+		76AED02A19C8553E00B6D5F1 /* ChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AED02619C8553E00B6D5F1 /* ChangePasswordViewController.m */; };
+		76AED02B19C8553E00B6D5F1 /* ChangePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76AED02719C8553E00B6D5F1 /* ChangePasswordViewController.xib */; };
+		76AED02C19C8553E00B6D5F1 /* ChangePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76AED02719C8553E00B6D5F1 /* ChangePasswordViewController.xib */; };
+		76AED02D19C8553E00B6D5F1 /* ChangePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76AED02719C8553E00B6D5F1 /* ChangePasswordViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -526,6 +532,9 @@
 		76A80BBD19C2CD4A007410EB /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		76A80C3319C6C15E007410EB /* SDKSandboxTestData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SDKSandboxTestData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A80C3419C6C15F007410EB /* SDKSandboxTestData-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SDKSandboxTestData-Info.plist"; path = "/Users/mukeshpatil/MyWork/SDK/15/open-ios-sdk-local/SDKSandboxTestData-Info.plist"; sourceTree = "<absolute>"; };
+		76AED02519C8553E00B6D5F1 /* ChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordViewController.h; sourceTree = "<group>"; };
+		76AED02619C8553E00B6D5F1 /* ChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordViewController.m; sourceTree = "<group>"; };
+		76AED02719C8553E00B6D5F1 /* ChangePasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangePasswordViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -974,6 +983,9 @@
 				76A80ADB19C16D7B007410EB /* SignUpViewController.h */,
 				76A80ADC19C16D7B007410EB /* SignUpViewController.m */,
 				76A80ADD19C16D7B007410EB /* SignUpViewController.xib */,
+				76AED02519C8553E00B6D5F1 /* ChangePasswordViewController.h */,
+				76AED02619C8553E00B6D5F1 /* ChangePasswordViewController.m */,
+				76AED02719C8553E00B6D5F1 /* ChangePasswordViewController.xib */,
 				76A80ADE19C16D7B007410EB /* TestParams.h */,
 				76A80ADF19C16D7B007410EB /* WebViewViewController.h */,
 				76A80AE019C16D7B007410EB /* WebViewViewController.m */,
@@ -1131,6 +1143,7 @@
 				76A80B9B19C193C0007410EB /* amex@2x.png in Resources */,
 				76A80B9F19C193C0007410EB /* AXISlogo@2x.png in Resources */,
 				76A80B9919C193C0007410EB /* amex.png in Resources */,
+				76AED02B19C8553E00B6D5F1 /* ChangePasswordViewController.xib in Resources */,
 				76A80BA119C193C0007410EB /* discover.png in Resources */,
 				76A80B7519C16D7B007410EB /* SignInViewController.xib in Resources */,
 				76A80BA719C193C0007410EB /* maestro@2x.png in Resources */,
@@ -1171,6 +1184,7 @@
 				76A80BB019C193C0007410EB /* rupay@2x.png in Resources */,
 				76A80B7619C16D7B007410EB /* SignInViewController.xib in Resources */,
 				76A80BB419C193C0007410EB /* visa@2x.png in Resources */,
+				76AED02C19C8553E00B6D5F1 /* ChangePasswordViewController.xib in Resources */,
 				76A80BAC19C193C0007410EB /* mastercard@2x.png in Resources */,
 				76A80BB219C193C0007410EB /* visa.png in Resources */,
 				76A80BAE19C193C0007410EB /* rupay.png in Resources */,
@@ -1196,6 +1210,7 @@
 				76A80C1919C6C15E007410EB /* amex@2x.png in Resources */,
 				76A80C1A19C6C15E007410EB /* AXISlogo@2x.png in Resources */,
 				76A80C1B19C6C15E007410EB /* amex.png in Resources */,
+				76AED02D19C8553E00B6D5F1 /* ChangePasswordViewController.xib in Resources */,
 				76A80C1C19C6C15E007410EB /* discover.png in Resources */,
 				76A80C1D19C6C15E007410EB /* SignInViewController.xib in Resources */,
 				76A80C1E19C6C15E007410EB /* maestro@2x.png in Resources */,
@@ -1253,6 +1268,7 @@
 				76A80B7B19C16D7B007410EB /* WebViewViewController.m in Sources */,
 				76A80B2519C16D7B007410EB /* CTSProfilePrepaidRes.m in Sources */,
 				76A80B5D19C16D7B007410EB /* CardPayViewController.m in Sources */,
+				76AED02819C8553E00B6D5F1 /* ChangePasswordViewController.m in Sources */,
 				76A80B6519C16D7B007410EB /* NetBankingViewController.m in Sources */,
 				76A80B0719C16D7B007410EB /* CTSNetBankingUpdate.m in Sources */,
 				76A80B1D19C16D7B007410EB /* CTSPaymentTransactionRes.m in Sources */,
@@ -1341,6 +1357,7 @@
 				76A80B2019C16D7B007410EB /* CTSPgSettings.m in Sources */,
 				76A80AEE19C16D7B007410EB /* CTSAmount.m in Sources */,
 				76A80B4619C16D7B007410EB /* JSONModelArray.m in Sources */,
+				76AED02919C8553E00B6D5F1 /* ChangePasswordViewController.m in Sources */,
 				76A80B8719C182F5007410EB /* GuestPayViewController.m in Sources */,
 				76A80B0619C16D7B007410EB /* CTSElectronicCardUpdate.m in Sources */,
 				76A80B4019C16D7B007410EB /* CreditCard-Validator.m in Sources */,
@@ -1414,6 +1431,7 @@
 				76A80BDE19C6C15E007410EB /* WebViewViewController.m in Sources */,
 				76A80BDF19C6C15E007410EB /* CTSProfilePrepaidRes.m in Sources */,
 				76A80BE019C6C15E007410EB /* CardPayViewController.m in Sources */,
+				76AED02A19C8553E00B6D5F1 /* ChangePasswordViewController.m in Sources */,
 				76A80BE119C6C15E007410EB /* NetBankingViewController.m in Sources */,
 				76A80BE219C6C15E007410EB /* CTSNetBankingUpdate.m in Sources */,
 				76A80BE319C6C15E007410EB /* CTSPaymentTransactionRes.m in Sources */,

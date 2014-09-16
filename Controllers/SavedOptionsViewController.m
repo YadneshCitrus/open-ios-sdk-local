@@ -41,10 +41,9 @@
     profileLayer = [[CTSProfileLayer alloc] init];
     profileLayer.delegate = self;
 
-    
-    [self fetchPaymentInformation];
+    [self getUserRecords];
 
-//    [self getUserRecords];
+    [self fetchPaymentInformation];
 }
 
 -(void)getUserRecords
@@ -79,6 +78,49 @@
 }
 
 
+- (void)saveData:(CTSProfilePaymentRes*) paymentInfo{
+    // Doing something on the main thread
+    dispatch_queue_t myQueue = dispatch_queue_create("My Queue",NULL);
+    dispatch_async(myQueue, ^{
+        // Perform long running process
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        // Store the data
+        self.managedObjectContext = appDelegate.managedObjectContext;
+        
+        User * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"User"
+                                                        inManagedObjectContext:self.managedObjectContext];
+        
+        for (CTSPaymentOption* option in paymentInfo.paymentOptions) {
+            newEntry.username = option.name;
+            newEntry.paymentType = option.type;
+            newEntry.paymentOption = option.bank;
+            NSError *error;
+            if (![self.managedObjectContext save:&error]) {
+                NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+            }
+        }
+        
+        //
+        [self getUserRecords];
+
+
+//        //  2
+//        newEntry.username = paymentOptions.name;
+//        newEntry.paymentType = paymentOptions.type;
+//        newEntry.paymentOption = paymentOptions.bank;
+//        //  3
+//        NSError *error;
+//        if (![self.managedObjectContext save:&error]) {
+//            NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+//        }else{
+//            [self getUserRecords];
+//        }
+        //  4
+        [self.view endEditing:YES];
+    });
+}
+
+
 -(void)fetchPaymentInformation
 {
     [profileLayer requestPaymentInformationWithCompletionHandler:nil];
@@ -105,14 +147,16 @@ didReceivePaymentInformation:(CTSProfilePaymentRes*)paymentInfo
         LogTrace(@" paymentInfo.defaultOption %@", paymentInfo.defaultOption);
         
 //        for (CTSPaymentOption* option in paymentInfo.paymentOptions) {
-//            [option logProperties];
-//            paymentSavedResponse = paymentInfo;
+//            [self saveData:option];
 //        }
-        paymentSavedResponse = paymentInfo;
-        self.userdata = paymentInfo.paymentOptions;
-        if ([self.userdata count] > 0) {
-            [self.tableView reloadData];
-        }
+        
+        [self saveData:paymentInfo];
+
+//        paymentSavedResponse = paymentInfo;
+//        self.userdata = paymentInfo.paymentOptions;
+//        if ([self.userdata count] > 0) {
+//            [self.tableView reloadData];
+//        }
     } else {
         LogTrace(@"error received %@", error);
     }
@@ -158,9 +202,13 @@ didUpdatePaymentInfoError:(NSError*)error {
 //    cell.textLabel.text = user.paymentOption;
 //    cell.detailTextLabel.text = user.paymentType;
     
-    cell.textLabel.text = [[self.userdata objectAtIndex:indexPath.row] valueForKey:@"type"];
-//    cell.textLabel.text = [[self.userdata objectAtIndex:indexPath.row] valueForKey:@"bank"];
-    cell.detailTextLabel.text = [[self.userdata objectAtIndex:indexPath.row] valueForKey:@"name"];
+//    cell.textLabel.text = [[self.userdata objectAtIndex:indexPath.row] valueForKey:@"type"];
+////    cell.textLabel.text = [[self.userdata objectAtIndex:indexPath.row] valueForKey:@"bank"];
+//    cell.detailTextLabel.text = [[self.userdata objectAtIndex:indexPath.row] valueForKey:@"name"];
+    
+    User *paymentOption = [self.userdata objectAtIndex:indexPath.row];
+    cell.textLabel.text = paymentOption.username;
+    cell.detailTextLabel.text = paymentOption.paymentType;
     
     return cell;
 }

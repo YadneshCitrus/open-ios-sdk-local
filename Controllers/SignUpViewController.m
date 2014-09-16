@@ -74,7 +74,7 @@
     
     //
     CTSAlertView* alertView = [[CTSAlertView alloc] init];
-    [alertView createProgressionAlertWithMessage:@"Checking user" withActivity:YES];
+    [alertView didPresentLoadingAlertView:@"Checking user" withActivity:YES];
     
     
     if ([self.emailTextField.text length] != 0 && [self.mobileTextField.text length] != 0 && [self.passwordTextField.text length] != 0) {
@@ -89,11 +89,12 @@
                             if (isUserCitrusMember && error == nil) {
                                 dispatch_async(dispatch_get_main_queue(), ^{
                                     // Update the UI
-                                    [alertView hideCTSAlertView:YES];
+                                    [alertView dismissLoadingAlertView:YES];
                                     
                                     UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Information" message:@"Email Id is already registered as a citrus member. You can do Sign In directly." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
                                     [alertView show];
                                     
+#if !defined (TESTDATA_VERSION)
                                     if ([self.firstnameTextField text]) {
                                         self.firstnameTextField.text = @"";
                                     }
@@ -109,6 +110,8 @@
                                     if ([self.passwordTextField text]) {
                                         self.passwordTextField.text = @"";
                                     }
+#endif
+
                                 });
                             }else{
                                 //
@@ -125,7 +128,7 @@
                                                     dispatch_async(dispatch_get_main_queue(), ^{
                                                         
                                                         // Update the UI
-                                                        [alertView hideCTSAlertView:YES];
+                                                        [alertView dismissLoadingAlertView:YES];
                                                         
                                                         if (error == nil) {
                                                             PayViewController* payViewController = [[PayViewController alloc] initWithNibName:@"PayViewController" bundle:nil];
@@ -143,7 +146,7 @@
         
     }else{
         // Update the UI
-        [alertView hideCTSAlertView:YES];
+        [alertView dismissLoadingAlertView:YES];
         UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Information" message:@"Input field can't be blank!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alertView show];
     }

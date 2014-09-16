@@ -154,7 +154,7 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
     }
     
     //
-    [self.alertView createProgressionAlertWithMessage:@"Connecting..." withActivity:YES];
+    [self.alertView didPresentLoadingAlertView:@"Connecting..." withActivity:YES];
     
     if ([self.cardNumberTextField.text length] != 0 && [self.expiryDateTextField.text length] != 0 && [self.CVVNumberTextField.text length] != 0 && [self.cardHolderNameTextField.text length] != 0) {
         if ([self.payType isEqualToString:MEMBER_PAY_TYPE]) {
@@ -172,7 +172,7 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
         }
     }else{
         // Update the UI
-        [self.alertView hideCTSAlertView:YES];
+        [self.alertView dismissLoadingAlertView:YES];
         UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Information" message:@"Input field can't be blank!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alertView show];
     }
@@ -326,14 +326,14 @@ didMakeUserPayment:(CTSPaymentTransactionRes*)paymentInfo
     dispatch_async(dispatch_get_main_queue(), ^{
         // Update the UI
         if (hasSuccess) {
-            [self.alertView hideCTSAlertView:YES];
-            [self.alertView createProgressionAlertWithMessage:@"Connecting to the PG" withActivity:YES];
+            [self.alertView dismissLoadingAlertView:YES];
+            [self.alertView didPresentLoadingAlertView:@"Connecting to the PG" withActivity:YES];
             [self loadRedirectUrl:paymentInfo.redirectUrl];
             if ([self.payType isEqualToString:MEMBER_PAY_TYPE]) {
                 [self saveData];
             }
         }else{
-            [self.alertView hideCTSAlertView:YES];
+            [self.alertView dismissLoadingAlertView:YES];
             UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alertView show];
         }
@@ -357,14 +357,14 @@ didMakePaymentUsingGuestFlow:(CTSPaymentTransactionRes*)paymentInfo
     dispatch_async(dispatch_get_main_queue(), ^{
         // Update the UI
         if (hasSuccess) {
-            [self.alertView hideCTSAlertView:YES];
-            [self.alertView createProgressionAlertWithMessage:@"Connecting to the PG" withActivity:YES];
+            [self.alertView dismissLoadingAlertView:YES];
+            [self.alertView didPresentLoadingAlertView:@"Connecting to the PG" withActivity:YES];
             [self loadRedirectUrl:paymentInfo.redirectUrl];
             if ([self.payType isEqualToString:MEMBER_PAY_TYPE]) {
                 [self saveData];
             }
         }else{
-            [self.alertView hideCTSAlertView:YES];
+            [self.alertView dismissLoadingAlertView:YES];
             UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alertView show];
         }
@@ -412,7 +412,7 @@ didMakePaymentUsingGuestFlow:(CTSPaymentTransactionRes*)paymentInfo
 - (void)loadRedirectUrl:(NSString*)redirectURL {
     WebViewViewController* webViewViewController = [[WebViewViewController alloc] init];
     webViewViewController.redirectURL = redirectURL;
-    [self.alertView hideCTSAlertView:YES];
+    [self.alertView dismissLoadingAlertView:YES];
     [self.rootController.navigationController pushViewController:webViewViewController animated:YES];
 }
 
