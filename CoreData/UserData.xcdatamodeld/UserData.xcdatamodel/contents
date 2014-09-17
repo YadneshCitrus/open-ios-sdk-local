@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="CTSPaymentOption" syncable="YES">
+        <attribute name="bank" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cvv" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="expiryDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="impsRegisteredMobile" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mmid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="owner" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="scheme" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="token" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="User" syncable="YES">
         <attribute name="paymentOption" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="paymentType" optional="YES" attributeType="String" syncable="YES"/>
@@ -7,5 +21,6 @@
     </entity>
     <elements>
         <element name="User" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="CTSPaymentOption" positionX="-63" positionY="9" width="128" height="225"/>
     </elements>
 </model>

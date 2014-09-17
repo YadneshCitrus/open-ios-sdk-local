@@ -48,6 +48,11 @@
     [self requestResetPassword];
 }
 
+- (NSString*)getLastUser {
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    return [prefs valueForKey:LAST_USER];
+}
+
 
 -(void)requestResetPassword
 {
