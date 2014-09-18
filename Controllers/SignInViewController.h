@@ -10,18 +10,19 @@
 #import "CitrusSdk.h"
 #import "PayViewController.h"
 #import "AppDelegate.h"
+#import "CTSTextFieldValidator.h"
 
 @interface SignInViewController : UIViewController <CTSAuthenticationProtocol,
                                                     UIAlertViewDelegate,
                                                      SignOutDelegate>
 {
-    IBOutlet __weak UITextField *usernameTextField;
-    IBOutlet __weak UITextField *passwordTextField;
+    IBOutlet __weak CTSTextFieldValidator *usernameTextField;
+    IBOutlet __weak CTSTextFieldValidator *passwordTextField;
     
     CTSAuthLayer* authLayer;
 }
-@property(nonatomic,weak) IBOutlet UITextField *usernameTextField;
-@property(nonatomic,weak) IBOutlet UITextField *passwordTextField;
+@property(nonatomic,weak) IBOutlet CTSTextFieldValidator *usernameTextField;
+@property(nonatomic,weak) IBOutlet CTSTextFieldValidator *passwordTextField;
 
 /**
  *  sign in the user

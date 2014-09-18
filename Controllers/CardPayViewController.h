@@ -27,6 +27,8 @@
     UIViewController *rootController;
     NSString *cardType;
     NSString *payType;
+    NSString *schemeType;
+    NSString* mLastInput;
 }
 @property(nonatomic,weak) IBOutlet UITextField *cardNumberTextField;
 @property(nonatomic,weak) IBOutlet UITextField *expiryDateTextField;
@@ -39,6 +41,7 @@
 
 @property(nonatomic,strong) NSString *cardType;
 @property(nonatomic,strong) NSString *payType;
+@property(nonatomic, strong) NSString* mLastInput;
 
 /**
  *  called when user request to make payment as a user or guest
@@ -60,4 +63,6 @@
  *
  */
 -(void)setTestData;
+
+-(IBAction)textfieldTextchange:(id)sender;
 @end

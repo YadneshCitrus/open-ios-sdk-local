@@ -33,21 +33,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"Sign Up";
-    
-    
-    /**
-     *  TestData
-     *
-     *  use testdata for SDKSandboxTestData applicatin Target
-     */
-#if defined (TESTDATA_VERSION)
-    self.firstnameTextField.text = TEST_FIRST_NAME;
-    self.lastnameTextField.text = TEST_LAST_NAME;
-    self.emailTextField.text = TEST_EMAIL;
-    self.mobileTextField.text = TEST_MOBILE;
-    self.passwordTextField.text = TEST_PASSWORD;
-#endif
-
 
     [self initialize];
 }
@@ -94,7 +79,6 @@
                                     UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Information" message:@"Email Id is already registered as a citrus member. You can do Sign In directly." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
                                     [alertView show];
                                     
-#if !defined (TESTDATA_VERSION)
                                     if ([self.firstnameTextField text]) {
                                         self.firstnameTextField.text = @"";
                                     }
@@ -110,7 +94,6 @@
                                     if ([self.passwordTextField text]) {
                                         self.passwordTextField.text = @"";
                                     }
-#endif
 
                                 });
                             }else{

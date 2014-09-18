@@ -12,6 +12,10 @@
 #import "User.h"
 #import "ChangePasswordViewController.h"
 
+#define REGEX_EMAIL @"[A-Z0-9a-z._%+-]{3,}+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
+#define REGEX_PASSWORD_LIMIT @"^.{8,16}$"
+#define REGEX_PASSWORD @"[A-Za-z0-9]{8,16}"
+
 @interface SignInViewController ()
 
 @property(strong) PayViewController *payViewController;
@@ -54,8 +58,18 @@
     self.usernameTextField.text = username;
 #endif
 
+    [self setupTextFieldValidation];
+
     //
     [self initialize];
+}
+
+-(void)setupTextFieldValidation{
+    [self.usernameTextField addRegx:REGEX_EMAIL withMsg:@"Enter valid email."];
+    [self.passwordTextField addRegx:REGEX_PASSWORD withMsg:@"8 to 16 with at least one alphabet and one "
+     @"number. Special characters allowed - (! @ # $ % " @"^ & *)."];
+    [self.passwordTextField addRegx:REGEX_PASSWORD_LIMIT withMsg:@"8 to 16 with at least one alphabet and one "
+     @"number. Special characters allowed - (! @ # $ % " @"^ & *)." tag:2 location:16];
 }
 
 
@@ -80,7 +94,9 @@
     CTSAlertView* alertView = [[CTSAlertView alloc] init];
     [alertView didPresentLoadingAlertView:@"Checking user" withActivity:YES];
     
-    if ([self.usernameTextField.text length] != 0 && [self.passwordTextField.text length] != 0) {
+//    if ([self.usernameTextField.text length] != 0 && [self.passwordTextField.text length] != 0)
+    if([self.usernameTextField validate] & [self.passwordTextField validate])
+    {
         //
         [authLayer requestSigninWithUsername:self.usernameTextField.text
                                     password:self.passwordTextField.text
@@ -107,7 +123,7 @@
     }else{
         // Update the UI
         [alertView dismissLoadingAlertView:YES];
-        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Information" message:@"Input field can't be blank!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Information" message:@"Please enter valid input" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alertView show];
     }
 }
@@ -116,14 +132,31 @@
 
 -(IBAction)resetPasswordAction:(id)sender
 {
-    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Reset Password?" message:[NSString stringWithFormat:@"An email will be sent to %@",self.usernameTextField.text] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok",nil];
-    alertView.tag = 100;
-    [alertView show];
+    if ([self.usernameTextField isFirstResponder]) {
+        [self.usernameTextField resignFirstResponder];
+    }else if ([self.passwordTextField isFirstResponder]) {
+        [self.passwordTextField resignFirstResponder];
+    }
+
+    if ([self.usernameTextField.text length] != 0) {
+        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Reset Password?" message:[NSString stringWithFormat:@"An email will be sent to %@",self.usernameTextField.text] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok",nil];
+        alertView.tag = 100;
+        [alertView show];
+    }else{
+        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Information" message:@"Username field can't be blank!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alertView show];
+    }
 }
 
 
 -(IBAction)changePasswordAction:(id)sender
 {
+    if ([self.usernameTextField isFirstResponder]) {
+        [self.usernameTextField resignFirstResponder];
+    }else if ([self.passwordTextField isFirstResponder]) {
+        [self.passwordTextField resignFirstResponder];
+    }
+
     ChangePasswordViewController* changePasswordViewController = [[ChangePasswordViewController alloc] initWithNibName:@"ChangePasswordViewController" bundle:nil];
     [self.navigationController pushViewController:changePasswordViewController animated:YES];
 }
@@ -204,6 +237,16 @@
     return YES;
 }
 
+//- (BOOL)textField:(UITextField*)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString*)string
+//{
+//    // Expirydate sholud allow number only
+//    if (textField.tag == 2) {
+//        if (range.location == 16) {
+//            return NO;
+//        }
+//    }
+//    return YES;
+//}
 
 - (void)setLastUser {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];

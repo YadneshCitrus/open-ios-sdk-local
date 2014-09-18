@@ -131,7 +131,9 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
 
 -(void)fetchAvailableBanks
 {
-    // Doing something on the main thread
+    [selectBankButton setTitle:@"Select Bank      Loading" forState:UIControlStateNormal];
+    selectBankButton.enabled = NO;
+    [activityIndicatorView startAnimating];
     // Perform long running process
     self.pickerData = [[NSMutableArray alloc] init];
     
@@ -145,6 +147,10 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
                                   // Update the UI
                                   if (error == nil) {
                                       self.pickerData = pgSettings.netBanking;
+                                      [activityIndicatorView stopAnimating];
+                                      activityIndicatorView.hidden = YES;
+                                      [selectBankButton setTitle:@"Select Bank" forState:UIControlStateNormal];
+                                      selectBankButton.enabled = YES;
                                   }
                               });
                           }];
@@ -153,7 +159,9 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
 
 -(IBAction)selectBankAction:(id)senderx
 {
-    [self addPickerView];
+    if ([self.pickerData count] > 0) {
+        [self addPickerView];
+    }
 }
 
 //

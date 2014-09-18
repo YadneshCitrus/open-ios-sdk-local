@@ -15,14 +15,21 @@
 #import "AppDelegate.h"
 #import "User.h"
 
+#define CHARACTERS          @" ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+
+
 @interface CardPayViewController ()
 @property (nonatomic, strong)  CTSAlertView* alertView;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @end
 
 @implementation CardPayViewController
-@synthesize cardNumberTextField, expiryDateTextField, CVVNumberTextField, cardHolderNameTextField, cardSchemeImage;
-@synthesize cardType, rootController, payType;
+@synthesize cardNumberTextField, expiryDateTextField, CVVNumberTextField, cardHolderNameTextField;
+@synthesize cardSchemeImage;
+@synthesize cardType, rootController, payType, mLastInput;
+static NSInteger previouslength = 0;
+static NSInteger creditPreviouslength = 0;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,8 +45,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    [self.expiryDateTextField addTarget:self
+                                     action:@selector(textfieldTextchange:)
+                           forControlEvents:UIControlEventEditingChanged];
+
     [self initialize];
 }
+
+
 
 -(void)setTestData
 {
@@ -51,7 +64,7 @@
 #if defined (TESTDATA_VERSION)
     if ([self.cardType isEqualToString:DEBIT_CARD_TYPE]) {
         self.cardNumberTextField.text = TEST_DEBIT_CARD_NUMBER;
-        self.expiryDateTextField.text = TEST_DEBIT_EXPIRY_DATE;
+        self.expiryDateTextField.text = TEST_DEBIT_CARD_EXPIRY;
         self.CVVNumberTextField.text = TEST_DEBIT_CVV;
         self.cardHolderNameTextField.text = TEST_OWNER_NAME;
     }if ([self.cardType isEqualToString:CREDIT_CARD_TYPE]) {
@@ -424,37 +437,357 @@ didMakePaymentUsingGuestFlow:(CTSPaymentTransactionRes*)paymentInfo
     return YES;
 }
 
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;   // return NO to not change text
-{
-    if ([self.cardNumberTextField isEqual:textField]) {
-        NSString* cardScheme = [CTSUtility fetchCardSchemeForCardNumber:textField.text];
-        if ([cardScheme isEqualToString:AMEX]) {
-            //return @"AMEX";
-            self.cardSchemeImage.image = [UIImage imageNamed:@"amex.png"];
-        } else if ([cardScheme isEqualToString:DISCOVER]) {
-            //return @"DISCOVER";
-            self.cardSchemeImage.image = [UIImage imageNamed:@"discover"];
-        } else if ([cardScheme isEqualToString:JCB]) {
-            //return @"JCB";
-            self.cardSchemeImage.image = [UIImage imageNamed:nil];
-        } else if ([cardScheme isEqualToString:DINERCLUB]) {
-            //return @"DINERCLUB";
-            self.cardSchemeImage.image = [UIImage imageNamed:nil];
-        } else if ([cardScheme isEqualToString:VISA]) {
-            //return @"VISA";
-            self.cardSchemeImage.image = [UIImage imageNamed:@"visa.png"];
-        } else if ([cardScheme isEqualToString:MAESTRO]) {
-            //return @"MAESTRO";
-            self.cardSchemeImage.image = [UIImage imageNamed:@"maestro.png"];
-        } else if ([cardScheme isEqualToString:MASTER]) {
-            //return @"MASTER";
-            self.cardSchemeImage.image = [UIImage imageNamed:@"mastercard.png"];
-        }else{
-            //return @"UNKNOWN";
-            self.cardSchemeImage.image = [UIImage imageNamed:nil];
+
+- (BOOL)hasPrefixArray:(NSArray*)array cardNumber:(NSString*)cardNumber {
+    NSLog(@"cardNumber:%@", cardNumber);
+    BOOL hasPrefix;
+    
+    for (int i = 0; i < [array count]; i++) {
+        NSLog(@"array value:%@", [array objectAtIndex:i]);
+        if ([cardNumber hasPrefix:[array objectAtIndex:i]]) {
+            hasPrefix = YES;
+            return hasPrefix;
+        }
+    }
+    return NO;
+}
+
+- (NSString*)getScheme:(NSString*)cardNumber {
+    NSString* testCardNumber;
+    if ([cardNumber rangeOfString:@"-"].location != NSNotFound) {
+        testCardNumber =
+        [cardNumber stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    } else {
+        testCardNumber = cardNumber;
+    }
+    if ([self hasPrefixArray:amex cardNumber:testCardNumber]) {
+        return @"AMEX";
+    } else if ([self hasPrefixArray:discover cardNumber:testCardNumber]) {
+        return @"DISCOVER";
+    } else if ([self hasPrefixArray:JCB cardNumber:testCardNumber]) {
+        return @"JCB";
+    } else if ([self hasPrefixArray:DinerClub cardNumber:testCardNumber]) {
+        return @"DINERCLUB";
+    } else if ([self hasPrefixArray:VISA cardNumber:testCardNumber]) {
+        return @"VISA";
+    } else if ([self hasPrefixArray:MAESTRO cardNumber:testCardNumber]) {
+        return @"MAESTRO";
+    } else if ([self hasPrefixArray:MASTER cardNumber:testCardNumber]) {
+        return @"MASTER";
+    }
+    return @"UNKNOWN";
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField*)textField {
+    // Card scheme validation
+    if (textField.tag == 1) {
+        NSString* scheme = [self getScheme:textField.text];
+        schemeType = [self getScheme:textField.text];
+        if ([scheme caseInsensitiveCompare:@"amex"] == NSOrderedSame) {
+            UIImageView* rightImageView =
+            [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"amex.png"]];
+            self.cardNumberTextField.rightView = rightImageView;
+        } else if ([scheme caseInsensitiveCompare:@"discover"] == NSOrderedSame) {
+            UIImageView* rightImageView = [[UIImageView alloc]
+                                           initWithImage:[UIImage imageNamed:@"discover.png"]];
+            self.cardNumberTextField.rightView = rightImageView;
+            
+        } else if ([scheme caseInsensitiveCompare:@"maestro"] == NSOrderedSame) {
+            UIImageView* rightImageView = [[UIImageView alloc]
+                                           initWithImage:[UIImage imageNamed:@"discover.png"]];
+            self.cardNumberTextField.rightView = rightImageView;
+        } else if ([scheme caseInsensitiveCompare:@"master"] == NSOrderedSame) {
+            UIImageView* rightImageView = [[UIImageView alloc]
+                                           initWithImage:[UIImage imageNamed:@"mastercard.png"]];
+            self.cardNumberTextField.rightView = rightImageView;
+        } else if ([scheme caseInsensitiveCompare:@"rupay"] == NSOrderedSame) {
+            UIImageView* rightImageView =
+            [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rupay.png"]];
+            self.cardNumberTextField.rightView = rightImageView;
+        } else if ([scheme caseInsensitiveCompare:@"visa"] == NSOrderedSame) {
+            UIImageView* rightImageView =
+            [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"visa.png"]];
+            self.cardNumberTextField.rightView = rightImageView;
         }
     }
     return YES;
+}
+
+
+- (BOOL)textField:(UITextField*)textField
+shouldChangeCharactersInRange:(NSRange)range
+replacementString:(NSString*)string {
+    
+    // CVV validation
+    // if amex allow 4 digits, if non amex only 3 should allowed.
+    if (textField.tag == 3) {
+        NSInteger textfieldLength = textField.text.length - range.length + string.length;
+        NSCharacterSet* myCharSet =
+        [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
+        for (int i = 0; i < [string length]; i++) {
+            unichar c = [string characterAtIndex:i];
+            if ([myCharSet characterIsMember:c]) {
+                if ([schemeType caseInsensitiveCompare:@"amex"] == NSOrderedSame) {
+                    if (textfieldLength > 4) {
+                        return NO;
+                    } else {
+                        return YES;
+                    }
+                } else if ([schemeType caseInsensitiveCompare:@"amex"] !=
+                           NSOrderedSame) {
+                    if (textfieldLength > 3) {
+                        return NO;
+                    } else {
+                        return YES;
+                    }
+                }
+                
+            } else {
+                return NO;
+            }
+        }
+    }
+    
+    // CVV sholud allow number only
+    if (textField.tag == 3) {
+        NSInteger textfieldLength = textField.text.length - range.length + string.length;
+        NSCharacterSet* myCharSet =
+        [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
+        for (int i = 0; i < [string length]; i++) {
+            unichar c = [string characterAtIndex:i];
+            if ([myCharSet characterIsMember:c]) {
+                if (textfieldLength > 4) {
+                    return NO;
+                } else {
+                    return YES;
+                }
+            } else {
+                return NO;
+            }
+        }
+    }
+    
+    // Cardnumber
+    // at the max 16 digits (editing should be blocked after that)
+    // card scheme should be shown at runtime(while user is enter the numbers)
+    if (textField.tag == 1) {
+        if (string.length == 0 && textField.text.length == 1) {
+            textField.rightView = nil;
+        } else {
+            NSString* scheme = [self getScheme:textField.text];
+            if ([scheme caseInsensitiveCompare:@"amex"] == NSOrderedSame) {
+                UIImageView* rightImageView = [[UIImageView alloc]
+                                               initWithImage:[UIImage imageNamed:@"amex.png"]];
+                textField.rightView = rightImageView;
+            } else if ([scheme caseInsensitiveCompare:@"discover"] == NSOrderedSame) {
+                UIImageView* rightImageView = [[UIImageView alloc]
+                                               initWithImage:[UIImage imageNamed:@"discover.png"]];
+                textField.rightView = rightImageView;
+                
+            } else if ([scheme caseInsensitiveCompare:@"maestro"] == NSOrderedSame) {
+                UIImageView* rightImageView = [[UIImageView alloc]
+                                               initWithImage:[UIImage imageNamed:@"maestro.png"]];
+                textField.rightView = rightImageView;
+            } else if ([scheme caseInsensitiveCompare:@"master"] == NSOrderedSame) {
+                UIImageView* rightImageView = [[UIImageView alloc]
+                                               initWithImage:[UIImage imageNamed:@"mastercard.png"]];
+                textField.rightView = rightImageView;
+            } else if ([scheme caseInsensitiveCompare:@"rupay"] == NSOrderedSame) {
+                UIImageView* rightImageView = [[UIImageView alloc]
+                                               initWithImage:[UIImage imageNamed:@"rupay.png"]];
+                textField.rightView = rightImageView;
+            } else if ([scheme caseInsensitiveCompare:@"visa"] == NSOrderedSame) {
+                UIImageView* rightImageView = [[UIImageView alloc]
+                                               initWithImage:[UIImage imageNamed:@"visa.png"]];
+                textField.rightView = rightImageView;
+            }
+        }
+        
+        // All digits entered
+        if (range.location == 19) {
+            return NO;
+        }
+        
+        // Reject appending non-digit characters
+        if (range.length == 0 &&
+            ![[NSCharacterSet decimalDigitCharacterSet]
+              characterIsMember:[string characterAtIndex:0]]) {
+                return NO;
+            }
+        
+        // Auto-add hyphen before appending 4rd or 7th digit
+        if (range.length == 0 &&
+            (range.location == 4 || range.location == 9 || range.location == 14)) {
+            textField.text =
+            [NSString stringWithFormat:@"%@-%@", textField.text, string];
+            return NO;
+        }
+        
+        // Delete hyphen when deleting its trailing digit
+        if (range.length == 1 &&
+            (range.location == 5 || range.location == 10 || range.location == 15)) {
+            range.location--;
+            range.length = 2;
+            textField.text = [textField.text stringByReplacingCharactersInRange:range
+                                                                     withString:@""];
+            return NO;
+        }
+    }
+    
+    // Expirydate sholud allow number only
+    if (textField.tag == 2) {
+        if (range.location == 5) {
+            return NO;
+        }
+        NSCharacterSet* myCharSet =
+        [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
+        for (int i = 0; i < [string length]; i++) {
+            unichar c = [string characterAtIndex:i];
+            if ([myCharSet characterIsMember:c]) {
+                return YES;
+            } else {
+                return NO;
+            }
+        }
+    }
+    
+    // Card holder name sholud allow character only
+    if (textField.tag == 4) {
+        NSCharacterSet* myCharSet =
+        [NSCharacterSet characterSetWithCharactersInString:CHARACTERS];
+        for (int i = 0; i < [string length]; i++) {
+            unichar c = [string characterAtIndex:i];
+            if ([myCharSet characterIsMember:c]) {
+                return YES;
+            } else {
+                return NO;
+            }
+        }
+    }
+    return YES;
+}
+
+
+-(IBAction)textfieldTextchange:(id)sender;
+{
+    // Expirydate for DEBIT_CARD_TYPE
+    NSInteger textfieldval = [sender tag];
+    if (textfieldval == 2 && [self.cardType isEqualToString:DEBIT_CARD_TYPE]) {
+        if (self.expiryDateTextField.text.length < previouslength) {
+            previouslength--;
+        } else {
+            NSString* input = self.expiryDateTextField.text;
+            NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"MM/yy"];
+            
+            if (self.expiryDateTextField.text.length == 2 &&
+                ![mLastInput rangeOfString:@"/"].location != NSNotFound) {
+                int month = [input intValue];
+                if (month <= 12) {
+                    self.expiryDateTextField.text =
+                    [NSString stringWithFormat:@"%@/", self.expiryDateTextField.text];
+                    previouslength = self.expiryDateTextField.text.length;
+                } else {
+                    self.expiryDateTextField.text = @"";
+                    previouslength = self.expiryDateTextField.text.length;
+                    
+                    UIAlertView* alert =
+                    [[UIAlertView alloc] initWithTitle:@"Citrus Cash"
+                                               message:@"Enter a valid month"
+                                              delegate:nil
+                                     cancelButtonTitle:@"Ok"
+                                     otherButtonTitles:nil];
+                    [alert show];
+                }
+            } else if (self.expiryDateTextField.text.length == 2 &&
+                       [mLastInput rangeOfString:@"/"].location != NSNotFound) {
+                int month = [self.expiryDateTextField.text intValue];
+                if (month <= 12) {
+                    self.expiryDateTextField.text = [self.expiryDateTextField.text
+                                                    substringWithRange:NSMakeRange(0, 1)];
+                    previouslength = self.expiryDateTextField.text.length;
+                    
+                } else {
+                    self.expiryDateTextField.text = @"";
+                    UIAlertView* alert =
+                    [[UIAlertView alloc] initWithTitle:@"Citrus Cash"
+                                               message:@"Enter a valid month"
+                                              delegate:nil
+                                     cancelButtonTitle:@"Ok"
+                                     otherButtonTitles:nil];
+                    [alert show];
+                }
+            } else if (self.expiryDateTextField.text.length == 1) {
+                int month = [self.expiryDateTextField.text intValue];
+                if (month > 1) {
+                    self.expiryDateTextField.text =
+                    [NSString stringWithFormat:@"0%@/", self.expiryDateTextField.text];
+                    previouslength = self.expiryDateTextField.text.length;
+                }
+            } else {
+                mLastInput = self.expiryDateTextField.text;
+                return;
+            }
+        }
+    }
+    // Expirydate for CREDIT_CARD_TYPE
+    if (textfieldval == 2 && [self.cardType isEqualToString:CREDIT_CARD_TYPE]) {
+        if (self.expiryDateTextField.text.length < creditPreviouslength) {
+            creditPreviouslength--;
+        } else {
+            NSString* input = self.expiryDateTextField.text;
+            NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"MM/yy"];
+            if (self.expiryDateTextField.text.length == 2 &&
+                ![mLastInput rangeOfString:@"/"].location != NSNotFound) {
+                int month = [input intValue];
+                if (month <= 12) {
+                    self.expiryDateTextField.text =
+                    [NSString stringWithFormat:@"%@/", self.expiryDateTextField.text];
+                    creditPreviouslength = self.expiryDateTextField.text.length;
+                } else {
+                    self.expiryDateTextField.text = @"";
+                    creditPreviouslength = self.expiryDateTextField.text.length;
+                    
+                    UIAlertView* alert =
+                    [[UIAlertView alloc] initWithTitle:@"Citrus Cash"
+                                               message:@"Enter a valid month"
+                                              delegate:nil
+                                     cancelButtonTitle:@"Ok"
+                                     otherButtonTitles:nil];
+                    [alert show];
+                }
+            } else if (self.expiryDateTextField.text.length == 2 &&
+                       [mLastInput rangeOfString:@"/"].location != NSNotFound) {
+                int month = [self.expiryDateTextField.text intValue];
+                if (month <= 12) {
+                    self.expiryDateTextField.text = [self.expiryDateTextField.text
+                                                   substringWithRange:NSMakeRange(0, 1)];
+                    creditPreviouslength = self.expiryDateTextField.text.length;
+                    
+                } else {
+                    self.expiryDateTextField.text = @"";
+                    UIAlertView* alert =
+                    [[UIAlertView alloc] initWithTitle:@"Citrus Cash"
+                                               message:@"Enter a valid month"
+                                              delegate:nil
+                                     cancelButtonTitle:@"Ok"
+                                     otherButtonTitles:nil];
+                    [alert show];
+                }
+            } else if (self.expiryDateTextField.text.length == 1) {
+                int month = [self.expiryDateTextField.text intValue];
+                if (month > 1) {
+                    self.expiryDateTextField.text =
+                    [NSString stringWithFormat:@"0%@/", self.expiryDateTextField.text];
+                    creditPreviouslength = self.expiryDateTextField.text.length;
+                }
+            } else {
+                mLastInput = self.expiryDateTextField.text;
+                return;
+            }
+        }
+    }
 }
 
 - (void)dismissTextField

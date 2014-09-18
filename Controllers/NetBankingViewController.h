@@ -21,6 +21,7 @@
     CTSProfileContactRes* contactSavedResponse;
     
     IBOutlet __weak UIButton *selectBankButton;
+    IBOutlet __weak UIActivityIndicatorView *activityIndicatorView;
     UIViewController *rootController;
     NSString *payType;
     NSString *issuerCode;
