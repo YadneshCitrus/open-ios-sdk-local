@@ -14,7 +14,7 @@
 
 #define REGEX_EMAIL @"[A-Z0-9a-z._%+-]{3,}+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
 #define REGEX_PASSWORD_LIMIT @"^.{8,16}$"
-#define REGEX_PASSWORD @"[A-Za-z0-9]{8,16}"
+#define REGEX_PASSWORD @"[A-Za-z0-9!@#$%"@"^&*]{8,16}"
 
 @interface SignInViewController ()
 
@@ -94,7 +94,6 @@
     CTSAlertView* alertView = [[CTSAlertView alloc] init];
     [alertView didPresentLoadingAlertView:@"Checking user" withActivity:YES];
     
-//    if ([self.usernameTextField.text length] != 0 && [self.passwordTextField.text length] != 0)
     if([self.usernameTextField validate] & [self.passwordTextField validate])
     {
         //
@@ -237,16 +236,6 @@
     return YES;
 }
 
-//- (BOOL)textField:(UITextField*)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString*)string
-//{
-//    // Expirydate sholud allow number only
-//    if (textField.tag == 2) {
-//        if (range.location == 16) {
-//            return NO;
-//        }
-//    }
-//    return YES;
-//}
 
 - (void)setLastUser {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];

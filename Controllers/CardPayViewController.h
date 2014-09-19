@@ -8,14 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "CitrusSdk.h"
+#import "CTSTextFieldValidator.h"
 
 @interface CardPayViewController : UIViewController <CTSPaymentProtocol, CTSProfileProtocol,
                                                         UIWebViewDelegate>
 {
-    IBOutlet __weak UITextField *cardNumberTextField;
-    IBOutlet __weak UITextField *expiryDateTextField;
-    IBOutlet __weak UITextField *CVVNumberTextField;
-    IBOutlet __weak UITextField *cardHolderNameTextField;
+    IBOutlet __weak CTSTextFieldValidator *cardNumberTextField;
+    IBOutlet __weak CTSTextFieldValidator *expiryDateTextField;
+    IBOutlet __weak CTSTextFieldValidator *CVVNumberTextField;
+    IBOutlet __weak CTSTextFieldValidator *cardHolderNameTextField;
     IBOutlet __weak UIImageView *cardSchemeImage;
 
     CTSPaymentLayer* paymentlayerinfo;
@@ -27,13 +28,12 @@
     UIViewController *rootController;
     NSString *cardType;
     NSString *payType;
-    NSString *schemeType;
     NSString* mLastInput;
 }
-@property(nonatomic,weak) IBOutlet UITextField *cardNumberTextField;
-@property(nonatomic,weak) IBOutlet UITextField *expiryDateTextField;
-@property(nonatomic,weak) IBOutlet UITextField *CVVNumberTextField;
-@property(nonatomic,weak) IBOutlet UITextField *cardHolderNameTextField;
+@property(nonatomic,weak) IBOutlet CTSTextFieldValidator *cardNumberTextField;
+@property(nonatomic,weak) IBOutlet CTSTextFieldValidator *expiryDateTextField;
+@property(nonatomic,weak) IBOutlet CTSTextFieldValidator *CVVNumberTextField;
+@property(nonatomic,weak) IBOutlet CTSTextFieldValidator *cardHolderNameTextField;
 
 @property(nonatomic,weak) IBOutlet UIImageView *cardSchemeImage;
 

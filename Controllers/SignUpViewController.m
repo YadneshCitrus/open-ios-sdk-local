@@ -11,13 +11,20 @@
 #import "CTSAlertView.h"
 #import "TestParams.h"
 
+#define REGEX_USER_NAME_LIMIT @"^.{3,10}$"
+#define REGEX_USER_NAME @"[A-Za-z0-9]{3,10}"
+#define REGEX_EMAIL @"[A-Z0-9a-z._%+-]{3,}+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
+#define REGEX_PASSWORD_LIMIT @"^.{8,16}$"
+#define REGEX_PASSWORD @"[A-Za-z0-9!@#$%"@"^&*]{8,16}"
+#define REGEX_PHONE_DEFAULT @"[0-9]{3}\\-[0-9]{3}\\-[0-9]{4}"
+#define REGEX_PHONE_DEFAULT_LIMIT @"^.{12,12}$"
 
 @interface SignUpViewController ()
 
 @end
 
 @implementation SignUpViewController
-@synthesize emailTextField, mobileTextField, passwordTextField, firstnameTextField, lastnameTextField;
+@synthesize firstnameTextField, lastnameTextField, emailTextField, mobileTextField, passwordTextField, confrimPasswordTextField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,9 +41,32 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"Sign Up";
 
+    [self setupTextFieldValidation];
+
     [self initialize];
 }
 
+
+-(void)setupTextFieldValidation{
+    [self.firstnameTextField addRegx:REGEX_USER_NAME_LIMIT withMsg:@"User name charaters limit should be come between 3-10" tag:1 location:10];
+    [self.firstnameTextField addRegx:REGEX_USER_NAME withMsg:@"Only alpha numeric characters are allowed."];
+    self.firstnameTextField.isMandatory = NO;
+    
+    [self.lastnameTextField addRegx:REGEX_USER_NAME_LIMIT withMsg:@"User name charaters limit should be come between 3-10" tag:2 location:10];
+    [self.lastnameTextField addRegx:REGEX_USER_NAME withMsg:@"Only alpha numeric characters are allowed."];
+    self.lastnameTextField.isMandatory = NO;
+    
+    [self.emailTextField addRegx:REGEX_EMAIL withMsg:@"Enter valid email."];
+    
+    [self.mobileTextField addRegx:REGEX_PHONE_DEFAULT withMsg:@"Phone number must be in proper format (eg. ###-###-####)"];
+    [self.mobileTextField addRegx:REGEX_PHONE_DEFAULT_LIMIT withMsg:@"Phone number charaters limit should be come 10" tag:4 location:12 type:MOBILE_TYPE];
+
+    [self.passwordTextField addRegx:REGEX_PASSWORD withMsg:@"Password must contain alpha numeric characters."];
+    [self.passwordTextField addRegx:REGEX_PASSWORD_LIMIT withMsg:@"8 to 16 with at least one alphabet and one "
+     @"number. Special characters allowed - (! @ # $ % " @"^ & *)." tag:5 location:16];
+    
+    [self.confrimPasswordTextField addConfirmValidationTo:self.passwordTextField withMsg:@"Confirm password didn't match."];
+}
 
 //
 - (void)initialize {
@@ -49,7 +79,11 @@
 
 -(IBAction)signUpAction:(id)sender
 {
-    if ([self.emailTextField isFirstResponder]) {
+    if ([self.firstnameTextField isFirstResponder]) {
+        [self.firstnameTextField resignFirstResponder];
+    }else if ([self.lastnameTextField isFirstResponder]) {
+        [self.lastnameTextField resignFirstResponder];
+    }else if ([self.emailTextField isFirstResponder]) {
         [self.emailTextField resignFirstResponder];
     }else if ([self.mobileTextField isFirstResponder]) {
         [self.mobileTextField resignFirstResponder];
@@ -62,7 +96,8 @@
     [alertView didPresentLoadingAlertView:@"Checking user" withActivity:YES];
     
     
-    if ([self.emailTextField.text length] != 0 && [self.mobileTextField.text length] != 0 && [self.passwordTextField.text length] != 0) {
+    if([self.firstnameTextField validate] & [self.lastnameTextField validate] & [self.emailTextField validate] & [self.mobileTextField validate] & [self.passwordTextField validate])
+    {
         //
         [authLayer requestIsUserCitrusMemberUsername:self.emailTextField.text
                         completionHandler:^(BOOL isUserCitrusMember,
@@ -130,7 +165,7 @@
     }else{
         // Update the UI
         [alertView dismissLoadingAlertView:YES];
-        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Information" message:@"Input field can't be blank!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Information" message:@"Please enter valid input" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alertView show];
     }
 }

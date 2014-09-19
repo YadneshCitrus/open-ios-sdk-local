@@ -88,8 +88,8 @@
     self.cardPayViewController.cardType = DEBIT_CARD_TYPE;
     self.cardPayViewController.payType = self.payType;
     self.cardPayViewController.rootController = self;
-    [self.view addSubview:self.cardPayViewController.view];
     [self.cardPayViewController setTestData];
+    [self.view addSubview:self.cardPayViewController.view];
 }
 
 -(IBAction)creditCardAction:(id)sender
@@ -113,8 +113,8 @@
     self.cardPayViewController.cardType = CREDIT_CARD_TYPE;
     self.cardPayViewController.payType = self.payType;
     self.cardPayViewController.rootController = self;
-    [self.view addSubview:self.cardPayViewController.view];
     [self.cardPayViewController setTestData];
+    [self.view addSubview:self.cardPayViewController.view];
 }
 
 
