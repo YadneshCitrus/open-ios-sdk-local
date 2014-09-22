@@ -12,6 +12,8 @@
 {
     NSString* redirectURL;
     UIActivityIndicatorView* indicator;
+    NSString *cardType;
 }
 @property(nonatomic,strong) NSString *redirectURL;
+@property(nonatomic,strong) NSString *cardType;
 @end

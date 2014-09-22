@@ -9,6 +9,7 @@
 #import "WebViewViewController.h"
 #import "MerchantConstants.h"
 #import "CitrusSdk.h"
+#import "TestParams.h"
 
 @interface WebViewViewController ()
 
@@ -17,7 +18,7 @@
 @end
 
 @implementation WebViewViewController
-@synthesize redirectURL;
+@synthesize redirectURL, cardType;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,6 +34,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    self.title = @"3D Secure";
+    
+    if ([self.cardType isEqualToString:DEBIT_CARD_TYPE] || [self.cardType isEqualToString:CREDIT_CARD_TYPE]) {
+        self.navigationItem.hidesBackButton = YES;
+    }
+
     self.webview = [[UIWebView alloc] init];
     self.webview.delegate = self;
     self.webview.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);

@@ -153,7 +153,7 @@
                                                             [self.navigationController pushViewController:payViewController animated:YES];
                                                             [self updateContactInformation];
                                                         }else{
-                                                            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                                                            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[error.userInfo valueForKey:@"NSLocalizedDescription"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
                                                             [alertView show];
                                                         }
                                                     });

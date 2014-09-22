@@ -365,7 +365,7 @@ didMakeUserPayment:(CTSPaymentTransactionRes*)paymentInfo
             [self loadRedirectUrl:paymentInfo.redirectUrl];
         }else{
             [self.alertView dismissLoadingAlertView:YES];
-            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[error.userInfo valueForKey:@"NSLocalizedDescription"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alertView show];
         }
     });
@@ -393,7 +393,7 @@ didMakePaymentUsingGuestFlow:(CTSPaymentTransactionRes*)paymentInfo
             [self loadRedirectUrl:paymentInfo.redirectUrl];
         }else{
             [self.alertView dismissLoadingAlertView:YES];
-            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[error.userInfo valueForKey:@"NSLocalizedDescription"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alertView show];
         }
     });
@@ -418,7 +418,7 @@ didMakeTokenizedPayment:(CTSPaymentTransactionRes*)paymentInfo
             [self loadRedirectUrl:paymentInfo.redirectUrl];
         }else{
             [self.alertView dismissLoadingAlertView:YES];
-            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[error.userInfo valueForKey:@"NSLocalizedDescription"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alertView show];
         }
     });
@@ -430,6 +430,7 @@ didMakeTokenizedPayment:(CTSPaymentTransactionRes*)paymentInfo
 - (void)loadRedirectUrl:(NSString*)redirectURL {
     WebViewViewController* webViewViewController = [[WebViewViewController alloc] init];
     webViewViewController.redirectURL = redirectURL;
+    webViewViewController.cardType = self.cardType;
     [self.alertView dismissLoadingAlertView:YES];
     [self.rootController.navigationController pushViewController:webViewViewController animated:YES];
 }

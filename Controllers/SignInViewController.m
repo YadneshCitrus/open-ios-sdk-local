@@ -114,7 +114,7 @@
                                        [self.navigationController pushViewController:self.payViewController animated:YES];
                                        [self setLastUser];
                                    }else{
-                                       UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                                       UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[error.userInfo valueForKey:@"NSLocalizedDescription"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
                                        [alertView show];
                                    }
                                 });
@@ -202,7 +202,7 @@
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         // Store the data
         self.managedObjectContext = appDelegate.managedObjectContext;
-        [self deleteAllObjects:@"User"];
+        [self deleteAllObjects:@"CTSPaymentOption"];
     }
 }
 

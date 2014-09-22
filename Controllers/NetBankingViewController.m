@@ -209,15 +209,6 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
     //
     [self.alertView didPresentLoadingAlertView:@"Connecting..." withActivity:YES];
     
-    /**
-     *  TestData
-     *
-     *  use testdata for SDKSandboxTestData applicatin Target
-     */
-#if defined (TESTDATA_VERSION)
-    self.selectedbank = TEST_NETBAK_NAME;
-#endif
-
     if ([self.selectedbank length] != 0) {
         if ([self.payType isEqualToString:MEMBER_PAY_TYPE]) {
             [self doUserNetbankingPayment];
@@ -238,19 +229,8 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
     //
     CTSNetBankingUpdate* netbank = [[CTSNetBankingUpdate alloc] init];
     
-    /**
-     *  TestData
-     *
-     *  use testdata for SDKSandboxTestData applicatin Target
-     */
-#if defined (TESTDATA_VERSION)
-    netbank.code = TEST_NETBAK_CODE;
-    netbank.bank = TEST_NETBAK_NAME;
-#else
     netbank.code = self.issuerCode;
     netbank.bank = self.selectedbank;
-#endif
-
     
     [netBankingPaymentInfo addNetBanking:netbank];
     
@@ -283,7 +263,7 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
                  [self.rootController.navigationController pushViewController:webViewViewController animated:YES];
              }else{
                  [self.alertView dismissLoadingAlertView:YES];
-                 UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                 UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[error.userInfo valueForKey:@"NSLocalizedDescription"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
                  [alertView show];
              }
          });
@@ -339,7 +319,7 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
                                           [self.rootController.navigationController pushViewController:webViewViewController animated:YES];
                                       }else{
                                           [self.alertView dismissLoadingAlertView:YES];
-                                          UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                                          UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[error.userInfo valueForKey:@"NSLocalizedDescription"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
                                           [alertView show];
                                       }
                                   });
