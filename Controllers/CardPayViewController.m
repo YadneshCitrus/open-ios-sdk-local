@@ -23,12 +23,12 @@
 
 #define REGEX_CVV @"^[0-9]*$"
 
-#define REGEX_CARDHOLDER_NAME @"[A-Za-z]"
+#define REGEX_CARDHOLDER_NAME @"[A-Za-z ]{3,20}"
+#define REGEX_CARDHOLDER_NAME_LIMIT @"^.{3,20}$"
 
 
 @interface CardPayViewController ()
 @property (nonatomic, strong)  CTSAlertView* alertView;
-@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @end
 
 @implementation CardPayViewController
@@ -69,7 +69,8 @@ static NSInteger creditPreviouslength = 0;
 
     [self.CVVNumberTextField addRegx:REGEX_CVV withMsg:@"Enter valid CVV." tag:0 location:0 type:CVV_TYPE];
 
-    [self.cardHolderNameTextField addRegx:REGEX_CARDHOLDER_NAME withMsg:@"Only alpha characters are allowed." tag:0 location:0 type:ALPHABETICAL_TYPE];
+    [self.cardHolderNameTextField addRegx:REGEX_CARDHOLDER_NAME_LIMIT withMsg:@"Card HolderName charaters limit should be come between 3-20"];
+    [self.cardHolderNameTextField addRegx:REGEX_CARDHOLDER_NAME withMsg:@"Only alpha characters are allowed." tag:4 location:20 type:ALPHABETICAL_TYPE];
 }
 
 
@@ -362,9 +363,6 @@ didMakeUserPayment:(CTSPaymentTransactionRes*)paymentInfo
             [self.alertView dismissLoadingAlertView:YES];
             [self.alertView didPresentLoadingAlertView:@"Connecting to the PG" withActivity:YES];
             [self loadRedirectUrl:paymentInfo.redirectUrl];
-            if ([self.payType isEqualToString:MEMBER_PAY_TYPE]) {
-                [self saveData];
-            }
         }else{
             [self.alertView dismissLoadingAlertView:YES];
             UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
@@ -393,50 +391,37 @@ didMakePaymentUsingGuestFlow:(CTSPaymentTransactionRes*)paymentInfo
             [self.alertView dismissLoadingAlertView:YES];
             [self.alertView didPresentLoadingAlertView:@"Connecting to the PG" withActivity:YES];
             [self loadRedirectUrl:paymentInfo.redirectUrl];
-            if ([self.payType isEqualToString:MEMBER_PAY_TYPE]) {
-                [self saveData];
-            }
         }else{
             [self.alertView dismissLoadingAlertView:YES];
             UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alertView show];
         }
     });
-    
-
 }
 
-- (void)saveData {
-    // Doing something on the main thread
-    dispatch_queue_t myQueue = dispatch_queue_create("My Queue",NULL);
-    dispatch_async(myQueue, ^{
-        // Perform long running process
-        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        //    // Store the data
-        // Add Entry Data base and reset all fields
-        self.managedObjectContext = appDelegate.managedObjectContext;
-        
-        //  1
-        User * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"User"
-                                                        inManagedObjectContext:self.managedObjectContext];
-        //  2
-        newEntry.username = @"username";
-        if ([self.cardType isEqualToString:DEBIT_CARD_TYPE]) {
-            newEntry.paymentOption = @"DEBIT";
-            newEntry.paymentType = self.cardType;
-        }if ([self.cardType isEqualToString:CREDIT_CARD_TYPE]) {
-            newEntry.paymentOption = @"CREDIT";
-            newEntry.paymentType = self.cardType;
+- (void)payment:(CTSPaymentLayer*)layer
+didMakeTokenizedPayment:(CTSPaymentTransactionRes*)paymentInfo
+          error:(NSError*)error {
+    NSLog(@"%@", paymentInfo);
+    LogTrace(@" %@ ", error);
+    BOOL hasSuccess =
+    ((paymentInfo != nil) && ([paymentInfo.pgRespCode integerValue] == 0) &&
+     (error == nil))
+    ? YES
+    : NO;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        // Update the UI
+        if (hasSuccess) {
+            [self.alertView dismissLoadingAlertView:YES];
+            [self.alertView didPresentLoadingAlertView:@"Connecting to the PG" withActivity:YES];
+            [self loadRedirectUrl:paymentInfo.redirectUrl];
+        }else{
+            [self.alertView dismissLoadingAlertView:YES];
+            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alertView show];
         }
-        //  3
-        NSError *error;
-        if (![self.managedObjectContext save:&error]) {
-            NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-        }
-        //  4
-        [self.view endEditing:YES];
     });
-
 }
 
 
@@ -462,50 +447,30 @@ didMakePaymentUsingGuestFlow:(CTSPaymentTransactionRes*)paymentInfo
 - (BOOL)textFieldShouldBeginEditing:(UITextField*)textField {
     // Cardnumber
     // card scheme should be shown at runtime(while user is enter the numbers)
-    [self setSchmeTypeImagView:textField];
+    if (textField.tag == 1) {
+        self.cardSchemeImage.image = [CTSUtility getSchmeTypeImage:textField.text];
+    }
     return YES;
 }
 
 - (BOOL)textFieldShouldEndEditing:(UITextField*)textField {
     // Cardnumber
     // card scheme should be shown at runtime(while user is enter the numbers)
-    [self setSchmeTypeImagView:textField];
-    return YES;
-}
-
-//- (BOOL)textField:(UITextField*)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString*)string {
-//    
-//    // Cardnumber
-//    // card scheme should be shown at runtime(while user is enter the numbers)
-//    [self setSchmeTypeImagView:textField];
-//    return YES;
-//}
-
-- (BOOL)setSchmeTypeImagView:(UITextField*)textField {
-    // Card scheme validation
     if (textField.tag == 1) {
-        if (textField.text.length == 0) {
-            self.cardSchemeImage.image = nil;
-        } else {
-            NSString* scheme = [CTSUtility fetchCardSchemeForCardNumber:textField.text];
-            if ([scheme caseInsensitiveCompare:@"amex"] == NSOrderedSame) {
-                self.cardSchemeImage.image = [UIImage imageNamed:@"amex.png"];
-            } else if ([scheme caseInsensitiveCompare:@"discover"] == NSOrderedSame) {
-                self.cardSchemeImage.image = [UIImage imageNamed:@"discover.png"];
-            } else if ([scheme caseInsensitiveCompare:@"maestro"] == NSOrderedSame) {
-                self.cardSchemeImage.image = [UIImage imageNamed:@"maestro.png"];
-            } else if ([scheme caseInsensitiveCompare:@"master"] == NSOrderedSame) {
-                self.cardSchemeImage.image = [UIImage imageNamed:@"mastercard.png"];
-            } else if ([scheme caseInsensitiveCompare:@"rupay"] == NSOrderedSame) {
-                self.cardSchemeImage.image = [UIImage imageNamed:@"rupay.png"];
-            } else if ([scheme caseInsensitiveCompare:@"visa"] == NSOrderedSame) {
-                self.cardSchemeImage.image = [UIImage imageNamed:@"visa.png"];
-            }
-        }
+        self.cardSchemeImage.image = [CTSUtility getSchmeTypeImage:textField.text];
     }
     return YES;
 }
 
+- (BOOL)textField:(UITextField*)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString*)string {
+    
+    // Cardnumber
+    // card scheme should be shown at runtime(while user is enter the numbers)
+    if (textField.tag == 1) {
+        self.cardSchemeImage.image = [CTSUtility getSchmeTypeImage:textField.text];
+    }
+    return YES;
+}
 
  
 
@@ -630,6 +595,8 @@ didMakePaymentUsingGuestFlow:(CTSPaymentTransactionRes*)paymentInfo
         }
     }
 }
+
+
 
 
 - (void)dismissTextField

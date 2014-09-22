@@ -22,8 +22,6 @@
 @property (nonatomic, strong)  NSString *selectedbank;
 
 @property (nonatomic, strong)  CTSAlertView* alertView;
-
-@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @end
 
 @implementation NetBankingViewController
@@ -247,8 +245,10 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
      */
 #if defined (TESTDATA_VERSION)
     netbank.code = TEST_NETBAK_CODE;
+    netbank.bank = TEST_NETBAK_NAME;
 #else
     netbank.code = self.issuerCode;
+    netbank.bank = self.selectedbank;
 #endif
 
     
@@ -281,9 +281,6 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
                  webViewViewController.redirectURL = paymentInfo.redirectUrl;
                  [self.alertView dismissLoadingAlertView:YES];
                  [self.rootController.navigationController pushViewController:webViewViewController animated:YES];
-                 if ([self.payType isEqualToString:MEMBER_PAY_TYPE]) {
-                     [self saveData];
-                 }
              }else{
                  [self.alertView dismissLoadingAlertView:YES];
                  UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
@@ -350,31 +347,6 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
                               }];
 }
 
-- (void)saveData {
-    // Doing something on the main thread
-    dispatch_queue_t myQueue = dispatch_queue_create("My Queue",NULL);
-    dispatch_async(myQueue, ^{
-        // Perform long running process
-        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        // Store the data
-        self.managedObjectContext = appDelegate.managedObjectContext;
-        
-        //  1
-        User * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"User"
-                                                        inManagedObjectContext:self.managedObjectContext];
-        //  2
-        newEntry.username = @"username";
-        newEntry.paymentType = self.selectedbank;
-        newEntry.paymentOption = @"NETBANKING";
-        //  3
-        NSError *error;
-        if (![self.managedObjectContext save:&error]) {
-            NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-        }
-        //  4
-        [self.view endEditing:YES];
-    });
-}
 
 - (NSString*)createTXNId {
     NSString* transactionId;

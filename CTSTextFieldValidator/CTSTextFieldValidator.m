@@ -10,8 +10,6 @@
 #import "TestParams.h"
 #import "CTSUtility.h"
 
-#define ALPHABETICS @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-#define NUMERICS @"0123456789"
 
 @interface CTSPopUp : UIView
 
@@ -136,10 +134,8 @@
     else
         [(CTSTextFieldValidator *)textField setRightView:nil];
     if([delegate respondsToSelector:@selector(textField:shouldChangeCharactersInRange:replacementString:)])
-        return [delegate textField:textField shouldChangeCharactersInRange:range replacementString:string];
+        [delegate textField:textField shouldChangeCharactersInRange:range replacementString:string];
 
-    
-    
     // text limit
     if (textField.tag == _tag) {
         if (range.location == _location) {
@@ -147,124 +143,38 @@
         }
     }
     
-    
     // Card number
     if ([_type isEqualToString:CARD_TYPE]) {
-        // Reject appending non-digit characters
-        if (range.length == 0 &&
-            ![[NSCharacterSet decimalDigitCharacterSet]
-              characterIsMember:[string characterAtIndex:0]]) {
-                return NO;
-            }
-        
-        // Auto-add hyphen before appending 4rd or 7th digit
-        if (range.length == 0 &&
-            (range.location == 4 || range.location == 9 || range.location == 14)) {
-            textField.text =
-            [NSString stringWithFormat:@"%@-%@", textField.text, string];
-            return NO;
-        }
-        
-        // Delete hyphen when deleting its trailing digit
-        if (range.length == 1 &&
-            (range.location == 5 || range.location == 10 || range.location == 15)) {
-            range.location--;
-            range.length = 2;
-            textField.text = [textField.text stringByReplacingCharactersInRange:range
-                                                                     withString:@""];
-            return NO;
-        }
+        return [CTSUtility appendHyphenForCardnumber:textField replacementString:string shouldChangeCharactersInRange:range];
     }
     
-    // Mobile number
+    // Mobile number4
     if ([_type isEqualToString:MOBILE_TYPE]) {
-        // Reject appending non-digit characters
-        if (range.length == 0 &&
-            ![[NSCharacterSet decimalDigitCharacterSet]
-              characterIsMember:[string characterAtIndex:0]]) {
-                return NO;
-            }
-        
-        // Auto-add hyphen before appending 4rd or 7th digit
-        if (range.length == 0 &&
-            (range.location == 3 || range.location == 7)) {
-            textField.text =
-            [NSString stringWithFormat:@"%@-%@", textField.text, string];
-            return NO;
-        }
-        
-        // Delete hyphen when deleting its trailing digit
-        if (range.length == 1 &&
-            (range.location == 4 || range.location == 8)) {
-            range.location--;
-            range.length = 2;
-            textField.text = [textField.text stringByReplacingCharactersInRange:range
-                                                                     withString:@""];
-            return NO;
-        }
+        return [CTSUtility appendHyphenForMobilenumber:textField replacementString:string shouldChangeCharactersInRange:range];
     }
 
     
     if ([_type isEqualToString:NUMERIC_TYPE]) {
-        NSCharacterSet* myCharSet =
-        [NSCharacterSet characterSetWithCharactersInString:NUMERICS];
-        for (int i = 0; i < [string length]; i++) {
-            unichar c = [string characterAtIndex:i];
-            if ([myCharSet characterIsMember:c]) {
-                return YES;
-            } else {
-                return NO;
-            }
-        }
+        return [CTSUtility enterNumericOnly:string];
     }
     
     if ([_type isEqualToString:ALPHABETICAL_TYPE]) {
-        NSCharacterSet* myCharSet =
-        [NSCharacterSet characterSetWithCharactersInString:ALPHABETICS];
-        for (int i = 0; i < [string length]; i++) {
-            unichar c = [string characterAtIndex:i];
-            if ([myCharSet characterIsMember:c]) {
-                return YES;
-            } else {
-                return NO;
-            }
-        }
+        return [CTSUtility enterCharecterOnly:string];
     }
 
     
     // CVV
     if ([_type isEqualToString:CVV_TYPE]) {
-        // CVV validation
-        // if amex allow 4 digits, if non amex only 3 should allowed.
-        NSString* scheme = [CTSUtility fetchCardSchemeForCardNumber:textField.text];
-        if (textField.tag == 3) {
-            NSInteger textfieldLength = textField.text.length - range.length + string.length;
-            NSCharacterSet* myCharSet =
-            [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
-            for (int i = 0; i < [string length]; i++) {
-                unichar c = [string characterAtIndex:i];
-                if ([myCharSet characterIsMember:c]) {
-                    if ([scheme caseInsensitiveCompare:@"amex"] == NSOrderedSame) {
-                        if (textfieldLength > 4) {
-                            return NO;
-                        } else {
-                            return YES;
-                        }
-                    } else if ([scheme caseInsensitiveCompare:@"amex"] !=
-                               NSOrderedSame) {
-                        if (textfieldLength > 3) {
-                            return NO;
-                        } else {
-                            return YES;
-                        }
-                    }
-                    
-                } else {
-                    return NO;
-                }
-            }
-        }
+        return [CTSUtility validateCVVNumber:textField replacementString:string shouldChangeCharactersInRange:range];
     }
+
+//    [(CTSTextFieldValidator *)textField dismissPopup];
+//    if(validateOnCharacterChanged)
+//        [(CTSTextFieldValidator *)textField performSelector:@selector(validate) withObject:nil afterDelay:0.1];
+//    else
+//        [(CTSTextFieldValidator *)textField setRightView:nil];
+//    if([delegate respondsToSelector:@selector(textField:shouldChangeCharactersInRange:replacementString:)])
+//        return [delegate textField:textField shouldChangeCharactersInRange:range replacementString:string];
 
 
     return YES;

@@ -9,6 +9,9 @@
 #import "CTSUtility.h"
 #import "CreditCard-Validator.h"
 
+#define ALPHABETICS @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz "
+#define NUMERICS @"0123456789"
+
 #import "CTSAuthLayerConstants.h"
 #define amex @[ @"34", @"37" ]
 #define discover @[ @"60", @"62", @"64", @"65" ]
@@ -257,6 +260,30 @@
   }
 }
 
++ (UIImage*)getSchmeTypeImage:(NSString*)cardNumber {
+    // Card scheme validation
+    if (cardNumber.length == 0) {
+        return nil;
+    } else {
+        NSString* scheme = [CTSUtility fetchCardSchemeForCardNumber:cardNumber];
+        if ([scheme caseInsensitiveCompare:@"amex"] == NSOrderedSame) {
+            return [UIImage imageNamed:@"amex.png"];
+        } else if ([scheme caseInsensitiveCompare:@"discover"] == NSOrderedSame) {
+            return [UIImage imageNamed:@"discover.png"];
+        } else if ([scheme caseInsensitiveCompare:@"maestro"] == NSOrderedSame) {
+            return [UIImage imageNamed:@"maestro.png"];
+        } else if ([scheme caseInsensitiveCompare:@"master"] == NSOrderedSame) {
+            return [UIImage imageNamed:@"mastercard.png"];
+        } else if ([scheme caseInsensitiveCompare:@"rupay"] == NSOrderedSame) {
+            return [UIImage imageNamed:@"rupay.png"];
+        } else if ([scheme caseInsensitiveCompare:@"visa"] == NSOrderedSame) {
+            return [UIImage imageNamed:@"visa.png"];
+        }
+    }
+    return 0;
+}
+
+
 + (BOOL)hasPrefixArray:(NSArray*)array cardNumber:(NSString*)cardNumber {
   for (int i = 0; i < [array count]; i++) {
     if ([cardNumber hasPrefix:[array objectAtIndex:i]]) {
@@ -290,6 +317,127 @@
     LogTrace(@" final dictionary %@ ", responseDictionary);
   }
   return responseDictionary;
+}
+
+
++ (BOOL)appendHyphenForCardnumber:(UITextField*)textField replacementString:(NSString*)string shouldChangeCharactersInRange:(NSRange)range{
+    // Reject appending non-digit characters
+    if (range.length == 0 &&
+        ![[NSCharacterSet decimalDigitCharacterSet]
+          characterIsMember:[string characterAtIndex:0]]) {
+            return NO;
+        }
+    
+    // Auto-add hyphen before appending 4rd or 7th digit
+    if (range.length == 0 &&
+        (range.location == 4 || range.location == 9 || range.location == 14)) {
+        textField.text =
+        [NSString stringWithFormat:@"%@-%@", textField.text, string];
+        return NO;
+    }
+    
+    // Delete hyphen when deleting its trailing digit
+    if (range.length == 1 &&
+        (range.location == 5 || range.location == 10 || range.location == 15)) {
+        range.location--;
+        range.length = 2;
+        textField.text = [textField.text stringByReplacingCharactersInRange:range
+                                                                 withString:@""];
+        return NO;
+    }
+    return YES;
+}
+
+
++ (BOOL)appendHyphenForMobilenumber:(UITextField*)textField replacementString:(NSString*)string shouldChangeCharactersInRange:(NSRange)range{
+    // Reject appending non-digit characters
+    // Reject appending non-digit characters
+    if (range.length == 0 &&
+        ![[NSCharacterSet decimalDigitCharacterSet]
+          characterIsMember:[string characterAtIndex:0]]) {
+            return NO;
+        }
+    
+    // Auto-add hyphen before appending 4rd or 7th digit
+    if (range.length == 0 &&
+        (range.location == 3 || range.location == 7)) {
+        textField.text =
+        [NSString stringWithFormat:@"%@-%@", textField.text, string];
+        return NO;
+    }
+    
+    // Delete hyphen when deleting its trailing digit
+    if (range.length == 1 &&
+        (range.location == 4 || range.location == 8)) {
+        range.location--;
+        range.length = 2;
+        textField.text = [textField.text stringByReplacingCharactersInRange:range
+                                                                 withString:@""];
+        return NO;
+    }
+    return YES;
+}
+
+
++ (BOOL)enterNumericOnly:(NSString*)string{
+    NSCharacterSet* myCharSet =
+    [NSCharacterSet characterSetWithCharactersInString:NUMERICS];
+    for (int i = 0; i < [string length]; i++) {
+        unichar c = [string characterAtIndex:i];
+        if ([myCharSet characterIsMember:c]) {
+            return YES;
+        } else {
+            return NO;
+        }
+    }
+    return YES;
+}
+
++ (BOOL)enterCharecterOnly:(NSString*)string{
+    NSCharacterSet* myCharSet =
+    [NSCharacterSet characterSetWithCharactersInString:ALPHABETICS];
+    for (int i = 0; i < [string length]; i++) {
+        unichar c = [string characterAtIndex:i];
+        if ([myCharSet characterIsMember:c]) {
+            return YES;
+        } else {
+            return NO;
+        }
+    }
+    return YES;
+}
+
+
++ (BOOL)validateCVVNumber:(UITextField*)textField replacementString:(NSString*)string shouldChangeCharactersInRange:(NSRange)range{
+    // CVV validation
+    // if amex allow 4 digits, if non amex only 3 should allowed.
+    NSString* scheme = [CTSUtility fetchCardSchemeForCardNumber:textField.text];
+    NSInteger textfieldLength = textField.text.length - range.length + string.length;
+    NSCharacterSet* myCharSet =
+    [NSCharacterSet characterSetWithCharactersInString:NUMERICS];
+    for (int i = 0; i < [string length]; i++) {
+        unichar c = [string characterAtIndex:i];
+        if ([myCharSet characterIsMember:c]) {
+            if ([scheme caseInsensitiveCompare:@"amex"] == NSOrderedSame) {
+                if (textfieldLength > 4) {
+                    return NO;
+                } else {
+                    return YES;
+                }
+            } else if ([scheme caseInsensitiveCompare:@"amex"] !=
+                       NSOrderedSame) {
+                if (textfieldLength > 3) {
+                    return NO;
+                } else {
+                    return YES;
+                }
+            }
+            
+        } else {
+            return NO;
+        }
+    }
+    return YES;
 }
 
 @end

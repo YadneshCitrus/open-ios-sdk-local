@@ -7,13 +7,15 @@
 //
 
 #import "SavedOptionsViewController.h"
-#import "User.h"
+#import "CTSAlertView.h"
 
 @interface SavedOptionsViewController ()
 
 @property (strong, nonatomic) NSArray *userdata;
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+
+@property (nonatomic, strong)  CTSAlertView* alertView;
 
 @end
 
@@ -34,9 +36,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    if (_userdata) {
-        _userdata = [[NSArray alloc] init];
-    }
+    _userdata = [[NSArray alloc] init];
     
     profileLayer = [[CTSProfileLayer alloc] init];
     profileLayer.delegate = self;
@@ -61,7 +61,7 @@
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
         
         //Setting Entity to be Queried
-        NSEntityDescription *entity = [NSEntityDescription entityForName:@"User"
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"CTSPaymentOption"
                                                   inManagedObjectContext:self.managedObjectContext];
         [fetchRequest setEntity:entity];
         NSError* error;
@@ -72,6 +72,7 @@
             // Update the UI
             if ([self.userdata count] > 0) {
                 [self.tableView reloadData];
+                [self.alertView dismissLoadingAlertView:YES];
             }
         });
     });
@@ -87,35 +88,71 @@
         // Store the data
         self.managedObjectContext = appDelegate.managedObjectContext;
         
-        User * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"User"
-                                                        inManagedObjectContext:self.managedObjectContext];
+        // initializing NSFetchRequest
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        //Setting Entity to be Queried
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"CTSPaymentOption"
+                                                  inManagedObjectContext:self.managedObjectContext];
+        [fetchRequest setEntity:entity];
+        NSError* error;
+        // Query on managedObjectContext With Generated fetchRequest
+        NSArray *array = [[NSArray alloc] init];
+         array = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
         
-        for (CTSPaymentOption* option in paymentInfo.paymentOptions) {
-            newEntry.username = option.name;
-            newEntry.paymentType = option.type;
-            newEntry.paymentOption = option.bank;
-            NSError *error;
-            if (![self.managedObjectContext save:&error]) {
-                NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+        BOOL isNewRecord = NO;
+        if ([array count]>0) {
+            for (int i = 0; i < [paymentInfo.paymentOptions count]; i++) {
+                CTSPaymentOption *localOption = [array objectAtIndex:i];
+                CTSPaymentOption *responseOption = [paymentInfo.paymentOptions objectAtIndex:i];
+                
+                if (![localOption.token isEqualToString:responseOption.token]) {
+                    [self insertObject:responseOption];
+                    isNewRecord = YES;
+                }
             }
+        }else{
+            for (int i = 0; i < [paymentInfo.paymentOptions count]; i++) {
+                CTSPaymentOption *responseOption = [paymentInfo.paymentOptions objectAtIndex:i];
+                [self insertObject:responseOption];
+                isNewRecord = YES;
+             }
         }
+        if (isNewRecord) {
+            [self getUserRecords];
+        }
+    });
+}
+
+- (void)insertObject:(CTSPaymentOption*) paymentInfo{
+    // Doing something on the main thread
+    dispatch_queue_t myQueue = dispatch_queue_create("My Queue",NULL);
+    dispatch_async(myQueue, ^{
+        // Perform long running process
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        // Store the data
+        self.managedObjectContext = appDelegate.managedObjectContext;
         
-        //
-        [self getUserRecords];
+        CTSPaymentOption * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"CTSPaymentOption"
+                                                                    inManagedObjectContext:self.managedObjectContext];
+        
+        newEntry.type = paymentInfo.type;
+        newEntry.name = paymentInfo.name;
+        newEntry.owner = paymentInfo.owner;
+        newEntry.bank = paymentInfo.bank;
+        newEntry.number = paymentInfo.number;
+        newEntry.expiryDate = paymentInfo.expiryDate;
+        newEntry.scheme = paymentInfo.scheme;
+        newEntry.token = paymentInfo.token;
+        newEntry.mmid = paymentInfo.mmid;
+        newEntry.impsRegisteredMobile = paymentInfo.impsRegisteredMobile;
+        newEntry.cvv = paymentInfo.cvv;
+        newEntry.code = paymentInfo.code;
+        
+        NSError *error;
+        if (![self.managedObjectContext save:&error]) {
+            NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+        }
 
-
-//        //  2
-//        newEntry.username = paymentOptions.name;
-//        newEntry.paymentType = paymentOptions.type;
-//        newEntry.paymentOption = paymentOptions.bank;
-//        //  3
-//        NSError *error;
-//        if (![self.managedObjectContext save:&error]) {
-//            NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-//        }else{
-//            [self getUserRecords];
-//        }
-        //  4
         [self.view endEditing:YES];
     });
 }
@@ -123,6 +160,8 @@
 
 -(void)fetchPaymentInformation
 {
+    [self.alertView didPresentLoadingAlertView:@"Syncing data..." withActivity:YES];
+
     [profileLayer requestPaymentInformationWithCompletionHandler:nil];
 }
 
@@ -146,17 +185,8 @@ didReceivePaymentInformation:(CTSProfilePaymentRes*)paymentInfo
         LogTrace(@" paymentInfo.type %@", paymentInfo.type);
         LogTrace(@" paymentInfo.defaultOption %@", paymentInfo.defaultOption);
         
-//        for (CTSPaymentOption* option in paymentInfo.paymentOptions) {
-//            [self saveData:option];
-//        }
-        
         [self saveData:paymentInfo];
-
-//        paymentSavedResponse = paymentInfo;
-//        self.userdata = paymentInfo.paymentOptions;
-//        if ([self.userdata count] > 0) {
-//            [self.tableView reloadData];
-//        }
+        
     } else {
         LogTrace(@"error received %@", error);
     }
@@ -198,17 +228,9 @@ didUpdatePaymentInfoError:(NSError*)error {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-//    User *user = [self.userdata objectAtIndex:indexPath.row];
-//    cell.textLabel.text = user.paymentOption;
-//    cell.detailTextLabel.text = user.paymentType;
-    
-//    cell.textLabel.text = [[self.userdata objectAtIndex:indexPath.row] valueForKey:@"type"];
-////    cell.textLabel.text = [[self.userdata objectAtIndex:indexPath.row] valueForKey:@"bank"];
-//    cell.detailTextLabel.text = [[self.userdata objectAtIndex:indexPath.row] valueForKey:@"name"];
-    
-    User *paymentOption = [self.userdata objectAtIndex:indexPath.row];
-    cell.textLabel.text = paymentOption.username;
-    cell.detailTextLabel.text = paymentOption.paymentType;
+    CTSPaymentOption *paymentOption = [self.userdata objectAtIndex:indexPath.row];
+    cell.textLabel.text = paymentOption.name;
+    cell.detailTextLabel.text = paymentOption.type;
     
     return cell;
 }

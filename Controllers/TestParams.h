@@ -66,55 +66,8 @@
 #define GUEST_PAY_TYPE @"GUEST_PAY_TYPE"
 #define MEMBER_PAY_TYPE @"MEMBER_PAY_TYPE"
 
-//#define VISA @"VISA"
-//#define MAESTRO @"MAESTRO"
-//#define DISCOVER @"DISCOVER"
-//#define JCB @"JCB"
-//#define DINERCLUB @"DINERCLUB"
-//#define MASTER @"MASTER"
-//#define AMEX @"AMEX"
-
+//
 #define LAST_USER @"LAST_USER"
-
-
-// card types
-#define amex @[ @"34", @"37" ]
-#define discover @[ @"60", @"62", @"64", @"65" ]
-#define JCB @[ @"35" ]
-#define DinerClub @[ @"30", @"36", @"38", @"39" ]
-#define VISA @[ @"4" ]
-#define MAESTRO \
-@[            \
-@"67",      \
-@"56",      \
-@"502260",  \
-@"504433",  \
-@"504434",  \
-@"504435",  \
-@"504437",  \
-@"504645",  \
-@"504681",  \
-@"504753",  \
-@"504775",  \
-@"504809",  \
-@"504817",  \
-@"504834",  \
-@"504848",  \
-@"504884",  \
-@"504973",  \
-@"504993",  \
-@"508125",  \
-@"508126",  \
-@"508159",  \
-@"508192",  \
-@"508227",  \
-@"600206",  \
-@"603123",  \
-@"603741",  \
-@"603845",  \
-@"622018"   \
-]
-#define MASTER @[ @"5" ]
 
 
 #define CARD_TYPE @"CARD_TYPE"

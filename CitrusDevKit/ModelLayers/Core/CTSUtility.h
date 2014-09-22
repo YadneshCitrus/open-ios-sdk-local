@@ -27,4 +27,11 @@
 + (BOOL)toBool:(NSString*)boolString;
 + (NSString*)fetchCardSchemeForCardNumber:(NSString *)cardNumber;
 + (NSDictionary*)getResponseIfTransactionIsFinished:(NSData*)postData;
+
++ (UIImage*)getSchmeTypeImage:(NSString*)cardNumber;
++ (BOOL)appendHyphenForCardnumber:(UITextField*)textField replacementString:(NSString*)string shouldChangeCharactersInRange:(NSRange)range;
++ (BOOL)appendHyphenForMobilenumber:(UITextField*)textField replacementString:(NSString*)string shouldChangeCharactersInRange:(NSRange)range;
++ (BOOL)enterNumericOnly:(NSString*)string;
++ (BOOL)enterCharecterOnly:(NSString*)string;
++ (BOOL)validateCVVNumber:(UITextField*)textField replacementString:(NSString*)string shouldChangeCharactersInRange:(NSRange)range;
 @end
