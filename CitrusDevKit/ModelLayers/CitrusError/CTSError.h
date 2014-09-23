@@ -18,7 +18,9 @@ typedef enum {
   ServerErrorWithCode,
   InvalidParameter,
   OauthTokenExpired,
-  CantFetchSignupToken
+  CantFetchSignupToken,
+    TokenMissing
+
 } CTSErrorCode;
 
 #define CITRUS_ERROR_DOMAIN @"com.citrus.errorDomain"

@@ -7,9 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-//#import "CTSRestLayer.h"
 #import "CTSPaymentLayerConstants.h"
-#import "CTSRestRegister.h"
 #import "CTSPaymentDetailUpdate.h"
 #import "CTSAuthLayerConstants.h"
 #import "CTSUtility.h"

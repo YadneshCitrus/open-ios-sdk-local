@@ -131,7 +131,7 @@
                       signature:signatureArg
                           txnId:merchantTxnIdArg];
 
-  CTSErrorCode error = [paymentInfo validate];
+  CTSErrorCode error = [paymentInfo validateTokenized];
   LogTrace(@" validation error %d ", error);
 
   if (error != NoError) {

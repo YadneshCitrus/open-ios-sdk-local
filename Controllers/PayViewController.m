@@ -79,7 +79,7 @@
     
     //
     self.savedOptionsViewController = [[SavedOptionsViewController alloc] initWithNibName:@"SavedOptionsViewController" bundle:nil];
-    self.savedOptionsViewController.view.frame = CGRectMake(0.0f, 92.0f, 320, 448.0f);
+    self.savedOptionsViewController.view.frame = CGRectMake(0.0f, 92.0f, 320, 476.0f);
     [self.view addSubview:self.savedOptionsViewController.view];
     
 }
@@ -105,7 +105,7 @@
     
     //
     self.netBankingViewController = [[NetBankingViewController alloc] initWithNibName:@"NetBankingViewController" bundle:nil];
-    self.netBankingViewController.view.frame = CGRectMake(0.0f, 92.0f, 320, 448.0f);
+    self.netBankingViewController.view.frame = CGRectMake(0.0f, 92.0f, 320, 476.0f);
     self.netBankingViewController.payType = self.payType;
     self.netBankingViewController.rootController = self;
     [self.view addSubview:self.netBankingViewController.view];
@@ -132,7 +132,7 @@
     
     //
     self.cardPayViewController = [[CardPayViewController alloc] initWithNibName:@"CardPayViewController" bundle:nil];
-    self.cardPayViewController.view.frame = CGRectMake(0.0f, 92.0f, 320, 448.0f);
+    self.cardPayViewController.view.frame = CGRectMake(0.0f, 92.0f, 320, 476.0f);
     self.cardPayViewController.cardType = DEBIT_CARD_TYPE;
     self.cardPayViewController.payType = self.payType;
     self.cardPayViewController.rootController = self;
@@ -161,7 +161,7 @@
     
     //
     self.cardPayViewController = [[CardPayViewController alloc] initWithNibName:@"CardPayViewController" bundle:nil];
-    self.cardPayViewController.view.frame = CGRectMake(0.0f, 92.0f, 320, 448.0f);
+    self.cardPayViewController.view.frame = CGRectMake(0.0f, 92.0f, 320, 476.0f);
     self.cardPayViewController.cardType = CREDIT_CARD_TYPE;
     self.cardPayViewController.payType = self.payType;
     self.cardPayViewController.rootController = self;

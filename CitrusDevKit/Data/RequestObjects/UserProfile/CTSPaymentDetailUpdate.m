@@ -41,6 +41,17 @@
   return error;
 }
 
+
+- (CTSErrorCode)validateTokenized{
+    CTSErrorCode error = NoError;
+    for (CTSPaymentOption* payment in paymentOptions) {
+       if(payment.token == nil)
+           error = TokenMissing;
+        break;
+    }
+    return error;
+}
+
 - (void)clearCVV {
   for (CTSPaymentOption* payment in paymentOptions) {
     payment.cvv = nil;

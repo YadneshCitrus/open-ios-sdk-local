@@ -70,7 +70,7 @@
         self.userdata = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
         dispatch_async(dispatch_get_main_queue(), ^{
             // Update the UI
-            if ([self.userdata count] > 0) {
+            if ([self.userdata count]) {
                 [self.tableView reloadData];
                 [self.alertView dismissLoadingAlertView:YES];
             }
@@ -100,11 +100,13 @@
          array = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
         
         BOOL isNewRecord = NO;
-        if ([array count]>0) {
+        if ([array count]) {
             for (int i = 0; i < [paymentInfo.paymentOptions count]; i++) {
-                CTSPaymentOption *localOption = [array objectAtIndex:i];
+                CTSPaymentOption *localOption;
+                if ([array count]>i) {
+                    localOption = [array objectAtIndex:i];
+                }
                 CTSPaymentOption *responseOption = [paymentInfo.paymentOptions objectAtIndex:i];
-                
                 if (![localOption.token isEqualToString:responseOption.token]) {
                     [self insertObject:responseOption];
                     isNewRecord = YES;
@@ -127,34 +129,40 @@
     // Doing something on the main thread
     dispatch_queue_t myQueue = dispatch_queue_create("My Queue",NULL);
     dispatch_async(myQueue, ^{
-        // Perform long running process
-        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        // Store the data
-        self.managedObjectContext = appDelegate.managedObjectContext;
-        
-        CTSPaymentOption * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"CTSPaymentOption"
-                                                                    inManagedObjectContext:self.managedObjectContext];
-        
-        newEntry.type = paymentInfo.type;
-        newEntry.name = paymentInfo.name;
-        newEntry.owner = paymentInfo.owner;
-        newEntry.bank = paymentInfo.bank;
-        newEntry.number = paymentInfo.number;
-        newEntry.expiryDate = paymentInfo.expiryDate;
-        newEntry.scheme = paymentInfo.scheme;
-        newEntry.token = paymentInfo.token;
-        newEntry.mmid = paymentInfo.mmid;
-        newEntry.impsRegisteredMobile = paymentInfo.impsRegisteredMobile;
-        newEntry.cvv = paymentInfo.cvv;
-        newEntry.code = paymentInfo.code;
-        
-        NSError *error;
-        if (![self.managedObjectContext save:&error]) {
-            NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-        }
+        @try {
+            // Perform long running process
+            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            // Store the data
+            self.managedObjectContext = appDelegate.managedObjectContext;
+            
+            CTSPaymentOption * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"CTSPaymentOption"
+                                                                        inManagedObjectContext:self.managedObjectContext];
+            
+            newEntry.type = paymentInfo.type;
+            newEntry.name = paymentInfo.name;
+            newEntry.owner = paymentInfo.owner;
+            newEntry.bank = paymentInfo.bank;
+            newEntry.number = paymentInfo.number;
+            newEntry.expiryDate = paymentInfo.expiryDate;
+            newEntry.scheme = paymentInfo.scheme;
+            newEntry.token = paymentInfo.token;
+            newEntry.mmid = paymentInfo.mmid;
+            newEntry.impsRegisteredMobile = paymentInfo.impsRegisteredMobile;
+            newEntry.cvv = paymentInfo.cvv;
+            newEntry.code = paymentInfo.code;
+            
+            NSError *error;
+            if (![self.managedObjectContext save:&error]) {
+                NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+            }
+            
+            [self.view endEditing:YES];
 
-        [self.view endEditing:YES];
-    });
+        }
+        @catch (NSException *exception) {
+            LogTrace(@"NSException %@",exception);
+        }
+     });
 }
 
 

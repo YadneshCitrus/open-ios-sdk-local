@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "CTSOauthTokenRes.h"
-#import "CTSRestRegister.h"
 #import "RestLayerConstants.h"
 #import "CTSAuthLayerConstants.h"
 #import "CTSRestPluginBase.h"

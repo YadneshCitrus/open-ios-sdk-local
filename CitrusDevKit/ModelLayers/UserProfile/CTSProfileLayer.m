@@ -8,9 +8,7 @@
 
 #import "CTSProfileLayer.h"
 #import "CTSProfileLayerConstants.h"
-#import "CTSTypeToParameterMapping.h"
 #import "CTSContactUpdate.h"
-#import "CTSRestRegister.h"
 #import "CTSProfileContactRes.h"
 #import "CTSAuthLayerConstants.h"
 #import "CTSError.h"

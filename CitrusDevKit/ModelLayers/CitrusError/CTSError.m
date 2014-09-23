@@ -43,6 +43,8 @@
       errorDescription = @"Oauth Token expired, Please refresh it from server";
     case CantFetchSignupToken:
       errorDescription = @"Can not fetch Signup Oauth token from merchant";
+      case TokenMissing:
+          errorDescription = @"Token for payment is missing";
 
     default:
       break;

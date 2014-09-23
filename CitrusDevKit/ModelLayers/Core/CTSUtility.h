@@ -27,7 +27,6 @@
 + (BOOL)toBool:(NSString*)boolString;
 + (NSString*)fetchCardSchemeForCardNumber:(NSString *)cardNumber;
 + (NSDictionary*)getResponseIfTransactionIsFinished:(NSData*)postData;
-
 + (UIImage*)getSchmeTypeImage:(NSString*)cardNumber;
 + (BOOL)appendHyphenForCardnumber:(UITextField*)textField replacementString:(NSString*)string shouldChangeCharactersInRange:(NSRange)range;
 + (BOOL)appendHyphenForMobilenumber:(UITextField*)textField replacementString:(NSString*)string shouldChangeCharactersInRange:(NSRange)range;

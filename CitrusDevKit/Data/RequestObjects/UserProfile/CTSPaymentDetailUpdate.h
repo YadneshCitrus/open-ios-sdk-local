@@ -43,4 +43,6 @@
 - (void)clearCVV;
 
 - (void)clearNetbankCode;
+
+-(CTSErrorCode)validateTokenized;
 @end
