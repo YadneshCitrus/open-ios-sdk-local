@@ -10,18 +10,21 @@
 #import "CitrusSdk.h"
 #import "CTSAlertView.h"
 #import "TestParams.h"
+#import "CTSTextFieldValidator.h"
 
 @interface ChangePasswordViewController : UIViewController
 {
-    IBOutlet __weak UITextField *usernameTextField;
-    IBOutlet __weak UITextField *oldPasswordTextField;
-    IBOutlet __weak UITextField *passwordTextField;
+    IBOutlet __weak CTSTextFieldValidator *usernameTextField;
+    IBOutlet __weak CTSTextFieldValidator *oldPasswordTextField;
+    IBOutlet __weak CTSTextFieldValidator *passwordTextField;
+    IBOutlet __weak CTSTextFieldValidator *confirmPasswordTextField;
     
     CTSAuthLayer* authLayer;
 }
-@property(nonatomic,weak) IBOutlet UITextField *usernameTextField;
-@property(nonatomic,weak) IBOutlet UITextField *oldPasswordTextField;
-@property(nonatomic,weak) IBOutlet UITextField *passwordTextField;
+@property(nonatomic,weak) IBOutlet CTSTextFieldValidator *usernameTextField;
+@property(nonatomic,weak) IBOutlet CTSTextFieldValidator *oldPasswordTextField;
+@property(nonatomic,weak) IBOutlet CTSTextFieldValidator *passwordTextField;
+@property(nonatomic,weak) IBOutlet CTSTextFieldValidator *confirmPasswordTextField;
 
 /**
  *  to change the user password

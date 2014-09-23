@@ -208,22 +208,28 @@
 
 - (void) deleteAllObjects: (NSString *) entityDescription  {
     // Doing something on the main thread
-    dispatch_queue_t myQueue = dispatch_queue_create("My Queue",NULL);
-    dispatch_async(myQueue, ^{
-        // Perform long running process
-        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-        NSEntityDescription *entity = [NSEntityDescription entityForName:entityDescription inManagedObjectContext:_managedObjectContext];
-        [fetchRequest setEntity:entity];
-        
-        NSError *error;
-        NSArray *items = [_managedObjectContext executeFetchRequest:fetchRequest error:&error];
-        
-        for (NSManagedObject *managedObject in items) {
-            [_managedObjectContext deleteObject:managedObject];
-            NSLog(@"%@ object deleted",entityDescription);
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+        @try {
+            // Perform long running process
+            NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+            NSEntityDescription *entity = [NSEntityDescription entityForName:entityDescription inManagedObjectContext:_managedObjectContext];
+            [fetchRequest setEntity:entity];
+            
+            NSError *error;
+            NSArray *items = [_managedObjectContext executeFetchRequest:fetchRequest error:&error];
+            
+            for (NSManagedObject *managedObject in items) {
+                [_managedObjectContext deleteObject:managedObject];
+                NSLog(@"%@ object deleted",entityDescription);
+            }
+            if (![_managedObjectContext save:&error]) {
+                NSLog(@"Error deleting %@ - error:%@",entityDescription,error);
+            }
+
         }
-        if (![_managedObjectContext save:&error]) {
-            NSLog(@"Error deleting %@ - error:%@",entityDescription,error);
+        @catch (NSException *exception) {
+            LogTrace(@"NSException %@",exception);
         }
     });
 }

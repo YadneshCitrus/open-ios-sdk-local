@@ -19,7 +19,7 @@
     IBOutlet __weak CTSTextFieldValidator *emailTextField;
     IBOutlet __weak CTSTextFieldValidator *mobileTextField;
     IBOutlet __weak CTSTextFieldValidator *passwordTextField;
-    IBOutlet __weak CTSTextFieldValidator *confrimPasswordTextField;
+    IBOutlet __weak CTSTextFieldValidator *confirmPasswordTextField;
 
     CTSAuthLayer* authLayer;
     CTSProfileLayer* profileLayer;
@@ -29,7 +29,7 @@
 @property(nonatomic,weak) IBOutlet CTSTextFieldValidator *emailTextField;
 @property(nonatomic,weak) IBOutlet CTSTextFieldValidator *mobileTextField;
 @property(nonatomic,weak) IBOutlet CTSTextFieldValidator *passwordTextField;
-@property(nonatomic,weak) IBOutlet CTSTextFieldValidator *confrimPasswordTextField;
+@property(nonatomic,weak) IBOutlet CTSTextFieldValidator *confirmPasswordTextField;
 
 /**
  *  to sign up the user

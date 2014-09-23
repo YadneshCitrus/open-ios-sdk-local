@@ -6,7 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpViewController">
             <connections>
-                <outlet property="confrimPasswordTextField" destination="etz-ol-ecM" id="MyS-Ac-cjg"/>
+                <outlet property="confirmPasswordTextField" destination="etz-ol-ecM" id="6r0-r2-fbe"/>
                 <outlet property="emailTextField" destination="Qop-GY-UJY" id="cTq-wm-rBA"/>
                 <outlet property="firstnameTextField" destination="kI3-qY-TUH" id="GZl-0L-A94"/>
                 <outlet property="lastnameTextField" destination="ZxZ-sB-481" id="miP-Kf-4hQ"/>

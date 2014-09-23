@@ -24,7 +24,7 @@
 @end
 
 @implementation SignUpViewController
-@synthesize firstnameTextField, lastnameTextField, emailTextField, mobileTextField, passwordTextField, confrimPasswordTextField;
+@synthesize firstnameTextField, lastnameTextField, emailTextField, mobileTextField, passwordTextField, confirmPasswordTextField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -65,7 +65,7 @@
     [self.passwordTextField addRegx:REGEX_PASSWORD_LIMIT withMsg:@"8 to 16 with at least one alphabet and one "
      @"number. Special characters allowed - (! @ # $ % " @"^ & *)." tag:5 location:16];
     
-    [self.confrimPasswordTextField addConfirmValidationTo:self.passwordTextField withMsg:@"Confirm password didn't match."];
+    [self.confirmPasswordTextField addConfirmValidationTo:self.passwordTextField withMsg:@"Confirm password didn't match."];
 }
 
 //
@@ -134,7 +134,7 @@
                             }else{
                                 //
                                 [authLayer requestSignUpWithEmail:self.emailTextField.text
-                                                           mobile:self.mobileTextField.text
+                                                           mobile:[self.mobileTextField.text stringByReplacingOccurrencesOfString:@"-" withString:@""]
                                                          password:self.passwordTextField.text
                                                 completionHandler:^(NSString* userName,
                                                                     NSString* token,
@@ -185,6 +185,42 @@
      }];
 }
 
+#pragma mark - profile layer delegates
+
+- (void)profile:(CTSProfileLayer*)profile
+didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
+          error:(NSError*)error {
+    LogTrace(@"didReceiveContactInfo");
+    // LogTrace(@"contactInfo %@", contactInfo);
+    //[contactInfo logProperties];
+    LogTrace(@"contactInfo %@", error);
+}
+- (void)profile:(CTSProfileLayer*)profile
+didReceivePaymentInformation:(CTSProfilePaymentRes*)paymentInfo
+          error:(NSError*)error {
+    if (error == nil) {
+        LogTrace(@" paymentInfo.type %@", paymentInfo.type);
+        LogTrace(@" paymentInfo.defaultOption %@", paymentInfo.defaultOption);
+        
+//        for (CTSPaymentOption* option in paymentInfo.paymentOptions) {
+//            [option logProperties];
+//        }
+        
+//        paymentSavedResponse = paymentInfo;
+    } else {
+        LogTrace(@"error received %@", error);
+    }
+}
+
+- (void)profile:(CTSProfileLayer*)profile
+didUpdateContactInfoError:(NSError*)error {
+}
+
+- (void)profile:(CTSProfileLayer*)profile
+didUpdatePaymentInfoError:(NSError*)error {
+    LogTrace(@"didUpdatePaymentInfoError error %@ ", error);
+    [profileLayer requestPaymentInformationWithCompletionHandler:nil];
+}
 
 
 #pragma mark - UITextField delegates
