@@ -9,10 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "CitrusSdk.h"
 #import "CTSTextFieldValidator.h"
+#import "AppDelegate.h"
+#import "PayViewController.h"
 
 @interface SignUpViewController : UIViewController <CTSAuthenticationProtocol,
                                                     CTSPaymentProtocol,
-                                                    CTSProfileProtocol>
+                                                    CTSProfileProtocol,
+                                                    SignOutDelegate>
 {
     IBOutlet __weak CTSTextFieldValidator *firstnameTextField;
     IBOutlet __weak CTSTextFieldValidator *lastnameTextField;

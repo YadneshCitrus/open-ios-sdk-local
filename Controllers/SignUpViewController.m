@@ -20,6 +20,8 @@
 #define REGEX_PHONE_DEFAULT_LIMIT @"^.{12,12}$"
 
 @interface SignUpViewController ()
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property(strong) PayViewController *payViewController;
 
 @end
 
@@ -42,6 +44,9 @@
     self.title = @"Sign Up";
 
     [self setupTextFieldValidation];
+
+    self.payViewController = [[PayViewController alloc] initWithNibName:@"PayViewController" bundle:nil];
+    self.payViewController.signOutDelegate = self;
 
     [self initialize];
 }
@@ -149,8 +154,8 @@
                                                         [alertView dismissLoadingAlertView:YES];
                                                         
                                                         if (error == nil) {
-                                                            PayViewController* payViewController = [[PayViewController alloc] initWithNibName:@"PayViewController" bundle:nil];
-                                                            [self.navigationController pushViewController:payViewController animated:YES];
+                                                            self.payViewController.payType = MEMBER_PAY_TYPE;
+                                                            [self.navigationController pushViewController:self.payViewController animated:YES];
                                                             [self updateContactInformation];
                                                         }else{
                                                             UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[error.userInfo valueForKey:@"NSLocalizedDescription"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
@@ -220,6 +225,48 @@ didUpdateContactInfoError:(NSError*)error {
 didUpdatePaymentInfoError:(NSError*)error {
     LogTrace(@"didUpdatePaymentInfoError error %@ ", error);
     [profileLayer requestPaymentInformationWithCompletionHandler:nil];
+}
+
+
+#pragma mark - SignOutDelegate delegates
+
+- (void)signOutDelegate
+{
+    if ([authLayer signOut]) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        // Store the data
+        self.managedObjectContext = appDelegate.managedObjectContext;
+        [self deleteAllObjects:@"CTSPaymentOption"];
+    }
+}
+
+- (void) deleteAllObjects: (NSString *) entityDescription  {
+    // Doing something on the main thread
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+        @try {
+            // Perform long running process
+            NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+            NSEntityDescription *entity = [NSEntityDescription entityForName:entityDescription inManagedObjectContext:_managedObjectContext];
+            [fetchRequest setEntity:entity];
+            
+            NSError *error;
+            NSArray *items = [_managedObjectContext executeFetchRequest:fetchRequest error:&error];
+            
+            for (NSManagedObject *managedObject in items) {
+                [_managedObjectContext deleteObject:managedObject];
+                NSLog(@"%@ object deleted",entityDescription);
+            }
+            if (![_managedObjectContext save:&error]) {
+                NSLog(@"Error deleting %@ - error:%@",entityDescription,error);
+            }
+            
+        }
+        @catch (NSException *exception) {
+            LogTrace(@"NSException %@",exception);
+        }
+    });
 }
 
 

@@ -19,7 +19,6 @@
 @interface SignInViewController ()
 
 @property(strong) PayViewController *payViewController;
-@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @end
 
