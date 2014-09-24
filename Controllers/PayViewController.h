@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CitrusSdk.h"
+#import "SavedOptionsViewController.h"
 
 
 @protocol SignOutDelegate <NSObject>
@@ -15,7 +16,7 @@
 - (void)signOutDelegate;
 @end
 
-@interface PayViewController : UIViewController
+@interface PayViewController : UIViewController <SavedOptionsDelegate>
 {
     IBOutlet UIButton *savedOptionButton;
     IBOutlet UIButton *netBankingButton;

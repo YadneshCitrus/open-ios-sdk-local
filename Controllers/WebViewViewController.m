@@ -65,12 +65,10 @@
 - (BOOL)webView:(UIWebView*)webView
 shouldStartLoadWithRequest:(NSURLRequest*)request
  navigationType:(UIWebViewNavigationType)navigationType {
-    NSDictionary* responseDict =
-    [CTSUtility getResponseIfTransactionIsFinished:request.HTTPBody];
+    NSDictionary* responseDict = [CTSUtility getResponseIfTransactionIsFinished:request.HTTPBody];
     if (responseDict != nil) {
         [self transactionComplete:responseDict];
     }
-    
     return YES;
 }
 

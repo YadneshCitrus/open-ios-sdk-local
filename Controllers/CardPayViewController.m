@@ -52,6 +52,8 @@ static NSInteger creditPreviouslength = 0;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    self.alertView = [[CTSAlertView alloc] init];
+
     [self.expiryDateTextField addTarget:self
                                      action:@selector(textfieldTextchange:)
                            forControlEvents:UIControlEventEditingChanged];
@@ -226,7 +228,7 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
 #endif
     debitCard.cvv = self.CVVNumberTextField.text;
     [debitCardInfo addCard:debitCard];
-    NSString* txnId = [self createTXNId];
+    NSString* txnId = [CTSUtility createTXNId];
     
     [paymentlayerinfo
      makeUserPayment:debitCardInfo
@@ -259,7 +261,7 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
     
     NSString* transactionId;
     
-    transactionId = [self createTXNId];
+    transactionId = [CTSUtility createTXNId];
     NSLog(@"transactionId:%@", transactionId);
     NSString* signature =
     [ServerSignature getSignatureFromServerTxnId:transactionId amount:@"1"];
@@ -276,7 +278,7 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
 
 
 - (void)doGuestPaymentCreditCard {
-    NSString* transactionId = [self createTXNId];
+    NSString* transactionId = [CTSUtility createTXNId];
     
     NSString* signature =
     [ServerSignature getSignatureFromServerTxnId:transactionId amount:@"1"];
@@ -304,7 +306,7 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
 }
 
 - (void)doGuestPaymentDebitCard {
-    NSString* transactionId = [self createTXNId];
+    NSString* transactionId = [CTSUtility createTXNId];
     
     NSString* signature =
     [ServerSignature getSignatureFromServerTxnId:transactionId amount:@"1"];
@@ -329,18 +331,6 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
                                   withSignature:signature
                                       withTxnId:transactionId
                           withCompletionHandler:nil];
-}
-
-
-
-- (NSString*)createTXNId {
-    NSString* transactionId;
-    long long CurrentTime =
-    (long long)([[NSDate date] timeIntervalSince1970] * 1000);
-    transactionId = [NSString stringWithFormat:@"CTS%lld", CurrentTime];
-    // transactionId = [NSString stringWithFormat:@"%lld", 820];
-    
-    return transactionId;
 }
 
 

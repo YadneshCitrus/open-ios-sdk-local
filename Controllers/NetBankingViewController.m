@@ -13,7 +13,6 @@
 #import "CTSAlertView.h"
 #import "WebViewViewController.h"
 #import "AppDelegate.h"
-#import "User.h"
 
 @interface NetBankingViewController ()
 
@@ -234,7 +233,7 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
     
     [netBankingPaymentInfo addNetBanking:netbank];
     
-    NSString* txnId = [self createTXNId];
+    NSString* txnId = [CTSUtility createTXNId];
     
     [paymentlayerinfo
      makeUserPayment:netBankingPaymentInfo
@@ -272,7 +271,7 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
 
 
 - (void)doGuestPaymentNetbanking {
-    NSString* transactionId = [self createTXNId];
+    NSString* transactionId = [CTSUtility createTXNId];
     NSLog(@"transactionId:%@", transactionId);
     NSString* signature =
     [ServerSignature getSignatureFromServerTxnId:transactionId amount:@"1"];
@@ -327,16 +326,6 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
                               }];
 }
 
-
-- (NSString*)createTXNId {
-    NSString* transactionId;
-    long long CurrentTime =
-    (long long)([[NSDate date] timeIntervalSince1970] * 1000);
-    transactionId = [NSString stringWithFormat:@"CTS%lld", CurrentTime];
-    // transactionId = [NSString stringWithFormat:@"%lld", 820];
-    
-    return transactionId;
-}
 
 
 - (void)didReceiveMemoryWarning

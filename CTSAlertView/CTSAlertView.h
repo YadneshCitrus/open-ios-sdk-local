@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CTSAlertView : UIAlertView
+@interface CTSAlertView : UIAlertView <UITextFieldDelegate>
 
 /**
  *  show alertView with activity
@@ -24,4 +24,12 @@
  *  @param shdismissow activity if YES
  */
 - (void)dismissLoadingAlertView:(BOOL)activity;
+
+/**
+ *  show alertView with input
+ *
+ *  @param alertView title
+ *  @param alertView message
+ */
+-(void)didPresentInputAlertView:(NSString *)title message:(NSString*)message;
 @end

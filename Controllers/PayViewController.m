@@ -7,10 +7,10 @@
 //
 
 #import "PayViewController.h"
-#import "SavedOptionsViewController.h"
 #import "NetBankingViewController.h"
 #import "CardPayViewController.h"
 #import "TestParams.h"
+#import "WebViewViewController.h"
 
 @interface PayViewController ()
 
@@ -43,6 +43,10 @@
     UIBarButtonItem* logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self
                                                                     action:@selector(barButtonLogoutPressed:)];
     self.navigationItem.rightBarButtonItem = logoutButton;
+    
+    self.savedOptionsViewController = [[SavedOptionsViewController alloc] initWithNibName:@"SavedOptionsViewController" bundle:nil];
+    self.savedOptionsViewController.savedOptionsDelegate = self;
+
     [self savedOptionAction:nil];
 }
 
@@ -78,10 +82,19 @@
 
     
     //
-    self.savedOptionsViewController = [[SavedOptionsViewController alloc] initWithNibName:@"SavedOptionsViewController" bundle:nil];
     self.savedOptionsViewController.view.frame = CGRectMake(0.0f, 92.0f, 320, 476.0f);
     [self.view addSubview:self.savedOptionsViewController.view];
     
+}
+
+#pragma mark - SavedOptionsDelegate delegates
+
+- (void)navigateToTargetController:(NSString*)redirectURL selectedPaymentOption:(NSString*)selectedPaymentOption;
+{
+    WebViewViewController* webViewViewController = [[WebViewViewController alloc] init];
+    webViewViewController.redirectURL = redirectURL;
+    webViewViewController.cardType = selectedPaymentOption;
+    [self.navigationController pushViewController:webViewViewController animated:YES];
 }
 
 -(IBAction)netBankingAction:(id)sender

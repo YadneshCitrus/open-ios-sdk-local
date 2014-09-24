@@ -19,12 +19,14 @@
 @implementation CTSAlertView
 @synthesize activityView;
 
+UIActivityIndicatorView* activityView;
+
 - (id)initWithTitle:(NSString *)title
 {
     if ( self = [super init] )
     {
-        self.title = title;
-        self.message = @"\n\n";
+//        self.title = title;
+//        self.message = @"\n\n";
         
         [self setDelegate:self];
     }
@@ -49,6 +51,7 @@
 }
 
 
+
 -(void)dismissLoadingAlertView:(BOOL)activity
 {
     if (activity) {
@@ -56,5 +59,24 @@
         [self.activityView stopAnimating];
     }
 }
+
+-(void)didPresentInputAlertView:(NSString *)title message:(NSString*)message
+{
+    // Create the progress bar and add it to the alert
+    self.title = title;
+    self.message = message;
+    [self setAlertViewStyle:UIAlertViewStyleSecureTextInput];
+    [self addButtonWithTitle:@"Cancel"];
+    [self addButtonWithTitle:@"Ok"];
+    
+    UITextField *textField = [self textFieldAtIndex:0];
+    textField.tag = 100;
+    textField.delegate = self;
+    textField.borderStyle = UITextBorderStyleRoundedRect;
+    textField.placeholder = @"CVV";
+    
+    [self show];
+}
+
 
 @end

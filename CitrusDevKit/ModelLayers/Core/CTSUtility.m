@@ -439,4 +439,13 @@
     return YES;
 }
 
+
++ (NSString*)createTXNId {
+    NSString* transactionId;
+    long long CurrentTime =
+    (long long)([[NSDate date] timeIntervalSince1970] * 1000);
+    transactionId = [NSString stringWithFormat:@"CTS%lld", CurrentTime];
+    return transactionId;
+}
+
 @end

@@ -10,8 +10,7 @@
 #import "CitrusSdk.h"
 #import "CTSTextFieldValidator.h"
 
-@interface CardPayViewController : UIViewController <CTSPaymentProtocol, CTSProfileProtocol,
-                                                        UIWebViewDelegate>
+@interface CardPayViewController : UIViewController <CTSPaymentProtocol, CTSProfileProtocol>
 {
     IBOutlet __weak CTSTextFieldValidator *cardNumberTextField;
     IBOutlet __weak CTSTextFieldValidator *expiryDateTextField;
