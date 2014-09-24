@@ -217,7 +217,7 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
     CTSPaymentDetailUpdate* debitCardInfo = [[CTSPaymentDetailUpdate alloc] init];
     CTSElectronicCardUpdate* debitCard =
     [[CTSElectronicCardUpdate alloc] initCreditCard];
-    debitCard.number = self.cardNumberTextField.text;
+    debitCard.number = [self.cardNumberTextField.text stringByReplacingOccurrencesOfString:@"-" withString:@""];
     debitCard.expiryDate = self.expiryDateTextField.text;
     debitCard.scheme = [CTSUtility fetchCardSchemeForCardNumber:debitCard.number];
     debitCard.ownerName = self.cardHolderNameTextField.text;
@@ -246,7 +246,7 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
     [[CTSPaymentDetailUpdate alloc] init];
     CTSElectronicCardUpdate* creditCard =
     [[CTSElectronicCardUpdate alloc] initCreditCard];
-    creditCard.number = self.cardNumberTextField.text;
+    creditCard.number = [self.cardNumberTextField.text stringByReplacingOccurrencesOfString:@"-" withString:@""];
     creditCard.expiryDate = self.expiryDateTextField.text;
     creditCard.scheme = [CTSUtility fetchCardSchemeForCardNumber:creditCard.number];
     creditCard.ownerName = self.cardHolderNameTextField.text;
@@ -285,7 +285,7 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
     
     CTSElectronicCardUpdate* creditCard =
     [[CTSElectronicCardUpdate alloc] initCreditCard];
-    creditCard.number = self.cardNumberTextField.text;
+    creditCard.number = [self.cardNumberTextField.text stringByReplacingOccurrencesOfString:@"-" withString:@""];
     creditCard.expiryDate = self.expiryDateTextField.text;
     creditCard.scheme = [CTSUtility fetchCardSchemeForCardNumber:creditCard.number];
     creditCard.cvv = self.CVVNumberTextField.text;
@@ -313,7 +313,7 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
     
     CTSElectronicCardUpdate* debitCard =
     [[CTSElectronicCardUpdate alloc] initDebitCard];
-    debitCard.number = self.cardNumberTextField.text;
+    debitCard.number = [self.cardNumberTextField.text stringByReplacingOccurrencesOfString:@"-" withString:@""];
     debitCard.expiryDate = self.expiryDateTextField.text;
     debitCard.scheme = [CTSUtility fetchCardSchemeForCardNumber:debitCard.number];
     debitCard.cvv = self.CVVNumberTextField.text;
