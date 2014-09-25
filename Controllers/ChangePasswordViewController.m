@@ -85,10 +85,11 @@
 
 -(void)requestResetPassword
 {
-    [UIUtility didPresentLoadingAlertView:@"Requesting" withActivity:YES];
     
     if([self.usernameTextField validate] & [self.oldPasswordTextField validate] & [self.passwordTextField validate])
     {
+        [UIUtility didPresentLoadingAlertView:@"Requesting" withActivity:YES];
+
         [authLayer requestChangePasswordUserName:self.usernameTextField.text
                                oldPassword:(NSString*)self.oldPasswordTextField.text
                                newPassword:(NSString*)self.passwordTextField.text
@@ -119,7 +120,7 @@
         // Update the UI
         [UIUtility dismissLoadingAlertView:YES];
         
-        [UIUtility didPresentInfoAlertView:@"Please enter valid input"];
+        [UIUtility didPresentInfoAlertView:@"Please enter valid input."];
     }
 
 }

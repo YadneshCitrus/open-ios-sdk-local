@@ -27,8 +27,8 @@
     CTSPaymentLayer* paymentlayerinfo;
     CTSContactUpdate* contactInfo;
     CTSUserAddress* addressInfo;
-    CTSProfilePaymentRes* paymentSavedResponse;
-    
+    CTSProfileContactRes* contactSavedResponse;
+
     __weak id <SavedOptionsDelegate> savedOptionsDelegate;
 }
 @property(nonatomic,weak) IBOutlet UITableView *tableView;

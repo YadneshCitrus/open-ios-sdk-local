@@ -96,12 +96,10 @@
         [self.passwordTextField resignFirstResponder];
     }
     
-    [UIUtility didPresentLoadingAlertView:@"Checking user" withActivity:YES];
-    
     
     if([self.firstnameTextField validate] & [self.lastnameTextField validate] & [self.emailTextField validate] & [self.mobileTextField validate] & [self.passwordTextField validate])
     {
-        //
+        [UIUtility didPresentLoadingAlertView:@"Checking user" withActivity:YES];
         [authLayer requestIsUserCitrusMemberUsername:self.emailTextField.text
                         completionHandler:^(BOOL isUserCitrusMember,
                                             NSError* error) {
@@ -167,7 +165,7 @@
         // Update the UI
         [UIUtility dismissLoadingAlertView:YES];
         
-        [UIUtility didPresentInfoAlertView:@"Please enter valid input"];
+        [UIUtility didPresentInfoAlertView:@"Please enter valid input."];
     }
 }
 

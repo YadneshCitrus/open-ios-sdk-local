@@ -161,11 +161,15 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
 //
 - (void)addPickerView
 {
-    self.bankSelect = [[UIPickerView alloc] initWithFrame:CGRectMake(10, 200, 300, 200)];
-    self.bankSelect.showsSelectionIndicator = YES;
-    self.bankSelect.hidden = NO;
-    self.bankSelect.delegate = self;
-    [self.view addSubview:self.bankSelect];
+    if (!self.bankSelect) {
+        self.bankSelect = [[UIPickerView alloc] initWithFrame:CGRectMake(10, 200, 300, 200)];
+        self.bankSelect.showsSelectionIndicator = YES;
+        self.bankSelect.hidden = NO;
+        self.bankSelect.delegate = self;
+        [self.view addSubview:self.bankSelect];
+    }else{
+        [self.bankSelect setHidden:NO];
+    }
 }
 
 #pragma mark - UIPickerViewDataSource
@@ -202,10 +206,10 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
 //
 -(IBAction)netBankingAction:(id)sender
 {
-    //
-    [UIUtility didPresentLoadingAlertView:@"Connecting..." withActivity:YES];
     
     if ([self.selectedbank length] != 0) {
+        [UIUtility didPresentLoadingAlertView:@"Connecting..." withActivity:YES];
+
         if ([self.payType isEqualToString:MEMBER_PAY_TYPE]) {
             [self doUserNetbankingPayment];
         }if ([self.payType isEqualToString:GUEST_PAY_TYPE]) {

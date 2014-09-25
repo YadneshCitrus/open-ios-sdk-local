@@ -184,11 +184,11 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
         [self.cardHolderNameTextField resignFirstResponder];
     }
     
-    //
-    [UIUtility didPresentLoadingAlertView:@"Connecting..." withActivity:YES];
     
     if([self.cardNumberTextField validate] & [self.expiryDateTextField validate] & [self.CVVNumberTextField validate] & [self.cardHolderNameTextField validate])
     {
+        [UIUtility didPresentLoadingAlertView:@"Connecting..." withActivity:YES];
+
         if ([self.payType isEqualToString:MEMBER_PAY_TYPE]) {
             if ([self.cardType isEqualToString:DEBIT_CARD_TYPE]) {
                 [self doUserDebitCardPayment];

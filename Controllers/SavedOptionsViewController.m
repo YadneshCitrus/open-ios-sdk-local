@@ -127,6 +127,9 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
     LogTrace(@"didReceiveContactInfo");
     // LogTrace(@"contactInfo %@", contactInfo);
     //[contactInfo logProperties];
+    
+    contactSavedResponse = contactInfo;
+
     LogTrace(@"contactInfo %@", error);
 }
 

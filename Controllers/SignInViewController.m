@@ -88,11 +88,11 @@
         [self.passwordTextField resignFirstResponder];
     }
     
-    //
-    [UIUtility didPresentLoadingAlertView:@"Checking user" withActivity:YES];
     
     if([self.usernameTextField validate] & [self.passwordTextField validate])
     {
+        [UIUtility didPresentLoadingAlertView:@"Checking user" withActivity:YES];
+
         //
         [authLayer requestSigninWithUsername:self.usernameTextField.text
                                     password:self.passwordTextField.text
@@ -119,7 +119,7 @@
         // Update the UI
         [UIUtility dismissLoadingAlertView:YES];
         
-        [UIUtility didPresentInfoAlertView:@"Please enter valid input"];
+        [UIUtility didPresentInfoAlertView:@"Please enter valid input."];
     }
 }
 
