@@ -10,6 +10,7 @@
 #import "MerchantConstants.h"
 #import "CitrusSdk.h"
 #import "TestParams.h"
+#import "UIUtility.h"
 
 @interface WebViewViewController ()
 
@@ -62,13 +63,17 @@
     [indicator startAnimating];
 }
 
-- (BOOL)webView:(UIWebView*)webView
-shouldStartLoadWithRequest:(NSURLRequest*)request
- navigationType:(UIWebViewNavigationType)navigationType {
+- (BOOL)webView:(UIWebView*)webView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType {
     NSDictionary* responseDict = [CTSUtility getResponseIfTransactionIsFinished:request.HTTPBody];
     if (responseDict != nil) {
         [self transactionComplete:responseDict];
     }
+//    else{
+//        if ([self.cardType isEqualToString:DEBIT_CARD_TYPE] || [self.cardType isEqualToString:CREDIT_CARD_TYPE]) {
+//            [UIUtility didPresentInfoAlertView:@"Please enter valid CVV number."];
+//            self.navigationItem.hidesBackButton = NO;
+//        }
+//    }
     return YES;
 }
 

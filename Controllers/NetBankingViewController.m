@@ -10,7 +10,7 @@
 #import "MerchantConstants.h"
 #import "TestParams.h"
 #import "ServerSignature.h"
-#import "CTSAlertView.h"
+#import "UIUtility.h"
 #import "WebViewViewController.h"
 #import "AppDelegate.h"
 
@@ -19,8 +19,6 @@
 @property (nonatomic, strong) UIPickerView *bankSelect;
 @property (nonatomic, strong)  NSArray *pickerData;
 @property (nonatomic, strong)  NSString *selectedbank;
-
-@property (nonatomic, strong)  CTSAlertView* alertView;
 @end
 
 @implementation NetBankingViewController
@@ -52,7 +50,6 @@
 - (void)initialize {
     // Do any additional setup after loading the view from its nib.
     
-    self.alertView = [[CTSAlertView alloc] init];
     paymentlayerinfo = [[CTSPaymentLayer alloc] init];
     
     profileLayer = [[CTSProfileLayer alloc] init];
@@ -206,7 +203,7 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
 -(IBAction)netBankingAction:(id)sender
 {
     //
-    [self.alertView didPresentLoadingAlertView:@"Connecting..." withActivity:YES];
+    [UIUtility didPresentLoadingAlertView:@"Connecting..." withActivity:YES];
     
     if ([self.selectedbank length] != 0) {
         if ([self.payType isEqualToString:MEMBER_PAY_TYPE]) {
@@ -215,9 +212,9 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
             [self doGuestPaymentNetbanking];
         }
     }else{
-        [self.alertView dismissLoadingAlertView:YES];
-        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Information" message:@"Input field can't be blank!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [alertView show];
+        [UIUtility dismissLoadingAlertView:YES];
+        
+        [UIUtility didPresentInfoAlertView:@"Input field can't be blank!"];
     }
 }
 
@@ -251,19 +248,19 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
          BOOL hasSuccess = ((paymentInfo != nil) && ([paymentInfo.pgRespCode integerValue] == 0) && (error == nil)) ? YES : NO;
          
          dispatch_async(dispatch_get_main_queue(), ^{
-             [self.alertView dismissLoadingAlertView:YES];
+             [UIUtility dismissLoadingAlertView:YES];
              if (hasSuccess) {
-                 [self.alertView dismissLoadingAlertView:YES];
-                 [self.alertView didPresentLoadingAlertView:@"Connecting to the PG" withActivity:YES];
+                 [UIUtility dismissLoadingAlertView:YES];
+                 [UIUtility didPresentLoadingAlertView:@"Connecting to the PG" withActivity:YES];
                  //
                  WebViewViewController* webViewViewController = [[WebViewViewController alloc] init];
                  webViewViewController.redirectURL = paymentInfo.redirectUrl;
-                 [self.alertView dismissLoadingAlertView:YES];
+                 [UIUtility dismissLoadingAlertView:YES];
                  [self.rootController.navigationController pushViewController:webViewViewController animated:YES];
              }else{
-                 [self.alertView dismissLoadingAlertView:YES];
-                 UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[error.userInfo valueForKey:@"NSLocalizedDescription"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-                 [alertView show];
+                 [UIUtility dismissLoadingAlertView:YES];
+                 
+                 [UIUtility didPresentErrorAlertView:error];
              }
          });
      }];
@@ -307,19 +304,19 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
                                   BOOL hasSuccess = ((paymentInfo != nil) && ([paymentInfo.pgRespCode integerValue] == 0) && (error == nil)) ? YES : NO;
                                   dispatch_async(dispatch_get_main_queue(), ^{
                                       // Update the UI
-                                      [self.alertView dismissLoadingAlertView:YES];
+                                      [UIUtility dismissLoadingAlertView:YES];
                                       if (hasSuccess) {
-                                          [self.alertView dismissLoadingAlertView:YES];
-                                          [self.alertView didPresentLoadingAlertView:@"Connecting to the PG" withActivity:YES];
+                                          [UIUtility dismissLoadingAlertView:YES];
+                                          [UIUtility didPresentLoadingAlertView:@"Connecting to the PG" withActivity:YES];
                                           //
                                           WebViewViewController* webViewViewController = [[WebViewViewController alloc] init];
                                           webViewViewController.redirectURL = paymentInfo.redirectUrl;
-                                          [self.alertView dismissLoadingAlertView:YES];
+                                          [UIUtility dismissLoadingAlertView:YES];
                                           [self.rootController.navigationController pushViewController:webViewViewController animated:YES];
                                       }else{
-                                          [self.alertView dismissLoadingAlertView:YES];
-                                          UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[error.userInfo valueForKey:@"NSLocalizedDescription"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-                                          [alertView show];
+                                          [UIUtility dismissLoadingAlertView:YES];
+                                          
+                                          [UIUtility didPresentErrorAlertView:error];
                                       }
                                   });
                                   

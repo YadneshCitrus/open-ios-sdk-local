@@ -7,13 +7,12 @@
 //
 
 #import "CardPayViewController.h"
-#import "CTSAlertView.h"
+#import "UIUtility.h"
 #import "MerchantConstants.h"
 #import "TestParams.h"
 #import "ServerSignature.h"
 #import "WebViewViewController.h"
 #import "AppDelegate.h"
-#import "User.h"
 
 
 #define REGEX_CARDNUMBER_LIMIT @"^.{19,19}$"
@@ -28,7 +27,6 @@
 
 
 @interface CardPayViewController ()
-@property (nonatomic, strong)  CTSAlertView* alertView;
 @end
 
 @implementation CardPayViewController
@@ -51,8 +49,6 @@ static NSInteger creditPreviouslength = 0;
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    self.alertView = [[CTSAlertView alloc] init];
 
     [self.expiryDateTextField addTarget:self
                                      action:@selector(textfieldTextchange:)
@@ -189,7 +185,7 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
     }
     
     //
-    [self.alertView didPresentLoadingAlertView:@"Connecting..." withActivity:YES];
+    [UIUtility didPresentLoadingAlertView:@"Connecting..." withActivity:YES];
     
     if([self.cardNumberTextField validate] & [self.expiryDateTextField validate] & [self.CVVNumberTextField validate] & [self.cardHolderNameTextField validate])
     {
@@ -208,9 +204,9 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
         }
     }else{
         // Update the UI
-        [self.alertView dismissLoadingAlertView:YES];
-        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Information" message:@"Please enter valid input" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [alertView show];
+        [UIUtility dismissLoadingAlertView:YES];
+        
+        [UIUtility didPresentInfoAlertView:@"Please enter valid input"];
     }
 }
 
@@ -350,13 +346,13 @@ didMakeUserPayment:(CTSPaymentTransactionRes*)paymentInfo
     dispatch_async(dispatch_get_main_queue(), ^{
         // Update the UI
         if (hasSuccess) {
-            [self.alertView dismissLoadingAlertView:YES];
-            [self.alertView didPresentLoadingAlertView:@"Connecting to the PG" withActivity:YES];
+            [UIUtility dismissLoadingAlertView:YES];
+            [UIUtility didPresentLoadingAlertView:@"Connecting to the PG" withActivity:YES];
             [self loadRedirectUrl:paymentInfo.redirectUrl];
         }else{
-            [self.alertView dismissLoadingAlertView:YES];
-            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[error.userInfo valueForKey:@"NSLocalizedDescription"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [alertView show];
+            [UIUtility dismissLoadingAlertView:YES];
+            
+            [UIUtility didPresentErrorAlertView:error];
         }
     });
     
@@ -378,11 +374,11 @@ didMakePaymentUsingGuestFlow:(CTSPaymentTransactionRes*)paymentInfo
     dispatch_async(dispatch_get_main_queue(), ^{
         // Update the UI
         if (hasSuccess) {
-            [self.alertView dismissLoadingAlertView:YES];
-            [self.alertView didPresentLoadingAlertView:@"Connecting to the PG" withActivity:YES];
+            [UIUtility dismissLoadingAlertView:YES];
+            [UIUtility didPresentLoadingAlertView:@"Connecting to the PG" withActivity:YES];
             [self loadRedirectUrl:paymentInfo.redirectUrl];
         }else{
-            [self.alertView dismissLoadingAlertView:YES];
+            [UIUtility dismissLoadingAlertView:YES];
             UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[error.userInfo valueForKey:@"NSLocalizedDescription"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alertView show];
         }
@@ -403,11 +399,11 @@ didMakeTokenizedPayment:(CTSPaymentTransactionRes*)paymentInfo
     dispatch_async(dispatch_get_main_queue(), ^{
         // Update the UI
         if (hasSuccess) {
-            [self.alertView dismissLoadingAlertView:YES];
-            [self.alertView didPresentLoadingAlertView:@"Connecting to the PG" withActivity:YES];
+            [UIUtility dismissLoadingAlertView:YES];
+            [UIUtility didPresentLoadingAlertView:@"Connecting to the PG" withActivity:YES];
             [self loadRedirectUrl:paymentInfo.redirectUrl];
         }else{
-            [self.alertView dismissLoadingAlertView:YES];
+            [UIUtility dismissLoadingAlertView:YES];
             UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[error.userInfo valueForKey:@"NSLocalizedDescription"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alertView show];
         }
@@ -421,7 +417,7 @@ didMakeTokenizedPayment:(CTSPaymentTransactionRes*)paymentInfo
     WebViewViewController* webViewViewController = [[WebViewViewController alloc] init];
     webViewViewController.redirectURL = redirectURL;
     webViewViewController.cardType = self.cardType;
-    [self.alertView dismissLoadingAlertView:YES];
+    [UIUtility dismissLoadingAlertView:YES];
     [self.rootController.navigationController pushViewController:webViewViewController animated:YES];
 }
 
@@ -432,7 +428,6 @@ didMakeTokenizedPayment:(CTSPaymentTransactionRes*)paymentInfo
     [textField resignFirstResponder];
     return YES;
 }
-
 
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField*)textField {

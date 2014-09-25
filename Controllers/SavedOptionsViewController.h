@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "CitrusSdk.h"
-#import "CTSTextFieldValidator.h"
 
 @protocol SavedOptionsDelegate <NSObject>
 @optional
@@ -22,7 +21,6 @@
                                                             UITextFieldDelegate>
 {
     IBOutlet __weak UITableView *tableView;
-    UIViewController *rootController;
     CTSPaymentOption *selectedPaymentOption;
     
     CTSProfileLayer* profileLayer;
@@ -31,13 +29,10 @@
     CTSUserAddress* addressInfo;
     CTSProfilePaymentRes* paymentSavedResponse;
     
-    CTSTextFieldValidator *activeTextField;
     __weak id <SavedOptionsDelegate> savedOptionsDelegate;
 }
 @property(nonatomic,weak) IBOutlet UITableView *tableView;
-@property(nonatomic,strong) UIViewController *rootController;
 @property(nonatomic,strong) CTSPaymentOption *selectedPaymentOption;
-@property(nonatomic,strong) CTSTextFieldValidator *activeTextField;
 @property (nonatomic, weak) id <SavedOptionsDelegate> savedOptionsDelegate;
 
 @end

@@ -9,24 +9,20 @@
 #import "SavedOptionsViewController.h"
 #import "TestParams.h"
 #import "ServerSignature.h"
-#import "CTSAlertView.h"
 #import "WebViewViewController.h"
+#import "UIUtility.h"
+
 
 #define REGEX_CVV @"^[0-9]*$"
 
 @interface SavedOptionsViewController ()
 @property (strong, nonatomic) NSArray *userdata;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, strong)  CTSAlertView* alertView;
-@property(nonatomic,strong) UIActivityIndicatorView* activityView;
-
 @end
 
 @implementation SavedOptionsViewController
 @synthesize tableView;
-@synthesize rootController;
 @synthesize selectedPaymentOption;
-@synthesize activeTextField;
 @synthesize savedOptionsDelegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -43,7 +39,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-//    self.alertView = [[CTSAlertView alloc] init];
     _userdata = [[NSArray alloc] init];
     
     [self getUserRecords];
@@ -203,22 +198,10 @@ didUpdatePaymentInfoError:(NSError*)error {
     CTSPaymentOption *paymentOption = [self.userdata objectAtIndex:indexPath.row];
     self.selectedPaymentOption = paymentOption;
     if ([paymentOption.type isEqualToString:NETBANKING_TYPE]) {
-        [self didPresentLoadingAlertView:@"Connecting..." withActivity:YES];
+        [UIUtility didPresentLoadingAlertView:@"Connecting..." withActivity:YES];
         [self doTokenizedPaymentNetbanking:paymentOption.token];
     }else if ([paymentOption.type isEqualToString:DEBIT_CARD_TYPE] || [paymentOption.type isEqualToString:CREDIT_CARD_TYPE]) {
-
-        self.alertView = [[CTSAlertView alloc] initWithTitle:@"CVV"
-                                                     message:@"Enter CVV number."
-                                                    delegate:self
-                                           cancelButtonTitle:@"Cancel"
-                                           otherButtonTitles:@"OK", nil];
-        self.alertView.alertViewStyle = UIAlertViewStyleSecureTextInput;
-        UITextField *textField = [self.alertView textFieldAtIndex:0];
-        textField.tag = 100;
-        textField.delegate = self;
-        textField.borderStyle = UITextBorderStyleRoundedRect;
-        textField.placeholder = @"CVV";
-        [self.alertView show];
+        [self didPresentInputAlertView:@"CVV" message:@"Enter CVV number."];
     }
 }
 
@@ -240,17 +223,21 @@ didUpdatePaymentInfoError:(NSError*)error {
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
     if([title isEqualToString:@"OK"])
     {
-        [self didPresentLoadingAlertView:@"Connecting..." withActivity:YES];
-        UITextField *CVV = [alertView textFieldAtIndex:0];
+        UITextField *CVVTextField = [alertView textFieldAtIndex:0];
         
-        if ([CVV isFirstResponder]) {
-            [CVV resignFirstResponder];
-        }
+//        if ([CVVTextField isFirstResponder]) {
+            [CVVTextField resignFirstResponder];
+//        }
         
-        if ([self.selectedPaymentOption.type isEqualToString:DEBIT_CARD_TYPE]) {
-            [self doTokenizedPaymentDebitCard:self.selectedPaymentOption.token CVVNumber:CVV.text];
-        }else  if ([self.selectedPaymentOption.type isEqualToString:CREDIT_CARD_TYPE]) {
-            [self doTokenizedPaymentCreditCard:self.selectedPaymentOption.token CVVNumber:CVV.text];
+        if([CVVTextField.text length] != 0){
+            [UIUtility didPresentLoadingAlertView:@"Connecting..." withActivity:YES];
+            if ([self.selectedPaymentOption.type isEqualToString:DEBIT_CARD_TYPE]) {
+                [self doTokenizedPaymentDebitCard:self.selectedPaymentOption.token CVVNumber:CVVTextField.text];
+            }else  if ([self.selectedPaymentOption.type isEqualToString:CREDIT_CARD_TYPE]) {
+                [self doTokenizedPaymentCreditCard:self.selectedPaymentOption.token CVVNumber:CVVTextField.text];
+            }
+        }else{
+            [UIUtility didPresentInfoAlertView:@"Input field can't be blank!"];
         }
     }
 }
@@ -324,13 +311,12 @@ didMakeTokenizedPayment:(CTSPaymentTransactionRes*)paymentInfo
     dispatch_async(dispatch_get_main_queue(), ^{
         // Update the UI
         if (hasSuccess) {
-            [self dismissLoadingAlertView:YES];
-            [self didPresentLoadingAlertView:@"Connecting to the PG" withActivity:YES];
+            [UIUtility dismissLoadingAlertView:YES];
+            [UIUtility didPresentLoadingAlertView:@"Connecting to the PG" withActivity:YES];
             [self loadRedirectUrl:paymentInfo.redirectUrl];
         }else{
-            [self dismissLoadingAlertView:YES];
-            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[error.userInfo valueForKey:@"NSLocalizedDescription"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [alertView show];
+            [UIUtility dismissLoadingAlertView:YES];
+            [UIUtility didPresentErrorAlertView:error];
         }
     });
 }
@@ -338,7 +324,7 @@ didMakeTokenizedPayment:(CTSPaymentTransactionRes*)paymentInfo
 #pragma mark - helper methods
 
 - (void)loadRedirectUrl:(NSString*)redirectURL {
-    [self dismissLoadingAlertView:YES];
+    [UIUtility dismissLoadingAlertView:YES];
 
     if (savedOptionsDelegate != nil && [savedOptionsDelegate respondsToSelector:@selector(navigateToTargetController:selectedPaymentOption:)]){
         [savedOptionsDelegate navigateToTargetController:redirectURL selectedPaymentOption:self.selectedPaymentOption.type];
@@ -348,36 +334,30 @@ didMakeTokenizedPayment:(CTSPaymentTransactionRes*)paymentInfo
 
 #pragma mark - CTSAlertView implementation
 
--(void)didPresentLoadingAlertView:(NSString *)message withActivity:(BOOL)activity
+-(void)didPresentInputAlertView:(NSString *)title message:(NSString *)message
 {
-    self.alertView = [[CTSAlertView alloc] initWithTitle:@"Please wait..."
-                                                 message:message
-                                                delegate:self
-                                       cancelButtonTitle:nil
-                                       otherButtonTitles:nil];
-
-    // Create the progress bar and add it to the alert
-    if (activity) {
-        self.activityView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-        self.activityView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
-        [self.alertView setValue:self.activityView forKey:@"accessoryView"];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.activityView startAnimating];
-        });
-        [self.alertView show];
-    }
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
+                                           message:message
+                                          delegate:self
+                                 cancelButtonTitle:@"Cancel"
+                                 otherButtonTitles:@"OK", nil];
+    alertView.alertViewStyle = UIAlertViewStyleSecureTextInput;
+    UITextField *textField = [alertView textFieldAtIndex:0];
+    textField.tag = 100;
+    textField.delegate = self;
+    textField.borderStyle = UITextBorderStyleRoundedRect;
+    textField.placeholder = title;
+    [alertView show];
 }
 
 
--(void)dismissLoadingAlertView:(BOOL)activity
+#pragma mark - UITextField delegates
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    if (activity) {
-        [self.alertView dismissWithClickedButtonIndex:0 animated:YES];
-        [self.activityView stopAnimating];
-    }
+    [textField resignFirstResponder];
+    return YES;
 }
-
-
 
 #pragma mark - core data implementation
 
@@ -469,7 +449,6 @@ didMakeTokenizedPayment:(CTSPaymentTransactionRes*)paymentInfo
         
         CTSPaymentOption * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"CTSPaymentOption"
                                                                     inManagedObjectContext:self.managedObjectContext];
-        
         newEntry.type = paymentInfo.type;
         newEntry.name = paymentInfo.name;
         newEntry.owner = paymentInfo.owner;

@@ -7,9 +7,8 @@
 //
 
 #import "SignInViewController.h"
-#import "CTSAlertView.h"
+#import "UIUtility.h"
 #import "TestParams.h"
-#import "User.h"
 #import "ChangePasswordViewController.h"
 
 #define REGEX_EMAIL @"[A-Z0-9a-z._%+-]{3,}+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
@@ -90,8 +89,7 @@
     }
     
     //
-    CTSAlertView* alertView = [[CTSAlertView alloc] init];
-    [alertView didPresentLoadingAlertView:@"Checking user" withActivity:YES];
+    [UIUtility didPresentLoadingAlertView:@"Checking user" withActivity:YES];
     
     if([self.usernameTextField validate] & [self.passwordTextField validate])
     {
@@ -107,22 +105,21 @@
                                
                                dispatch_async(dispatch_get_main_queue(), ^{
                                    // Update the UI
-                                   [alertView dismissLoadingAlertView:YES];
+                                   [UIUtility dismissLoadingAlertView:YES];
                                    if (error == nil) {
                                        self.payViewController.payType = MEMBER_PAY_TYPE;
                                        [self.navigationController pushViewController:self.payViewController animated:YES];
                                        [self setLastUser];
                                    }else{
-                                       UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[error.userInfo valueForKey:@"NSLocalizedDescription"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-                                       [alertView show];
+                                       [UIUtility didPresentErrorAlertView:error];
                                    }
                                 });
                            }];
     }else{
         // Update the UI
-        [alertView dismissLoadingAlertView:YES];
-        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Information" message:@"Please enter valid input" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [alertView show];
+        [UIUtility dismissLoadingAlertView:YES];
+        
+        [UIUtility didPresentInfoAlertView:@"Please enter valid input"];
     }
 }
 
@@ -141,8 +138,7 @@
         alertView.tag = 100;
         [alertView show];
     }else{
-        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Information" message:@"Username field can't be blank!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [alertView show];
+        [UIUtility didPresentInfoAlertView:@"Username field can't be blank!"];
     }
 }
 
@@ -171,9 +167,7 @@
 
 -(void)requestResetPassword
 {
-    //
-    CTSAlertView* alertView = [[CTSAlertView alloc] init];
-    [alertView didPresentLoadingAlertView:@"Requesting" withActivity:YES];
+    [UIUtility didPresentLoadingAlertView:@"Requesting" withActivity:YES];
     
     // Perform long running process
     if ([self.usernameTextField.text length] != 0 && [self.passwordTextField.text length] != 0) {
@@ -183,10 +177,9 @@
                           LogTrace(@"error %@ ", error);
                           
                           // Update the UI
-                          [alertView dismissLoadingAlertView:YES];
+                          [UIUtility dismissLoadingAlertView:YES];
                           if (error == nil) {
-                              UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Information" message:@"An email sent successfully" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-                              [alertView show];
+                              [UIUtility didPresentInfoAlertView:@"An email sent successfully"];
                           }
                       }];
     }

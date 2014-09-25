@@ -7,6 +7,7 @@
 //
 
 #import "ChangePasswordViewController.h"
+#import "UIUtility.h"
 
 #define REGEX_USER_NAME_LIMIT @"^.{3,10}$"
 #define REGEX_USER_NAME @"[A-Za-z0-9]{3,10}"
@@ -84,8 +85,7 @@
 
 -(void)requestResetPassword
 {
-    CTSAlertView* alertView = [[CTSAlertView alloc] init];
-    [alertView didPresentLoadingAlertView:@"Requesting" withActivity:YES];
+    [UIUtility didPresentLoadingAlertView:@"Requesting" withActivity:YES];
     
     if([self.usernameTextField validate] & [self.oldPasswordTextField validate] & [self.passwordTextField validate])
     {
@@ -97,10 +97,10 @@
                           
                           dispatch_async(dispatch_get_main_queue(), ^{
                               // Update the UI
-                              [alertView dismissLoadingAlertView:YES];
+                              [UIUtility dismissLoadingAlertView:YES];
                               if (error == nil) {
-                                  UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Information" message:@"Your password has been updated successfully! " delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-                                  [alertView show];
+                                  
+                                  [UIUtility didPresentInfoAlertView:@"Your password has been updated successfully!"];
 #if !defined (TESTDATA_VERSION)
                                   if ([self.oldPasswordTextField text]) {
                                       self.oldPasswordTextField.text = @"";
@@ -117,9 +117,9 @@
                       }];
     }else{
         // Update the UI
-        [alertView dismissLoadingAlertView:YES];
-        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Information" message:@"Please enter valid input" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [alertView show];
+        [UIUtility dismissLoadingAlertView:YES];
+        
+        [UIUtility didPresentInfoAlertView:@"Please enter valid input"];
     }
 
 }

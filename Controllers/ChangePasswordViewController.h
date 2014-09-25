@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "CitrusSdk.h"
-#import "CTSAlertView.h"
 #import "TestParams.h"
 #import "CTSTextFieldValidator.h"
 

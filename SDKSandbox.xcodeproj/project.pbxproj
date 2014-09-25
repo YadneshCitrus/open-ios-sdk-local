@@ -173,8 +173,6 @@
 		76A80B7C19C16D7B007410EB /* WebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AE019C16D7B007410EB /* WebViewViewController.m */; };
 		76A80B7D19C16D7B007410EB /* WebViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A80AE119C16D7B007410EB /* WebViewViewController.xib */; };
 		76A80B7E19C16D7B007410EB /* WebViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A80AE119C16D7B007410EB /* WebViewViewController.xib */; };
-		76A80B7F19C16D7B007410EB /* CTSAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AE419C16D7B007410EB /* CTSAlertView.m */; };
-		76A80B8019C16D7B007410EB /* CTSAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AE419C16D7B007410EB /* CTSAlertView.m */; };
 		76A80B8119C16D7B007410EB /* buttonbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80AE619C16D7B007410EB /* buttonbackground.png */; };
 		76A80B8219C16D7B007410EB /* buttonbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80AE619C16D7B007410EB /* buttonbackground.png */; };
 		76A80B8619C182F5007410EB /* GuestPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80B8419C182F5007410EB /* GuestPayViewController.m */; };
@@ -212,9 +210,6 @@
 		76A80BB619C2CA7F007410EB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A80BB519C2CA7F007410EB /* CoreData.framework */; };
 		76A80BBA19C2CAF6007410EB /* UserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76A80BB819C2CAF6007410EB /* UserData.xcdatamodeld */; };
 		76A80BBB19C2CAF6007410EB /* UserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76A80BB819C2CAF6007410EB /* UserData.xcdatamodeld */; };
-		76A80BBE19C2CD4A007410EB /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80BBD19C2CD4A007410EB /* User.m */; };
-		76A80BBF19C2CD4A007410EB /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80BBD19C2CD4A007410EB /* User.m */; };
-		76A80BC519C6C15E007410EB /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80BBD19C2CD4A007410EB /* User.m */; };
 		76A80BC619C6C15E007410EB /* ServerSignature.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AD719C16D7B007410EB /* ServerSignature.m */; };
 		76A80BC719C6C15E007410EB /* CTSTokenizedCardPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A4A19C16D7B007410EB /* CTSTokenizedCardPayment.m */; };
 		76A80BC819C6C15E007410EB /* CTSSignUpRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A6519C16D7B007410EB /* CTSSignUpRes.m */; };
@@ -231,7 +226,6 @@
 		76A80BD319C6C15E007410EB /* GetProfileRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A7B19C16D7B007410EB /* GetProfileRes.m */; };
 		76A80BD419C6C15E007410EB /* CTSTokenizedPaymentToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A4C19C16D7B007410EB /* CTSTokenizedPaymentToken.m */; };
 		76A80BD519C6C15E007410EB /* CTSPaymentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A4419C16D7B007410EB /* CTSPaymentRequest.m */; };
-		76A80BD619C6C15E007410EB /* CTSAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AE419C16D7B007410EB /* CTSAlertView.m */; };
 		76A80BD719C6C15E007410EB /* CTSPaymentLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AC019C16D7B007410EB /* CTSPaymentLayer.m */; };
 		76A80BD819C6C15E007410EB /* CTSRestError.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A3419C16D7B007410EB /* CTSRestError.m */; };
 		76A80BD919C6C15E007410EB /* CTSRestCoreResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A9719C16D7B007410EB /* CTSRestCoreResponse.m */; };
@@ -322,6 +316,9 @@
 		76AED02B19C8553E00B6D5F1 /* ChangePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76AED02719C8553E00B6D5F1 /* ChangePasswordViewController.xib */; };
 		76AED02C19C8553E00B6D5F1 /* ChangePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76AED02719C8553E00B6D5F1 /* ChangePasswordViewController.xib */; };
 		76AED02D19C8553E00B6D5F1 /* ChangePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76AED02719C8553E00B6D5F1 /* ChangePasswordViewController.xib */; };
+		76CA042419D3EAE2007D972A /* UIUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA042319D3EAE2007D972A /* UIUtility.m */; };
+		76CA042519D3EAE2007D972A /* UIUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA042319D3EAE2007D972A /* UIUtility.m */; };
+		76CA042619D3EAE2007D972A /* UIUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA042319D3EAE2007D972A /* UIUtility.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -505,8 +502,6 @@
 		76A80ADF19C16D7B007410EB /* WebViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewViewController.h; sourceTree = "<group>"; };
 		76A80AE019C16D7B007410EB /* WebViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewViewController.m; sourceTree = "<group>"; };
 		76A80AE119C16D7B007410EB /* WebViewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewViewController.xib; sourceTree = "<group>"; };
-		76A80AE319C16D7B007410EB /* CTSAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSAlertView.h; sourceTree = "<group>"; };
-		76A80AE419C16D7B007410EB /* CTSAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSAlertView.m; sourceTree = "<group>"; };
 		76A80AE619C16D7B007410EB /* buttonbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonbackground.png; sourceTree = "<group>"; };
 		76A80B8319C182F5007410EB /* GuestPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuestPayViewController.h; sourceTree = "<group>"; };
 		76A80B8419C182F5007410EB /* GuestPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuestPayViewController.m; sourceTree = "<group>"; };
@@ -527,13 +522,13 @@
 		76A80B9819C193C0007410EB /* visa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "visa@2x.png"; sourceTree = "<group>"; };
 		76A80BB519C2CA7F007410EB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		76A80BB919C2CAF6007410EB /* UserData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserData.xcdatamodel; sourceTree = "<group>"; };
-		76A80BBC19C2CD4A007410EB /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		76A80BBD19C2CD4A007410EB /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		76A80C3319C6C15E007410EB /* SDKSandboxTestData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SDKSandboxTestData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A80C3419C6C15F007410EB /* SDKSandboxTestData-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SDKSandboxTestData-Info.plist"; path = "/Users/mukeshpatil/MyWork/SDK/15/open-ios-sdk-local/SDKSandboxTestData-Info.plist"; sourceTree = "<absolute>"; };
 		76AED02519C8553E00B6D5F1 /* ChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordViewController.h; sourceTree = "<group>"; };
 		76AED02619C8553E00B6D5F1 /* ChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordViewController.m; sourceTree = "<group>"; };
 		76AED02719C8553E00B6D5F1 /* ChangePasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangePasswordViewController.xib; sourceTree = "<group>"; };
+		76CA042219D3EAE2007D972A /* UIUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIUtility.h; sourceTree = "<group>"; };
+		76CA042319D3EAE2007D972A /* UIUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIUtility.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -575,11 +570,11 @@
 		764AEDD319B89AA40011FE90 = {
 			isa = PBXGroup;
 			children = (
+				76CA042119D3EAE2007D972A /* UIUtility */,
 				767C3C8719CAE7A400ACCC19 /* CTSTextFieldValidator */,
 				76A80BB719C2CABA007410EB /* CoreData */,
 				76A80A3019C16D7B007410EB /* CitrusDevKit */,
 				76A80AC619C16D7B007410EB /* Controllers */,
-				76A80AE219C16D7B007410EB /* CTSAlertView */,
 				76A80AE519C16D7B007410EB /* Images */,
 				764AEDE519B89AA40011FE90 /* SDKSandbox */,
 				764AEDFE19B89AA40011FE90 /* SDKSandboxTests */,
@@ -1000,15 +995,6 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		76A80AE219C16D7B007410EB /* CTSAlertView */ = {
-			isa = PBXGroup;
-			children = (
-				76A80AE319C16D7B007410EB /* CTSAlertView.h */,
-				76A80AE419C16D7B007410EB /* CTSAlertView.m */,
-			);
-			path = CTSAlertView;
-			sourceTree = "<group>";
-		};
 		76A80AE519C16D7B007410EB /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -1043,10 +1029,17 @@
 			isa = PBXGroup;
 			children = (
 				76A80BB819C2CAF6007410EB /* UserData.xcdatamodeld */,
-				76A80BBC19C2CD4A007410EB /* User.h */,
-				76A80BBD19C2CD4A007410EB /* User.m */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		76CA042119D3EAE2007D972A /* UIUtility */ = {
+			isa = PBXGroup;
+			children = (
+				76CA042219D3EAE2007D972A /* UIUtility.h */,
+				76CA042319D3EAE2007D972A /* UIUtility.m */,
+			);
+			path = UIUtility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1249,7 +1242,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76A80BBE19C2CD4A007410EB /* User.m in Sources */,
 				76A80B7119C16D7B007410EB /* ServerSignature.m in Sources */,
 				76A80AFB19C16D7B007410EB /* CTSTokenizedCardPayment.m in Sources */,
 				76A80B1319C16D7B007410EB /* CTSSignUpRes.m in Sources */,
@@ -1266,7 +1258,6 @@
 				76A80B2719C16D7B007410EB /* GetProfileRes.m in Sources */,
 				76A80AFD19C16D7B007410EB /* CTSTokenizedPaymentToken.m in Sources */,
 				76A80AF519C16D7B007410EB /* CTSPaymentRequest.m in Sources */,
-				76A80B7F19C16D7B007410EB /* CTSAlertView.m in Sources */,
 				76A80B5919C16D7B007410EB /* CTSPaymentLayer.m in Sources */,
 				76A80AE719C16D7B007410EB /* CTSRestError.m in Sources */,
 				76A80B3919C16D7B007410EB /* CTSRestCoreResponse.m in Sources */,
@@ -1276,6 +1267,7 @@
 				76A80AEF19C16D7B007410EB /* CTSGuestCheckout.m in Sources */,
 				76A80B7B19C16D7B007410EB /* WebViewViewController.m in Sources */,
 				76A80B2519C16D7B007410EB /* CTSProfilePrepaidRes.m in Sources */,
+				76CA042419D3EAE2007D972A /* UIUtility.m in Sources */,
 				76A80B5D19C16D7B007410EB /* CardPayViewController.m in Sources */,
 				76AED02819C8553E00B6D5F1 /* ChangePasswordViewController.m in Sources */,
 				76A80B6519C16D7B007410EB /* NetBankingViewController.m in Sources */,
@@ -1355,7 +1347,6 @@
 				76A80B5219C16D7B007410EB /* JSONModel+networking.m in Sources */,
 				76A80B5419C16D7B007410EB /* JSONKeyMapper.m in Sources */,
 				76A80B6619C16D7B007410EB /* NetBankingViewController.m in Sources */,
-				76A80BBF19C2CD4A007410EB /* User.m in Sources */,
 				76A80B6A19C16D7B007410EB /* PayViewController.m in Sources */,
 				76A80B1E19C16D7B007410EB /* CTSPaymentTransactionRes.m in Sources */,
 				76A80B5019C16D7B007410EB /* JSONHTTPClient.m in Sources */,
@@ -1370,6 +1361,7 @@
 				76A80B0619C16D7B007410EB /* CTSElectronicCardUpdate.m in Sources */,
 				76A80B4019C16D7B007410EB /* CreditCard-Validator.m in Sources */,
 				76A80B0419C16D7B007410EB /* CTSContactUpdate.m in Sources */,
+				76CA042519D3EAE2007D972A /* UIUtility.m in Sources */,
 				76A80B5819C16D7B007410EB /* NSObject+logProperties.m in Sources */,
 				76A80B2C19C16D7B007410EB /* CTSError.m in Sources */,
 				76A80B7819C16D7B007410EB /* SignUpViewController.m in Sources */,
@@ -1395,7 +1387,6 @@
 				76A80B3E19C16D7B007410EB /* CTSRestPluginBase.m in Sources */,
 				76A80B7219C16D7B007410EB /* ServerSignature.m in Sources */,
 				76A80B0219C16D7B007410EB /* CTSUserDetails.m in Sources */,
-				76A80B8019C16D7B007410EB /* CTSAlertView.m in Sources */,
 				76A80B1219C16D7B007410EB /* CTSOauthTokenRes.m in Sources */,
 				76A80B4219C16D7B007410EB /* JSONModel+CoreData.m in Sources */,
 				76A80B1019C16D7B007410EB /* CTSTokenizedPayment.m in Sources */,
@@ -1410,7 +1401,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76A80BC519C6C15E007410EB /* User.m in Sources */,
 				76A80BC619C6C15E007410EB /* ServerSignature.m in Sources */,
 				76A80BC719C6C15E007410EB /* CTSTokenizedCardPayment.m in Sources */,
 				76A80BC819C6C15E007410EB /* CTSSignUpRes.m in Sources */,
@@ -1427,7 +1417,6 @@
 				76A80BD319C6C15E007410EB /* GetProfileRes.m in Sources */,
 				76A80BD419C6C15E007410EB /* CTSTokenizedPaymentToken.m in Sources */,
 				76A80BD519C6C15E007410EB /* CTSPaymentRequest.m in Sources */,
-				76A80BD619C6C15E007410EB /* CTSAlertView.m in Sources */,
 				76A80BD719C6C15E007410EB /* CTSPaymentLayer.m in Sources */,
 				76A80BD819C6C15E007410EB /* CTSRestError.m in Sources */,
 				76A80BD919C6C15E007410EB /* CTSRestCoreResponse.m in Sources */,
@@ -1437,6 +1426,7 @@
 				76A80BDD19C6C15E007410EB /* CTSGuestCheckout.m in Sources */,
 				76A80BDE19C6C15E007410EB /* WebViewViewController.m in Sources */,
 				76A80BDF19C6C15E007410EB /* CTSProfilePrepaidRes.m in Sources */,
+				76CA042619D3EAE2007D972A /* UIUtility.m in Sources */,
 				76A80BE019C6C15E007410EB /* CardPayViewController.m in Sources */,
 				76AED02A19C8553E00B6D5F1 /* ChangePasswordViewController.m in Sources */,
 				76A80BE119C6C15E007410EB /* NetBankingViewController.m in Sources */,

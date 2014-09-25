@@ -8,7 +8,7 @@
 
 #import "SignUpViewController.h"
 #import "PayViewController.h"
-#import "CTSAlertView.h"
+#import "UIUtility.h"
 #import "TestParams.h"
 
 #define REGEX_USER_NAME_LIMIT @"^.{3,10}$"
@@ -96,9 +96,7 @@
         [self.passwordTextField resignFirstResponder];
     }
     
-    //
-    CTSAlertView* alertView = [[CTSAlertView alloc] init];
-    [alertView didPresentLoadingAlertView:@"Checking user" withActivity:YES];
+    [UIUtility didPresentLoadingAlertView:@"Checking user" withActivity:YES];
     
     
     if([self.firstnameTextField validate] & [self.lastnameTextField validate] & [self.emailTextField validate] & [self.mobileTextField validate] & [self.passwordTextField validate])
@@ -114,11 +112,10 @@
                             if (isUserCitrusMember && error == nil) {
                                 dispatch_async(dispatch_get_main_queue(), ^{
                                     // Update the UI
-                                    [alertView dismissLoadingAlertView:YES];
+                                    [UIUtility dismissLoadingAlertView:YES];
                                     
-                                    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Information" message:@"Email Id is already registered as a citrus member. You can do Sign In directly." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-                                    [alertView show];
-                                    
+                                    [UIUtility didPresentInfoAlertView:@"Email Id is already registered as a citrus member. You can do Sign In directly."];
+
                                     if ([self.firstnameTextField text]) {
                                         self.firstnameTextField.text = @"";
                                     }
@@ -151,15 +148,14 @@
                                                     dispatch_async(dispatch_get_main_queue(), ^{
                                                         
                                                         // Update the UI
-                                                        [alertView dismissLoadingAlertView:YES];
+                                                        [UIUtility dismissLoadingAlertView:YES];
                                                         
                                                         if (error == nil) {
                                                             self.payViewController.payType = MEMBER_PAY_TYPE;
                                                             [self.navigationController pushViewController:self.payViewController animated:YES];
                                                             [self updateContactInformation];
                                                         }else{
-                                                            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[error.userInfo valueForKey:@"NSLocalizedDescription"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-                                                            [alertView show];
+                                                            [UIUtility didPresentErrorAlertView:error];
                                                         }
                                                     });
                                                     
@@ -169,9 +165,9 @@
         
     }else{
         // Update the UI
-        [alertView dismissLoadingAlertView:YES];
-        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Information" message:@"Please enter valid input" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [alertView show];
+        [UIUtility dismissLoadingAlertView:YES];
+        
+        [UIUtility didPresentInfoAlertView:@"Please enter valid input"];
     }
 }
 
@@ -206,12 +202,6 @@ didReceivePaymentInformation:(CTSProfilePaymentRes*)paymentInfo
     if (error == nil) {
         LogTrace(@" paymentInfo.type %@", paymentInfo.type);
         LogTrace(@" paymentInfo.defaultOption %@", paymentInfo.defaultOption);
-        
-//        for (CTSPaymentOption* option in paymentInfo.paymentOptions) {
-//            [option logProperties];
-//        }
-        
-//        paymentSavedResponse = paymentInfo;
     } else {
         LogTrace(@"error received %@", error);
     }

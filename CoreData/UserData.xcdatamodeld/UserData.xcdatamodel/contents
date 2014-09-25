@@ -14,13 +14,7 @@
         <attribute name="token" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="User" syncable="YES">
-        <attribute name="paymentOption" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="paymentType" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
     <elements>
-        <element name="User" positionX="-63" positionY="-18" width="128" height="90"/>
         <element name="CTSPaymentOption" positionX="-63" positionY="9" width="128" height="225"/>
     </elements>
 </model>
