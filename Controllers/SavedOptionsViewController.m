@@ -313,12 +313,11 @@ didMakeTokenizedPayment:(CTSPaymentTransactionRes*)paymentInfo
     
     dispatch_async(dispatch_get_main_queue(), ^{
         // Update the UI
-        if (hasSuccess) {
-            [UIUtility dismissLoadingAlertView:YES];
+        [UIUtility dismissLoadingAlertView:YES];
+        if (hasSuccess && error.code != ServerErrorWithCode) {
             [UIUtility didPresentLoadingAlertView:@"Connecting to the PG" withActivity:YES];
             [self loadRedirectUrl:paymentInfo.redirectUrl];
         }else{
-            [UIUtility dismissLoadingAlertView:YES];
             [UIUtility didPresentErrorAlertView:error];
         }
     });
@@ -335,7 +334,7 @@ didMakeTokenizedPayment:(CTSPaymentTransactionRes*)paymentInfo
 }
 
 
-#pragma mark - CTSAlertView implementation
+#pragma mark - AlertView implementation
 
 -(void)didPresentInputAlertView:(NSString *)title message:(NSString *)message
 {

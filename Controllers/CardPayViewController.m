@@ -17,8 +17,8 @@
 
 #define REGEX_CARDNUMBER_LIMIT @"^.{19,19}$"
 
-#define REGEX_EXPIRYDATE_LIMIT @"^.{5,5}$"
-#define REGEX_EXPIRYDATE_FORMAT @"[0-9]{2}\\/[0-9]{2}"
+#define REGEX_EXPIRYDATE_LIMIT @"^.{7,7}$"
+#define REGEX_EXPIRYDATE_FORMAT @"[0-9]{2}\\/[0-9]{4}"
 
 #define REGEX_CVV @"^[0-9]*$"
 
@@ -59,11 +59,13 @@ static NSInteger creditPreviouslength = 0;
     [self initialize];
 }
 
+#pragma mark - helper methods
+
 -(void)setupTextFieldValidation{
     [self.cardNumberTextField addRegx:REGEX_CARDNUMBER_LIMIT withMsg:@"Card number charaters limit should be come 16" tag:1 location:19 type:CARD_TYPE];
     
-    [self.expiryDateTextField addRegx:REGEX_EXPIRYDATE_LIMIT withMsg:@"Expiry date charaters limit should be mm/yy format" tag:2 location:5 type:NUMERIC_TYPE];
-    [self.expiryDateTextField addRegx:REGEX_EXPIRYDATE_FORMAT withMsg:@"Expiry date must be in proper format (eg. (mm/yy)."];
+    [self.expiryDateTextField addRegx:REGEX_EXPIRYDATE_LIMIT withMsg:@"Expiry date charaters limit should be mm/yyyy format" tag:2 location:7 type:NUMERIC_TYPE];
+    [self.expiryDateTextField addRegx:REGEX_EXPIRYDATE_FORMAT withMsg:@"Expiry date must be in proper format (eg. (mm/yyyy)."];
 
     [self.CVVNumberTextField addRegx:REGEX_CVV withMsg:@"Enter valid CVV." tag:0 location:0 type:CVV_TYPE];
 
@@ -171,6 +173,7 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
     contactSavedResponse = contactInfo;
 }
 
+#pragma mark - PaymentLayer implementation
 
 -(IBAction)cardAction:(id)sender
 {
@@ -183,7 +186,6 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
     }else if ([self.cardHolderNameTextField isFirstResponder]) {
         [self.cardHolderNameTextField resignFirstResponder];
     }
-    
     
     if([self.cardNumberTextField validate] & [self.expiryDateTextField validate] & [self.CVVNumberTextField validate] & [self.cardHolderNameTextField validate])
     {
@@ -204,8 +206,6 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
         }
     }else{
         // Update the UI
-        [UIUtility dismissLoadingAlertView:YES];
-        
         [UIUtility didPresentInfoAlertView:@"Please enter valid input"];
     }
 }
@@ -309,8 +309,7 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
     
     CTSPaymentDetailUpdate* paymentInfo = [[CTSPaymentDetailUpdate alloc] init];
     
-    CTSElectronicCardUpdate* debitCard =
-    [[CTSElectronicCardUpdate alloc] initDebitCard];
+    CTSElectronicCardUpdate* debitCard = [[CTSElectronicCardUpdate alloc] initDebitCard];
     debitCard.number = [self.cardNumberTextField.text stringByReplacingOccurrencesOfString:@"-" withString:@""];
     debitCard.expiryDate = self.expiryDateTextField.text;
     debitCard.scheme = [CTSUtility fetchCardSchemeForCardNumber:debitCard.number];
@@ -345,13 +344,11 @@ didMakeUserPayment:(CTSPaymentTransactionRes*)paymentInfo
     
     dispatch_async(dispatch_get_main_queue(), ^{
         // Update the UI
-        if (hasSuccess) {
-            [UIUtility dismissLoadingAlertView:YES];
+        [UIUtility dismissLoadingAlertView:YES];
+        if (hasSuccess && error.code != ServerErrorWithCode) {
             [UIUtility didPresentLoadingAlertView:@"Connecting to the PG" withActivity:YES];
             [self loadRedirectUrl:paymentInfo.redirectUrl];
         }else{
-            [UIUtility dismissLoadingAlertView:YES];
-            
             [UIUtility didPresentErrorAlertView:error];
         }
     });
@@ -373,12 +370,11 @@ didMakePaymentUsingGuestFlow:(CTSPaymentTransactionRes*)paymentInfo
     
     dispatch_async(dispatch_get_main_queue(), ^{
         // Update the UI
-        if (hasSuccess) {
-            [UIUtility dismissLoadingAlertView:YES];
+        [UIUtility dismissLoadingAlertView:YES];
+        if (hasSuccess && error.code != ServerErrorWithCode) {
             [UIUtility didPresentLoadingAlertView:@"Connecting to the PG" withActivity:YES];
             [self loadRedirectUrl:paymentInfo.redirectUrl];
         }else{
-            [UIUtility dismissLoadingAlertView:YES];
             UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[error.userInfo valueForKey:@"NSLocalizedDescription"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alertView show];
         }
@@ -398,14 +394,12 @@ didMakeTokenizedPayment:(CTSPaymentTransactionRes*)paymentInfo
     
     dispatch_async(dispatch_get_main_queue(), ^{
         // Update the UI
-        if (hasSuccess) {
-            [UIUtility dismissLoadingAlertView:YES];
+        [UIUtility dismissLoadingAlertView:YES];
+        if (hasSuccess && error.code != ServerErrorWithCode) {
             [UIUtility didPresentLoadingAlertView:@"Connecting to the PG" withActivity:YES];
             [self loadRedirectUrl:paymentInfo.redirectUrl];
         }else{
-            [UIUtility dismissLoadingAlertView:YES];
-            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[error.userInfo valueForKey:@"NSLocalizedDescription"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [alertView show];
+            [UIUtility didPresentErrorAlertView:error];
         }
     });
 }
@@ -449,7 +443,6 @@ didMakeTokenizedPayment:(CTSPaymentTransactionRes*)paymentInfo
 }
 
 - (BOOL)textField:(UITextField*)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString*)string {
-    
     // Cardnumber
     // card scheme should be shown at runtime(while user is enter the numbers)
     if (textField.tag == 1) {
@@ -458,7 +451,6 @@ didMakeTokenizedPayment:(CTSPaymentTransactionRes*)paymentInfo
     return YES;
 }
 
- 
 
 -(IBAction)textfieldTextchange:(id)sender
 {
@@ -470,7 +462,7 @@ didMakeTokenizedPayment:(CTSPaymentTransactionRes*)paymentInfo
         } else {
             NSString* input = self.expiryDateTextField.text;
             NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-            [formatter setDateFormat:@"MM/yy"];
+            [formatter setDateFormat:@"mm/yyyy"];
             
             if (self.expiryDateTextField.text.length == 2 &&
                 ![mLastInput rangeOfString:@"/"].location != NSNotFound) {
@@ -529,7 +521,7 @@ didMakeTokenizedPayment:(CTSPaymentTransactionRes*)paymentInfo
         } else {
             NSString* input = self.expiryDateTextField.text;
             NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-            [formatter setDateFormat:@"MM/yy"];
+            [formatter setDateFormat:@"mm/yyyy"];
             if (self.expiryDateTextField.text.length == 2 &&
                 ![mLastInput rangeOfString:@"/"].location != NSNotFound) {
                 int month = [input intValue];

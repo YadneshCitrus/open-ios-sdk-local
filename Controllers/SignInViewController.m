@@ -62,6 +62,8 @@
     [self initialize];
 }
 
+#pragma mark - initialize implementation
+
 -(void)setupTextFieldValidation{
     [self.usernameTextField addRegx:REGEX_EMAIL withMsg:@"Enter valid email."];
     [self.passwordTextField addRegx:REGEX_PASSWORD withMsg:@"8 to 16 with at least one alphabet and one "
@@ -74,8 +76,6 @@
 //
 - (void)initialize {
     authLayer = [[CTSAuthLayer alloc] init];
-//    authLayer.delegate = self;
-    
 }
 
 
@@ -106,7 +106,7 @@
                                dispatch_async(dispatch_get_main_queue(), ^{
                                    // Update the UI
                                    [UIUtility dismissLoadingAlertView:YES];
-                                   if (error == nil) {
+                                   if(error == nil && error.code != ServerErrorWithCode){
                                        self.payViewController.payType = MEMBER_PAY_TYPE;
                                        [self.navigationController pushViewController:self.payViewController animated:YES];
                                        [self setLastUser];
@@ -117,8 +117,6 @@
                            }];
     }else{
         // Update the UI
-        [UIUtility dismissLoadingAlertView:YES];
-        
         [UIUtility didPresentInfoAlertView:@"Please enter valid input."];
     }
 }
@@ -155,33 +153,36 @@
     [self.navigationController pushViewController:changePasswordViewController animated:YES];
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (alertView.tag == 100 && buttonIndex == 1)
-    {
-        //Do something
-        [self requestResetPassword];
-    }
-}
-
-
 -(void)requestResetPassword
 {
-    [UIUtility didPresentLoadingAlertView:@"Requesting" withActivity:YES];
-    
     // Perform long running process
-    if ([self.usernameTextField.text length] != 0 && [self.passwordTextField.text length] != 0) {
-        //
+    if ([self.usernameTextField.text length] != 0) {
+        [UIUtility didPresentLoadingAlertView:@"Requesting" withActivity:YES];
+
         [authLayer requestResetPassword:self.usernameTextField.text
                       completionHandler:^(NSError* error) {
                           LogTrace(@"error %@ ", error);
                           
                           // Update the UI
                           [UIUtility dismissLoadingAlertView:YES];
-                          if (error == nil) {
+                          if(error == nil && error.code != ServerErrorWithCode){
                               [UIUtility didPresentInfoAlertView:@"An email sent successfully"];
+                          }else{
+                              [UIUtility didPresentErrorAlertView:error];
                           }
                       }];
+    }
+}
+
+
+#pragma mark - UIAlertView delegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == 100 && buttonIndex == 1)
+    {
+        //Do something
+        [self requestResetPassword];
     }
 }
 

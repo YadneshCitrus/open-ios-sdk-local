@@ -208,6 +208,7 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
 {
     
     if ([self.selectedbank length] != 0) {
+        [self.bankSelect setHidden:YES];
         [UIUtility didPresentLoadingAlertView:@"Connecting..." withActivity:YES];
 
         if ([self.payType isEqualToString:MEMBER_PAY_TYPE]) {
@@ -216,8 +217,6 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
             [self doGuestPaymentNetbanking];
         }
     }else{
-        [UIUtility dismissLoadingAlertView:YES];
-        
         [UIUtility didPresentInfoAlertView:@"Input field can't be blank!"];
     }
 }
@@ -253,17 +252,13 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
          
          dispatch_async(dispatch_get_main_queue(), ^{
              [UIUtility dismissLoadingAlertView:YES];
-             if (hasSuccess) {
-                 [UIUtility dismissLoadingAlertView:YES];
+             if (hasSuccess && error.code != ServerErrorWithCode) {
                  [UIUtility didPresentLoadingAlertView:@"Connecting to the PG" withActivity:YES];
-                 //
                  WebViewViewController* webViewViewController = [[WebViewViewController alloc] init];
                  webViewViewController.redirectURL = paymentInfo.redirectUrl;
                  [UIUtility dismissLoadingAlertView:YES];
                  [self.rootController.navigationController pushViewController:webViewViewController animated:YES];
              }else{
-                 [UIUtility dismissLoadingAlertView:YES];
-                 
                  [UIUtility didPresentErrorAlertView:error];
              }
          });
@@ -309,17 +304,13 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
                                   dispatch_async(dispatch_get_main_queue(), ^{
                                       // Update the UI
                                       [UIUtility dismissLoadingAlertView:YES];
-                                      if (hasSuccess) {
-                                          [UIUtility dismissLoadingAlertView:YES];
+                                      if (hasSuccess && error.code != ServerErrorWithCode) {
                                           [UIUtility didPresentLoadingAlertView:@"Connecting to the PG" withActivity:YES];
-                                          //
                                           WebViewViewController* webViewViewController = [[WebViewViewController alloc] init];
                                           webViewViewController.redirectURL = paymentInfo.redirectUrl;
                                           [UIUtility dismissLoadingAlertView:YES];
                                           [self.rootController.navigationController pushViewController:webViewViewController animated:YES];
-                                      }else{
-                                          [UIUtility dismissLoadingAlertView:YES];
-                                          
+                                      }else{                                          
                                           [UIUtility didPresentErrorAlertView:error];
                                       }
                                   });

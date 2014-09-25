@@ -147,8 +147,7 @@
                                                         
                                                         // Update the UI
                                                         [UIUtility dismissLoadingAlertView:YES];
-                                                        
-                                                        if (error == nil) {
+                                                        if (error == nil  && error.code != ServerErrorWithCode) {
                                                             self.payViewController.payType = MEMBER_PAY_TYPE;
                                                             [self.navigationController pushViewController:self.payViewController animated:YES];
                                                             [self updateContactInformation];
@@ -162,9 +161,7 @@
                         }];
         
     }else{
-        // Update the UI
-        [UIUtility dismissLoadingAlertView:YES];
-        
+        // Update the UI        
         [UIUtility didPresentInfoAlertView:@"Please enter valid input."];
     }
 }

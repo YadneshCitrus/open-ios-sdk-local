@@ -99,7 +99,7 @@
                           dispatch_async(dispatch_get_main_queue(), ^{
                               // Update the UI
                               [UIUtility dismissLoadingAlertView:YES];
-                              if (error == nil) {
+                              if (error == nil  && error.code != ServerErrorWithCode) {
                                   
                                   [UIUtility didPresentInfoAlertView:@"Your password has been updated successfully!"];
 #if !defined (TESTDATA_VERSION)
@@ -117,9 +117,6 @@
                           });
                       }];
     }else{
-        // Update the UI
-        [UIUtility dismissLoadingAlertView:YES];
-        
         [UIUtility didPresentInfoAlertView:@"Please enter valid input."];
     }
 

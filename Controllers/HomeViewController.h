@@ -10,7 +10,24 @@
 #import "CitrusSdk.h"
 
 @interface HomeViewController : UIViewController
+/**
+ Use to perform sign up
+ *
+ *  @param dynamic object sender
+ */
 -(IBAction)signUpAction:(id)sender;
+
+/**
+ Use to perform sign in
+ *
+ *  @param dynamic object sender
+ */
 -(IBAction)signInAction:(id)sender;
+
+/**
+ Use to perform guest payment
+ *
+ *  @param dynamic object sender
+ */
 -(IBAction)guestPayAction:(id)sender;
 @end

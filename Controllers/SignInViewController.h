@@ -32,9 +32,8 @@
 -(IBAction)signInAction:(id)sender;
 
 
-
 /**
- *  in case of forget password,after recieving this server will send email to
+ *  in case of forget password, after recieving this server will send email to
  *this user to initiate the password reset
  *
  *  @param dynamic object sender
