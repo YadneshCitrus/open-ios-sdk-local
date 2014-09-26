@@ -25,120 +25,6 @@
 		767C3C8E19CAE89600ACCC19 /* error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 767C3C8D19CAE89600ACCC19 /* error@2x.png */; };
 		767C3C8F19CAE89600ACCC19 /* error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 767C3C8D19CAE89600ACCC19 /* error@2x.png */; };
 		767C3C9019CAE89600ACCC19 /* error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 767C3C8D19CAE89600ACCC19 /* error@2x.png */; };
-		76A80AE719C16D7B007410EB /* CTSRestError.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A3419C16D7B007410EB /* CTSRestError.m */; };
-		76A80AE819C16D7B007410EB /* CTSRestError.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A3419C16D7B007410EB /* CTSRestError.m */; };
-		76A80AED19C16D7B007410EB /* CTSAmount.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A3C19C16D7B007410EB /* CTSAmount.m */; };
-		76A80AEE19C16D7B007410EB /* CTSAmount.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A3C19C16D7B007410EB /* CTSAmount.m */; };
-		76A80AEF19C16D7B007410EB /* CTSGuestCheckout.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A3E19C16D7B007410EB /* CTSGuestCheckout.m */; };
-		76A80AF019C16D7B007410EB /* CTSGuestCheckout.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A3E19C16D7B007410EB /* CTSGuestCheckout.m */; };
-		76A80AF119C16D7B007410EB /* CTSPaymentMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A4019C16D7B007410EB /* CTSPaymentMode.m */; };
-		76A80AF219C16D7B007410EB /* CTSPaymentMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A4019C16D7B007410EB /* CTSPaymentMode.m */; };
-		76A80AF319C16D7B007410EB /* CTSPaymentNetbankingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A4219C16D7B007410EB /* CTSPaymentNetbankingRequest.m */; };
-		76A80AF419C16D7B007410EB /* CTSPaymentNetbankingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A4219C16D7B007410EB /* CTSPaymentNetbankingRequest.m */; };
-		76A80AF519C16D7B007410EB /* CTSPaymentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A4419C16D7B007410EB /* CTSPaymentRequest.m */; };
-		76A80AF619C16D7B007410EB /* CTSPaymentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A4419C16D7B007410EB /* CTSPaymentRequest.m */; };
-		76A80AF719C16D7B007410EB /* CTSPaymentToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A4619C16D7B007410EB /* CTSPaymentToken.m */; };
-		76A80AF819C16D7B007410EB /* CTSPaymentToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A4619C16D7B007410EB /* CTSPaymentToken.m */; };
-		76A80AF919C16D7B007410EB /* CTSPaymentUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A4819C16D7B007410EB /* CTSPaymentUpdate.m */; };
-		76A80AFA19C16D7B007410EB /* CTSPaymentUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A4819C16D7B007410EB /* CTSPaymentUpdate.m */; };
-		76A80AFB19C16D7B007410EB /* CTSTokenizedCardPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A4A19C16D7B007410EB /* CTSTokenizedCardPayment.m */; };
-		76A80AFC19C16D7B007410EB /* CTSTokenizedCardPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A4A19C16D7B007410EB /* CTSTokenizedCardPayment.m */; };
-		76A80AFD19C16D7B007410EB /* CTSTokenizedPaymentToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A4C19C16D7B007410EB /* CTSTokenizedPaymentToken.m */; };
-		76A80AFE19C16D7B007410EB /* CTSTokenizedPaymentToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A4C19C16D7B007410EB /* CTSTokenizedPaymentToken.m */; };
-		76A80AFF19C16D7B007410EB /* CTSUserAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A4E19C16D7B007410EB /* CTSUserAddress.m */; };
-		76A80B0019C16D7B007410EB /* CTSUserAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A4E19C16D7B007410EB /* CTSUserAddress.m */; };
-		76A80B0119C16D7B007410EB /* CTSUserDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A5019C16D7B007410EB /* CTSUserDetails.m */; };
-		76A80B0219C16D7B007410EB /* CTSUserDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A5019C16D7B007410EB /* CTSUserDetails.m */; };
-		76A80B0319C16D7B007410EB /* CTSContactUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A5319C16D7B007410EB /* CTSContactUpdate.m */; };
-		76A80B0419C16D7B007410EB /* CTSContactUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A5319C16D7B007410EB /* CTSContactUpdate.m */; };
-		76A80B0519C16D7B007410EB /* CTSElectronicCardUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A5519C16D7B007410EB /* CTSElectronicCardUpdate.m */; };
-		76A80B0619C16D7B007410EB /* CTSElectronicCardUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A5519C16D7B007410EB /* CTSElectronicCardUpdate.m */; };
-		76A80B0719C16D7B007410EB /* CTSNetBankingUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A5719C16D7B007410EB /* CTSNetBankingUpdate.m */; };
-		76A80B0819C16D7B007410EB /* CTSNetBankingUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A5719C16D7B007410EB /* CTSNetBankingUpdate.m */; };
-		76A80B0919C16D7B007410EB /* CTSPaymentDetailUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A5919C16D7B007410EB /* CTSPaymentDetailUpdate.m */; };
-		76A80B0A19C16D7B007410EB /* CTSPaymentDetailUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A5919C16D7B007410EB /* CTSPaymentDetailUpdate.m */; };
-		76A80B0B19C16D7B007410EB /* CTSPaymentOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A5B19C16D7B007410EB /* CTSPaymentOption.m */; };
-		76A80B0C19C16D7B007410EB /* CTSPaymentOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A5B19C16D7B007410EB /* CTSPaymentOption.m */; };
-		76A80B0D19C16D7B007410EB /* CTSPrepaidUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A5D19C16D7B007410EB /* CTSPrepaidUpdate.m */; };
-		76A80B0E19C16D7B007410EB /* CTSPrepaidUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A5D19C16D7B007410EB /* CTSPrepaidUpdate.m */; };
-		76A80B0F19C16D7B007410EB /* CTSTokenizedPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A5F19C16D7B007410EB /* CTSTokenizedPayment.m */; };
-		76A80B1019C16D7B007410EB /* CTSTokenizedPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A5F19C16D7B007410EB /* CTSTokenizedPayment.m */; };
-		76A80B1119C16D7B007410EB /* CTSOauthTokenRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A6319C16D7B007410EB /* CTSOauthTokenRes.m */; };
-		76A80B1219C16D7B007410EB /* CTSOauthTokenRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A6319C16D7B007410EB /* CTSOauthTokenRes.m */; };
-		76A80B1319C16D7B007410EB /* CTSSignUpRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A6519C16D7B007410EB /* CTSSignUpRes.m */; };
-		76A80B1419C16D7B007410EB /* CTSSignUpRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A6519C16D7B007410EB /* CTSSignUpRes.m */; };
-		76A80B1519C16D7B007410EB /* CTSCreditCardOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A6819C16D7B007410EB /* CTSCreditCardOption.m */; };
-		76A80B1619C16D7B007410EB /* CTSCreditCardOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A6819C16D7B007410EB /* CTSCreditCardOption.m */; };
-		76A80B1719C16D7B007410EB /* CTSDebitCardOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A6A19C16D7B007410EB /* CTSDebitCardOption.m */; };
-		76A80B1819C16D7B007410EB /* CTSDebitCardOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A6A19C16D7B007410EB /* CTSDebitCardOption.m */; };
-		76A80B1919C16D7B007410EB /* CTSNetbankingOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A6C19C16D7B007410EB /* CTSNetbankingOption.m */; };
-		76A80B1A19C16D7B007410EB /* CTSNetbankingOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A6C19C16D7B007410EB /* CTSNetbankingOption.m */; };
-		76A80B1B19C16D7B007410EB /* CTSPaymentRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A6E19C16D7B007410EB /* CTSPaymentRes.m */; };
-		76A80B1C19C16D7B007410EB /* CTSPaymentRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A6E19C16D7B007410EB /* CTSPaymentRes.m */; };
-		76A80B1D19C16D7B007410EB /* CTSPaymentTransactionRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A7019C16D7B007410EB /* CTSPaymentTransactionRes.m */; };
-		76A80B1E19C16D7B007410EB /* CTSPaymentTransactionRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A7019C16D7B007410EB /* CTSPaymentTransactionRes.m */; };
-		76A80B1F19C16D7B007410EB /* CTSPgSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A7219C16D7B007410EB /* CTSPgSettings.m */; };
-		76A80B2019C16D7B007410EB /* CTSPgSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A7219C16D7B007410EB /* CTSPgSettings.m */; };
-		76A80B2119C16D7B007410EB /* CTSProfileContactRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A7519C16D7B007410EB /* CTSProfileContactRes.m */; };
-		76A80B2219C16D7B007410EB /* CTSProfileContactRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A7519C16D7B007410EB /* CTSProfileContactRes.m */; };
-		76A80B2319C16D7B007410EB /* CTSProfilePaymentRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A7719C16D7B007410EB /* CTSProfilePaymentRes.m */; };
-		76A80B2419C16D7B007410EB /* CTSProfilePaymentRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A7719C16D7B007410EB /* CTSProfilePaymentRes.m */; };
-		76A80B2519C16D7B007410EB /* CTSProfilePrepaidRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A7919C16D7B007410EB /* CTSProfilePrepaidRes.m */; };
-		76A80B2619C16D7B007410EB /* CTSProfilePrepaidRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A7919C16D7B007410EB /* CTSProfilePrepaidRes.m */; };
-		76A80B2719C16D7B007410EB /* GetProfileRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A7B19C16D7B007410EB /* GetProfileRes.m */; };
-		76A80B2819C16D7B007410EB /* GetProfileRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A7B19C16D7B007410EB /* GetProfileRes.m */; };
-		76A80B2919C16D7B007410EB /* CTSAuthLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A8019C16D7B007410EB /* CTSAuthLayer.m */; };
-		76A80B2A19C16D7B007410EB /* CTSAuthLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A8019C16D7B007410EB /* CTSAuthLayer.m */; };
-		76A80B2B19C16D7B007410EB /* CTSError.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A8419C16D7B007410EB /* CTSError.m */; };
-		76A80B2C19C16D7B007410EB /* CTSError.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A8419C16D7B007410EB /* CTSError.m */; };
-		76A80B2D19C16D7B007410EB /* CTSOauthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A8819C16D7B007410EB /* CTSOauthManager.m */; };
-		76A80B2E19C16D7B007410EB /* CTSOauthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A8819C16D7B007410EB /* CTSOauthManager.m */; };
-		76A80B2F19C16D7B007410EB /* CTSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A8A19C16D7B007410EB /* CTSObject.m */; };
-		76A80B3019C16D7B007410EB /* CTSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A8A19C16D7B007410EB /* CTSObject.m */; };
-		76A80B3119C16D7B007410EB /* CTSUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A8C19C16D7B007410EB /* CTSUtility.m */; };
-		76A80B3219C16D7B007410EB /* CTSUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A8C19C16D7B007410EB /* CTSUtility.m */; };
-		76A80B3319C16D7B007410EB /* OauthStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A8E19C16D7B007410EB /* OauthStatus.m */; };
-		76A80B3419C16D7B007410EB /* OauthStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A8E19C16D7B007410EB /* OauthStatus.m */; };
-		76A80B3519C16D7B007410EB /* CTSRestCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A9219C16D7B007410EB /* CTSRestCore.m */; };
-		76A80B3619C16D7B007410EB /* CTSRestCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A9219C16D7B007410EB /* CTSRestCore.m */; };
-		76A80B3719C16D7B007410EB /* CTSRestCoreRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A9519C16D7B007410EB /* CTSRestCoreRequest.m */; };
-		76A80B3819C16D7B007410EB /* CTSRestCoreRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A9519C16D7B007410EB /* CTSRestCoreRequest.m */; };
-		76A80B3919C16D7B007410EB /* CTSRestCoreResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A9719C16D7B007410EB /* CTSRestCoreResponse.m */; };
-		76A80B3A19C16D7B007410EB /* CTSRestCoreResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A9719C16D7B007410EB /* CTSRestCoreResponse.m */; };
-		76A80B3B19C16D7B007410EB /* CTSRestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A9919C16D7B007410EB /* CTSRestObject.m */; };
-		76A80B3C19C16D7B007410EB /* CTSRestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A9919C16D7B007410EB /* CTSRestObject.m */; };
-		76A80B3D19C16D7B007410EB /* CTSRestPluginBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A9B19C16D7B007410EB /* CTSRestPluginBase.m */; };
-		76A80B3E19C16D7B007410EB /* CTSRestPluginBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A9B19C16D7B007410EB /* CTSRestPluginBase.m */; };
-		76A80B3F19C16D7B007410EB /* CreditCard-Validator.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A9E19C16D7B007410EB /* CreditCard-Validator.m */; };
-		76A80B4019C16D7B007410EB /* CreditCard-Validator.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A9E19C16D7B007410EB /* CreditCard-Validator.m */; };
-		76A80B4119C16D7B007410EB /* JSONModel+CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AA219C16D7B007410EB /* JSONModel+CoreData.m */; };
-		76A80B4219C16D7B007410EB /* JSONModel+CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AA219C16D7B007410EB /* JSONModel+CoreData.m */; };
-		76A80B4319C16D7B007410EB /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AA419C16D7B007410EB /* JSONModel.m */; };
-		76A80B4419C16D7B007410EB /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AA419C16D7B007410EB /* JSONModel.m */; };
-		76A80B4519C16D7B007410EB /* JSONModelArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AA619C16D7B007410EB /* JSONModelArray.m */; };
-		76A80B4619C16D7B007410EB /* JSONModelArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AA619C16D7B007410EB /* JSONModelArray.m */; };
-		76A80B4719C16D7B007410EB /* JSONModelClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AA819C16D7B007410EB /* JSONModelClassProperty.m */; };
-		76A80B4819C16D7B007410EB /* JSONModelClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AA819C16D7B007410EB /* JSONModelClassProperty.m */; };
-		76A80B4919C16D7B007410EB /* JSONModelError.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AAA19C16D7B007410EB /* JSONModelError.m */; };
-		76A80B4A19C16D7B007410EB /* JSONModelError.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AAA19C16D7B007410EB /* JSONModelError.m */; };
-		76A80B4B19C16D7B007410EB /* NSArray+JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AAD19C16D7B007410EB /* NSArray+JSONModel.m */; };
-		76A80B4C19C16D7B007410EB /* NSArray+JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AAD19C16D7B007410EB /* NSArray+JSONModel.m */; };
-		76A80B4D19C16D7B007410EB /* JSONAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AB119C16D7B007410EB /* JSONAPI.m */; };
-		76A80B4E19C16D7B007410EB /* JSONAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AB119C16D7B007410EB /* JSONAPI.m */; };
-		76A80B4F19C16D7B007410EB /* JSONHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AB319C16D7B007410EB /* JSONHTTPClient.m */; };
-		76A80B5019C16D7B007410EB /* JSONHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AB319C16D7B007410EB /* JSONHTTPClient.m */; };
-		76A80B5119C16D7B007410EB /* JSONModel+networking.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AB519C16D7B007410EB /* JSONModel+networking.m */; };
-		76A80B5219C16D7B007410EB /* JSONModel+networking.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AB519C16D7B007410EB /* JSONModel+networking.m */; };
-		76A80B5319C16D7B007410EB /* JSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AB819C16D7B007410EB /* JSONKeyMapper.m */; };
-		76A80B5419C16D7B007410EB /* JSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AB819C16D7B007410EB /* JSONKeyMapper.m */; };
-		76A80B5519C16D7B007410EB /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80ABA19C16D7B007410EB /* JSONValueTransformer.m */; };
-		76A80B5619C16D7B007410EB /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80ABA19C16D7B007410EB /* JSONValueTransformer.m */; };
-		76A80B5719C16D7B007410EB /* NSObject+logProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80ABD19C16D7B007410EB /* NSObject+logProperties.m */; };
-		76A80B5819C16D7B007410EB /* NSObject+logProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80ABD19C16D7B007410EB /* NSObject+logProperties.m */; };
-		76A80B5919C16D7B007410EB /* CTSPaymentLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AC019C16D7B007410EB /* CTSPaymentLayer.m */; };
-		76A80B5A19C16D7B007410EB /* CTSPaymentLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AC019C16D7B007410EB /* CTSPaymentLayer.m */; };
-		76A80B5B19C16D7B007410EB /* CTSProfileLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AC419C16D7B007410EB /* CTSProfileLayer.m */; };
-		76A80B5C19C16D7B007410EB /* CTSProfileLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AC419C16D7B007410EB /* CTSProfileLayer.m */; };
 		76A80B5D19C16D7B007410EB /* CardPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AC819C16D7B007410EB /* CardPayViewController.m */; };
 		76A80B5E19C16D7B007410EB /* CardPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AC819C16D7B007410EB /* CardPayViewController.m */; };
 		76A80B5F19C16D7B007410EB /* CardPayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A80AC919C16D7B007410EB /* CardPayViewController.xib */; };
@@ -211,75 +97,18 @@
 		76A80BBA19C2CAF6007410EB /* UserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76A80BB819C2CAF6007410EB /* UserData.xcdatamodeld */; };
 		76A80BBB19C2CAF6007410EB /* UserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76A80BB819C2CAF6007410EB /* UserData.xcdatamodeld */; };
 		76A80BC619C6C15E007410EB /* ServerSignature.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AD719C16D7B007410EB /* ServerSignature.m */; };
-		76A80BC719C6C15E007410EB /* CTSTokenizedCardPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A4A19C16D7B007410EB /* CTSTokenizedCardPayment.m */; };
-		76A80BC819C6C15E007410EB /* CTSSignUpRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A6519C16D7B007410EB /* CTSSignUpRes.m */; };
-		76A80BC919C6C15E007410EB /* CTSProfileContactRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A7519C16D7B007410EB /* CTSProfileContactRes.m */; };
 		76A80BCA19C6C15E007410EB /* GuestPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80B8419C182F5007410EB /* GuestPayViewController.m */; };
-		76A80BCB19C6C15E007410EB /* CTSPaymentDetailUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A5919C16D7B007410EB /* CTSPaymentDetailUpdate.m */; };
-		76A80BCC19C6C15E007410EB /* CTSError.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A8419C16D7B007410EB /* CTSError.m */; };
 		76A80BCD19C6C15E007410EB /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80ACB19C16D7B007410EB /* HomeViewController.m */; };
-		76A80BCE19C6C15E007410EB /* CTSPaymentUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A4819C16D7B007410EB /* CTSPaymentUpdate.m */; };
-		76A80BCF19C6C15E007410EB /* CTSNetbankingOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A6C19C16D7B007410EB /* CTSNetbankingOption.m */; };
-		76A80BD019C6C15E007410EB /* CTSPaymentMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A4019C16D7B007410EB /* CTSPaymentMode.m */; };
-		76A80BD119C6C15E007410EB /* JSONModel+CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AA219C16D7B007410EB /* JSONModel+CoreData.m */; };
-		76A80BD219C6C15E007410EB /* CreditCard-Validator.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A9E19C16D7B007410EB /* CreditCard-Validator.m */; };
-		76A80BD319C6C15E007410EB /* GetProfileRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A7B19C16D7B007410EB /* GetProfileRes.m */; };
-		76A80BD419C6C15E007410EB /* CTSTokenizedPaymentToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A4C19C16D7B007410EB /* CTSTokenizedPaymentToken.m */; };
-		76A80BD519C6C15E007410EB /* CTSPaymentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A4419C16D7B007410EB /* CTSPaymentRequest.m */; };
-		76A80BD719C6C15E007410EB /* CTSPaymentLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AC019C16D7B007410EB /* CTSPaymentLayer.m */; };
-		76A80BD819C6C15E007410EB /* CTSRestError.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A3419C16D7B007410EB /* CTSRestError.m */; };
-		76A80BD919C6C15E007410EB /* CTSRestCoreResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A9719C16D7B007410EB /* CTSRestCoreResponse.m */; };
 		76A80BDA19C6C15E007410EB /* PayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AD119C16D7B007410EB /* PayViewController.m */; };
-		76A80BDB19C6C15E007410EB /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80ABA19C16D7B007410EB /* JSONValueTransformer.m */; };
 		76A80BDC19C6C15E007410EB /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AD919C16D7B007410EB /* SignInViewController.m */; };
-		76A80BDD19C6C15E007410EB /* CTSGuestCheckout.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A3E19C16D7B007410EB /* CTSGuestCheckout.m */; };
 		76A80BDE19C6C15E007410EB /* WebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AE019C16D7B007410EB /* WebViewViewController.m */; };
-		76A80BDF19C6C15E007410EB /* CTSProfilePrepaidRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A7919C16D7B007410EB /* CTSProfilePrepaidRes.m */; };
 		76A80BE019C6C15E007410EB /* CardPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AC819C16D7B007410EB /* CardPayViewController.m */; };
 		76A80BE119C6C15E007410EB /* NetBankingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80ACE19C16D7B007410EB /* NetBankingViewController.m */; };
-		76A80BE219C6C15E007410EB /* CTSNetBankingUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A5719C16D7B007410EB /* CTSNetBankingUpdate.m */; };
-		76A80BE319C6C15E007410EB /* CTSPaymentTransactionRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A7019C16D7B007410EB /* CTSPaymentTransactionRes.m */; };
-		76A80BE419C6C15E007410EB /* CTSRestCoreRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A9519C16D7B007410EB /* CTSRestCoreRequest.m */; };
 		76A80BE519C6C15E007410EB /* UserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76A80BB819C2CAF6007410EB /* UserData.xcdatamodeld */; };
-		76A80BE619C6C15E007410EB /* JSONHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AB319C16D7B007410EB /* JSONHTTPClient.m */; };
-		76A80BE719C6C15E007410EB /* JSONAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AB119C16D7B007410EB /* JSONAPI.m */; };
-		76A80BE819C6C15E007410EB /* CTSRestPluginBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A9B19C16D7B007410EB /* CTSRestPluginBase.m */; };
-		76A80BE919C6C15E007410EB /* OauthStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A8E19C16D7B007410EB /* OauthStatus.m */; };
-		76A80BEA19C6C15E007410EB /* CTSPrepaidUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A5D19C16D7B007410EB /* CTSPrepaidUpdate.m */; };
-		76A80BEB19C6C15E007410EB /* CTSPaymentRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A6E19C16D7B007410EB /* CTSPaymentRes.m */; };
-		76A80BED19C6C15E007410EB /* CTSAuthLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A8019C16D7B007410EB /* CTSAuthLayer.m */; };
-		76A80BEE19C6C15E007410EB /* JSONModelClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AA819C16D7B007410EB /* JSONModelClassProperty.m */; };
-		76A80BEF19C6C15E007410EB /* CTSOauthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A8819C16D7B007410EB /* CTSOauthManager.m */; };
-		76A80BF019C6C15E007410EB /* CTSOauthTokenRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A6319C16D7B007410EB /* CTSOauthTokenRes.m */; };
-		76A80BF119C6C15E007410EB /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AA419C16D7B007410EB /* JSONModel.m */; };
-		76A80BF219C6C15E007410EB /* CTSPgSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A7219C16D7B007410EB /* CTSPgSettings.m */; };
 		76A80BF319C6C15E007410EB /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80ADC19C16D7B007410EB /* SignUpViewController.m */; };
-		76A80BF519C6C15E007410EB /* CTSElectronicCardUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A5519C16D7B007410EB /* CTSElectronicCardUpdate.m */; };
 		76A80BF619C6C15E007410EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 764AEDEF19B89AA40011FE90 /* AppDelegate.m */; };
-		76A80BF719C6C15E007410EB /* NSArray+JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AAD19C16D7B007410EB /* NSArray+JSONModel.m */; };
-		76A80BF819C6C15E007410EB /* CTSCreditCardOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A6819C16D7B007410EB /* CTSCreditCardOption.m */; };
-		76A80BF919C6C15E007410EB /* CTSUserDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A5019C16D7B007410EB /* CTSUserDetails.m */; };
-		76A80BFA19C6C15E007410EB /* JSONModelError.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AAA19C16D7B007410EB /* JSONModelError.m */; };
-		76A80BFB19C6C15E007410EB /* NSObject+logProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80ABD19C16D7B007410EB /* NSObject+logProperties.m */; };
-		76A80BFC19C6C15E007410EB /* CTSProfileLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AC419C16D7B007410EB /* CTSProfileLayer.m */; };
-		76A80BFD19C6C15E007410EB /* CTSRestCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A9219C16D7B007410EB /* CTSRestCore.m */; };
-		76A80BFE19C6C15E007410EB /* CTSPaymentNetbankingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A4219C16D7B007410EB /* CTSPaymentNetbankingRequest.m */; };
-		76A80BFF19C6C15E007410EB /* CTSUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A8C19C16D7B007410EB /* CTSUtility.m */; };
-		76A80C0019C6C15E007410EB /* CTSProfilePaymentRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A7719C16D7B007410EB /* CTSProfilePaymentRes.m */; };
-		76A80C0119C6C15E007410EB /* CTSRestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A9919C16D7B007410EB /* CTSRestObject.m */; };
 		76A80C0219C6C15E007410EB /* SavedOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AD419C16D7B007410EB /* SavedOptionsViewController.m */; };
-		76A80C0319C6C15E007410EB /* CTSAmount.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A3C19C16D7B007410EB /* CTSAmount.m */; };
-		76A80C0419C6C15E007410EB /* CTSPaymentOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A5B19C16D7B007410EB /* CTSPaymentOption.m */; };
-		76A80C0519C6C15E007410EB /* JSONModel+networking.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AB519C16D7B007410EB /* JSONModel+networking.m */; };
-		76A80C0619C6C15E007410EB /* CTSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A8A19C16D7B007410EB /* CTSObject.m */; };
-		76A80C0719C6C15E007410EB /* CTSUserAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A4E19C16D7B007410EB /* CTSUserAddress.m */; };
-		76A80C0819C6C15E007410EB /* CTSPaymentToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A4619C16D7B007410EB /* CTSPaymentToken.m */; };
-		76A80C0919C6C15E007410EB /* JSONModelArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AA619C16D7B007410EB /* JSONModelArray.m */; };
-		76A80C0A19C6C15E007410EB /* CTSContactUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A5319C16D7B007410EB /* CTSContactUpdate.m */; };
-		76A80C0B19C6C15E007410EB /* CTSDebitCardOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A6A19C16D7B007410EB /* CTSDebitCardOption.m */; };
-		76A80C0C19C6C15E007410EB /* JSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AB819C16D7B007410EB /* JSONKeyMapper.m */; };
 		76A80C0D19C6C15E007410EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 764AEDEB19B89AA40011FE90 /* main.m */; };
-		76A80C0E19C6C15E007410EB /* CTSTokenizedPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80A5F19C16D7B007410EB /* CTSTokenizedPayment.m */; };
 		76A80C1019C6C15E007410EB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A80BB519C2CA7F007410EB /* CoreData.framework */; };
 		76A80C1119C6C15E007410EB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 764AEDE119B89AA40011FE90 /* CoreGraphics.framework */; };
 		76A80C1219C6C15E007410EB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 764AEDE319B89AA40011FE90 /* UIKit.framework */; };
@@ -319,6 +148,180 @@
 		76CA042419D3EAE2007D972A /* UIUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA042319D3EAE2007D972A /* UIUtility.m */; };
 		76CA042519D3EAE2007D972A /* UIUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA042319D3EAE2007D972A /* UIUtility.m */; };
 		76CA042619D3EAE2007D972A /* UIUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA042319D3EAE2007D972A /* UIUtility.m */; };
+		76CA04BC19D53018007D972A /* CTSRestError.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA042B19D53018007D972A /* CTSRestError.m */; };
+		76CA04BD19D53018007D972A /* CTSRestError.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA042B19D53018007D972A /* CTSRestError.m */; };
+		76CA04BE19D53018007D972A /* CTSRestError.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA042B19D53018007D972A /* CTSRestError.m */; };
+		76CA04BF19D53018007D972A /* CTSSignupState.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA042E19D53018007D972A /* CTSSignupState.m */; };
+		76CA04C019D53018007D972A /* CTSSignupState.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA042E19D53018007D972A /* CTSSignupState.m */; };
+		76CA04C119D53018007D972A /* CTSSignupState.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA042E19D53018007D972A /* CTSSignupState.m */; };
+		76CA04C219D53018007D972A /* CTSAmount.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA043219D53018007D972A /* CTSAmount.m */; };
+		76CA04C319D53018007D972A /* CTSAmount.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA043219D53018007D972A /* CTSAmount.m */; };
+		76CA04C419D53018007D972A /* CTSAmount.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA043219D53018007D972A /* CTSAmount.m */; };
+		76CA04C519D53018007D972A /* CTSGuestCheckout.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA043419D53018007D972A /* CTSGuestCheckout.m */; };
+		76CA04C619D53018007D972A /* CTSGuestCheckout.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA043419D53018007D972A /* CTSGuestCheckout.m */; };
+		76CA04C719D53018007D972A /* CTSGuestCheckout.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA043419D53018007D972A /* CTSGuestCheckout.m */; };
+		76CA04C819D53018007D972A /* CTSPaymentMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA043619D53018007D972A /* CTSPaymentMode.m */; };
+		76CA04C919D53018007D972A /* CTSPaymentMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA043619D53018007D972A /* CTSPaymentMode.m */; };
+		76CA04CA19D53018007D972A /* CTSPaymentMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA043619D53018007D972A /* CTSPaymentMode.m */; };
+		76CA04CB19D53018007D972A /* CTSPaymentNetbankingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA043819D53018007D972A /* CTSPaymentNetbankingRequest.m */; };
+		76CA04CC19D53018007D972A /* CTSPaymentNetbankingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA043819D53018007D972A /* CTSPaymentNetbankingRequest.m */; };
+		76CA04CD19D53018007D972A /* CTSPaymentNetbankingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA043819D53018007D972A /* CTSPaymentNetbankingRequest.m */; };
+		76CA04CE19D53018007D972A /* CTSPaymentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA043A19D53018007D972A /* CTSPaymentRequest.m */; };
+		76CA04CF19D53018007D972A /* CTSPaymentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA043A19D53018007D972A /* CTSPaymentRequest.m */; };
+		76CA04D019D53018007D972A /* CTSPaymentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA043A19D53018007D972A /* CTSPaymentRequest.m */; };
+		76CA04D119D53018007D972A /* CTSPaymentToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA043C19D53018007D972A /* CTSPaymentToken.m */; };
+		76CA04D219D53018007D972A /* CTSPaymentToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA043C19D53018007D972A /* CTSPaymentToken.m */; };
+		76CA04D319D53018007D972A /* CTSPaymentToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA043C19D53018007D972A /* CTSPaymentToken.m */; };
+		76CA04D419D53018007D972A /* CTSPaymentUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA043E19D53018007D972A /* CTSPaymentUpdate.m */; };
+		76CA04D519D53018007D972A /* CTSPaymentUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA043E19D53018007D972A /* CTSPaymentUpdate.m */; };
+		76CA04D619D53018007D972A /* CTSPaymentUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA043E19D53018007D972A /* CTSPaymentUpdate.m */; };
+		76CA04D719D53018007D972A /* CTSTokenizedCardPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA044019D53018007D972A /* CTSTokenizedCardPayment.m */; };
+		76CA04D819D53018007D972A /* CTSTokenizedCardPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA044019D53018007D972A /* CTSTokenizedCardPayment.m */; };
+		76CA04D919D53018007D972A /* CTSTokenizedCardPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA044019D53018007D972A /* CTSTokenizedCardPayment.m */; };
+		76CA04DA19D53018007D972A /* CTSTokenizedPaymentToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA044219D53018007D972A /* CTSTokenizedPaymentToken.m */; };
+		76CA04DB19D53018007D972A /* CTSTokenizedPaymentToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA044219D53018007D972A /* CTSTokenizedPaymentToken.m */; };
+		76CA04DC19D53018007D972A /* CTSTokenizedPaymentToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA044219D53018007D972A /* CTSTokenizedPaymentToken.m */; };
+		76CA04DD19D53018007D972A /* CTSUserAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA044419D53018007D972A /* CTSUserAddress.m */; };
+		76CA04DE19D53018007D972A /* CTSUserAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA044419D53018007D972A /* CTSUserAddress.m */; };
+		76CA04DF19D53018007D972A /* CTSUserAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA044419D53018007D972A /* CTSUserAddress.m */; };
+		76CA04E019D53018007D972A /* CTSUserDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA044619D53018007D972A /* CTSUserDetails.m */; };
+		76CA04E119D53018007D972A /* CTSUserDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA044619D53018007D972A /* CTSUserDetails.m */; };
+		76CA04E219D53018007D972A /* CTSUserDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA044619D53018007D972A /* CTSUserDetails.m */; };
+		76CA04E319D53018007D972A /* CTSContactUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA044919D53018007D972A /* CTSContactUpdate.m */; };
+		76CA04E419D53018007D972A /* CTSContactUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA044919D53018007D972A /* CTSContactUpdate.m */; };
+		76CA04E519D53018007D972A /* CTSContactUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA044919D53018007D972A /* CTSContactUpdate.m */; };
+		76CA04E619D53018007D972A /* CTSElectronicCardUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA044B19D53018007D972A /* CTSElectronicCardUpdate.m */; };
+		76CA04E719D53018007D972A /* CTSElectronicCardUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA044B19D53018007D972A /* CTSElectronicCardUpdate.m */; };
+		76CA04E819D53018007D972A /* CTSElectronicCardUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA044B19D53018007D972A /* CTSElectronicCardUpdate.m */; };
+		76CA04E919D53018007D972A /* CTSNetBankingUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA044D19D53018007D972A /* CTSNetBankingUpdate.m */; };
+		76CA04EA19D53018007D972A /* CTSNetBankingUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA044D19D53018007D972A /* CTSNetBankingUpdate.m */; };
+		76CA04EB19D53018007D972A /* CTSNetBankingUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA044D19D53018007D972A /* CTSNetBankingUpdate.m */; };
+		76CA04EC19D53018007D972A /* CTSPaymentDetailUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA044F19D53018007D972A /* CTSPaymentDetailUpdate.m */; };
+		76CA04ED19D53018007D972A /* CTSPaymentDetailUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA044F19D53018007D972A /* CTSPaymentDetailUpdate.m */; };
+		76CA04EE19D53018007D972A /* CTSPaymentDetailUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA044F19D53018007D972A /* CTSPaymentDetailUpdate.m */; };
+		76CA04EF19D53018007D972A /* CTSPaymentOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA045119D53018007D972A /* CTSPaymentOption.m */; };
+		76CA04F019D53018007D972A /* CTSPaymentOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA045119D53018007D972A /* CTSPaymentOption.m */; };
+		76CA04F119D53018007D972A /* CTSPaymentOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA045119D53018007D972A /* CTSPaymentOption.m */; };
+		76CA04F219D53018007D972A /* CTSPrepaidUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA045319D53018007D972A /* CTSPrepaidUpdate.m */; };
+		76CA04F319D53018007D972A /* CTSPrepaidUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA045319D53018007D972A /* CTSPrepaidUpdate.m */; };
+		76CA04F419D53018007D972A /* CTSPrepaidUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA045319D53018007D972A /* CTSPrepaidUpdate.m */; };
+		76CA04F519D53018007D972A /* CTSTokenizedPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA045519D53018007D972A /* CTSTokenizedPayment.m */; };
+		76CA04F619D53018007D972A /* CTSTokenizedPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA045519D53018007D972A /* CTSTokenizedPayment.m */; };
+		76CA04F719D53018007D972A /* CTSTokenizedPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA045519D53018007D972A /* CTSTokenizedPayment.m */; };
+		76CA04F819D53018007D972A /* CTSOauthTokenRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA045919D53018007D972A /* CTSOauthTokenRes.m */; };
+		76CA04F919D53018007D972A /* CTSOauthTokenRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA045919D53018007D972A /* CTSOauthTokenRes.m */; };
+		76CA04FA19D53018007D972A /* CTSOauthTokenRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA045919D53018007D972A /* CTSOauthTokenRes.m */; };
+		76CA04FB19D53018007D972A /* CTSSignUpRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA045B19D53018007D972A /* CTSSignUpRes.m */; };
+		76CA04FC19D53018007D972A /* CTSSignUpRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA045B19D53018007D972A /* CTSSignUpRes.m */; };
+		76CA04FD19D53018007D972A /* CTSSignUpRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA045B19D53018007D972A /* CTSSignUpRes.m */; };
+		76CA04FE19D53018007D972A /* CTSCreditCardOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA045E19D53018007D972A /* CTSCreditCardOption.m */; };
+		76CA04FF19D53018007D972A /* CTSCreditCardOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA045E19D53018007D972A /* CTSCreditCardOption.m */; };
+		76CA050019D53018007D972A /* CTSCreditCardOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA045E19D53018007D972A /* CTSCreditCardOption.m */; };
+		76CA050119D53018007D972A /* CTSDebitCardOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA046019D53018007D972A /* CTSDebitCardOption.m */; };
+		76CA050219D53018007D972A /* CTSDebitCardOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA046019D53018007D972A /* CTSDebitCardOption.m */; };
+		76CA050319D53018007D972A /* CTSDebitCardOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA046019D53018007D972A /* CTSDebitCardOption.m */; };
+		76CA050419D53018007D972A /* CTSNetbankingOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA046219D53018007D972A /* CTSNetbankingOption.m */; };
+		76CA050519D53018007D972A /* CTSNetbankingOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA046219D53018007D972A /* CTSNetbankingOption.m */; };
+		76CA050619D53018007D972A /* CTSNetbankingOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA046219D53018007D972A /* CTSNetbankingOption.m */; };
+		76CA050719D53018007D972A /* CTSPaymentRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA046419D53018007D972A /* CTSPaymentRes.m */; };
+		76CA050819D53018007D972A /* CTSPaymentRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA046419D53018007D972A /* CTSPaymentRes.m */; };
+		76CA050919D53018007D972A /* CTSPaymentRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA046419D53018007D972A /* CTSPaymentRes.m */; };
+		76CA050A19D53018007D972A /* CTSPaymentTransactionRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA046619D53018007D972A /* CTSPaymentTransactionRes.m */; };
+		76CA050B19D53018007D972A /* CTSPaymentTransactionRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA046619D53018007D972A /* CTSPaymentTransactionRes.m */; };
+		76CA050C19D53018007D972A /* CTSPaymentTransactionRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA046619D53018007D972A /* CTSPaymentTransactionRes.m */; };
+		76CA050D19D53018007D972A /* CTSPgSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA046819D53018007D972A /* CTSPgSettings.m */; };
+		76CA050E19D53018007D972A /* CTSPgSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA046819D53018007D972A /* CTSPgSettings.m */; };
+		76CA050F19D53018007D972A /* CTSPgSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA046819D53018007D972A /* CTSPgSettings.m */; };
+		76CA051019D53018007D972A /* CTSProfileContactRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA046B19D53018007D972A /* CTSProfileContactRes.m */; };
+		76CA051119D53018007D972A /* CTSProfileContactRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA046B19D53018007D972A /* CTSProfileContactRes.m */; };
+		76CA051219D53018007D972A /* CTSProfileContactRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA046B19D53018007D972A /* CTSProfileContactRes.m */; };
+		76CA051319D53018007D972A /* CTSProfilePaymentRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA046D19D53018007D972A /* CTSProfilePaymentRes.m */; };
+		76CA051419D53018007D972A /* CTSProfilePaymentRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA046D19D53018007D972A /* CTSProfilePaymentRes.m */; };
+		76CA051519D53018007D972A /* CTSProfilePaymentRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA046D19D53018007D972A /* CTSProfilePaymentRes.m */; };
+		76CA051619D53018007D972A /* CTSProfilePrepaidRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA046F19D53018007D972A /* CTSProfilePrepaidRes.m */; };
+		76CA051719D53018007D972A /* CTSProfilePrepaidRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA046F19D53018007D972A /* CTSProfilePrepaidRes.m */; };
+		76CA051819D53018007D972A /* CTSProfilePrepaidRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA046F19D53018007D972A /* CTSProfilePrepaidRes.m */; };
+		76CA051919D53018007D972A /* GetProfileRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA047119D53018007D972A /* GetProfileRes.m */; };
+		76CA051A19D53018007D972A /* GetProfileRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA047119D53018007D972A /* GetProfileRes.m */; };
+		76CA051B19D53018007D972A /* GetProfileRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA047119D53018007D972A /* GetProfileRes.m */; };
+		76CA051C19D53018007D972A /* CTSAuthLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA047619D53018007D972A /* CTSAuthLayer.m */; };
+		76CA051D19D53018007D972A /* CTSAuthLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA047619D53018007D972A /* CTSAuthLayer.m */; };
+		76CA051E19D53018007D972A /* CTSAuthLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA047619D53018007D972A /* CTSAuthLayer.m */; };
+		76CA051F19D53018007D972A /* CTSError.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA047A19D53018007D972A /* CTSError.m */; };
+		76CA052019D53018007D972A /* CTSError.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA047A19D53018007D972A /* CTSError.m */; };
+		76CA052119D53018007D972A /* CTSError.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA047A19D53018007D972A /* CTSError.m */; };
+		76CA052219D53018007D972A /* CTSOauthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA047E19D53018007D972A /* CTSOauthManager.m */; };
+		76CA052319D53018007D972A /* CTSOauthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA047E19D53018007D972A /* CTSOauthManager.m */; };
+		76CA052419D53018007D972A /* CTSOauthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA047E19D53018007D972A /* CTSOauthManager.m */; };
+		76CA052519D53018007D972A /* CTSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA048019D53018007D972A /* CTSObject.m */; };
+		76CA052619D53018007D972A /* CTSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA048019D53018007D972A /* CTSObject.m */; };
+		76CA052719D53018007D972A /* CTSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA048019D53018007D972A /* CTSObject.m */; };
+		76CA052819D53018007D972A /* CTSUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA048219D53018007D972A /* CTSUtility.m */; };
+		76CA052919D53018007D972A /* CTSUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA048219D53018007D972A /* CTSUtility.m */; };
+		76CA052A19D53018007D972A /* CTSUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA048219D53018007D972A /* CTSUtility.m */; };
+		76CA052B19D53018007D972A /* OauthStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA048419D53018007D972A /* OauthStatus.m */; };
+		76CA052C19D53018007D972A /* OauthStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA048419D53018007D972A /* OauthStatus.m */; };
+		76CA052D19D53018007D972A /* OauthStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA048419D53018007D972A /* OauthStatus.m */; };
+		76CA052E19D53018007D972A /* CTSRestCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA048819D53018007D972A /* CTSRestCore.m */; };
+		76CA052F19D53018007D972A /* CTSRestCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA048819D53018007D972A /* CTSRestCore.m */; };
+		76CA053019D53018007D972A /* CTSRestCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA048819D53018007D972A /* CTSRestCore.m */; };
+		76CA053119D53018007D972A /* CTSRestCoreRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA048B19D53018007D972A /* CTSRestCoreRequest.m */; };
+		76CA053219D53018007D972A /* CTSRestCoreRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA048B19D53018007D972A /* CTSRestCoreRequest.m */; };
+		76CA053319D53018007D972A /* CTSRestCoreRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA048B19D53018007D972A /* CTSRestCoreRequest.m */; };
+		76CA053419D53018007D972A /* CTSRestCoreResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA048D19D53018007D972A /* CTSRestCoreResponse.m */; };
+		76CA053519D53018007D972A /* CTSRestCoreResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA048D19D53018007D972A /* CTSRestCoreResponse.m */; };
+		76CA053619D53018007D972A /* CTSRestCoreResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA048D19D53018007D972A /* CTSRestCoreResponse.m */; };
+		76CA053719D53018007D972A /* CTSRestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA048F19D53018007D972A /* CTSRestObject.m */; };
+		76CA053819D53018007D972A /* CTSRestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA048F19D53018007D972A /* CTSRestObject.m */; };
+		76CA053919D53018007D972A /* CTSRestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA048F19D53018007D972A /* CTSRestObject.m */; };
+		76CA053A19D53018007D972A /* CTSRestPluginBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA049119D53018007D972A /* CTSRestPluginBase.m */; };
+		76CA053B19D53018007D972A /* CTSRestPluginBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA049119D53018007D972A /* CTSRestPluginBase.m */; };
+		76CA053C19D53018007D972A /* CTSRestPluginBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA049119D53018007D972A /* CTSRestPluginBase.m */; };
+		76CA053D19D53018007D972A /* CreditCard-Validator.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA049419D53018007D972A /* CreditCard-Validator.m */; };
+		76CA053E19D53018007D972A /* CreditCard-Validator.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA049419D53018007D972A /* CreditCard-Validator.m */; };
+		76CA053F19D53018007D972A /* CreditCard-Validator.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA049419D53018007D972A /* CreditCard-Validator.m */; };
+		76CA054019D53018007D972A /* JSONModel+CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA049819D53018007D972A /* JSONModel+CoreData.m */; };
+		76CA054119D53018007D972A /* JSONModel+CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA049819D53018007D972A /* JSONModel+CoreData.m */; };
+		76CA054219D53018007D972A /* JSONModel+CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA049819D53018007D972A /* JSONModel+CoreData.m */; };
+		76CA054319D53018007D972A /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA049A19D53018007D972A /* JSONModel.m */; };
+		76CA054419D53018007D972A /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA049A19D53018007D972A /* JSONModel.m */; };
+		76CA054519D53018007D972A /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA049A19D53018007D972A /* JSONModel.m */; };
+		76CA054619D53018007D972A /* JSONModelArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA049C19D53018007D972A /* JSONModelArray.m */; };
+		76CA054719D53018007D972A /* JSONModelArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA049C19D53018007D972A /* JSONModelArray.m */; };
+		76CA054819D53018007D972A /* JSONModelArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA049C19D53018007D972A /* JSONModelArray.m */; };
+		76CA054919D53018007D972A /* JSONModelClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA049E19D53018007D972A /* JSONModelClassProperty.m */; };
+		76CA054A19D53018007D972A /* JSONModelClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA049E19D53018007D972A /* JSONModelClassProperty.m */; };
+		76CA054B19D53018007D972A /* JSONModelClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA049E19D53018007D972A /* JSONModelClassProperty.m */; };
+		76CA054C19D53018007D972A /* JSONModelError.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA04A019D53018007D972A /* JSONModelError.m */; };
+		76CA054D19D53018007D972A /* JSONModelError.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA04A019D53018007D972A /* JSONModelError.m */; };
+		76CA054E19D53018007D972A /* JSONModelError.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA04A019D53018007D972A /* JSONModelError.m */; };
+		76CA054F19D53018007D972A /* NSArray+JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA04A319D53018007D972A /* NSArray+JSONModel.m */; };
+		76CA055019D53018007D972A /* NSArray+JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA04A319D53018007D972A /* NSArray+JSONModel.m */; };
+		76CA055119D53018007D972A /* NSArray+JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA04A319D53018007D972A /* NSArray+JSONModel.m */; };
+		76CA055219D53018007D972A /* JSONAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA04A719D53018007D972A /* JSONAPI.m */; };
+		76CA055319D53018007D972A /* JSONAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA04A719D53018007D972A /* JSONAPI.m */; };
+		76CA055419D53018007D972A /* JSONAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA04A719D53018007D972A /* JSONAPI.m */; };
+		76CA055519D53018007D972A /* JSONHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA04A919D53018007D972A /* JSONHTTPClient.m */; };
+		76CA055619D53018007D972A /* JSONHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA04A919D53018007D972A /* JSONHTTPClient.m */; };
+		76CA055719D53018007D972A /* JSONHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA04A919D53018007D972A /* JSONHTTPClient.m */; };
+		76CA055819D53018007D972A /* JSONModel+networking.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA04AB19D53018007D972A /* JSONModel+networking.m */; };
+		76CA055919D53018007D972A /* JSONModel+networking.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA04AB19D53018007D972A /* JSONModel+networking.m */; };
+		76CA055A19D53018007D972A /* JSONModel+networking.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA04AB19D53018007D972A /* JSONModel+networking.m */; };
+		76CA055B19D53018007D972A /* JSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA04AE19D53018007D972A /* JSONKeyMapper.m */; };
+		76CA055C19D53018007D972A /* JSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA04AE19D53018007D972A /* JSONKeyMapper.m */; };
+		76CA055D19D53018007D972A /* JSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA04AE19D53018007D972A /* JSONKeyMapper.m */; };
+		76CA055E19D53018007D972A /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA04B019D53018007D972A /* JSONValueTransformer.m */; };
+		76CA055F19D53018007D972A /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA04B019D53018007D972A /* JSONValueTransformer.m */; };
+		76CA056019D53018007D972A /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA04B019D53018007D972A /* JSONValueTransformer.m */; };
+		76CA056119D53018007D972A /* NSObject+logProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA04B319D53018007D972A /* NSObject+logProperties.m */; };
+		76CA056219D53018007D972A /* NSObject+logProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA04B319D53018007D972A /* NSObject+logProperties.m */; };
+		76CA056319D53018007D972A /* NSObject+logProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA04B319D53018007D972A /* NSObject+logProperties.m */; };
+		76CA056419D53018007D972A /* CTSPaymentLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA04B619D53018007D972A /* CTSPaymentLayer.m */; };
+		76CA056519D53018007D972A /* CTSPaymentLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA04B619D53018007D972A /* CTSPaymentLayer.m */; };
+		76CA056619D53018007D972A /* CTSPaymentLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA04B619D53018007D972A /* CTSPaymentLayer.m */; };
+		76CA056719D53018007D972A /* CTSProfileLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA04BA19D53018007D972A /* CTSProfileLayer.m */; };
+		76CA056819D53018007D972A /* CTSProfileLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA04BA19D53018007D972A /* CTSProfileLayer.m */; };
+		76CA056919D53018007D972A /* CTSProfileLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CA04BA19D53018007D972A /* CTSProfileLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -351,130 +354,6 @@
 		767C3C8819CAE7C800ACCC19 /* CTSTextFieldValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSTextFieldValidator.h; sourceTree = "<group>"; };
 		767C3C8919CAE7C800ACCC19 /* CTSTextFieldValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSTextFieldValidator.m; sourceTree = "<group>"; };
 		767C3C8D19CAE89600ACCC19 /* error@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "error@2x.png"; sourceTree = "<group>"; };
-		76A80A3119C16D7B007410EB /* CitrusSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitrusSdk.h; sourceTree = "<group>"; };
-		76A80A3319C16D7B007410EB /* CTSRestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSRestError.h; sourceTree = "<group>"; };
-		76A80A3419C16D7B007410EB /* CTSRestError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSRestError.m; sourceTree = "<group>"; };
-		76A80A3B19C16D7B007410EB /* CTSAmount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSAmount.h; sourceTree = "<group>"; };
-		76A80A3C19C16D7B007410EB /* CTSAmount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSAmount.m; sourceTree = "<group>"; };
-		76A80A3D19C16D7B007410EB /* CTSGuestCheckout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSGuestCheckout.h; sourceTree = "<group>"; };
-		76A80A3E19C16D7B007410EB /* CTSGuestCheckout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSGuestCheckout.m; sourceTree = "<group>"; };
-		76A80A3F19C16D7B007410EB /* CTSPaymentMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSPaymentMode.h; sourceTree = "<group>"; };
-		76A80A4019C16D7B007410EB /* CTSPaymentMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSPaymentMode.m; sourceTree = "<group>"; };
-		76A80A4119C16D7B007410EB /* CTSPaymentNetbankingRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSPaymentNetbankingRequest.h; sourceTree = "<group>"; };
-		76A80A4219C16D7B007410EB /* CTSPaymentNetbankingRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSPaymentNetbankingRequest.m; sourceTree = "<group>"; };
-		76A80A4319C16D7B007410EB /* CTSPaymentRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSPaymentRequest.h; sourceTree = "<group>"; };
-		76A80A4419C16D7B007410EB /* CTSPaymentRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSPaymentRequest.m; sourceTree = "<group>"; };
-		76A80A4519C16D7B007410EB /* CTSPaymentToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSPaymentToken.h; sourceTree = "<group>"; };
-		76A80A4619C16D7B007410EB /* CTSPaymentToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSPaymentToken.m; sourceTree = "<group>"; };
-		76A80A4719C16D7B007410EB /* CTSPaymentUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSPaymentUpdate.h; sourceTree = "<group>"; };
-		76A80A4819C16D7B007410EB /* CTSPaymentUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSPaymentUpdate.m; sourceTree = "<group>"; };
-		76A80A4919C16D7B007410EB /* CTSTokenizedCardPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSTokenizedCardPayment.h; sourceTree = "<group>"; };
-		76A80A4A19C16D7B007410EB /* CTSTokenizedCardPayment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSTokenizedCardPayment.m; sourceTree = "<group>"; };
-		76A80A4B19C16D7B007410EB /* CTSTokenizedPaymentToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSTokenizedPaymentToken.h; sourceTree = "<group>"; };
-		76A80A4C19C16D7B007410EB /* CTSTokenizedPaymentToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSTokenizedPaymentToken.m; sourceTree = "<group>"; };
-		76A80A4D19C16D7B007410EB /* CTSUserAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSUserAddress.h; sourceTree = "<group>"; };
-		76A80A4E19C16D7B007410EB /* CTSUserAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSUserAddress.m; sourceTree = "<group>"; };
-		76A80A4F19C16D7B007410EB /* CTSUserDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSUserDetails.h; sourceTree = "<group>"; };
-		76A80A5019C16D7B007410EB /* CTSUserDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSUserDetails.m; sourceTree = "<group>"; };
-		76A80A5219C16D7B007410EB /* CTSContactUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSContactUpdate.h; sourceTree = "<group>"; };
-		76A80A5319C16D7B007410EB /* CTSContactUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSContactUpdate.m; sourceTree = "<group>"; };
-		76A80A5419C16D7B007410EB /* CTSElectronicCardUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSElectronicCardUpdate.h; sourceTree = "<group>"; };
-		76A80A5519C16D7B007410EB /* CTSElectronicCardUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSElectronicCardUpdate.m; sourceTree = "<group>"; };
-		76A80A5619C16D7B007410EB /* CTSNetBankingUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSNetBankingUpdate.h; sourceTree = "<group>"; };
-		76A80A5719C16D7B007410EB /* CTSNetBankingUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSNetBankingUpdate.m; sourceTree = "<group>"; };
-		76A80A5819C16D7B007410EB /* CTSPaymentDetailUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSPaymentDetailUpdate.h; sourceTree = "<group>"; };
-		76A80A5919C16D7B007410EB /* CTSPaymentDetailUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSPaymentDetailUpdate.m; sourceTree = "<group>"; };
-		76A80A5A19C16D7B007410EB /* CTSPaymentOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSPaymentOption.h; sourceTree = "<group>"; };
-		76A80A5B19C16D7B007410EB /* CTSPaymentOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSPaymentOption.m; sourceTree = "<group>"; };
-		76A80A5C19C16D7B007410EB /* CTSPrepaidUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSPrepaidUpdate.h; sourceTree = "<group>"; };
-		76A80A5D19C16D7B007410EB /* CTSPrepaidUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSPrepaidUpdate.m; sourceTree = "<group>"; };
-		76A80A5E19C16D7B007410EB /* CTSTokenizedPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSTokenizedPayment.h; sourceTree = "<group>"; };
-		76A80A5F19C16D7B007410EB /* CTSTokenizedPayment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSTokenizedPayment.m; sourceTree = "<group>"; };
-		76A80A6219C16D7B007410EB /* CTSOauthTokenRes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSOauthTokenRes.h; sourceTree = "<group>"; };
-		76A80A6319C16D7B007410EB /* CTSOauthTokenRes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSOauthTokenRes.m; sourceTree = "<group>"; };
-		76A80A6419C16D7B007410EB /* CTSSignUpRes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSSignUpRes.h; sourceTree = "<group>"; };
-		76A80A6519C16D7B007410EB /* CTSSignUpRes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSSignUpRes.m; sourceTree = "<group>"; };
-		76A80A6719C16D7B007410EB /* CTSCreditCardOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSCreditCardOption.h; sourceTree = "<group>"; };
-		76A80A6819C16D7B007410EB /* CTSCreditCardOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSCreditCardOption.m; sourceTree = "<group>"; };
-		76A80A6919C16D7B007410EB /* CTSDebitCardOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSDebitCardOption.h; sourceTree = "<group>"; };
-		76A80A6A19C16D7B007410EB /* CTSDebitCardOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSDebitCardOption.m; sourceTree = "<group>"; };
-		76A80A6B19C16D7B007410EB /* CTSNetbankingOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSNetbankingOption.h; sourceTree = "<group>"; };
-		76A80A6C19C16D7B007410EB /* CTSNetbankingOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSNetbankingOption.m; sourceTree = "<group>"; };
-		76A80A6D19C16D7B007410EB /* CTSPaymentRes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSPaymentRes.h; sourceTree = "<group>"; };
-		76A80A6E19C16D7B007410EB /* CTSPaymentRes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSPaymentRes.m; sourceTree = "<group>"; };
-		76A80A6F19C16D7B007410EB /* CTSPaymentTransactionRes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSPaymentTransactionRes.h; sourceTree = "<group>"; };
-		76A80A7019C16D7B007410EB /* CTSPaymentTransactionRes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSPaymentTransactionRes.m; sourceTree = "<group>"; };
-		76A80A7119C16D7B007410EB /* CTSPgSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSPgSettings.h; sourceTree = "<group>"; };
-		76A80A7219C16D7B007410EB /* CTSPgSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSPgSettings.m; sourceTree = "<group>"; };
-		76A80A7419C16D7B007410EB /* CTSProfileContactRes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSProfileContactRes.h; sourceTree = "<group>"; };
-		76A80A7519C16D7B007410EB /* CTSProfileContactRes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSProfileContactRes.m; sourceTree = "<group>"; };
-		76A80A7619C16D7B007410EB /* CTSProfilePaymentRes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSProfilePaymentRes.h; sourceTree = "<group>"; };
-		76A80A7719C16D7B007410EB /* CTSProfilePaymentRes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSProfilePaymentRes.m; sourceTree = "<group>"; };
-		76A80A7819C16D7B007410EB /* CTSProfilePrepaidRes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSProfilePrepaidRes.h; sourceTree = "<group>"; };
-		76A80A7919C16D7B007410EB /* CTSProfilePrepaidRes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSProfilePrepaidRes.m; sourceTree = "<group>"; };
-		76A80A7A19C16D7B007410EB /* GetProfileRes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetProfileRes.h; sourceTree = "<group>"; };
-		76A80A7B19C16D7B007410EB /* GetProfileRes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetProfileRes.m; sourceTree = "<group>"; };
-		76A80A7C19C16D7B007410EB /* MerchantConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchantConstants.h; sourceTree = "<group>"; };
-		76A80A7F19C16D7B007410EB /* CTSAuthLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSAuthLayer.h; sourceTree = "<group>"; };
-		76A80A8019C16D7B007410EB /* CTSAuthLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSAuthLayer.m; sourceTree = "<group>"; };
-		76A80A8119C16D7B007410EB /* CTSAuthLayerConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSAuthLayerConstants.h; sourceTree = "<group>"; };
-		76A80A8319C16D7B007410EB /* CTSError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSError.h; sourceTree = "<group>"; };
-		76A80A8419C16D7B007410EB /* CTSError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSError.m; sourceTree = "<group>"; };
-		76A80A8619C16D7B007410EB /* CTSCoreProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSCoreProtocol.h; sourceTree = "<group>"; };
-		76A80A8719C16D7B007410EB /* CTSOauthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSOauthManager.h; sourceTree = "<group>"; };
-		76A80A8819C16D7B007410EB /* CTSOauthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSOauthManager.m; sourceTree = "<group>"; };
-		76A80A8919C16D7B007410EB /* CTSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSObject.h; sourceTree = "<group>"; };
-		76A80A8A19C16D7B007410EB /* CTSObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSObject.m; sourceTree = "<group>"; };
-		76A80A8B19C16D7B007410EB /* CTSUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSUtility.h; sourceTree = "<group>"; };
-		76A80A8C19C16D7B007410EB /* CTSUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSUtility.m; sourceTree = "<group>"; };
-		76A80A8D19C16D7B007410EB /* OauthStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OauthStatus.h; sourceTree = "<group>"; };
-		76A80A8E19C16D7B007410EB /* OauthStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OauthStatus.m; sourceTree = "<group>"; };
-		76A80A8F19C16D7B007410EB /* RestLayerConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestLayerConstants.h; sourceTree = "<group>"; };
-		76A80A9119C16D7B007410EB /* CTSRestCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSRestCore.h; sourceTree = "<group>"; };
-		76A80A9219C16D7B007410EB /* CTSRestCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSRestCore.m; sourceTree = "<group>"; };
-		76A80A9319C16D7B007410EB /* CTSRestCoreConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSRestCoreConstants.h; sourceTree = "<group>"; };
-		76A80A9419C16D7B007410EB /* CTSRestCoreRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSRestCoreRequest.h; sourceTree = "<group>"; };
-		76A80A9519C16D7B007410EB /* CTSRestCoreRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSRestCoreRequest.m; sourceTree = "<group>"; };
-		76A80A9619C16D7B007410EB /* CTSRestCoreResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSRestCoreResponse.h; sourceTree = "<group>"; };
-		76A80A9719C16D7B007410EB /* CTSRestCoreResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSRestCoreResponse.m; sourceTree = "<group>"; };
-		76A80A9819C16D7B007410EB /* CTSRestObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSRestObject.h; sourceTree = "<group>"; };
-		76A80A9919C16D7B007410EB /* CTSRestObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSRestObject.m; sourceTree = "<group>"; };
-		76A80A9A19C16D7B007410EB /* CTSRestPluginBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSRestPluginBase.h; sourceTree = "<group>"; };
-		76A80A9B19C16D7B007410EB /* CTSRestPluginBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSRestPluginBase.m; sourceTree = "<group>"; };
-		76A80A9D19C16D7B007410EB /* CreditCard-Validator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CreditCard-Validator.h"; sourceTree = "<group>"; };
-		76A80A9E19C16D7B007410EB /* CreditCard-Validator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CreditCard-Validator.m"; sourceTree = "<group>"; };
-		76A80AA119C16D7B007410EB /* JSONModel+CoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONModel+CoreData.h"; sourceTree = "<group>"; };
-		76A80AA219C16D7B007410EB /* JSONModel+CoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONModel+CoreData.m"; sourceTree = "<group>"; };
-		76A80AA319C16D7B007410EB /* JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModel.h; sourceTree = "<group>"; };
-		76A80AA419C16D7B007410EB /* JSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModel.m; sourceTree = "<group>"; };
-		76A80AA519C16D7B007410EB /* JSONModelArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelArray.h; sourceTree = "<group>"; };
-		76A80AA619C16D7B007410EB /* JSONModelArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModelArray.m; sourceTree = "<group>"; };
-		76A80AA719C16D7B007410EB /* JSONModelClassProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelClassProperty.h; sourceTree = "<group>"; };
-		76A80AA819C16D7B007410EB /* JSONModelClassProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModelClassProperty.m; sourceTree = "<group>"; };
-		76A80AA919C16D7B007410EB /* JSONModelError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelError.h; sourceTree = "<group>"; };
-		76A80AAA19C16D7B007410EB /* JSONModelError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModelError.m; sourceTree = "<group>"; };
-		76A80AAC19C16D7B007410EB /* NSArray+JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+JSONModel.h"; sourceTree = "<group>"; };
-		76A80AAD19C16D7B007410EB /* NSArray+JSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+JSONModel.m"; sourceTree = "<group>"; };
-		76A80AAE19C16D7B007410EB /* JSONModelLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelLib.h; sourceTree = "<group>"; };
-		76A80AB019C16D7B007410EB /* JSONAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONAPI.h; sourceTree = "<group>"; };
-		76A80AB119C16D7B007410EB /* JSONAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONAPI.m; sourceTree = "<group>"; };
-		76A80AB219C16D7B007410EB /* JSONHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONHTTPClient.h; sourceTree = "<group>"; };
-		76A80AB319C16D7B007410EB /* JSONHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONHTTPClient.m; sourceTree = "<group>"; };
-		76A80AB419C16D7B007410EB /* JSONModel+networking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONModel+networking.h"; sourceTree = "<group>"; };
-		76A80AB519C16D7B007410EB /* JSONModel+networking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONModel+networking.m"; sourceTree = "<group>"; };
-		76A80AB719C16D7B007410EB /* JSONKeyMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKeyMapper.h; sourceTree = "<group>"; };
-		76A80AB819C16D7B007410EB /* JSONKeyMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKeyMapper.m; sourceTree = "<group>"; };
-		76A80AB919C16D7B007410EB /* JSONValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONValueTransformer.h; sourceTree = "<group>"; };
-		76A80ABA19C16D7B007410EB /* JSONValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONValueTransformer.m; sourceTree = "<group>"; };
-		76A80ABB19C16D7B007410EB /* UserLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserLogging.h; sourceTree = "<group>"; };
-		76A80ABC19C16D7B007410EB /* NSObject+logProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+logProperties.h"; sourceTree = "<group>"; };
-		76A80ABD19C16D7B007410EB /* NSObject+logProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+logProperties.m"; sourceTree = "<group>"; };
-		76A80ABF19C16D7B007410EB /* CTSPaymentLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSPaymentLayer.h; sourceTree = "<group>"; };
-		76A80AC019C16D7B007410EB /* CTSPaymentLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSPaymentLayer.m; sourceTree = "<group>"; };
-		76A80AC119C16D7B007410EB /* CTSPaymentLayerConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSPaymentLayerConstants.h; sourceTree = "<group>"; };
-		76A80AC319C16D7B007410EB /* CTSProfileLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSProfileLayer.h; sourceTree = "<group>"; };
-		76A80AC419C16D7B007410EB /* CTSProfileLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSProfileLayer.m; sourceTree = "<group>"; };
-		76A80AC519C16D7B007410EB /* CTSProfileLayerConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSProfileLayerConstants.h; sourceTree = "<group>"; };
 		76A80AC719C16D7B007410EB /* CardPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardPayViewController.h; sourceTree = "<group>"; };
 		76A80AC819C16D7B007410EB /* CardPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardPayViewController.m; sourceTree = "<group>"; };
 		76A80AC919C16D7B007410EB /* CardPayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardPayViewController.xib; sourceTree = "<group>"; };
@@ -529,6 +408,132 @@
 		76AED02719C8553E00B6D5F1 /* ChangePasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangePasswordViewController.xib; sourceTree = "<group>"; };
 		76CA042219D3EAE2007D972A /* UIUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIUtility.h; sourceTree = "<group>"; };
 		76CA042319D3EAE2007D972A /* UIUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIUtility.m; sourceTree = "<group>"; };
+		76CA042819D53018007D972A /* CitrusSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitrusSdk.h; sourceTree = "<group>"; };
+		76CA042A19D53018007D972A /* CTSRestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSRestError.h; sourceTree = "<group>"; };
+		76CA042B19D53018007D972A /* CTSRestError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSRestError.m; sourceTree = "<group>"; };
+		76CA042D19D53018007D972A /* CTSSignupState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSSignupState.h; sourceTree = "<group>"; };
+		76CA042E19D53018007D972A /* CTSSignupState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSSignupState.m; sourceTree = "<group>"; };
+		76CA043119D53018007D972A /* CTSAmount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSAmount.h; sourceTree = "<group>"; };
+		76CA043219D53018007D972A /* CTSAmount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSAmount.m; sourceTree = "<group>"; };
+		76CA043319D53018007D972A /* CTSGuestCheckout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSGuestCheckout.h; sourceTree = "<group>"; };
+		76CA043419D53018007D972A /* CTSGuestCheckout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSGuestCheckout.m; sourceTree = "<group>"; };
+		76CA043519D53018007D972A /* CTSPaymentMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSPaymentMode.h; sourceTree = "<group>"; };
+		76CA043619D53018007D972A /* CTSPaymentMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSPaymentMode.m; sourceTree = "<group>"; };
+		76CA043719D53018007D972A /* CTSPaymentNetbankingRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSPaymentNetbankingRequest.h; sourceTree = "<group>"; };
+		76CA043819D53018007D972A /* CTSPaymentNetbankingRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSPaymentNetbankingRequest.m; sourceTree = "<group>"; };
+		76CA043919D53018007D972A /* CTSPaymentRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSPaymentRequest.h; sourceTree = "<group>"; };
+		76CA043A19D53018007D972A /* CTSPaymentRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSPaymentRequest.m; sourceTree = "<group>"; };
+		76CA043B19D53018007D972A /* CTSPaymentToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSPaymentToken.h; sourceTree = "<group>"; };
+		76CA043C19D53018007D972A /* CTSPaymentToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSPaymentToken.m; sourceTree = "<group>"; };
+		76CA043D19D53018007D972A /* CTSPaymentUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSPaymentUpdate.h; sourceTree = "<group>"; };
+		76CA043E19D53018007D972A /* CTSPaymentUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSPaymentUpdate.m; sourceTree = "<group>"; };
+		76CA043F19D53018007D972A /* CTSTokenizedCardPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSTokenizedCardPayment.h; sourceTree = "<group>"; };
+		76CA044019D53018007D972A /* CTSTokenizedCardPayment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSTokenizedCardPayment.m; sourceTree = "<group>"; };
+		76CA044119D53018007D972A /* CTSTokenizedPaymentToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSTokenizedPaymentToken.h; sourceTree = "<group>"; };
+		76CA044219D53018007D972A /* CTSTokenizedPaymentToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSTokenizedPaymentToken.m; sourceTree = "<group>"; };
+		76CA044319D53018007D972A /* CTSUserAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSUserAddress.h; sourceTree = "<group>"; };
+		76CA044419D53018007D972A /* CTSUserAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSUserAddress.m; sourceTree = "<group>"; };
+		76CA044519D53018007D972A /* CTSUserDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSUserDetails.h; sourceTree = "<group>"; };
+		76CA044619D53018007D972A /* CTSUserDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSUserDetails.m; sourceTree = "<group>"; };
+		76CA044819D53018007D972A /* CTSContactUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSContactUpdate.h; sourceTree = "<group>"; };
+		76CA044919D53018007D972A /* CTSContactUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSContactUpdate.m; sourceTree = "<group>"; };
+		76CA044A19D53018007D972A /* CTSElectronicCardUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSElectronicCardUpdate.h; sourceTree = "<group>"; };
+		76CA044B19D53018007D972A /* CTSElectronicCardUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSElectronicCardUpdate.m; sourceTree = "<group>"; };
+		76CA044C19D53018007D972A /* CTSNetBankingUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSNetBankingUpdate.h; sourceTree = "<group>"; };
+		76CA044D19D53018007D972A /* CTSNetBankingUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSNetBankingUpdate.m; sourceTree = "<group>"; };
+		76CA044E19D53018007D972A /* CTSPaymentDetailUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSPaymentDetailUpdate.h; sourceTree = "<group>"; };
+		76CA044F19D53018007D972A /* CTSPaymentDetailUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSPaymentDetailUpdate.m; sourceTree = "<group>"; };
+		76CA045019D53018007D972A /* CTSPaymentOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSPaymentOption.h; sourceTree = "<group>"; };
+		76CA045119D53018007D972A /* CTSPaymentOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSPaymentOption.m; sourceTree = "<group>"; };
+		76CA045219D53018007D972A /* CTSPrepaidUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSPrepaidUpdate.h; sourceTree = "<group>"; };
+		76CA045319D53018007D972A /* CTSPrepaidUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSPrepaidUpdate.m; sourceTree = "<group>"; };
+		76CA045419D53018007D972A /* CTSTokenizedPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSTokenizedPayment.h; sourceTree = "<group>"; };
+		76CA045519D53018007D972A /* CTSTokenizedPayment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSTokenizedPayment.m; sourceTree = "<group>"; };
+		76CA045819D53018007D972A /* CTSOauthTokenRes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSOauthTokenRes.h; sourceTree = "<group>"; };
+		76CA045919D53018007D972A /* CTSOauthTokenRes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSOauthTokenRes.m; sourceTree = "<group>"; };
+		76CA045A19D53018007D972A /* CTSSignUpRes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSSignUpRes.h; sourceTree = "<group>"; };
+		76CA045B19D53018007D972A /* CTSSignUpRes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSSignUpRes.m; sourceTree = "<group>"; };
+		76CA045D19D53018007D972A /* CTSCreditCardOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSCreditCardOption.h; sourceTree = "<group>"; };
+		76CA045E19D53018007D972A /* CTSCreditCardOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSCreditCardOption.m; sourceTree = "<group>"; };
+		76CA045F19D53018007D972A /* CTSDebitCardOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSDebitCardOption.h; sourceTree = "<group>"; };
+		76CA046019D53018007D972A /* CTSDebitCardOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSDebitCardOption.m; sourceTree = "<group>"; };
+		76CA046119D53018007D972A /* CTSNetbankingOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSNetbankingOption.h; sourceTree = "<group>"; };
+		76CA046219D53018007D972A /* CTSNetbankingOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSNetbankingOption.m; sourceTree = "<group>"; };
+		76CA046319D53018007D972A /* CTSPaymentRes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSPaymentRes.h; sourceTree = "<group>"; };
+		76CA046419D53018007D972A /* CTSPaymentRes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSPaymentRes.m; sourceTree = "<group>"; };
+		76CA046519D53018007D972A /* CTSPaymentTransactionRes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSPaymentTransactionRes.h; sourceTree = "<group>"; };
+		76CA046619D53018007D972A /* CTSPaymentTransactionRes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSPaymentTransactionRes.m; sourceTree = "<group>"; };
+		76CA046719D53018007D972A /* CTSPgSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSPgSettings.h; sourceTree = "<group>"; };
+		76CA046819D53018007D972A /* CTSPgSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSPgSettings.m; sourceTree = "<group>"; };
+		76CA046A19D53018007D972A /* CTSProfileContactRes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSProfileContactRes.h; sourceTree = "<group>"; };
+		76CA046B19D53018007D972A /* CTSProfileContactRes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSProfileContactRes.m; sourceTree = "<group>"; };
+		76CA046C19D53018007D972A /* CTSProfilePaymentRes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSProfilePaymentRes.h; sourceTree = "<group>"; };
+		76CA046D19D53018007D972A /* CTSProfilePaymentRes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSProfilePaymentRes.m; sourceTree = "<group>"; };
+		76CA046E19D53018007D972A /* CTSProfilePrepaidRes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSProfilePrepaidRes.h; sourceTree = "<group>"; };
+		76CA046F19D53018007D972A /* CTSProfilePrepaidRes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSProfilePrepaidRes.m; sourceTree = "<group>"; };
+		76CA047019D53018007D972A /* GetProfileRes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetProfileRes.h; sourceTree = "<group>"; };
+		76CA047119D53018007D972A /* GetProfileRes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetProfileRes.m; sourceTree = "<group>"; };
+		76CA047219D53018007D972A /* MerchantConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchantConstants.h; sourceTree = "<group>"; };
+		76CA047519D53018007D972A /* CTSAuthLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSAuthLayer.h; sourceTree = "<group>"; };
+		76CA047619D53018007D972A /* CTSAuthLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSAuthLayer.m; sourceTree = "<group>"; };
+		76CA047719D53018007D972A /* CTSAuthLayerConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSAuthLayerConstants.h; sourceTree = "<group>"; };
+		76CA047919D53018007D972A /* CTSError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSError.h; sourceTree = "<group>"; };
+		76CA047A19D53018007D972A /* CTSError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSError.m; sourceTree = "<group>"; };
+		76CA047C19D53018007D972A /* CTSCoreProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSCoreProtocol.h; sourceTree = "<group>"; };
+		76CA047D19D53018007D972A /* CTSOauthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSOauthManager.h; sourceTree = "<group>"; };
+		76CA047E19D53018007D972A /* CTSOauthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSOauthManager.m; sourceTree = "<group>"; };
+		76CA047F19D53018007D972A /* CTSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSObject.h; sourceTree = "<group>"; };
+		76CA048019D53018007D972A /* CTSObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSObject.m; sourceTree = "<group>"; };
+		76CA048119D53018007D972A /* CTSUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSUtility.h; sourceTree = "<group>"; };
+		76CA048219D53018007D972A /* CTSUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSUtility.m; sourceTree = "<group>"; };
+		76CA048319D53018007D972A /* OauthStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OauthStatus.h; sourceTree = "<group>"; };
+		76CA048419D53018007D972A /* OauthStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OauthStatus.m; sourceTree = "<group>"; };
+		76CA048519D53018007D972A /* RestLayerConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestLayerConstants.h; sourceTree = "<group>"; };
+		76CA048719D53018007D972A /* CTSRestCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSRestCore.h; sourceTree = "<group>"; };
+		76CA048819D53018007D972A /* CTSRestCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSRestCore.m; sourceTree = "<group>"; };
+		76CA048919D53018007D972A /* CTSRestCoreConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSRestCoreConstants.h; sourceTree = "<group>"; };
+		76CA048A19D53018007D972A /* CTSRestCoreRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSRestCoreRequest.h; sourceTree = "<group>"; };
+		76CA048B19D53018007D972A /* CTSRestCoreRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSRestCoreRequest.m; sourceTree = "<group>"; };
+		76CA048C19D53018007D972A /* CTSRestCoreResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSRestCoreResponse.h; sourceTree = "<group>"; };
+		76CA048D19D53018007D972A /* CTSRestCoreResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSRestCoreResponse.m; sourceTree = "<group>"; };
+		76CA048E19D53018007D972A /* CTSRestObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSRestObject.h; sourceTree = "<group>"; };
+		76CA048F19D53018007D972A /* CTSRestObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSRestObject.m; sourceTree = "<group>"; };
+		76CA049019D53018007D972A /* CTSRestPluginBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSRestPluginBase.h; sourceTree = "<group>"; };
+		76CA049119D53018007D972A /* CTSRestPluginBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSRestPluginBase.m; sourceTree = "<group>"; };
+		76CA049319D53018007D972A /* CreditCard-Validator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CreditCard-Validator.h"; sourceTree = "<group>"; };
+		76CA049419D53018007D972A /* CreditCard-Validator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CreditCard-Validator.m"; sourceTree = "<group>"; };
+		76CA049719D53018007D972A /* JSONModel+CoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONModel+CoreData.h"; sourceTree = "<group>"; };
+		76CA049819D53018007D972A /* JSONModel+CoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONModel+CoreData.m"; sourceTree = "<group>"; };
+		76CA049919D53018007D972A /* JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModel.h; sourceTree = "<group>"; };
+		76CA049A19D53018007D972A /* JSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModel.m; sourceTree = "<group>"; };
+		76CA049B19D53018007D972A /* JSONModelArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelArray.h; sourceTree = "<group>"; };
+		76CA049C19D53018007D972A /* JSONModelArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModelArray.m; sourceTree = "<group>"; };
+		76CA049D19D53018007D972A /* JSONModelClassProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelClassProperty.h; sourceTree = "<group>"; };
+		76CA049E19D53018007D972A /* JSONModelClassProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModelClassProperty.m; sourceTree = "<group>"; };
+		76CA049F19D53018007D972A /* JSONModelError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelError.h; sourceTree = "<group>"; };
+		76CA04A019D53018007D972A /* JSONModelError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModelError.m; sourceTree = "<group>"; };
+		76CA04A219D53018007D972A /* NSArray+JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+JSONModel.h"; sourceTree = "<group>"; };
+		76CA04A319D53018007D972A /* NSArray+JSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+JSONModel.m"; sourceTree = "<group>"; };
+		76CA04A419D53018007D972A /* JSONModelLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelLib.h; sourceTree = "<group>"; };
+		76CA04A619D53018007D972A /* JSONAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONAPI.h; sourceTree = "<group>"; };
+		76CA04A719D53018007D972A /* JSONAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONAPI.m; sourceTree = "<group>"; };
+		76CA04A819D53018007D972A /* JSONHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONHTTPClient.h; sourceTree = "<group>"; };
+		76CA04A919D53018007D972A /* JSONHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONHTTPClient.m; sourceTree = "<group>"; };
+		76CA04AA19D53018007D972A /* JSONModel+networking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONModel+networking.h"; sourceTree = "<group>"; };
+		76CA04AB19D53018007D972A /* JSONModel+networking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONModel+networking.m"; sourceTree = "<group>"; };
+		76CA04AD19D53018007D972A /* JSONKeyMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKeyMapper.h; sourceTree = "<group>"; };
+		76CA04AE19D53018007D972A /* JSONKeyMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKeyMapper.m; sourceTree = "<group>"; };
+		76CA04AF19D53018007D972A /* JSONValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONValueTransformer.h; sourceTree = "<group>"; };
+		76CA04B019D53018007D972A /* JSONValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONValueTransformer.m; sourceTree = "<group>"; };
+		76CA04B119D53018007D972A /* UserLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserLogging.h; sourceTree = "<group>"; };
+		76CA04B219D53018007D972A /* NSObject+logProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+logProperties.h"; sourceTree = "<group>"; };
+		76CA04B319D53018007D972A /* NSObject+logProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+logProperties.m"; sourceTree = "<group>"; };
+		76CA04B519D53018007D972A /* CTSPaymentLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSPaymentLayer.h; sourceTree = "<group>"; };
+		76CA04B619D53018007D972A /* CTSPaymentLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSPaymentLayer.m; sourceTree = "<group>"; };
+		76CA04B719D53018007D972A /* CTSPaymentLayerConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSPaymentLayerConstants.h; sourceTree = "<group>"; };
+		76CA04B919D53018007D972A /* CTSProfileLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSProfileLayer.h; sourceTree = "<group>"; };
+		76CA04BA19D53018007D972A /* CTSProfileLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSProfileLayer.m; sourceTree = "<group>"; };
+		76CA04BB19D53018007D972A /* CTSProfileLayerConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSProfileLayerConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -570,10 +575,10 @@
 		764AEDD319B89AA40011FE90 = {
 			isa = PBXGroup;
 			children = (
+				76CA042719D53018007D972A /* CitrusDevKit */,
 				76CA042119D3EAE2007D972A /* UIUtility */,
 				767C3C8719CAE7A400ACCC19 /* CTSTextFieldValidator */,
 				76A80BB719C2CABA007410EB /* CoreData */,
-				76A80A3019C16D7B007410EB /* CitrusDevKit */,
 				76A80AC619C16D7B007410EB /* Controllers */,
 				76A80AE519C16D7B007410EB /* Images */,
 				764AEDE519B89AA40011FE90 /* SDKSandbox */,
@@ -654,305 +659,6 @@
 				767C3C8919CAE7C800ACCC19 /* CTSTextFieldValidator.m */,
 			);
 			path = CTSTextFieldValidator;
-			sourceTree = "<group>";
-		};
-		76A80A3019C16D7B007410EB /* CitrusDevKit */ = {
-			isa = PBXGroup;
-			children = (
-				76A80A3119C16D7B007410EB /* CitrusSdk.h */,
-				76A80A3219C16D7B007410EB /* Data */,
-				76A80A7C19C16D7B007410EB /* MerchantConstants.h */,
-				76A80A7D19C16D7B007410EB /* ModelLayers */,
-			);
-			path = CitrusDevKit;
-			sourceTree = "<group>";
-		};
-		76A80A3219C16D7B007410EB /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				76A80A3319C16D7B007410EB /* CTSRestError.h */,
-				76A80A3419C16D7B007410EB /* CTSRestError.m */,
-				76A80A3919C16D7B007410EB /* RequestObjects */,
-				76A80A6019C16D7B007410EB /* ResponseObjects */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		76A80A3919C16D7B007410EB /* RequestObjects */ = {
-			isa = PBXGroup;
-			children = (
-				76A80A3A19C16D7B007410EB /* Payment */,
-				76A80A5119C16D7B007410EB /* UserProfile */,
-			);
-			path = RequestObjects;
-			sourceTree = "<group>";
-		};
-		76A80A3A19C16D7B007410EB /* Payment */ = {
-			isa = PBXGroup;
-			children = (
-				76A80A3B19C16D7B007410EB /* CTSAmount.h */,
-				76A80A3C19C16D7B007410EB /* CTSAmount.m */,
-				76A80A3D19C16D7B007410EB /* CTSGuestCheckout.h */,
-				76A80A3E19C16D7B007410EB /* CTSGuestCheckout.m */,
-				76A80A3F19C16D7B007410EB /* CTSPaymentMode.h */,
-				76A80A4019C16D7B007410EB /* CTSPaymentMode.m */,
-				76A80A4119C16D7B007410EB /* CTSPaymentNetbankingRequest.h */,
-				76A80A4219C16D7B007410EB /* CTSPaymentNetbankingRequest.m */,
-				76A80A4319C16D7B007410EB /* CTSPaymentRequest.h */,
-				76A80A4419C16D7B007410EB /* CTSPaymentRequest.m */,
-				76A80A4519C16D7B007410EB /* CTSPaymentToken.h */,
-				76A80A4619C16D7B007410EB /* CTSPaymentToken.m */,
-				76A80A4719C16D7B007410EB /* CTSPaymentUpdate.h */,
-				76A80A4819C16D7B007410EB /* CTSPaymentUpdate.m */,
-				76A80A4919C16D7B007410EB /* CTSTokenizedCardPayment.h */,
-				76A80A4A19C16D7B007410EB /* CTSTokenizedCardPayment.m */,
-				76A80A4B19C16D7B007410EB /* CTSTokenizedPaymentToken.h */,
-				76A80A4C19C16D7B007410EB /* CTSTokenizedPaymentToken.m */,
-				76A80A4D19C16D7B007410EB /* CTSUserAddress.h */,
-				76A80A4E19C16D7B007410EB /* CTSUserAddress.m */,
-				76A80A4F19C16D7B007410EB /* CTSUserDetails.h */,
-				76A80A5019C16D7B007410EB /* CTSUserDetails.m */,
-			);
-			path = Payment;
-			sourceTree = "<group>";
-		};
-		76A80A5119C16D7B007410EB /* UserProfile */ = {
-			isa = PBXGroup;
-			children = (
-				76A80A5219C16D7B007410EB /* CTSContactUpdate.h */,
-				76A80A5319C16D7B007410EB /* CTSContactUpdate.m */,
-				76A80A5419C16D7B007410EB /* CTSElectronicCardUpdate.h */,
-				76A80A5519C16D7B007410EB /* CTSElectronicCardUpdate.m */,
-				76A80A5619C16D7B007410EB /* CTSNetBankingUpdate.h */,
-				76A80A5719C16D7B007410EB /* CTSNetBankingUpdate.m */,
-				76A80A5819C16D7B007410EB /* CTSPaymentDetailUpdate.h */,
-				76A80A5919C16D7B007410EB /* CTSPaymentDetailUpdate.m */,
-				76A80A5A19C16D7B007410EB /* CTSPaymentOption.h */,
-				76A80A5B19C16D7B007410EB /* CTSPaymentOption.m */,
-				76A80A5C19C16D7B007410EB /* CTSPrepaidUpdate.h */,
-				76A80A5D19C16D7B007410EB /* CTSPrepaidUpdate.m */,
-				76A80A5E19C16D7B007410EB /* CTSTokenizedPayment.h */,
-				76A80A5F19C16D7B007410EB /* CTSTokenizedPayment.m */,
-			);
-			path = UserProfile;
-			sourceTree = "<group>";
-		};
-		76A80A6019C16D7B007410EB /* ResponseObjects */ = {
-			isa = PBXGroup;
-			children = (
-				76A80A6119C16D7B007410EB /* Authentication */,
-				76A80A6619C16D7B007410EB /* Payment */,
-				76A80A7319C16D7B007410EB /* UserProfile */,
-			);
-			path = ResponseObjects;
-			sourceTree = "<group>";
-		};
-		76A80A6119C16D7B007410EB /* Authentication */ = {
-			isa = PBXGroup;
-			children = (
-				76A80A6219C16D7B007410EB /* CTSOauthTokenRes.h */,
-				76A80A6319C16D7B007410EB /* CTSOauthTokenRes.m */,
-				76A80A6419C16D7B007410EB /* CTSSignUpRes.h */,
-				76A80A6519C16D7B007410EB /* CTSSignUpRes.m */,
-			);
-			path = Authentication;
-			sourceTree = "<group>";
-		};
-		76A80A6619C16D7B007410EB /* Payment */ = {
-			isa = PBXGroup;
-			children = (
-				76A80A6719C16D7B007410EB /* CTSCreditCardOption.h */,
-				76A80A6819C16D7B007410EB /* CTSCreditCardOption.m */,
-				76A80A6919C16D7B007410EB /* CTSDebitCardOption.h */,
-				76A80A6A19C16D7B007410EB /* CTSDebitCardOption.m */,
-				76A80A6B19C16D7B007410EB /* CTSNetbankingOption.h */,
-				76A80A6C19C16D7B007410EB /* CTSNetbankingOption.m */,
-				76A80A6D19C16D7B007410EB /* CTSPaymentRes.h */,
-				76A80A6E19C16D7B007410EB /* CTSPaymentRes.m */,
-				76A80A6F19C16D7B007410EB /* CTSPaymentTransactionRes.h */,
-				76A80A7019C16D7B007410EB /* CTSPaymentTransactionRes.m */,
-				76A80A7119C16D7B007410EB /* CTSPgSettings.h */,
-				76A80A7219C16D7B007410EB /* CTSPgSettings.m */,
-			);
-			path = Payment;
-			sourceTree = "<group>";
-		};
-		76A80A7319C16D7B007410EB /* UserProfile */ = {
-			isa = PBXGroup;
-			children = (
-				76A80A7419C16D7B007410EB /* CTSProfileContactRes.h */,
-				76A80A7519C16D7B007410EB /* CTSProfileContactRes.m */,
-				76A80A7619C16D7B007410EB /* CTSProfilePaymentRes.h */,
-				76A80A7719C16D7B007410EB /* CTSProfilePaymentRes.m */,
-				76A80A7819C16D7B007410EB /* CTSProfilePrepaidRes.h */,
-				76A80A7919C16D7B007410EB /* CTSProfilePrepaidRes.m */,
-				76A80A7A19C16D7B007410EB /* GetProfileRes.h */,
-				76A80A7B19C16D7B007410EB /* GetProfileRes.m */,
-			);
-			path = UserProfile;
-			sourceTree = "<group>";
-		};
-		76A80A7D19C16D7B007410EB /* ModelLayers */ = {
-			isa = PBXGroup;
-			children = (
-				76A80A7E19C16D7B007410EB /* Authentication */,
-				76A80A8219C16D7B007410EB /* CitrusError */,
-				76A80A8519C16D7B007410EB /* Core */,
-				76A80A9019C16D7B007410EB /* CTSRestKitCode */,
-				76A80A9C19C16D7B007410EB /* External */,
-				76A80ABC19C16D7B007410EB /* NSObject+logProperties.h */,
-				76A80ABD19C16D7B007410EB /* NSObject+logProperties.m */,
-				76A80ABE19C16D7B007410EB /* Payment */,
-				76A80AC219C16D7B007410EB /* UserProfile */,
-			);
-			path = ModelLayers;
-			sourceTree = "<group>";
-		};
-		76A80A7E19C16D7B007410EB /* Authentication */ = {
-			isa = PBXGroup;
-			children = (
-				76A80A7F19C16D7B007410EB /* CTSAuthLayer.h */,
-				76A80A8019C16D7B007410EB /* CTSAuthLayer.m */,
-				76A80A8119C16D7B007410EB /* CTSAuthLayerConstants.h */,
-			);
-			path = Authentication;
-			sourceTree = "<group>";
-		};
-		76A80A8219C16D7B007410EB /* CitrusError */ = {
-			isa = PBXGroup;
-			children = (
-				76A80A8319C16D7B007410EB /* CTSError.h */,
-				76A80A8419C16D7B007410EB /* CTSError.m */,
-			);
-			path = CitrusError;
-			sourceTree = "<group>";
-		};
-		76A80A8519C16D7B007410EB /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				76A80A8619C16D7B007410EB /* CTSCoreProtocol.h */,
-				76A80A8719C16D7B007410EB /* CTSOauthManager.h */,
-				76A80A8819C16D7B007410EB /* CTSOauthManager.m */,
-				76A80A8919C16D7B007410EB /* CTSObject.h */,
-				76A80A8A19C16D7B007410EB /* CTSObject.m */,
-				76A80A8B19C16D7B007410EB /* CTSUtility.h */,
-				76A80A8C19C16D7B007410EB /* CTSUtility.m */,
-				76A80A8D19C16D7B007410EB /* OauthStatus.h */,
-				76A80A8E19C16D7B007410EB /* OauthStatus.m */,
-				76A80A8F19C16D7B007410EB /* RestLayerConstants.h */,
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
-		76A80A9019C16D7B007410EB /* CTSRestKitCode */ = {
-			isa = PBXGroup;
-			children = (
-				76A80A9119C16D7B007410EB /* CTSRestCore.h */,
-				76A80A9219C16D7B007410EB /* CTSRestCore.m */,
-				76A80A9319C16D7B007410EB /* CTSRestCoreConstants.h */,
-				76A80A9419C16D7B007410EB /* CTSRestCoreRequest.h */,
-				76A80A9519C16D7B007410EB /* CTSRestCoreRequest.m */,
-				76A80A9619C16D7B007410EB /* CTSRestCoreResponse.h */,
-				76A80A9719C16D7B007410EB /* CTSRestCoreResponse.m */,
-				76A80A9819C16D7B007410EB /* CTSRestObject.h */,
-				76A80A9919C16D7B007410EB /* CTSRestObject.m */,
-				76A80A9A19C16D7B007410EB /* CTSRestPluginBase.h */,
-				76A80A9B19C16D7B007410EB /* CTSRestPluginBase.m */,
-			);
-			path = CTSRestKitCode;
-			sourceTree = "<group>";
-		};
-		76A80A9C19C16D7B007410EB /* External */ = {
-			isa = PBXGroup;
-			children = (
-				76A80A9D19C16D7B007410EB /* CreditCard-Validator.h */,
-				76A80A9E19C16D7B007410EB /* CreditCard-Validator.m */,
-				76A80A9F19C16D7B007410EB /* JSONModel */,
-				76A80ABB19C16D7B007410EB /* UserLogging.h */,
-			);
-			path = External;
-			sourceTree = "<group>";
-		};
-		76A80A9F19C16D7B007410EB /* JSONModel */ = {
-			isa = PBXGroup;
-			children = (
-				76A80AA019C16D7B007410EB /* JSONModel */,
-				76A80AAB19C16D7B007410EB /* JSONModelCategories */,
-				76A80AAE19C16D7B007410EB /* JSONModelLib.h */,
-				76A80AAF19C16D7B007410EB /* JSONModelNetworking */,
-				76A80AB619C16D7B007410EB /* JSONModelTransformations */,
-			);
-			path = JSONModel;
-			sourceTree = "<group>";
-		};
-		76A80AA019C16D7B007410EB /* JSONModel */ = {
-			isa = PBXGroup;
-			children = (
-				76A80AA119C16D7B007410EB /* JSONModel+CoreData.h */,
-				76A80AA219C16D7B007410EB /* JSONModel+CoreData.m */,
-				76A80AA319C16D7B007410EB /* JSONModel.h */,
-				76A80AA419C16D7B007410EB /* JSONModel.m */,
-				76A80AA519C16D7B007410EB /* JSONModelArray.h */,
-				76A80AA619C16D7B007410EB /* JSONModelArray.m */,
-				76A80AA719C16D7B007410EB /* JSONModelClassProperty.h */,
-				76A80AA819C16D7B007410EB /* JSONModelClassProperty.m */,
-				76A80AA919C16D7B007410EB /* JSONModelError.h */,
-				76A80AAA19C16D7B007410EB /* JSONModelError.m */,
-			);
-			path = JSONModel;
-			sourceTree = "<group>";
-		};
-		76A80AAB19C16D7B007410EB /* JSONModelCategories */ = {
-			isa = PBXGroup;
-			children = (
-				76A80AAC19C16D7B007410EB /* NSArray+JSONModel.h */,
-				76A80AAD19C16D7B007410EB /* NSArray+JSONModel.m */,
-			);
-			path = JSONModelCategories;
-			sourceTree = "<group>";
-		};
-		76A80AAF19C16D7B007410EB /* JSONModelNetworking */ = {
-			isa = PBXGroup;
-			children = (
-				76A80AB019C16D7B007410EB /* JSONAPI.h */,
-				76A80AB119C16D7B007410EB /* JSONAPI.m */,
-				76A80AB219C16D7B007410EB /* JSONHTTPClient.h */,
-				76A80AB319C16D7B007410EB /* JSONHTTPClient.m */,
-				76A80AB419C16D7B007410EB /* JSONModel+networking.h */,
-				76A80AB519C16D7B007410EB /* JSONModel+networking.m */,
-			);
-			path = JSONModelNetworking;
-			sourceTree = "<group>";
-		};
-		76A80AB619C16D7B007410EB /* JSONModelTransformations */ = {
-			isa = PBXGroup;
-			children = (
-				76A80AB719C16D7B007410EB /* JSONKeyMapper.h */,
-				76A80AB819C16D7B007410EB /* JSONKeyMapper.m */,
-				76A80AB919C16D7B007410EB /* JSONValueTransformer.h */,
-				76A80ABA19C16D7B007410EB /* JSONValueTransformer.m */,
-			);
-			path = JSONModelTransformations;
-			sourceTree = "<group>";
-		};
-		76A80ABE19C16D7B007410EB /* Payment */ = {
-			isa = PBXGroup;
-			children = (
-				76A80ABF19C16D7B007410EB /* CTSPaymentLayer.h */,
-				76A80AC019C16D7B007410EB /* CTSPaymentLayer.m */,
-				76A80AC119C16D7B007410EB /* CTSPaymentLayerConstants.h */,
-			);
-			path = Payment;
-			sourceTree = "<group>";
-		};
-		76A80AC219C16D7B007410EB /* UserProfile */ = {
-			isa = PBXGroup;
-			children = (
-				76A80AC319C16D7B007410EB /* CTSProfileLayer.h */,
-				76A80AC419C16D7B007410EB /* CTSProfileLayer.m */,
-				76A80AC519C16D7B007410EB /* CTSProfileLayerConstants.h */,
-			);
-			path = UserProfile;
 			sourceTree = "<group>";
 		};
 		76A80AC619C16D7B007410EB /* Controllers */ = {
@@ -1040,6 +746,316 @@
 				76CA042319D3EAE2007D972A /* UIUtility.m */,
 			);
 			path = UIUtility;
+			sourceTree = "<group>";
+		};
+		76CA042719D53018007D972A /* CitrusDevKit */ = {
+			isa = PBXGroup;
+			children = (
+				76CA042819D53018007D972A /* CitrusSdk.h */,
+				76CA042919D53018007D972A /* Data */,
+				76CA047219D53018007D972A /* MerchantConstants.h */,
+				76CA047319D53018007D972A /* ModelLayers */,
+			);
+			name = CitrusDevKit;
+			path = "../../../open-ios-master 2/RestFulltester/CitrusDevKit";
+			sourceTree = "<group>";
+		};
+		76CA042919D53018007D972A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				76CA042A19D53018007D972A /* CTSRestError.h */,
+				76CA042B19D53018007D972A /* CTSRestError.m */,
+				76CA042C19D53018007D972A /* dto */,
+				76CA042F19D53018007D972A /* RequestObjects */,
+				76CA045619D53018007D972A /* ResponseObjects */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		76CA042C19D53018007D972A /* dto */ = {
+			isa = PBXGroup;
+			children = (
+				76CA042D19D53018007D972A /* CTSSignupState.h */,
+				76CA042E19D53018007D972A /* CTSSignupState.m */,
+			);
+			path = dto;
+			sourceTree = "<group>";
+		};
+		76CA042F19D53018007D972A /* RequestObjects */ = {
+			isa = PBXGroup;
+			children = (
+				76CA043019D53018007D972A /* Payment */,
+				76CA044719D53018007D972A /* UserProfile */,
+			);
+			path = RequestObjects;
+			sourceTree = "<group>";
+		};
+		76CA043019D53018007D972A /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				76CA043119D53018007D972A /* CTSAmount.h */,
+				76CA043219D53018007D972A /* CTSAmount.m */,
+				76CA043319D53018007D972A /* CTSGuestCheckout.h */,
+				76CA043419D53018007D972A /* CTSGuestCheckout.m */,
+				76CA043519D53018007D972A /* CTSPaymentMode.h */,
+				76CA043619D53018007D972A /* CTSPaymentMode.m */,
+				76CA043719D53018007D972A /* CTSPaymentNetbankingRequest.h */,
+				76CA043819D53018007D972A /* CTSPaymentNetbankingRequest.m */,
+				76CA043919D53018007D972A /* CTSPaymentRequest.h */,
+				76CA043A19D53018007D972A /* CTSPaymentRequest.m */,
+				76CA043B19D53018007D972A /* CTSPaymentToken.h */,
+				76CA043C19D53018007D972A /* CTSPaymentToken.m */,
+				76CA043D19D53018007D972A /* CTSPaymentUpdate.h */,
+				76CA043E19D53018007D972A /* CTSPaymentUpdate.m */,
+				76CA043F19D53018007D972A /* CTSTokenizedCardPayment.h */,
+				76CA044019D53018007D972A /* CTSTokenizedCardPayment.m */,
+				76CA044119D53018007D972A /* CTSTokenizedPaymentToken.h */,
+				76CA044219D53018007D972A /* CTSTokenizedPaymentToken.m */,
+				76CA044319D53018007D972A /* CTSUserAddress.h */,
+				76CA044419D53018007D972A /* CTSUserAddress.m */,
+				76CA044519D53018007D972A /* CTSUserDetails.h */,
+				76CA044619D53018007D972A /* CTSUserDetails.m */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		76CA044719D53018007D972A /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				76CA044819D53018007D972A /* CTSContactUpdate.h */,
+				76CA044919D53018007D972A /* CTSContactUpdate.m */,
+				76CA044A19D53018007D972A /* CTSElectronicCardUpdate.h */,
+				76CA044B19D53018007D972A /* CTSElectronicCardUpdate.m */,
+				76CA044C19D53018007D972A /* CTSNetBankingUpdate.h */,
+				76CA044D19D53018007D972A /* CTSNetBankingUpdate.m */,
+				76CA044E19D53018007D972A /* CTSPaymentDetailUpdate.h */,
+				76CA044F19D53018007D972A /* CTSPaymentDetailUpdate.m */,
+				76CA045019D53018007D972A /* CTSPaymentOption.h */,
+				76CA045119D53018007D972A /* CTSPaymentOption.m */,
+				76CA045219D53018007D972A /* CTSPrepaidUpdate.h */,
+				76CA045319D53018007D972A /* CTSPrepaidUpdate.m */,
+				76CA045419D53018007D972A /* CTSTokenizedPayment.h */,
+				76CA045519D53018007D972A /* CTSTokenizedPayment.m */,
+			);
+			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		76CA045619D53018007D972A /* ResponseObjects */ = {
+			isa = PBXGroup;
+			children = (
+				76CA045719D53018007D972A /* Authentication */,
+				76CA045C19D53018007D972A /* Payment */,
+				76CA046919D53018007D972A /* UserProfile */,
+			);
+			path = ResponseObjects;
+			sourceTree = "<group>";
+		};
+		76CA045719D53018007D972A /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				76CA045819D53018007D972A /* CTSOauthTokenRes.h */,
+				76CA045919D53018007D972A /* CTSOauthTokenRes.m */,
+				76CA045A19D53018007D972A /* CTSSignUpRes.h */,
+				76CA045B19D53018007D972A /* CTSSignUpRes.m */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		76CA045C19D53018007D972A /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				76CA045D19D53018007D972A /* CTSCreditCardOption.h */,
+				76CA045E19D53018007D972A /* CTSCreditCardOption.m */,
+				76CA045F19D53018007D972A /* CTSDebitCardOption.h */,
+				76CA046019D53018007D972A /* CTSDebitCardOption.m */,
+				76CA046119D53018007D972A /* CTSNetbankingOption.h */,
+				76CA046219D53018007D972A /* CTSNetbankingOption.m */,
+				76CA046319D53018007D972A /* CTSPaymentRes.h */,
+				76CA046419D53018007D972A /* CTSPaymentRes.m */,
+				76CA046519D53018007D972A /* CTSPaymentTransactionRes.h */,
+				76CA046619D53018007D972A /* CTSPaymentTransactionRes.m */,
+				76CA046719D53018007D972A /* CTSPgSettings.h */,
+				76CA046819D53018007D972A /* CTSPgSettings.m */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		76CA046919D53018007D972A /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				76CA046A19D53018007D972A /* CTSProfileContactRes.h */,
+				76CA046B19D53018007D972A /* CTSProfileContactRes.m */,
+				76CA046C19D53018007D972A /* CTSProfilePaymentRes.h */,
+				76CA046D19D53018007D972A /* CTSProfilePaymentRes.m */,
+				76CA046E19D53018007D972A /* CTSProfilePrepaidRes.h */,
+				76CA046F19D53018007D972A /* CTSProfilePrepaidRes.m */,
+				76CA047019D53018007D972A /* GetProfileRes.h */,
+				76CA047119D53018007D972A /* GetProfileRes.m */,
+			);
+			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		76CA047319D53018007D972A /* ModelLayers */ = {
+			isa = PBXGroup;
+			children = (
+				76CA047419D53018007D972A /* Authentication */,
+				76CA047819D53018007D972A /* CitrusError */,
+				76CA047B19D53018007D972A /* Core */,
+				76CA048619D53018007D972A /* CTSRestKitCode */,
+				76CA049219D53018007D972A /* External */,
+				76CA04B219D53018007D972A /* NSObject+logProperties.h */,
+				76CA04B319D53018007D972A /* NSObject+logProperties.m */,
+				76CA04B419D53018007D972A /* Payment */,
+				76CA04B819D53018007D972A /* UserProfile */,
+			);
+			path = ModelLayers;
+			sourceTree = "<group>";
+		};
+		76CA047419D53018007D972A /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				76CA047519D53018007D972A /* CTSAuthLayer.h */,
+				76CA047619D53018007D972A /* CTSAuthLayer.m */,
+				76CA047719D53018007D972A /* CTSAuthLayerConstants.h */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		76CA047819D53018007D972A /* CitrusError */ = {
+			isa = PBXGroup;
+			children = (
+				76CA047919D53018007D972A /* CTSError.h */,
+				76CA047A19D53018007D972A /* CTSError.m */,
+			);
+			path = CitrusError;
+			sourceTree = "<group>";
+		};
+		76CA047B19D53018007D972A /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				76CA047C19D53018007D972A /* CTSCoreProtocol.h */,
+				76CA047D19D53018007D972A /* CTSOauthManager.h */,
+				76CA047E19D53018007D972A /* CTSOauthManager.m */,
+				76CA047F19D53018007D972A /* CTSObject.h */,
+				76CA048019D53018007D972A /* CTSObject.m */,
+				76CA048119D53018007D972A /* CTSUtility.h */,
+				76CA048219D53018007D972A /* CTSUtility.m */,
+				76CA048319D53018007D972A /* OauthStatus.h */,
+				76CA048419D53018007D972A /* OauthStatus.m */,
+				76CA048519D53018007D972A /* RestLayerConstants.h */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		76CA048619D53018007D972A /* CTSRestKitCode */ = {
+			isa = PBXGroup;
+			children = (
+				76CA048719D53018007D972A /* CTSRestCore.h */,
+				76CA048819D53018007D972A /* CTSRestCore.m */,
+				76CA048919D53018007D972A /* CTSRestCoreConstants.h */,
+				76CA048A19D53018007D972A /* CTSRestCoreRequest.h */,
+				76CA048B19D53018007D972A /* CTSRestCoreRequest.m */,
+				76CA048C19D53018007D972A /* CTSRestCoreResponse.h */,
+				76CA048D19D53018007D972A /* CTSRestCoreResponse.m */,
+				76CA048E19D53018007D972A /* CTSRestObject.h */,
+				76CA048F19D53018007D972A /* CTSRestObject.m */,
+				76CA049019D53018007D972A /* CTSRestPluginBase.h */,
+				76CA049119D53018007D972A /* CTSRestPluginBase.m */,
+			);
+			path = CTSRestKitCode;
+			sourceTree = "<group>";
+		};
+		76CA049219D53018007D972A /* External */ = {
+			isa = PBXGroup;
+			children = (
+				76CA049319D53018007D972A /* CreditCard-Validator.h */,
+				76CA049419D53018007D972A /* CreditCard-Validator.m */,
+				76CA049519D53018007D972A /* JSONModel */,
+				76CA04B119D53018007D972A /* UserLogging.h */,
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
+		76CA049519D53018007D972A /* JSONModel */ = {
+			isa = PBXGroup;
+			children = (
+				76CA049619D53018007D972A /* JSONModel */,
+				76CA04A119D53018007D972A /* JSONModelCategories */,
+				76CA04A419D53018007D972A /* JSONModelLib.h */,
+				76CA04A519D53018007D972A /* JSONModelNetworking */,
+				76CA04AC19D53018007D972A /* JSONModelTransformations */,
+			);
+			path = JSONModel;
+			sourceTree = "<group>";
+		};
+		76CA049619D53018007D972A /* JSONModel */ = {
+			isa = PBXGroup;
+			children = (
+				76CA049719D53018007D972A /* JSONModel+CoreData.h */,
+				76CA049819D53018007D972A /* JSONModel+CoreData.m */,
+				76CA049919D53018007D972A /* JSONModel.h */,
+				76CA049A19D53018007D972A /* JSONModel.m */,
+				76CA049B19D53018007D972A /* JSONModelArray.h */,
+				76CA049C19D53018007D972A /* JSONModelArray.m */,
+				76CA049D19D53018007D972A /* JSONModelClassProperty.h */,
+				76CA049E19D53018007D972A /* JSONModelClassProperty.m */,
+				76CA049F19D53018007D972A /* JSONModelError.h */,
+				76CA04A019D53018007D972A /* JSONModelError.m */,
+			);
+			path = JSONModel;
+			sourceTree = "<group>";
+		};
+		76CA04A119D53018007D972A /* JSONModelCategories */ = {
+			isa = PBXGroup;
+			children = (
+				76CA04A219D53018007D972A /* NSArray+JSONModel.h */,
+				76CA04A319D53018007D972A /* NSArray+JSONModel.m */,
+			);
+			path = JSONModelCategories;
+			sourceTree = "<group>";
+		};
+		76CA04A519D53018007D972A /* JSONModelNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				76CA04A619D53018007D972A /* JSONAPI.h */,
+				76CA04A719D53018007D972A /* JSONAPI.m */,
+				76CA04A819D53018007D972A /* JSONHTTPClient.h */,
+				76CA04A919D53018007D972A /* JSONHTTPClient.m */,
+				76CA04AA19D53018007D972A /* JSONModel+networking.h */,
+				76CA04AB19D53018007D972A /* JSONModel+networking.m */,
+			);
+			path = JSONModelNetworking;
+			sourceTree = "<group>";
+		};
+		76CA04AC19D53018007D972A /* JSONModelTransformations */ = {
+			isa = PBXGroup;
+			children = (
+				76CA04AD19D53018007D972A /* JSONKeyMapper.h */,
+				76CA04AE19D53018007D972A /* JSONKeyMapper.m */,
+				76CA04AF19D53018007D972A /* JSONValueTransformer.h */,
+				76CA04B019D53018007D972A /* JSONValueTransformer.m */,
+			);
+			path = JSONModelTransformations;
+			sourceTree = "<group>";
+		};
+		76CA04B419D53018007D972A /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				76CA04B519D53018007D972A /* CTSPaymentLayer.h */,
+				76CA04B619D53018007D972A /* CTSPaymentLayer.m */,
+				76CA04B719D53018007D972A /* CTSPaymentLayerConstants.h */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		76CA04B819D53018007D972A /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				76CA04B919D53018007D972A /* CTSProfileLayer.h */,
+				76CA04BA19D53018007D972A /* CTSProfileLayer.m */,
+				76CA04BB19D53018007D972A /* CTSProfileLayerConstants.h */,
+			);
+			path = UserProfile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1243,78 +1259,79 @@
 			buildActionMask = 2147483647;
 			files = (
 				76A80B7119C16D7B007410EB /* ServerSignature.m in Sources */,
-				76A80AFB19C16D7B007410EB /* CTSTokenizedCardPayment.m in Sources */,
-				76A80B1319C16D7B007410EB /* CTSSignUpRes.m in Sources */,
-				76A80B2119C16D7B007410EB /* CTSProfileContactRes.m in Sources */,
+				76CA050119D53018007D972A /* CTSDebitCardOption.m in Sources */,
+				76CA04DA19D53018007D972A /* CTSTokenizedPaymentToken.m in Sources */,
 				76A80B8619C182F5007410EB /* GuestPayViewController.m in Sources */,
-				76A80B0919C16D7B007410EB /* CTSPaymentDetailUpdate.m in Sources */,
-				76A80B2B19C16D7B007410EB /* CTSError.m in Sources */,
+				76CA051919D53018007D972A /* GetProfileRes.m in Sources */,
+				76CA052B19D53018007D972A /* OauthStatus.m in Sources */,
+				76CA052819D53018007D972A /* CTSUtility.m in Sources */,
+				76CA04C819D53018007D972A /* CTSPaymentMode.m in Sources */,
+				76CA050719D53018007D972A /* CTSPaymentRes.m in Sources */,
+				76CA053119D53018007D972A /* CTSRestCoreRequest.m in Sources */,
+				76CA053719D53018007D972A /* CTSRestObject.m in Sources */,
+				76CA04F819D53018007D972A /* CTSOauthTokenRes.m in Sources */,
 				76A80B6119C16D7B007410EB /* HomeViewController.m in Sources */,
-				76A80AF919C16D7B007410EB /* CTSPaymentUpdate.m in Sources */,
-				76A80B1919C16D7B007410EB /* CTSNetbankingOption.m in Sources */,
-				76A80AF119C16D7B007410EB /* CTSPaymentMode.m in Sources */,
-				76A80B4119C16D7B007410EB /* JSONModel+CoreData.m in Sources */,
-				76A80B3F19C16D7B007410EB /* CreditCard-Validator.m in Sources */,
-				76A80B2719C16D7B007410EB /* GetProfileRes.m in Sources */,
-				76A80AFD19C16D7B007410EB /* CTSTokenizedPaymentToken.m in Sources */,
-				76A80AF519C16D7B007410EB /* CTSPaymentRequest.m in Sources */,
-				76A80B5919C16D7B007410EB /* CTSPaymentLayer.m in Sources */,
-				76A80AE719C16D7B007410EB /* CTSRestError.m in Sources */,
-				76A80B3919C16D7B007410EB /* CTSRestCoreResponse.m in Sources */,
+				76CA054C19D53018007D972A /* JSONModelError.m in Sources */,
+				76CA04E619D53018007D972A /* CTSElectronicCardUpdate.m in Sources */,
+				76CA04D419D53018007D972A /* CTSPaymentUpdate.m in Sources */,
+				76CA056419D53018007D972A /* CTSPaymentLayer.m in Sources */,
+				76CA04E919D53018007D972A /* CTSNetBankingUpdate.m in Sources */,
+				76CA054919D53018007D972A /* JSONModelClassProperty.m in Sources */,
+				76CA04D719D53018007D972A /* CTSTokenizedCardPayment.m in Sources */,
+				76CA053419D53018007D972A /* CTSRestCoreResponse.m in Sources */,
+				76CA056719D53018007D972A /* CTSProfileLayer.m in Sources */,
 				76A80B6919C16D7B007410EB /* PayViewController.m in Sources */,
-				76A80B5519C16D7B007410EB /* JSONValueTransformer.m in Sources */,
 				76A80B7319C16D7B007410EB /* SignInViewController.m in Sources */,
-				76A80AEF19C16D7B007410EB /* CTSGuestCheckout.m in Sources */,
 				76A80B7B19C16D7B007410EB /* WebViewViewController.m in Sources */,
-				76A80B2519C16D7B007410EB /* CTSProfilePrepaidRes.m in Sources */,
+				76CA04BF19D53018007D972A /* CTSSignupState.m in Sources */,
 				76CA042419D3EAE2007D972A /* UIUtility.m in Sources */,
 				76A80B5D19C16D7B007410EB /* CardPayViewController.m in Sources */,
 				76AED02819C8553E00B6D5F1 /* ChangePasswordViewController.m in Sources */,
+				76CA04FB19D53018007D972A /* CTSSignUpRes.m in Sources */,
+				76CA054619D53018007D972A /* JSONModelArray.m in Sources */,
+				76CA04D119D53018007D972A /* CTSPaymentToken.m in Sources */,
+				76CA04C519D53018007D972A /* CTSGuestCheckout.m in Sources */,
+				76CA04CE19D53018007D972A /* CTSPaymentRequest.m in Sources */,
+				76CA051F19D53018007D972A /* CTSError.m in Sources */,
 				76A80B6519C16D7B007410EB /* NetBankingViewController.m in Sources */,
-				76A80B0719C16D7B007410EB /* CTSNetBankingUpdate.m in Sources */,
-				76A80B1D19C16D7B007410EB /* CTSPaymentTransactionRes.m in Sources */,
-				76A80B3719C16D7B007410EB /* CTSRestCoreRequest.m in Sources */,
+				76CA053D19D53018007D972A /* CreditCard-Validator.m in Sources */,
+				76CA053A19D53018007D972A /* CTSRestPluginBase.m in Sources */,
 				76A80BBA19C2CAF6007410EB /* UserData.xcdatamodeld in Sources */,
-				76A80B4F19C16D7B007410EB /* JSONHTTPClient.m in Sources */,
-				76A80B4D19C16D7B007410EB /* JSONAPI.m in Sources */,
-				76A80B3D19C16D7B007410EB /* CTSRestPluginBase.m in Sources */,
-				76A80B3319C16D7B007410EB /* OauthStatus.m in Sources */,
-				76A80B0D19C16D7B007410EB /* CTSPrepaidUpdate.m in Sources */,
-				76A80B1B19C16D7B007410EB /* CTSPaymentRes.m in Sources */,
-				76A80B2919C16D7B007410EB /* CTSAuthLayer.m in Sources */,
-				76A80B4719C16D7B007410EB /* JSONModelClassProperty.m in Sources */,
-				76A80B2D19C16D7B007410EB /* CTSOauthManager.m in Sources */,
-				76A80B1119C16D7B007410EB /* CTSOauthTokenRes.m in Sources */,
-				76A80B4319C16D7B007410EB /* JSONModel.m in Sources */,
-				76A80B1F19C16D7B007410EB /* CTSPgSettings.m in Sources */,
+				76CA055219D53018007D972A /* JSONAPI.m in Sources */,
+				76CA052E19D53018007D972A /* CTSRestCore.m in Sources */,
+				76CA04E319D53018007D972A /* CTSContactUpdate.m in Sources */,
+				76CA051619D53018007D972A /* CTSProfilePrepaidRes.m in Sources */,
+				76CA04F219D53018007D972A /* CTSPrepaidUpdate.m in Sources */,
 				76A80B7719C16D7B007410EB /* SignUpViewController.m in Sources */,
-				76A80B0519C16D7B007410EB /* CTSElectronicCardUpdate.m in Sources */,
+				76CA04CB19D53018007D972A /* CTSPaymentNetbankingRequest.m in Sources */,
 				764AEDF019B89AA40011FE90 /* AppDelegate.m in Sources */,
-				76A80B4B19C16D7B007410EB /* NSArray+JSONModel.m in Sources */,
-				76A80B1519C16D7B007410EB /* CTSCreditCardOption.m in Sources */,
-				76A80B0119C16D7B007410EB /* CTSUserDetails.m in Sources */,
-				76A80B4919C16D7B007410EB /* JSONModelError.m in Sources */,
-				76A80B5719C16D7B007410EB /* NSObject+logProperties.m in Sources */,
-				76A80B5B19C16D7B007410EB /* CTSProfileLayer.m in Sources */,
-				76A80B3519C16D7B007410EB /* CTSRestCore.m in Sources */,
-				76A80AF319C16D7B007410EB /* CTSPaymentNetbankingRequest.m in Sources */,
-				76A80B3119C16D7B007410EB /* CTSUtility.m in Sources */,
-				76A80B2319C16D7B007410EB /* CTSProfilePaymentRes.m in Sources */,
-				76A80B3B19C16D7B007410EB /* CTSRestObject.m in Sources */,
+				76CA054019D53018007D972A /* JSONModel+CoreData.m in Sources */,
+				76CA052219D53018007D972A /* CTSOauthManager.m in Sources */,
+				76CA04C219D53018007D972A /* CTSAmount.m in Sources */,
+				76CA054319D53018007D972A /* JSONModel.m in Sources */,
+				76CA054F19D53018007D972A /* NSArray+JSONModel.m in Sources */,
+				76CA050D19D53018007D972A /* CTSPgSettings.m in Sources */,
+				76CA04FE19D53018007D972A /* CTSCreditCardOption.m in Sources */,
+				76CA055519D53018007D972A /* JSONHTTPClient.m in Sources */,
+				76CA050419D53018007D972A /* CTSNetbankingOption.m in Sources */,
+				76CA051C19D53018007D972A /* CTSAuthLayer.m in Sources */,
+				76CA052519D53018007D972A /* CTSObject.m in Sources */,
+				76CA04DD19D53018007D972A /* CTSUserAddress.m in Sources */,
+				76CA04EC19D53018007D972A /* CTSPaymentDetailUpdate.m in Sources */,
+				76CA04F519D53018007D972A /* CTSTokenizedPayment.m in Sources */,
+				76CA055819D53018007D972A /* JSONModel+networking.m in Sources */,
+				76CA050A19D53018007D972A /* CTSPaymentTransactionRes.m in Sources */,
 				76A80B6D19C16D7B007410EB /* SavedOptionsViewController.m in Sources */,
-				76A80AED19C16D7B007410EB /* CTSAmount.m in Sources */,
-				76A80B0B19C16D7B007410EB /* CTSPaymentOption.m in Sources */,
-				76A80B5119C16D7B007410EB /* JSONModel+networking.m in Sources */,
-				76A80B2F19C16D7B007410EB /* CTSObject.m in Sources */,
-				76A80AFF19C16D7B007410EB /* CTSUserAddress.m in Sources */,
-				76A80AF719C16D7B007410EB /* CTSPaymentToken.m in Sources */,
-				76A80B4519C16D7B007410EB /* JSONModelArray.m in Sources */,
-				76A80B0319C16D7B007410EB /* CTSContactUpdate.m in Sources */,
-				76A80B1719C16D7B007410EB /* CTSDebitCardOption.m in Sources */,
+				76CA04BC19D53018007D972A /* CTSRestError.m in Sources */,
+				76CA055B19D53018007D972A /* JSONKeyMapper.m in Sources */,
+				76CA051319D53018007D972A /* CTSProfilePaymentRes.m in Sources */,
 				767C3C8A19CAE7C800ACCC19 /* CTSTextFieldValidator.m in Sources */,
-				76A80B5319C16D7B007410EB /* JSONKeyMapper.m in Sources */,
+				76CA04EF19D53018007D972A /* CTSPaymentOption.m in Sources */,
+				76CA055E19D53018007D972A /* JSONValueTransformer.m in Sources */,
 				764AEDEC19B89AA40011FE90 /* main.m in Sources */,
-				76A80B0F19C16D7B007410EB /* CTSTokenizedPayment.m in Sources */,
+				76CA04E019D53018007D972A /* CTSUserDetails.m in Sources */,
+				76CA051019D53018007D972A /* CTSProfileContactRes.m in Sources */,
+				76CA056119D53018007D972A /* NSObject+logProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1322,78 +1339,79 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76CA04E719D53018007D972A /* CTSElectronicCardUpdate.m in Sources */,
 				764AEE0519B89AA40011FE90 /* SDKSandboxTests.m in Sources */,
-				76A80B3C19C16D7B007410EB /* CTSRestObject.m in Sources */,
-				76A80B3219C16D7B007410EB /* CTSUtility.m in Sources */,
-				76A80B2819C16D7B007410EB /* GetProfileRes.m in Sources */,
-				76A80B4E19C16D7B007410EB /* JSONAPI.m in Sources */,
-				76A80AF019C16D7B007410EB /* CTSGuestCheckout.m in Sources */,
-				76A80B0E19C16D7B007410EB /* CTSPrepaidUpdate.m in Sources */,
-				76A80B3419C16D7B007410EB /* OauthStatus.m in Sources */,
-				76A80B5C19C16D7B007410EB /* CTSProfileLayer.m in Sources */,
+				76CA051719D53018007D972A /* CTSProfilePrepaidRes.m in Sources */,
+				76CA04CC19D53018007D972A /* CTSPaymentNetbankingRequest.m in Sources */,
+				76CA051D19D53018007D972A /* CTSAuthLayer.m in Sources */,
+				76CA04FF19D53018007D972A /* CTSCreditCardOption.m in Sources */,
+				76CA052919D53018007D972A /* CTSUtility.m in Sources */,
+				76CA04D819D53018007D972A /* CTSTokenizedCardPayment.m in Sources */,
+				76CA050819D53018007D972A /* CTSPaymentRes.m in Sources */,
+				76CA054A19D53018007D972A /* JSONModelClassProperty.m in Sources */,
+				76CA056819D53018007D972A /* CTSProfileLayer.m in Sources */,
 				76A80B6E19C16D7B007410EB /* SavedOptionsViewController.m in Sources */,
-				76A80B5619C16D7B007410EB /* JSONValueTransformer.m in Sources */,
-				76A80B4819C16D7B007410EB /* JSONModelClassProperty.m in Sources */,
+				76CA04FC19D53018007D972A /* CTSSignUpRes.m in Sources */,
+				76CA051419D53018007D972A /* CTSProfilePaymentRes.m in Sources */,
 				76A80B7C19C16D7B007410EB /* WebViewViewController.m in Sources */,
-				76A80B0C19C16D7B007410EB /* CTSPaymentOption.m in Sources */,
-				76A80B5A19C16D7B007410EB /* CTSPaymentLayer.m in Sources */,
-				76A80B4A19C16D7B007410EB /* JSONModelError.m in Sources */,
-				76A80B1619C16D7B007410EB /* CTSCreditCardOption.m in Sources */,
-				76A80B2619C16D7B007410EB /* CTSProfilePrepaidRes.m in Sources */,
-				76A80AF419C16D7B007410EB /* CTSPaymentNetbankingRequest.m in Sources */,
-				76A80B1819C16D7B007410EB /* CTSDebitCardOption.m in Sources */,
-				76A80B3A19C16D7B007410EB /* CTSRestCoreResponse.m in Sources */,
-				76A80B2A19C16D7B007410EB /* CTSAuthLayer.m in Sources */,
-				76A80B5219C16D7B007410EB /* JSONModel+networking.m in Sources */,
-				76A80B5419C16D7B007410EB /* JSONKeyMapper.m in Sources */,
+				76CA051A19D53018007D972A /* GetProfileRes.m in Sources */,
+				76CA04F319D53018007D972A /* CTSPrepaidUpdate.m in Sources */,
+				76CA052C19D53018007D972A /* OauthStatus.m in Sources */,
+				76CA04C019D53018007D972A /* CTSSignupState.m in Sources */,
+				76CA04DE19D53018007D972A /* CTSUserAddress.m in Sources */,
+				76CA052F19D53018007D972A /* CTSRestCore.m in Sources */,
+				76CA04F019D53018007D972A /* CTSPaymentOption.m in Sources */,
+				76CA052319D53018007D972A /* CTSOauthManager.m in Sources */,
+				76CA04EA19D53018007D972A /* CTSNetBankingUpdate.m in Sources */,
+				76CA051119D53018007D972A /* CTSProfileContactRes.m in Sources */,
+				76CA054719D53018007D972A /* JSONModelArray.m in Sources */,
+				76CA054119D53018007D972A /* JSONModel+CoreData.m in Sources */,
+				76CA053219D53018007D972A /* CTSRestCoreRequest.m in Sources */,
+				76CA053519D53018007D972A /* CTSRestCoreResponse.m in Sources */,
 				76A80B6619C16D7B007410EB /* NetBankingViewController.m in Sources */,
+				76CA055019D53018007D972A /* NSArray+JSONModel.m in Sources */,
+				76CA055F19D53018007D972A /* JSONValueTransformer.m in Sources */,
+				76CA052019D53018007D972A /* CTSError.m in Sources */,
+				76CA04ED19D53018007D972A /* CTSPaymentDetailUpdate.m in Sources */,
 				76A80B6A19C16D7B007410EB /* PayViewController.m in Sources */,
-				76A80B1E19C16D7B007410EB /* CTSPaymentTransactionRes.m in Sources */,
-				76A80B5019C16D7B007410EB /* JSONHTTPClient.m in Sources */,
-				76A80B3819C16D7B007410EB /* CTSRestCoreRequest.m in Sources */,
-				76A80AFC19C16D7B007410EB /* CTSTokenizedCardPayment.m in Sources */,
-				76A80B0019C16D7B007410EB /* CTSUserAddress.m in Sources */,
-				76A80B2019C16D7B007410EB /* CTSPgSettings.m in Sources */,
-				76A80AEE19C16D7B007410EB /* CTSAmount.m in Sources */,
-				76A80B4619C16D7B007410EB /* JSONModelArray.m in Sources */,
+				76CA050519D53018007D972A /* CTSNetbankingOption.m in Sources */,
+				76CA050E19D53018007D972A /* CTSPgSettings.m in Sources */,
+				76CA055919D53018007D972A /* JSONModel+networking.m in Sources */,
+				76CA04E419D53018007D972A /* CTSContactUpdate.m in Sources */,
+				76CA04C319D53018007D972A /* CTSAmount.m in Sources */,
+				76CA053E19D53018007D972A /* CreditCard-Validator.m in Sources */,
+				76CA04F919D53018007D972A /* CTSOauthTokenRes.m in Sources */,
+				76CA056219D53018007D972A /* NSObject+logProperties.m in Sources */,
+				76CA04F619D53018007D972A /* CTSTokenizedPayment.m in Sources */,
+				76CA053B19D53018007D972A /* CTSRestPluginBase.m in Sources */,
+				76CA04D219D53018007D972A /* CTSPaymentToken.m in Sources */,
 				76AED02919C8553E00B6D5F1 /* ChangePasswordViewController.m in Sources */,
 				76A80B8719C182F5007410EB /* GuestPayViewController.m in Sources */,
-				76A80B0619C16D7B007410EB /* CTSElectronicCardUpdate.m in Sources */,
-				76A80B4019C16D7B007410EB /* CreditCard-Validator.m in Sources */,
-				76A80B0419C16D7B007410EB /* CTSContactUpdate.m in Sources */,
+				76CA04C619D53018007D972A /* CTSGuestCheckout.m in Sources */,
 				76CA042519D3EAE2007D972A /* UIUtility.m in Sources */,
-				76A80B5819C16D7B007410EB /* NSObject+logProperties.m in Sources */,
-				76A80B2C19C16D7B007410EB /* CTSError.m in Sources */,
+				76CA04E119D53018007D972A /* CTSUserDetails.m in Sources */,
+				76CA055619D53018007D972A /* JSONHTTPClient.m in Sources */,
 				76A80B7819C16D7B007410EB /* SignUpViewController.m in Sources */,
-				76A80B1C19C16D7B007410EB /* CTSPaymentRes.m in Sources */,
-				76A80AF619C16D7B007410EB /* CTSPaymentRequest.m in Sources */,
-				76A80B1419C16D7B007410EB /* CTSSignUpRes.m in Sources */,
-				76A80B2219C16D7B007410EB /* CTSProfileContactRes.m in Sources */,
-				76A80B4C19C16D7B007410EB /* NSArray+JSONModel.m in Sources */,
+				76CA052619D53018007D972A /* CTSObject.m in Sources */,
 				76A80B7419C16D7B007410EB /* SignInViewController.m in Sources */,
-				76A80AFA19C16D7B007410EB /* CTSPaymentUpdate.m in Sources */,
-				76A80B2E19C16D7B007410EB /* CTSOauthManager.m in Sources */,
-				76A80B2419C16D7B007410EB /* CTSProfilePaymentRes.m in Sources */,
-				76A80B1A19C16D7B007410EB /* CTSNetbankingOption.m in Sources */,
-				76A80B4419C16D7B007410EB /* JSONModel.m in Sources */,
+				76CA054D19D53018007D972A /* JSONModelError.m in Sources */,
+				76CA050B19D53018007D972A /* CTSPaymentTransactionRes.m in Sources */,
+				76CA04CF19D53018007D972A /* CTSPaymentRequest.m in Sources */,
+				76CA04D519D53018007D972A /* CTSPaymentUpdate.m in Sources */,
 				767C3C8B19CAE7C800ACCC19 /* CTSTextFieldValidator.m in Sources */,
-				76A80B3019C16D7B007410EB /* CTSObject.m in Sources */,
+				76CA04DB19D53018007D972A /* CTSTokenizedPaymentToken.m in Sources */,
+				76CA055C19D53018007D972A /* JSONKeyMapper.m in Sources */,
 				76A80BBB19C2CAF6007410EB /* UserData.xcdatamodeld in Sources */,
-				76A80B3619C16D7B007410EB /* CTSRestCore.m in Sources */,
-				76A80AFE19C16D7B007410EB /* CTSTokenizedPaymentToken.m in Sources */,
-				76A80B0A19C16D7B007410EB /* CTSPaymentDetailUpdate.m in Sources */,
-				76A80AF819C16D7B007410EB /* CTSPaymentToken.m in Sources */,
-				76A80B0819C16D7B007410EB /* CTSNetBankingUpdate.m in Sources */,
-				76A80B3E19C16D7B007410EB /* CTSRestPluginBase.m in Sources */,
+				76CA053819D53018007D972A /* CTSRestObject.m in Sources */,
+				76CA04C919D53018007D972A /* CTSPaymentMode.m in Sources */,
+				76CA055319D53018007D972A /* JSONAPI.m in Sources */,
+				76CA050219D53018007D972A /* CTSDebitCardOption.m in Sources */,
+				76CA04BD19D53018007D972A /* CTSRestError.m in Sources */,
+				76CA054419D53018007D972A /* JSONModel.m in Sources */,
+				76CA056519D53018007D972A /* CTSPaymentLayer.m in Sources */,
 				76A80B7219C16D7B007410EB /* ServerSignature.m in Sources */,
-				76A80B0219C16D7B007410EB /* CTSUserDetails.m in Sources */,
-				76A80B1219C16D7B007410EB /* CTSOauthTokenRes.m in Sources */,
-				76A80B4219C16D7B007410EB /* JSONModel+CoreData.m in Sources */,
-				76A80B1019C16D7B007410EB /* CTSTokenizedPayment.m in Sources */,
-				76A80AE819C16D7B007410EB /* CTSRestError.m in Sources */,
 				76A80B6219C16D7B007410EB /* HomeViewController.m in Sources */,
 				76A80B5E19C16D7B007410EB /* CardPayViewController.m in Sources */,
-				76A80AF219C16D7B007410EB /* CTSPaymentMode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1402,78 +1420,79 @@
 			buildActionMask = 2147483647;
 			files = (
 				76A80BC619C6C15E007410EB /* ServerSignature.m in Sources */,
-				76A80BC719C6C15E007410EB /* CTSTokenizedCardPayment.m in Sources */,
-				76A80BC819C6C15E007410EB /* CTSSignUpRes.m in Sources */,
-				76A80BC919C6C15E007410EB /* CTSProfileContactRes.m in Sources */,
+				76CA050319D53018007D972A /* CTSDebitCardOption.m in Sources */,
+				76CA04DC19D53018007D972A /* CTSTokenizedPaymentToken.m in Sources */,
 				76A80BCA19C6C15E007410EB /* GuestPayViewController.m in Sources */,
-				76A80BCB19C6C15E007410EB /* CTSPaymentDetailUpdate.m in Sources */,
-				76A80BCC19C6C15E007410EB /* CTSError.m in Sources */,
+				76CA051B19D53018007D972A /* GetProfileRes.m in Sources */,
+				76CA052D19D53018007D972A /* OauthStatus.m in Sources */,
+				76CA052A19D53018007D972A /* CTSUtility.m in Sources */,
+				76CA04CA19D53018007D972A /* CTSPaymentMode.m in Sources */,
+				76CA050919D53018007D972A /* CTSPaymentRes.m in Sources */,
+				76CA053319D53018007D972A /* CTSRestCoreRequest.m in Sources */,
+				76CA053919D53018007D972A /* CTSRestObject.m in Sources */,
+				76CA04FA19D53018007D972A /* CTSOauthTokenRes.m in Sources */,
 				76A80BCD19C6C15E007410EB /* HomeViewController.m in Sources */,
-				76A80BCE19C6C15E007410EB /* CTSPaymentUpdate.m in Sources */,
-				76A80BCF19C6C15E007410EB /* CTSNetbankingOption.m in Sources */,
-				76A80BD019C6C15E007410EB /* CTSPaymentMode.m in Sources */,
-				76A80BD119C6C15E007410EB /* JSONModel+CoreData.m in Sources */,
-				76A80BD219C6C15E007410EB /* CreditCard-Validator.m in Sources */,
-				76A80BD319C6C15E007410EB /* GetProfileRes.m in Sources */,
-				76A80BD419C6C15E007410EB /* CTSTokenizedPaymentToken.m in Sources */,
-				76A80BD519C6C15E007410EB /* CTSPaymentRequest.m in Sources */,
-				76A80BD719C6C15E007410EB /* CTSPaymentLayer.m in Sources */,
-				76A80BD819C6C15E007410EB /* CTSRestError.m in Sources */,
-				76A80BD919C6C15E007410EB /* CTSRestCoreResponse.m in Sources */,
+				76CA054E19D53018007D972A /* JSONModelError.m in Sources */,
+				76CA04E819D53018007D972A /* CTSElectronicCardUpdate.m in Sources */,
+				76CA04D619D53018007D972A /* CTSPaymentUpdate.m in Sources */,
+				76CA056619D53018007D972A /* CTSPaymentLayer.m in Sources */,
+				76CA04EB19D53018007D972A /* CTSNetBankingUpdate.m in Sources */,
+				76CA054B19D53018007D972A /* JSONModelClassProperty.m in Sources */,
+				76CA04D919D53018007D972A /* CTSTokenizedCardPayment.m in Sources */,
+				76CA053619D53018007D972A /* CTSRestCoreResponse.m in Sources */,
+				76CA056919D53018007D972A /* CTSProfileLayer.m in Sources */,
 				76A80BDA19C6C15E007410EB /* PayViewController.m in Sources */,
-				76A80BDB19C6C15E007410EB /* JSONValueTransformer.m in Sources */,
 				76A80BDC19C6C15E007410EB /* SignInViewController.m in Sources */,
-				76A80BDD19C6C15E007410EB /* CTSGuestCheckout.m in Sources */,
 				76A80BDE19C6C15E007410EB /* WebViewViewController.m in Sources */,
-				76A80BDF19C6C15E007410EB /* CTSProfilePrepaidRes.m in Sources */,
+				76CA04C119D53018007D972A /* CTSSignupState.m in Sources */,
 				76CA042619D3EAE2007D972A /* UIUtility.m in Sources */,
 				76A80BE019C6C15E007410EB /* CardPayViewController.m in Sources */,
 				76AED02A19C8553E00B6D5F1 /* ChangePasswordViewController.m in Sources */,
+				76CA04FD19D53018007D972A /* CTSSignUpRes.m in Sources */,
+				76CA054819D53018007D972A /* JSONModelArray.m in Sources */,
+				76CA04D319D53018007D972A /* CTSPaymentToken.m in Sources */,
+				76CA04C719D53018007D972A /* CTSGuestCheckout.m in Sources */,
+				76CA04D019D53018007D972A /* CTSPaymentRequest.m in Sources */,
+				76CA052119D53018007D972A /* CTSError.m in Sources */,
 				76A80BE119C6C15E007410EB /* NetBankingViewController.m in Sources */,
-				76A80BE219C6C15E007410EB /* CTSNetBankingUpdate.m in Sources */,
-				76A80BE319C6C15E007410EB /* CTSPaymentTransactionRes.m in Sources */,
-				76A80BE419C6C15E007410EB /* CTSRestCoreRequest.m in Sources */,
+				76CA053F19D53018007D972A /* CreditCard-Validator.m in Sources */,
+				76CA053C19D53018007D972A /* CTSRestPluginBase.m in Sources */,
 				76A80BE519C6C15E007410EB /* UserData.xcdatamodeld in Sources */,
-				76A80BE619C6C15E007410EB /* JSONHTTPClient.m in Sources */,
-				76A80BE719C6C15E007410EB /* JSONAPI.m in Sources */,
-				76A80BE819C6C15E007410EB /* CTSRestPluginBase.m in Sources */,
-				76A80BE919C6C15E007410EB /* OauthStatus.m in Sources */,
-				76A80BEA19C6C15E007410EB /* CTSPrepaidUpdate.m in Sources */,
-				76A80BEB19C6C15E007410EB /* CTSPaymentRes.m in Sources */,
-				76A80BED19C6C15E007410EB /* CTSAuthLayer.m in Sources */,
-				76A80BEE19C6C15E007410EB /* JSONModelClassProperty.m in Sources */,
-				76A80BEF19C6C15E007410EB /* CTSOauthManager.m in Sources */,
-				76A80BF019C6C15E007410EB /* CTSOauthTokenRes.m in Sources */,
-				76A80BF119C6C15E007410EB /* JSONModel.m in Sources */,
-				76A80BF219C6C15E007410EB /* CTSPgSettings.m in Sources */,
+				76CA055419D53018007D972A /* JSONAPI.m in Sources */,
+				76CA053019D53018007D972A /* CTSRestCore.m in Sources */,
+				76CA04E519D53018007D972A /* CTSContactUpdate.m in Sources */,
+				76CA051819D53018007D972A /* CTSProfilePrepaidRes.m in Sources */,
+				76CA04F419D53018007D972A /* CTSPrepaidUpdate.m in Sources */,
 				76A80BF319C6C15E007410EB /* SignUpViewController.m in Sources */,
-				76A80BF519C6C15E007410EB /* CTSElectronicCardUpdate.m in Sources */,
+				76CA04CD19D53018007D972A /* CTSPaymentNetbankingRequest.m in Sources */,
 				76A80BF619C6C15E007410EB /* AppDelegate.m in Sources */,
-				76A80BF719C6C15E007410EB /* NSArray+JSONModel.m in Sources */,
-				76A80BF819C6C15E007410EB /* CTSCreditCardOption.m in Sources */,
-				76A80BF919C6C15E007410EB /* CTSUserDetails.m in Sources */,
-				76A80BFA19C6C15E007410EB /* JSONModelError.m in Sources */,
-				76A80BFB19C6C15E007410EB /* NSObject+logProperties.m in Sources */,
-				76A80BFC19C6C15E007410EB /* CTSProfileLayer.m in Sources */,
-				76A80BFD19C6C15E007410EB /* CTSRestCore.m in Sources */,
-				76A80BFE19C6C15E007410EB /* CTSPaymentNetbankingRequest.m in Sources */,
-				76A80BFF19C6C15E007410EB /* CTSUtility.m in Sources */,
-				76A80C0019C6C15E007410EB /* CTSProfilePaymentRes.m in Sources */,
-				76A80C0119C6C15E007410EB /* CTSRestObject.m in Sources */,
+				76CA054219D53018007D972A /* JSONModel+CoreData.m in Sources */,
+				76CA052419D53018007D972A /* CTSOauthManager.m in Sources */,
+				76CA04C419D53018007D972A /* CTSAmount.m in Sources */,
+				76CA054519D53018007D972A /* JSONModel.m in Sources */,
+				76CA055119D53018007D972A /* NSArray+JSONModel.m in Sources */,
+				76CA050F19D53018007D972A /* CTSPgSettings.m in Sources */,
+				76CA050019D53018007D972A /* CTSCreditCardOption.m in Sources */,
+				76CA055719D53018007D972A /* JSONHTTPClient.m in Sources */,
+				76CA050619D53018007D972A /* CTSNetbankingOption.m in Sources */,
+				76CA051E19D53018007D972A /* CTSAuthLayer.m in Sources */,
+				76CA052719D53018007D972A /* CTSObject.m in Sources */,
+				76CA04DF19D53018007D972A /* CTSUserAddress.m in Sources */,
+				76CA04EE19D53018007D972A /* CTSPaymentDetailUpdate.m in Sources */,
+				76CA04F719D53018007D972A /* CTSTokenizedPayment.m in Sources */,
+				76CA055A19D53018007D972A /* JSONModel+networking.m in Sources */,
+				76CA050C19D53018007D972A /* CTSPaymentTransactionRes.m in Sources */,
 				76A80C0219C6C15E007410EB /* SavedOptionsViewController.m in Sources */,
-				76A80C0319C6C15E007410EB /* CTSAmount.m in Sources */,
-				76A80C0419C6C15E007410EB /* CTSPaymentOption.m in Sources */,
-				76A80C0519C6C15E007410EB /* JSONModel+networking.m in Sources */,
-				76A80C0619C6C15E007410EB /* CTSObject.m in Sources */,
-				76A80C0719C6C15E007410EB /* CTSUserAddress.m in Sources */,
-				76A80C0819C6C15E007410EB /* CTSPaymentToken.m in Sources */,
-				76A80C0919C6C15E007410EB /* JSONModelArray.m in Sources */,
-				76A80C0A19C6C15E007410EB /* CTSContactUpdate.m in Sources */,
-				76A80C0B19C6C15E007410EB /* CTSDebitCardOption.m in Sources */,
+				76CA04BE19D53018007D972A /* CTSRestError.m in Sources */,
+				76CA055D19D53018007D972A /* JSONKeyMapper.m in Sources */,
+				76CA051519D53018007D972A /* CTSProfilePaymentRes.m in Sources */,
 				767C3C8C19CAE7C800ACCC19 /* CTSTextFieldValidator.m in Sources */,
-				76A80C0C19C6C15E007410EB /* JSONKeyMapper.m in Sources */,
+				76CA04F119D53018007D972A /* CTSPaymentOption.m in Sources */,
+				76CA056019D53018007D972A /* JSONValueTransformer.m in Sources */,
 				76A80C0D19C6C15E007410EB /* main.m in Sources */,
-				76A80C0E19C6C15E007410EB /* CTSTokenizedPayment.m in Sources */,
+				76CA04E219D53018007D972A /* CTSUserDetails.m in Sources */,
+				76CA051219D53018007D972A /* CTSProfileContactRes.m in Sources */,
+				76CA056319D53018007D972A /* NSObject+logProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

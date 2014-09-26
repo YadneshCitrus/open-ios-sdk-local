@@ -61,6 +61,7 @@
 
 - (void)webViewDidStartLoad:(UIWebView*)webView {
     [indicator startAnimating];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
 
 - (BOOL)webView:(UIWebView*)webView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType {
@@ -79,6 +80,7 @@
 
 - (void)webViewDidFinishLoad:(UIWebView*)webView {
     [indicator stopAnimating];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
 
