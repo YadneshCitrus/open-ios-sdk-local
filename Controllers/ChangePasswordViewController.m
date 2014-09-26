@@ -48,9 +48,8 @@
 
 
 -(void)setupTextFieldValidation{
-    [self.usernameTextField addRegx:REGEX_USER_NAME_LIMIT withMsg:@"User name charaters limit should be come between 3-10" tag:1 location:10];
-    [self.usernameTextField addRegx:REGEX_USER_NAME withMsg:@"Only alpha numeric characters are allowed."];
-    
+    [self.usernameTextField addRegx:REGEX_EMAIL withMsg:@"Enter valid email."];
+
     [self.oldPasswordTextField addRegx:REGEX_PASSWORD withMsg:@"Password must contain alpha numeric characters."];
     [self.oldPasswordTextField addRegx:REGEX_PASSWORD_LIMIT withMsg:@"8 to 16 with at least one alphabet and one "
      @"number. Special characters allowed - (! @ # $ % " @"^ & *)." tag:2 location:16];

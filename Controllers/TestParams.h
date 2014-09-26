@@ -74,8 +74,4 @@
 #define NUMERIC_TYPE @"NUMERIC_TYPE"
 #define ALPHABETICAL_TYPE @"ALPHABETICAL_TYPE"
 
-#define NETBANKING_TYPE @"netbanking"
-#define DEBIT_CARD_TYPE @"debit"
-#define CREDIT_CARD_TYPE @"credit"
-
 #endif

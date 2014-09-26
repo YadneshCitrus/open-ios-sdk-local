@@ -85,7 +85,7 @@
     //
     self.cardPayViewController = [[CardPayViewController alloc] initWithNibName:@"CardPayViewController" bundle:nil];
     self.cardPayViewController.view.frame = CGRectMake(0.0f, 92.0f, 320, 476.0f);
-    self.cardPayViewController.cardType = DEBIT_CARD_TYPE;
+    self.cardPayViewController.cardType = MLC_PROFILE_PAYMENT_DEBIT_TYPE;
     self.cardPayViewController.payType = self.payType;
     self.cardPayViewController.rootController = self;
     [self.cardPayViewController setTestData];
@@ -110,7 +110,7 @@
     //
     self.cardPayViewController = [[CardPayViewController alloc] initWithNibName:@"CardPayViewController" bundle:nil];
     self.cardPayViewController.view.frame = CGRectMake(0.0f, 92.0f, 320, 476.0f);
-    self.cardPayViewController.cardType = CREDIT_CARD_TYPE;
+    self.cardPayViewController.cardType = MLC_PROFILE_PAYMENT_CREDIT_TYPE;
     self.cardPayViewController.payType = self.payType;
     self.cardPayViewController.rootController = self;
     [self.cardPayViewController setTestData];

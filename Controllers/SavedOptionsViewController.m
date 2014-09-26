@@ -200,10 +200,10 @@ didUpdatePaymentInfoError:(NSError*)error {
 {
     CTSPaymentOption *paymentOption = [self.userdata objectAtIndex:indexPath.row];
     self.selectedPaymentOption = paymentOption;
-    if ([paymentOption.type isEqualToString:NETBANKING_TYPE]) {
+    if ([paymentOption.type isEqualToString:MLC_PROFILE_PAYMENT_NETBANKING_TYPE]) {
         [UIUtility didPresentLoadingAlertView:@"Connecting..." withActivity:YES];
         [self doTokenizedPaymentNetbanking:paymentOption.token];
-    }else if ([paymentOption.type isEqualToString:DEBIT_CARD_TYPE] || [paymentOption.type isEqualToString:CREDIT_CARD_TYPE]) {
+    }else if ([paymentOption.type isEqualToString:MLC_PROFILE_PAYMENT_DEBIT_TYPE] || [paymentOption.type isEqualToString:MLC_PROFILE_PAYMENT_CREDIT_TYPE]) {
         [self didPresentInputAlertView:@"CVV" message:@"Enter CVV number."];
     }
 }
@@ -234,9 +234,9 @@ didUpdatePaymentInfoError:(NSError*)error {
         
         if([CVVTextField.text length] != 0){
             [UIUtility didPresentLoadingAlertView:@"Connecting..." withActivity:YES];
-            if ([self.selectedPaymentOption.type isEqualToString:DEBIT_CARD_TYPE]) {
+            if ([self.selectedPaymentOption.type isEqualToString:MLC_PROFILE_PAYMENT_DEBIT_TYPE]) {
                 [self doTokenizedPaymentDebitCard:self.selectedPaymentOption.token CVVNumber:CVVTextField.text];
-            }else  if ([self.selectedPaymentOption.type isEqualToString:CREDIT_CARD_TYPE]) {
+            }else  if ([self.selectedPaymentOption.type isEqualToString:MLC_PROFILE_PAYMENT_CREDIT_TYPE]) {
                 [self doTokenizedPaymentCreditCard:self.selectedPaymentOption.token CVVNumber:CVVTextField.text];
             }
         }else{

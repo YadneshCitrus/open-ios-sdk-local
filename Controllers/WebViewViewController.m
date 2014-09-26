@@ -37,7 +37,7 @@
     
     self.title = @"3D Secure";
     
-    if ([self.cardType isEqualToString:DEBIT_CARD_TYPE] || [self.cardType isEqualToString:CREDIT_CARD_TYPE]) {
+    if ([self.cardType isEqualToString:MLC_PROFILE_PAYMENT_DEBIT_TYPE] || [self.cardType isEqualToString:MLC_PROFILE_PAYMENT_CREDIT_TYPE]) {
         self.navigationItem.hidesBackButton = YES;
     }
 
@@ -70,7 +70,7 @@
         [self transactionComplete:responseDict];
     }
 //    else{
-//        if ([self.cardType isEqualToString:DEBIT_CARD_TYPE] || [self.cardType isEqualToString:CREDIT_CARD_TYPE]) {
+//        if ([self.cardType isEqualToString:MLC_PROFILE_PAYMENT_DEBIT_TYPE] || [self.cardType isEqualToString:MLC_PROFILE_PAYMENT_CREDIT_TYPE]) {
 //            [UIUtility didPresentInfoAlertView:@"Please enter valid CVV number."];
 //            self.navigationItem.hidesBackButton = NO;
 //        }

@@ -82,12 +82,12 @@ static NSInteger creditPreviouslength = 0;
      *  use testdata for SDKSandboxTestData applicatin Target
      */
 #if defined (TESTDATA_VERSION)
-    if ([self.cardType isEqualToString:DEBIT_CARD_TYPE]) {
+    if ([self.cardType isEqualToString:MLC_PROFILE_PAYMENT_DEBIT_TYPE]) {
         self.cardNumberTextField.text = TEST_DEBIT_CARD_NUMBER;
         self.expiryDateTextField.text = TEST_DEBIT_CARD_EXPIRY;
         self.CVVNumberTextField.text = TEST_DEBIT_CVV;
         self.cardHolderNameTextField.text = TEST_OWNER_NAME;
-    }if ([self.cardType isEqualToString:CREDIT_CARD_TYPE]) {
+    }if ([self.cardType isEqualToString:MLC_PROFILE_PAYMENT_CREDIT_TYPE]) {
         self.cardNumberTextField.text = TEST_CREDIT_CARD_NUMBER;
         self.expiryDateTextField.text = TEST_CREDIT_CARD_EXPIRY_DATE;
         self.CVVNumberTextField.text = TEST_CREDIT_CARD_CVV;
@@ -192,15 +192,15 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
         [UIUtility didPresentLoadingAlertView:@"Connecting..." withActivity:YES];
 
         if ([self.payType isEqualToString:MEMBER_PAY_TYPE]) {
-            if ([self.cardType isEqualToString:DEBIT_CARD_TYPE]) {
+            if ([self.cardType isEqualToString:MLC_PROFILE_PAYMENT_DEBIT_TYPE]) {
                 [self doUserDebitCardPayment];
-            }if ([self.cardType isEqualToString:CREDIT_CARD_TYPE]) {
+            }if ([self.cardType isEqualToString:MLC_PROFILE_PAYMENT_CREDIT_TYPE]) {
                 [self doUserCreditCardPayment];
             }
         }if ([self.payType isEqualToString:GUEST_PAY_TYPE]) {
-            if ([self.cardType isEqualToString:DEBIT_CARD_TYPE]) {
+            if ([self.cardType isEqualToString:MLC_PROFILE_PAYMENT_DEBIT_TYPE]) {
                 [self doGuestPaymentDebitCard];
-            }if ([self.cardType isEqualToString:CREDIT_CARD_TYPE]) {
+            }if ([self.cardType isEqualToString:MLC_PROFILE_PAYMENT_CREDIT_TYPE]) {
                 [self doGuestPaymentCreditCard];
             }
         }
@@ -454,9 +454,9 @@ didMakeTokenizedPayment:(CTSPaymentTransactionRes*)paymentInfo
 
 -(IBAction)textfieldTextchange:(id)sender
 {
-    // Expirydate for DEBIT_CARD_TYPE
+    // Expirydate for MLC_PROFILE_PAYMENT_DEBIT_TYPE
     NSInteger textfieldval = [sender tag];
-    if (textfieldval == 2 && [self.cardType isEqualToString:DEBIT_CARD_TYPE]) {
+    if (textfieldval == 2 && [self.cardType isEqualToString:MLC_PROFILE_PAYMENT_DEBIT_TYPE]) {
         if (self.expiryDateTextField.text.length < previouslength) {
             previouslength--;
         } else {
@@ -514,8 +514,8 @@ didMakeTokenizedPayment:(CTSPaymentTransactionRes*)paymentInfo
             }
         }
     }
-    // Expirydate for CREDIT_CARD_TYPE
-    if (textfieldval == 2 && [self.cardType isEqualToString:CREDIT_CARD_TYPE]) {
+    // Expirydate for MLC_PROFILE_PAYMENT_CREDIT_TYPE
+    if (textfieldval == 2 && [self.cardType isEqualToString:MLC_PROFILE_PAYMENT_CREDIT_TYPE]) {
         if (self.expiryDateTextField.text.length < creditPreviouslength) {
             creditPreviouslength--;
         } else {
