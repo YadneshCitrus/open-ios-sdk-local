@@ -18,6 +18,8 @@
 @interface SavedOptionsViewController ()
 @property (strong, nonatomic) NSArray *userdata;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+
+@property (assign, nonatomic) NSIndexPath *checkedIndexPath;
 @end
 
 @implementation SavedOptionsViewController
@@ -189,6 +191,14 @@ didUpdatePaymentInfoError:(NSError*)error {
     cell.textLabel.text = paymentOption.name;
     cell.detailTextLabel.text = paymentOption.type;
     
+    if(self.checkedIndexPath != nil){
+        if(indexPath.row == self.checkedIndexPath.row){
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        }else{
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
+    }
+
     return cell;
 }
 
@@ -197,15 +207,22 @@ didUpdatePaymentInfoError:(NSError*)error {
  #pragma mark - Table view delegate
  
  // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
- - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+ - (void)tableView:(UITableView *)atableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     CTSPaymentOption *paymentOption = [self.userdata objectAtIndex:indexPath.row];
     self.selectedPaymentOption = paymentOption;
     if ([paymentOption.type isEqualToString:MLC_PROFILE_PAYMENT_NETBANKING_TYPE]) {
+        self.checkedIndexPath = indexPath;
+        [tableView reloadData];
+
         [UIUtility didPresentLoadingAlertView:@"Connecting..." withActivity:YES];
         [self doTokenizedPaymentNetbanking:paymentOption.token];
+
     }else if ([paymentOption.type isEqualToString:MLC_PROFILE_PAYMENT_DEBIT_TYPE] || [paymentOption.type isEqualToString:MLC_PROFILE_PAYMENT_CREDIT_TYPE]) {
         [self didPresentInputAlertView:@"CVV" message:@"Enter CVV number."];
+        self.checkedIndexPath = indexPath;
     }
 }
 
@@ -228,13 +245,13 @@ didUpdatePaymentInfoError:(NSError*)error {
     if([title isEqualToString:@"OK"])
     {
         UITextField *CVVTextField = [alertView textFieldAtIndex:0];
-        
-//        if ([CVVTextField isFirstResponder]) {
-            [CVVTextField resignFirstResponder];
-//        }
-        
+        [CVVTextField resignFirstResponder];
+
         if([CVVTextField.text length] != 0){
+            [tableView reloadData];
+
             [UIUtility didPresentLoadingAlertView:@"Connecting..." withActivity:YES];
+
             if ([self.selectedPaymentOption.type isEqualToString:MLC_PROFILE_PAYMENT_DEBIT_TYPE]) {
                 [self doTokenizedPaymentDebitCard:self.selectedPaymentOption.token CVVNumber:CVVTextField.text];
             }else  if ([self.selectedPaymentOption.type isEqualToString:MLC_PROFILE_PAYMENT_CREDIT_TYPE]) {
