@@ -115,6 +115,7 @@
 
 -(void)fetchPaymentInformation
 {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     [profileLayer requestPaymentInformationWithCompletionHandler:nil];
 }
 
@@ -389,6 +390,7 @@ didMakeTokenizedPayment:(CTSPaymentTransactionRes*)paymentInfo
             // Update the UI
             if ([self.userdata count]) {
                 [self.tableView reloadData];
+                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
             }
         });
     });

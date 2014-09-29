@@ -44,9 +44,6 @@
                                                                     action:@selector(barButtonLogoutPressed:)];
     self.navigationItem.rightBarButtonItem = logoutButton;
     
-    self.savedOptionsViewController = [[SavedOptionsViewController alloc] initWithNibName:@"SavedOptionsViewController" bundle:nil];
-    self.savedOptionsViewController.savedOptionsDelegate = self;
-
     [self savedOptionAction:nil];
 }
 
@@ -81,7 +78,10 @@
     }
 
     
-    //
+    //    
+    self.savedOptionsViewController = [[SavedOptionsViewController alloc] initWithNibName:@"SavedOptionsViewController" bundle:nil];
+    self.savedOptionsViewController.savedOptionsDelegate = self;
+
     self.savedOptionsViewController.view.frame = CGRectMake(0.0f, 92.0f, 320, 476.0f);
     [self.view addSubview:self.savedOptionsViewController.view];
     
