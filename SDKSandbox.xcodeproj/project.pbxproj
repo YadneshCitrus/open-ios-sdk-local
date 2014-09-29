@@ -19,6 +19,9 @@
 		764AEDFB19B89AA40011FE90 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 764AEDE319B89AA40011FE90 /* UIKit.framework */; };
 		764AEE0319B89AA40011FE90 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 764AEE0119B89AA40011FE90 /* InfoPlist.strings */; };
 		764AEE0519B89AA40011FE90 /* SDKSandboxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 764AEE0419B89AA40011FE90 /* SDKSandboxTests.m */; };
+		765EDC4C19D9300800EE16D2 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 765EDC4B19D9300800EE16D2 /* .gitignore */; };
+		765EDC4D19D9300800EE16D2 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 765EDC4B19D9300800EE16D2 /* .gitignore */; };
+		765EDC4E19D9300800EE16D2 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 765EDC4B19D9300800EE16D2 /* .gitignore */; };
 		767C3C8A19CAE7C800ACCC19 /* CTSTextFieldValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 767C3C8919CAE7C800ACCC19 /* CTSTextFieldValidator.m */; };
 		767C3C8B19CAE7C800ACCC19 /* CTSTextFieldValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 767C3C8919CAE7C800ACCC19 /* CTSTextFieldValidator.m */; };
 		767C3C8C19CAE7C800ACCC19 /* CTSTextFieldValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 767C3C8919CAE7C800ACCC19 /* CTSTextFieldValidator.m */; };
@@ -351,6 +354,7 @@
 		764AEE0019B89AA40011FE90 /* SDKSandboxTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SDKSandboxTests-Info.plist"; sourceTree = "<group>"; };
 		764AEE0219B89AA40011FE90 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		764AEE0419B89AA40011FE90 /* SDKSandboxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDKSandboxTests.m; sourceTree = "<group>"; };
+		765EDC4B19D9300800EE16D2 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		767C3C8819CAE7C800ACCC19 /* CTSTextFieldValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSTextFieldValidator.h; sourceTree = "<group>"; };
 		767C3C8919CAE7C800ACCC19 /* CTSTextFieldValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSTextFieldValidator.m; sourceTree = "<group>"; };
 		767C3C8D19CAE89600ACCC19 /* error@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "error@2x.png"; sourceTree = "<group>"; };
@@ -625,6 +629,7 @@
 		764AEDE619B89AA40011FE90 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				765EDC4B19D9300800EE16D2 /* .gitignore */,
 				764AEDE719B89AA40011FE90 /* SDKSandbox-Info.plist */,
 				764AEDE819B89AA40011FE90 /* InfoPlist.strings */,
 				764AEDEB19B89AA40011FE90 /* main.m */,
@@ -1152,6 +1157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76A80B7D19C16D7B007410EB /* WebViewViewController.xib in Resources */,
+				765EDC4C19D9300800EE16D2 /* .gitignore in Resources */,
 				76A80BB319C193C0007410EB /* visa@2x.png in Resources */,
 				76A80BB119C193C0007410EB /* visa.png in Resources */,
 				76A80BAD19C193C0007410EB /* rupay.png in Resources */,
@@ -1194,6 +1200,7 @@
 				76A80B8919C182F5007410EB /* GuestPayViewController.xib in Resources */,
 				76A80B9E19C193C0007410EB /* AXISlogo.png in Resources */,
 				76A80B9A19C193C0007410EB /* amex.png in Resources */,
+				765EDC4D19D9300800EE16D2 /* .gitignore in Resources */,
 				76A80BAA19C193C0007410EB /* mastercard.png in Resources */,
 				76A80B7019C16D7B007410EB /* SavedOptionsViewController.xib in Resources */,
 				76A80B6819C16D7B007410EB /* NetBankingViewController.xib in Resources */,
@@ -1221,6 +1228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76A80C1519C6C15E007410EB /* WebViewViewController.xib in Resources */,
+				765EDC4E19D9300800EE16D2 /* .gitignore in Resources */,
 				76A80C1619C6C15E007410EB /* visa@2x.png in Resources */,
 				76A80C1719C6C15E007410EB /* visa.png in Resources */,
 				76A80C1819C6C15E007410EB /* rupay.png in Resources */,
