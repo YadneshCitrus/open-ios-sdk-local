@@ -219,7 +219,6 @@ didUpdatePaymentInfoError:(NSError*)error {
 
         [UIUtility didPresentLoadingAlertView:@"Connecting..." withActivity:YES];
         [self doTokenizedPaymentNetbanking:paymentOption.token];
-
     }else if ([paymentOption.type isEqualToString:MLC_PROFILE_PAYMENT_DEBIT_TYPE] || [paymentOption.type isEqualToString:MLC_PROFILE_PAYMENT_CREDIT_TYPE]) {
         [self didPresentInputAlertView:@"CVV" message:@"Enter CVV number."];
         self.checkedIndexPath = indexPath;
@@ -346,8 +345,8 @@ didMakeTokenizedPayment:(CTSPaymentTransactionRes*)paymentInfo
 - (void)loadRedirectUrl:(NSString*)redirectURL {
     [UIUtility dismissLoadingAlertView:YES];
 
-    if (savedOptionsDelegate != nil && [savedOptionsDelegate respondsToSelector:@selector(navigateToTargetController:selectedPaymentOption:)]){
-        [savedOptionsDelegate navigateToTargetController:redirectURL selectedPaymentOption:self.selectedPaymentOption.type];
+    if (savedOptionsDelegate != nil && [savedOptionsDelegate respondsToSelector:@selector(navigateToTargetController:)]){
+        [savedOptionsDelegate navigateToTargetController:redirectURL];
     }
 }
 

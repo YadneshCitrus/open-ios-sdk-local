@@ -7,10 +7,6 @@
 //
 
 #import "WebViewViewController.h"
-#import "MerchantConstants.h"
-#import "CitrusSdk.h"
-#import "TestParams.h"
-#import "UIUtility.h"
 
 @interface WebViewViewController ()
 
@@ -19,7 +15,7 @@
 @end
 
 @implementation WebViewViewController
-@synthesize redirectURL, cardType;
+@synthesize redirectURL;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,10 +33,6 @@
     
     self.title = @"3D Secure";
     
-    if ([self.cardType isEqualToString:MLC_PROFILE_PAYMENT_DEBIT_TYPE] || [self.cardType isEqualToString:MLC_PROFILE_PAYMENT_CREDIT_TYPE]) {
-        self.navigationItem.hidesBackButton = YES;
-    }
-
     self.webview = [[UIWebView alloc] init];
     self.webview.delegate = self;
     self.webview.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
@@ -64,31 +56,12 @@
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
 
-- (BOOL)webView:(UIWebView*)webView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType {
-    NSDictionary* responseDict = [CTSUtility getResponseIfTransactionIsFinished:request.HTTPBody];
-    if (responseDict != nil) {
-        [self transactionComplete:responseDict];
-    }
-//    else{
-//        if ([self.cardType isEqualToString:MLC_PROFILE_PAYMENT_DEBIT_TYPE] || [self.cardType isEqualToString:MLC_PROFILE_PAYMENT_CREDIT_TYPE]) {
-//            [UIUtility didPresentInfoAlertView:@"Please enter valid CVV number."];
-//            self.navigationItem.hidesBackButton = NO;
-//        }
-//    }
-    return YES;
-}
-
 - (void)webViewDidFinishLoad:(UIWebView*)webView {
     [indicator stopAnimating];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
 
-- (void)transactionComplete:(NSDictionary*)transactionResult {
-    LogTrace(@" transactionResult %@ ",
-             [transactionResult objectForKey:@"TxStatus"]);
-    [self.navigationController popViewControllerAnimated:YES];
-}
 
 - (void)didReceiveMemoryWarning
 {

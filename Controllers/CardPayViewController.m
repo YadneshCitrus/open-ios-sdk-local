@@ -410,7 +410,6 @@ didMakeTokenizedPayment:(CTSPaymentTransactionRes*)paymentInfo
 - (void)loadRedirectUrl:(NSString*)redirectURL {
     WebViewViewController* webViewViewController = [[WebViewViewController alloc] init];
     webViewViewController.redirectURL = redirectURL;
-    webViewViewController.cardType = self.cardType;
     [UIUtility dismissLoadingAlertView:YES];
     [self.rootController.navigationController pushViewController:webViewViewController animated:YES];
 }

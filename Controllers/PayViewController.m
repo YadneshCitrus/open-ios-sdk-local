@@ -89,11 +89,10 @@
 
 #pragma mark - SavedOptionsDelegate delegates
 
-- (void)navigateToTargetController:(NSString*)redirectURL selectedPaymentOption:(NSString*)selectedPaymentOption;
+- (void)navigateToTargetController:(NSString*)redirectURL
 {
     WebViewViewController* webViewViewController = [[WebViewViewController alloc] init];
     webViewViewController.redirectURL = redirectURL;
-    webViewViewController.cardType = selectedPaymentOption;
     [self.navigationController pushViewController:webViewViewController animated:YES];
 }
 

@@ -12,7 +12,7 @@
 
 @protocol SavedOptionsDelegate <NSObject>
 @optional
-- (void)navigateToTargetController:(NSString*)redirectURL selectedPaymentOption:(NSString*)selectedPaymentOption;
+- (void)navigateToTargetController:(NSString*)redirectURL;
 @end
 
 @interface SavedOptionsViewController : UIViewController <CTSProfileProtocol,
