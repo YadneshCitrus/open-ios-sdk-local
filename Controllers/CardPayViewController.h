@@ -19,7 +19,7 @@
     IBOutlet __weak UIImageView *cardSchemeImage;
 
     CTSPaymentLayer* paymentlayerinfo;
-    CTSContactUpdate* contactInfo;
+    CTSContactUpdate* aContactInfo;
     CTSUserAddress* addressInfo;
     CTSProfileLayer* profileLayer;
     CTSProfileContactRes* contactSavedResponse;

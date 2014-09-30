@@ -137,7 +137,7 @@ static NSInteger creditPreviouslength = 0;
 
 -(void)fetchContactInformation
 {
-    contactInfo = [[CTSContactUpdate alloc] init];
+    aContactInfo = [[CTSContactUpdate alloc] init];
     
     /**
      *  TestData
@@ -145,17 +145,17 @@ static NSInteger creditPreviouslength = 0;
      *  use testdata for SDKSandboxTestData applicatin Target
      */
 #if defined (TESTDATA_VERSION)
-    contactInfo.firstName = TEST_FIRST_NAME;
-    contactInfo.lastName = TEST_LAST_NAME;
-    contactInfo.email = TEST_EMAIL;
-    contactInfo.mobile = TEST_MOBILE;
+    aContactInfo.firstName = TEST_FIRST_NAME;
+    aContactInfo.lastName = TEST_LAST_NAME;
+    aContactInfo.email = TEST_EMAIL;
+    aContactInfo.mobile = TEST_MOBILE;
 #else
     [profileLayer requestContactInformationWithCompletionHandler:nil];
     
-    contactInfo.firstName = contactSavedResponse.firstName;
-    contactInfo.lastName = contactSavedResponse.lastName;
-    contactInfo.email = contactSavedResponse.email;
-    contactInfo.mobile = contactSavedResponse.mobile;
+    aContactInfo.firstName = contactSavedResponse.firstName;
+    aContactInfo.lastName = contactSavedResponse.lastName;
+    aContactInfo.email = contactSavedResponse.email;
+    aContactInfo.mobile = contactSavedResponse.mobile;
 #endif
     
 }
@@ -228,7 +228,7 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
     
     [paymentlayerinfo
      makeUserPayment:debitCardInfo
-     withContact:contactInfo
+     withContact:aContactInfo
      withAddress:addressInfo
      amount:@"1"
      withReturnUrl:MLC_PAYMENT_REDIRECT_URLCOMPLETE
@@ -263,7 +263,7 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
     [ServerSignature getSignatureFromServerTxnId:transactionId amount:@"1"];
     
     [paymentlayerinfo makeUserPayment:creditCardInfo
-                          withContact:contactInfo
+                          withContact:aContactInfo
                           withAddress:addressInfo
                                amount:@"1"
                         withReturnUrl:MLC_PAYMENT_REDIRECT_URLCOMPLETE
@@ -292,7 +292,7 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
     [paymentInfo addCard:creditCard];
     
     [paymentlayerinfo makePaymentUsingGuestFlow:paymentInfo
-                                    withContact:contactInfo
+                                    withContact:aContactInfo
                                          amount:@"1"
                                     withAddress:addressInfo
                                   withReturnUrl:MLC_GUESTCHECKOUT_REDIRECTURL
@@ -319,7 +319,7 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
     [paymentInfo addCard:debitCard];
     
     [paymentlayerinfo makePaymentUsingGuestFlow:paymentInfo
-                                    withContact:contactInfo
+                                    withContact:aContactInfo
                                          amount:@"1"
                                     withAddress:addressInfo
                                   withReturnUrl:MLC_GUESTCHECKOUT_REDIRECTURL
@@ -464,7 +464,7 @@ didMakeTokenizedPayment:(CTSPaymentTransactionRes*)paymentInfo
             [formatter setDateFormat:@"mm/yyyy"];
             
             if (self.expiryDateTextField.text.length == 2 &&
-                ![mLastInput rangeOfString:@"/"].location != NSNotFound) {
+                ![mLastInput rangeOfString:@"/"].location != (int)NSNotFound) {
                 int month = [input intValue];
                 if (month <= 12) {
                     self.expiryDateTextField.text =
@@ -522,7 +522,7 @@ didMakeTokenizedPayment:(CTSPaymentTransactionRes*)paymentInfo
             NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
             [formatter setDateFormat:@"mm/yyyy"];
             if (self.expiryDateTextField.text.length == 2 &&
-                ![mLastInput rangeOfString:@"/"].location != NSNotFound) {
+                ![mLastInput rangeOfString:@"/"].location != (int)NSNotFound) {
                 int month = [input intValue];
                 if (month <= 12) {
                     self.expiryDateTextField.text =

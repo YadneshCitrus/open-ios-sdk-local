@@ -69,7 +69,7 @@
 
 -(void)fetchContactInformation
 {
-    contactInfo = [[CTSContactUpdate alloc] init];
+    aContactInfo = [[CTSContactUpdate alloc] init];
     
     /**
      *  TestData
@@ -77,17 +77,17 @@
      *  use testdata for SDKSandboxTestData applicatin Target
      */
 #if defined (TESTDATA_VERSION)
-    contactInfo.firstName = TEST_FIRST_NAME;
-    contactInfo.lastName = TEST_LAST_NAME;
-    contactInfo.email = TEST_EMAIL;
-    contactInfo.mobile = TEST_MOBILE;
+    aContactInfo.firstName = TEST_FIRST_NAME;
+    aContactInfo.lastName = TEST_LAST_NAME;
+    aContactInfo.email = TEST_EMAIL;
+    aContactInfo.mobile = TEST_MOBILE;
 #else
     [profileLayer requestContactInformationWithCompletionHandler:nil];
     
-    contactInfo.firstName = contactSavedResponse.firstName;
-    contactInfo.lastName = contactSavedResponse.lastName;
-    contactInfo.email = contactSavedResponse.email;
-    contactInfo.mobile = contactSavedResponse.mobile;
+    aContactInfo.firstName = contactSavedResponse.firstName;
+    aContactInfo.lastName = contactSavedResponse.lastName;
+    aContactInfo.email = contactSavedResponse.email;
+    aContactInfo.mobile = contactSavedResponse.mobile;
 #endif
     
 }
@@ -275,7 +275,7 @@ didUpdatePaymentInfoError:(NSError*)error {
     [tokenizedNetbankingInfo addNetBanking:tokenizednetbank];
     
     [paymentlayerinfo makeTokenizedPayment:tokenizedNetbankingInfo
-                               withContact:contactInfo
+                               withContact:aContactInfo
                                withAddress:addressInfo
                                     amount:@"1"
                              withReturnUrl:MLC_PAYMENT_REDIRECT_URLCOMPLETE
@@ -306,7 +306,7 @@ didUpdatePaymentInfoError:(NSError*)error {
     [tokenizedCardInfo addCard:tokenizedCard];
     
     [paymentlayerinfo makeTokenizedPayment:tokenizedCardInfo
-                               withContact:contactInfo
+                               withContact:aContactInfo
                                withAddress:addressInfo
                                     amount:@"1"
                              withReturnUrl:MLC_PAYMENT_REDIRECT_URLCOMPLETE
