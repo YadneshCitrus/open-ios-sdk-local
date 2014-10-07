@@ -181,6 +181,9 @@
 		375222D419D935890055F1B4 /* CTSProfileLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3752222719D935890055F1B4 /* CTSProfileLayer.m */; };
 		375222D519D935890055F1B4 /* CTSProfileLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3752222719D935890055F1B4 /* CTSProfileLayer.m */; };
 		375222D619D935890055F1B4 /* CTSProfileLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3752222719D935890055F1B4 /* CTSProfileLayer.m */; };
+		760DA64A19E3C46200E73F25 /* buttonbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 760DA64919E3C46200E73F25 /* buttonbackground.png */; };
+		760DA64B19E3C46200E73F25 /* buttonbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 760DA64919E3C46200E73F25 /* buttonbackground.png */; };
+		760DA64C19E3C46200E73F25 /* buttonbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 760DA64919E3C46200E73F25 /* buttonbackground.png */; };
 		764AEDE019B89AA40011FE90 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 764AEDDF19B89AA40011FE90 /* Foundation.framework */; };
 		764AEDE219B89AA40011FE90 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 764AEDE119B89AA40011FE90 /* CoreGraphics.framework */; };
 		764AEDE419B89AA40011FE90 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 764AEDE319B89AA40011FE90 /* UIKit.framework */; };
@@ -236,8 +239,6 @@
 		76A80B7C19C16D7B007410EB /* WebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80AE019C16D7B007410EB /* WebViewViewController.m */; };
 		76A80B7D19C16D7B007410EB /* WebViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A80AE119C16D7B007410EB /* WebViewViewController.xib */; };
 		76A80B7E19C16D7B007410EB /* WebViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A80AE119C16D7B007410EB /* WebViewViewController.xib */; };
-		76A80B8119C16D7B007410EB /* buttonbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80AE619C16D7B007410EB /* buttonbackground.png */; };
-		76A80B8219C16D7B007410EB /* buttonbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80AE619C16D7B007410EB /* buttonbackground.png */; };
 		76A80B8619C182F5007410EB /* GuestPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80B8419C182F5007410EB /* GuestPayViewController.m */; };
 		76A80B8719C182F5007410EB /* GuestPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A80B8419C182F5007410EB /* GuestPayViewController.m */; };
 		76A80B8819C182F5007410EB /* GuestPayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B8519C182F5007410EB /* GuestPayViewController.xib */; };
@@ -311,7 +312,6 @@
 		76A80C2719C6C15E007410EB /* GuestPayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B8519C182F5007410EB /* GuestPayViewController.xib */; };
 		76A80C2819C6C15E007410EB /* maestro.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B9119C193C0007410EB /* maestro.png */; };
 		76A80C2919C6C15E007410EB /* rupay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B9619C193C0007410EB /* rupay@2x.png */; };
-		76A80C2A19C6C15E007410EB /* buttonbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80AE619C16D7B007410EB /* buttonbackground.png */; };
 		76A80C2B19C6C15E007410EB /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A80ACC19C16D7B007410EB /* HomeViewController.xib */; };
 		76A80C2C19C6C15E007410EB /* SavedOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A80AD519C16D7B007410EB /* SavedOptionsViewController.xib */; };
 		76A80C2D19C6C15E007410EB /* AXISlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A80B8D19C193C0007410EB /* AXISlogo.png */; };
@@ -464,6 +464,7 @@
 		3752222619D935890055F1B4 /* CTSProfileLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSProfileLayer.h; sourceTree = "<group>"; };
 		3752222719D935890055F1B4 /* CTSProfileLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSProfileLayer.m; sourceTree = "<group>"; };
 		3752222819D935890055F1B4 /* CTSProfileLayerConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSProfileLayerConstants.h; sourceTree = "<group>"; };
+		760DA64919E3C46200E73F25 /* buttonbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonbackground.png; sourceTree = "<group>"; };
 		764AEDDC19B89AA40011FE90 /* SDKSandbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SDKSandbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		764AEDDF19B89AA40011FE90 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		764AEDE119B89AA40011FE90 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -511,7 +512,6 @@
 		76A80ADF19C16D7B007410EB /* WebViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewViewController.h; sourceTree = "<group>"; };
 		76A80AE019C16D7B007410EB /* WebViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewViewController.m; sourceTree = "<group>"; };
 		76A80AE119C16D7B007410EB /* WebViewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewViewController.xib; sourceTree = "<group>"; };
-		76A80AE619C16D7B007410EB /* buttonbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonbackground.png; sourceTree = "<group>"; };
 		76A80B8319C182F5007410EB /* GuestPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuestPayViewController.h; sourceTree = "<group>"; };
 		76A80B8419C182F5007410EB /* GuestPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuestPayViewController.m; sourceTree = "<group>"; };
 		76A80B8519C182F5007410EB /* GuestPayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuestPayViewController.xib; sourceTree = "<group>"; };
@@ -1018,7 +1018,7 @@
 		76A80AE519C16D7B007410EB /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				76A80AE619C16D7B007410EB /* buttonbackground.png */,
+				760DA64919E3C46200E73F25 /* buttonbackground.png */,
 				76A80B8A19C193C0007410EB /* Card icon */,
 			);
 			path = Images;
@@ -1178,9 +1178,9 @@
 				76A80B8819C182F5007410EB /* GuestPayViewController.xib in Resources */,
 				76A80BA519C193C0007410EB /* maestro.png in Resources */,
 				76A80BAF19C193C0007410EB /* rupay@2x.png in Resources */,
-				76A80B8119C16D7B007410EB /* buttonbackground.png in Resources */,
 				76A80B6319C16D7B007410EB /* HomeViewController.xib in Resources */,
 				76A80B6F19C16D7B007410EB /* SavedOptionsViewController.xib in Resources */,
+				760DA64A19E3C46200E73F25 /* buttonbackground.png in Resources */,
 				76A80B9D19C193C0007410EB /* AXISlogo.png in Resources */,
 				76A80BA319C193C0007410EB /* discover@2x.png in Resources */,
 				767C3C8E19CAE89600ACCC19 /* error@2x.png in Resources */,
@@ -1208,6 +1208,7 @@
 				76A80B7619C16D7B007410EB /* SignInViewController.xib in Resources */,
 				76A80BB419C193C0007410EB /* visa@2x.png in Resources */,
 				76AED02C19C8553E00B6D5F1 /* ChangePasswordViewController.xib in Resources */,
+				760DA64B19E3C46200E73F25 /* buttonbackground.png in Resources */,
 				76A80BAC19C193C0007410EB /* mastercard@2x.png in Resources */,
 				76A80BB219C193C0007410EB /* visa.png in Resources */,
 				76A80BAE19C193C0007410EB /* rupay.png in Resources */,
@@ -1217,7 +1218,6 @@
 				76A80BA819C193C0007410EB /* maestro@2x.png in Resources */,
 				76A80B6C19C16D7B007410EB /* PayViewController.xib in Resources */,
 				76A80BA219C193C0007410EB /* discover.png in Resources */,
-				76A80B8219C16D7B007410EB /* buttonbackground.png in Resources */,
 				76A80BA619C193C0007410EB /* maestro.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1249,9 +1249,9 @@
 				76A80C2719C6C15E007410EB /* GuestPayViewController.xib in Resources */,
 				76A80C2819C6C15E007410EB /* maestro.png in Resources */,
 				76A80C2919C6C15E007410EB /* rupay@2x.png in Resources */,
-				76A80C2A19C6C15E007410EB /* buttonbackground.png in Resources */,
 				76A80C2B19C6C15E007410EB /* HomeViewController.xib in Resources */,
 				76A80C2C19C6C15E007410EB /* SavedOptionsViewController.xib in Resources */,
+				760DA64C19E3C46200E73F25 /* buttonbackground.png in Resources */,
 				76A80C2D19C6C15E007410EB /* AXISlogo.png in Resources */,
 				76A80C2E19C6C15E007410EB /* discover@2x.png in Resources */,
 				767C3C9019CAE89600ACCC19 /* error@2x.png in Resources */,
