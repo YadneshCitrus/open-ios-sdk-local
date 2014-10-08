@@ -93,7 +93,7 @@ static NSInteger creditPreviouslength = 0;
         self.CVVNumberTextField.text = TEST_CREDIT_CARD_CVV;
         self.cardHolderNameTextField.text = TEST_CREDIT_CARD_OWNER_NAME;
     }
-    self.cardSchemeImage.image = [UIImage imageNamed:@"visa.png"];
+    self.cardSchemeImage.image = [CTSUtility getSchmeTypeImage:self.cardNumberTextField.text];
 #endif
 }
 
@@ -375,8 +375,7 @@ didMakePaymentUsingGuestFlow:(CTSPaymentTransactionRes*)paymentInfo
             [UIUtility didPresentLoadingAlertView:@"Connecting to the PG" withActivity:YES];
             [self loadRedirectUrl:paymentInfo.redirectUrl];
         }else{
-            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[error.userInfo valueForKey:@"NSLocalizedDescription"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [alertView show];
+            [UIUtility didPresentErrorAlertView:error];
         }
     });
 }
@@ -433,19 +432,9 @@ didMakeTokenizedPayment:(CTSPaymentTransactionRes*)paymentInfo
 
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField*)textField {
-    // Cardnumber
-    // card scheme should be shown at runtime(while user is enter the numbers)
-    if (textField.tag == 1) {
-        self.cardSchemeImage.image = [CTSUtility getSchmeTypeImage:textField.text];
-    }
-    return YES;
-}
-
-- (BOOL)textFieldShouldEndEditing:(UITextField*)textField {
-    // Cardnumber
-    // card scheme should be shown at runtime(while user is enter the numbers)
-    if (textField.tag == 1) {
-        self.cardSchemeImage.image = [CTSUtility getSchmeTypeImage:textField.text];
+    // CVV
+    if (textField.tag == 3) {
+        [self.CVVNumberTextField addRegx:REGEX_CVV withMsg:@"Enter valid CVV." tag:0 location:0 type:CVV_TYPE requiredData:self.cardNumberTextField.text];
     }
     return YES;
 }
@@ -454,7 +443,7 @@ didMakeTokenizedPayment:(CTSPaymentTransactionRes*)paymentInfo
     // Cardnumber
     // card scheme should be shown at runtime(while user is enter the numbers)
     if (textField.tag == 1) {
-        self.cardSchemeImage.image = [CTSUtility getSchmeTypeImage:textField.text];
+        self.cardSchemeImage.image = [CTSUtility getSchmeTypeImage:[textField.text stringByAppendingString:string]];
     }
     return YES;
 }

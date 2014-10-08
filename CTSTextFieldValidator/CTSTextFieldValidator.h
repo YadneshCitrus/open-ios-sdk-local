@@ -78,6 +78,7 @@ NS_CLASS_AVAILABLE_IOS(6_0) @interface CTSTextFieldValidator : UITextField<UITex
 
 -(void)addRegx:(NSString *)strRegx withMsg:(NSString *)msg tag:(NSInteger)tag location:(CGFloat)location type:(NSString *)type;
 
+-(void)addRegx:(NSString *)strRegx withMsg:(NSString *)msg tag:(NSInteger)tag location:(CGFloat)location type:(NSString *)type requiredData:(NSString *)requiredData;
 /**
  By deafult the message will be shown which is given in the macro "MsgValidateLength", but you can change message for each textfield as well.
  @param msg Message string to be displayed when length validation will fail.

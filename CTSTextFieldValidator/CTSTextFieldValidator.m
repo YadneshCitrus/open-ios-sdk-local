@@ -95,6 +95,7 @@
 @property(nonatomic) NSInteger tag;                // default is 0
 @property(nonatomic) CGFloat location; /* Location of the tab stop inside the line fragment rect coordinate system */
 @property (nonatomic,retain) NSString* type;
+@property (nonatomic,retain) NSString* requiredData;
 @property (nonatomic,unsafe_unretained) CTSPopUp *popUp;
 @end
 
@@ -165,7 +166,7 @@
     
     // CVV
     if ([_type isEqualToString:CVV_TYPE]) {
-        return [CTSUtility validateCVVNumber:textField replacementString:string shouldChangeCharactersInRange:range];
+        return [CTSUtility validateCVVNumber:textField  cardNumber:_requiredData replacementString:string shouldChangeCharactersInRange:range];
     }
 
 //    [(CTSTextFieldValidator *)textField dismissPopup];
@@ -276,6 +277,15 @@
     supportObj.tag = tag;
     supportObj.location = location;
     supportObj.type = type;
+}
+
+-(void)addRegx:(NSString *)strRegx withMsg:(NSString *)msg tag:(NSInteger)tag location:(CGFloat)location type:(NSString *)type requiredData:(NSString *)requiredData{
+    NSDictionary *dic=[[NSDictionary alloc] initWithObjectsAndKeys:strRegx,@"regx",msg,@"msg", nil];
+    [arrRegx addObject:dic];
+    supportObj.tag = tag;
+    supportObj.location = location;
+    supportObj.type = type;
+    supportObj.requiredData = [requiredData stringByReplacingOccurrencesOfString:@"-" withString:@""];
 }
 
 -(void)updateLengthValidationMsg:(NSString *)msg{

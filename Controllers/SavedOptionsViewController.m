@@ -231,7 +231,7 @@ didUpdatePaymentInfoError:(NSError*)error {
     
     // CVV
     if (textField.tag == 100) {
-        return [CTSUtility validateCVVNumber:textField replacementString:string shouldChangeCharactersInRange:range];
+        return [CTSUtility validateCVVNumber:textField  cardNumber:self.selectedPaymentOption.number replacementString:string shouldChangeCharactersInRange:range];
     }
     return YES;
 }
@@ -285,11 +285,25 @@ didUpdatePaymentInfoError:(NSError*)error {
 }
 
 - (void)doTokenizedPaymentDebitCard:(NSString*)token CVVNumber:(NSString*)CVV {
+    NSString* transactionId = [CTSUtility createTXNId];
+    
+    NSString* signature = [ServerSignature getSignatureFromServerTxnId:transactionId amount:@"1"];
+    
     CTSPaymentDetailUpdate* tokenizedCardInfo = [[CTSPaymentDetailUpdate alloc] init];
     CTSElectronicCardUpdate* tokenizedCard = [[CTSElectronicCardUpdate alloc] initDebitCard];
     tokenizedCard.token = token;
-    tokenizedCard.cvv = TEST_TOKENIZED_CARD_CVV;
+    tokenizedCard.cvv = CVV;
     [tokenizedCardInfo addCard:tokenizedCard];
+    
+    [paymentlayerinfo makeTokenizedPayment:tokenizedCardInfo
+                               withContact:aContactInfo
+                               withAddress:addressInfo
+                                    amount:@"1"
+                             withReturnUrl:MLC_PAYMENT_REDIRECT_URLCOMPLETE
+                             withSignature:signature
+                                 withTxnId:transactionId
+                     withCompletionHandler:nil];
+
 }
 
 - (void)doTokenizedPaymentCreditCard:(NSString*)token CVVNumber:(NSString*)CVV{
@@ -323,10 +337,7 @@ didMakeTokenizedPayment:(CTSPaymentTransactionRes*)paymentInfo
     NSLog(@"%@", paymentInfo);
     LogTrace(@" %@ ", error);
     BOOL hasSuccess =
-    ((paymentInfo != nil) && ([paymentInfo.pgRespCode integerValue] == 0) &&
-     (error == nil))
-    ? YES
-    : NO;
+    ((paymentInfo != nil) && ([paymentInfo.pgRespCode integerValue] == 0) && (error == nil)) ? YES : NO;
     
     dispatch_async(dispatch_get_main_queue(), ^{
         // Update the UI

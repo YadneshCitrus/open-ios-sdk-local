@@ -265,7 +265,7 @@
     if (cardNumber.length == 0) {
         return nil;
     } else {
-        NSString* scheme = [CTSUtility fetchCardSchemeForCardNumber:cardNumber];
+        NSString* scheme = [CTSUtility fetchCardSchemeForCardNumber:[cardNumber stringByReplacingOccurrencesOfString:@"-" withString:@""]];
         if ([scheme caseInsensitiveCompare:@"amex"] == NSOrderedSame) {
             return [UIImage imageNamed:@"amex.png"];
         } else if ([scheme caseInsensitiveCompare:@"discover"] == NSOrderedSame) {
@@ -407,10 +407,10 @@
 }
 
 
-+ (BOOL)validateCVVNumber:(UITextField*)textField replacementString:(NSString*)string shouldChangeCharactersInRange:(NSRange)range{
++ (BOOL)validateCVVNumber:(UITextField*)textField cardNumber:(NSString*)cardNumber replacementString:(NSString*)string shouldChangeCharactersInRange:(NSRange)range{
     // CVV validation
     // if amex allow 4 digits, if non amex only 3 should allowed.
-    NSString* scheme = [CTSUtility fetchCardSchemeForCardNumber:textField.text];
+    NSString* scheme = [CTSUtility fetchCardSchemeForCardNumber:[cardNumber stringByReplacingOccurrencesOfString:@"-" withString:@""]];
     NSInteger textfieldLength = textField.text.length - range.length + string.length;
     NSCharacterSet* myCharSet =
     [NSCharacterSet characterSetWithCharactersInString:NUMERICS];
