@@ -19,7 +19,7 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.backgroundColor = [UIColor colorWithRed:236.0f/255.0 green:236.0f/255.0 blue:236.0f/255.0 alpha:1.0f];
     
     // add into nav contoller
     HomeViewController* homeViewController = [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];

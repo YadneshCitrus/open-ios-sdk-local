@@ -255,7 +255,35 @@ didUpdatePaymentInfoError:(NSError*)error {
 }
 
 
+
 #pragma mark - UITextField delegates
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    
+    // passwordTextField
+    if (textField == self.passwordTextField) {
+        [UIUtility animateTextField:self.passwordTextField up:YES toView:self.view];
+    }
+    
+    // confirmPasswordTextField
+    if (textField == self.confirmPasswordTextField) {
+        [UIUtility animateTextField:self.confirmPasswordTextField up:YES toView:self.view];
+    }
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    
+    // passwordTextField
+    if (textField == self.passwordTextField) {
+        [UIUtility animateTextField:self.passwordTextField up:NO toView:self.view];
+    }
+    
+    // confirmPasswordTextField
+    if (textField == self.confirmPasswordTextField) {
+        [UIUtility animateTextField:self.confirmPasswordTextField up:NO toView:self.view];
+    }
+}
+
 
 - (BOOL)textFieldShouldReturn:(UITextField*)textField {
     NSInteger nextTag = textField.tag + 1;

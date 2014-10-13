@@ -87,4 +87,25 @@ UIAlertView* alertView;
     [alertView show];
 }
 
+
+/**
+ *  move and animate textField while tapping
+ *
+ *  @param for textField
+ *  @param animate if YES
+ *  @param move to UIView
+ */
++ (void)animateTextField:(UITextField*)textField up:(BOOL)up toView:(UIView*)toView
+{
+    const float movementDuration = 0.5f;
+    const int movementDistance = 80;
+    int movement = (up ? - movementDistance : movementDistance);
+    [UIView animateWithDuration:movementDuration
+                     animations:^{
+                         CGRect frame = toView.frame;
+                         frame.origin.y = toView.frame.origin.y + movement;
+                         toView.frame = frame;
+                     }];
+}
+
 @end

@@ -37,4 +37,13 @@
  *  @param alertView message
  */
 + (void)didPresentInfoAlertView:(NSString*)message;
+
+/**
+ *  move and animate textField while tapping
+ *
+ *  @param for textField
+ *  @param animate if YES
+ *  @param move to UIView
+ */
++ (void)animateTextField:(UITextField*)textField up:(BOOL)up toView:(UIView*)toView;
 @end

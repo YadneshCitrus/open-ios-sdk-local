@@ -449,6 +449,22 @@ didMakeTokenizedPayment:(CTSPaymentTransactionRes*)paymentInfo
 }
 
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    
+    // passwordTextField
+    if (textField == self.cardHolderNameTextField) {
+        [UIUtility animateTextField:self.cardHolderNameTextField up:YES toView:self.view];
+    }
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    
+    // passwordTextField
+    if (textField == self.cardHolderNameTextField) {
+        [UIUtility animateTextField:self.cardHolderNameTextField up:NO toView:self.view];
+    }
+}
+
 -(IBAction)textfieldTextchange:(id)sender
 {
     // Expirydate for MLC_PROFILE_PAYMENT_DEBIT_TYPE
