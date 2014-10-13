@@ -19,7 +19,7 @@
 @property (strong, nonatomic) NSArray *userdata;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
-@property (assign, nonatomic) NSIndexPath *checkedIndexPath;
+@property (nonatomic,strong) NSIndexPath *checkedIndexPath;
 @end
 
 @implementation SavedOptionsViewController
@@ -213,15 +213,16 @@ didUpdatePaymentInfoError:(NSError*)error {
     
     CTSPaymentOption *paymentOption = [self.userdata objectAtIndex:indexPath.row];
     self.selectedPaymentOption = paymentOption;
+    self.checkedIndexPath = indexPath;
+
     if ([paymentOption.type isEqualToString:MLC_PROFILE_PAYMENT_NETBANKING_TYPE]) {
-        self.checkedIndexPath = indexPath;
+        
         [tableView reloadData];
 
         [UIUtility didPresentLoadingAlertView:@"Connecting..." withActivity:YES];
         [self doTokenizedPaymentNetbanking:paymentOption.token];
     }else if ([paymentOption.type isEqualToString:MLC_PROFILE_PAYMENT_DEBIT_TYPE] || [paymentOption.type isEqualToString:MLC_PROFILE_PAYMENT_CREDIT_TYPE]) {
         [self didPresentInputAlertView:@"CVV" message:@"Enter CVV number."];
-        self.checkedIndexPath = indexPath;
     }
 }
 
