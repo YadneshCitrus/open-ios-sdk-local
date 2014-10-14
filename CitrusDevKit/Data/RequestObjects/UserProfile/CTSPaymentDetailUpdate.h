@@ -14,6 +14,7 @@
 
 @interface CTSPaymentDetailUpdate : JSONModel
 @property(nonatomic, strong) NSString* type;
+@property(nonatomic, strong) NSString <Optional>*defaultOption;
 @property(nonatomic, strong) NSString<Optional>* password;
 @property(nonatomic, strong) NSMutableArray<CTSPaymentOption>* paymentOptions;
 

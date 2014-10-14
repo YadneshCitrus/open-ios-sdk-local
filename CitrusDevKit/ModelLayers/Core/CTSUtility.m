@@ -265,7 +265,7 @@
     if (cardNumber.length == 0) {
         return nil;
     } else {
-        NSString* scheme = [CTSUtility fetchCardSchemeForCardNumber:[cardNumber stringByReplacingOccurrencesOfString:@"-" withString:@""]];
+        NSString* scheme = [CTSUtility fetchCardSchemeForCardNumber:cardNumber];
         if ([scheme caseInsensitiveCompare:@"amex"] == NSOrderedSame) {
             return [UIImage imageNamed:@"amex.png"];
         } else if ([scheme caseInsensitiveCompare:@"discover"] == NSOrderedSame) {
@@ -406,6 +406,38 @@
     return YES;
 }
 
+
++ (BOOL)validateCVVNumber:(UITextField*)textField replacementString:(NSString*)string shouldChangeCharactersInRange:(NSRange)range{
+    // CVV validation
+    // if amex allow 4 digits, if non amex only 3 should allowed.
+    NSString* scheme = [CTSUtility fetchCardSchemeForCardNumber:textField.text];
+    NSInteger textfieldLength = textField.text.length - range.length + string.length;
+    NSCharacterSet* myCharSet =
+    [NSCharacterSet characterSetWithCharactersInString:NUMERICS];
+    for (int i = 0; i < [string length]; i++) {
+        unichar c = [string characterAtIndex:i];
+        if ([myCharSet characterIsMember:c]) {
+            if ([scheme caseInsensitiveCompare:@"amex"] == NSOrderedSame) {
+                if (textfieldLength > 4) {
+                    return NO;
+                } else {
+                    return YES;
+                }
+            } else if ([scheme caseInsensitiveCompare:@"amex"] !=
+                       NSOrderedSame) {
+                if (textfieldLength > 3) {
+                    return NO;
+                } else {
+                    return YES;
+                }
+            }
+            
+        } else {
+            return NO;
+        }
+    }
+    return YES;
+}
 
 + (BOOL)validateCVVNumber:(UITextField*)textField cardNumber:(NSString*)cardNumber replacementString:(NSString*)string shouldChangeCharactersInRange:(NSRange)range{
     // CVV validation

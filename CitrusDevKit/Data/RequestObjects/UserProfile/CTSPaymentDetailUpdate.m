@@ -9,7 +9,7 @@
 #import "CTSPaymentDetailUpdate.h"
 
 @implementation CTSPaymentDetailUpdate
-@synthesize type, paymentOptions, password;
+@synthesize type, paymentOptions, password,defaultOption;
 - (instancetype)init {
   self = [super init];
   if (self) {

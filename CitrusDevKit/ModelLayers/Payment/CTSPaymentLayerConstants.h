@@ -27,7 +27,7 @@
 #define MLC_PAYMENT_UPDATE__REQUEST_TYPE [CTSPaymentUpdate class]
 #define MLC_PAYMENT_RESPONSE_TYPE [CTSPaymentRes class]
 
-#define MLC_CITRUS_SERVER_URL @"/service/moto/authorize/struct/prepaid"
+#define MLC_CITRUS_SERVER_URL [@"/service/moto/authorize/struct/" stringByAppendingString:VanityUrl ]
 #define MLC_CITRUS_GUESTCHECKOUT_URL @"/service/moto/authorize/struct/prepaid"
 
 #define MLC_PAYMENT_GET_SIGNATURE_METHOD POST

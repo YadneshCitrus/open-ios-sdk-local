@@ -57,7 +57,7 @@ UIAlertView* alertView;
     }
 }
 
-/**
+/** TODO
  *  dismiss alertView with error
  *
  *  @param alertView error
