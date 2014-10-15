@@ -83,8 +83,10 @@ UIAlertView* alertView;
  */
 + (void)didPresentInfoAlertView:(NSString*)message
 {
-    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:INFO_TITLE message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-    [alertView show];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:INFO_TITLE message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alertView show];
+    });
 }
 
 
