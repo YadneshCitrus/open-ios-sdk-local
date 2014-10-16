@@ -13,9 +13,12 @@
 
 #define REGEX_USER_NAME_LIMIT @"^.{3,10}$"
 #define REGEX_USER_NAME @"[A-Za-z0-9]{3,10}"
+
 #define REGEX_EMAIL @"[A-Z0-9a-z._%+-]{3,}+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
+
 #define REGEX_PASSWORD_LIMIT @"^.{8,16}$"
 #define REGEX_PASSWORD @"[A-Za-z0-9!@#$%"@"^&*]{8,16}"
+
 #define REGEX_PHONE_DEFAULT @"[0-9]{3}\\-[0-9]{3}\\-[0-9]{4}"
 #define REGEX_PHONE_DEFAULT_LIMIT @"^.{12,12}$"
 
@@ -65,11 +68,12 @@
     
     [self.mobileTextField addRegx:REGEX_PHONE_DEFAULT withMsg:@"Phone number must be in proper format (eg. ###-###-####)"];
     [self.mobileTextField addRegx:REGEX_PHONE_DEFAULT_LIMIT withMsg:@"Phone number charaters limit should be come 10" tag:4 location:12 type:MOBILE_TYPE];
-
-    [self.passwordTextField addRegx:REGEX_PASSWORD withMsg:@"Password must contain alpha numeric characters."];
-    [self.passwordTextField addRegx:REGEX_PASSWORD_LIMIT withMsg:@"8 to 16 with at least one alphabet and one "
-     @"number. Special characters allowed - (! @ # $ % " @"^ & *)." tag:5 location:16];
     
+    [self.passwordTextField addRegx:REGEX_PASSWORD withMsg:@"8 to 16 with at least one alphabet and one "
+     @"number. Special characters allowed - (! @ # $ % " @"^ & *)."];
+    [self.passwordTextField addRegx:REGEX_PASSWORD_LIMIT withMsg:@"8 to 16 with at least one alphabet and one "
+     @"number. Special characters allowed - (! @ # $ % " @"^ & *)." tag:2 location:16];
+
     [self.confirmPasswordTextField addConfirmValidationTo:self.passwordTextField withMsg:@"Confirm password didn't match."];
 }
 
