@@ -275,17 +275,8 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
     CTSPaymentDetailUpdate* paymentInfo = [[CTSPaymentDetailUpdate alloc] init];
     CTSNetBankingUpdate* netBank = [[CTSNetBankingUpdate alloc] init];
     
-    /**
-     *  TestData
-     *
-     *  use testdata for SDKSandboxTestData applicatin Target
-     */
-#if defined (TESTDATA_VERSION)
-    // Test data
-    netBank.code = TEST_NETBAK_CODE;
-#else
     netBank.code = self.issuerCode;
-#endif
+    netBank.bank = self.selectedbank;
 
     [paymentInfo addNetBanking:netBank];
     

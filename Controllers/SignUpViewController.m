@@ -98,6 +98,8 @@
         [self.mobileTextField resignFirstResponder];
     }else if ([self.passwordTextField isFirstResponder]) {
         [self.passwordTextField resignFirstResponder];
+    }else if ([self.confirmPasswordTextField isFirstResponder]) {
+        [self.confirmPasswordTextField resignFirstResponder];
     }
     
     
@@ -132,6 +134,9 @@
                                     }
                                     if ([self.passwordTextField text]) {
                                         self.passwordTextField.text = @"";
+                                    }
+                                    if ([self.confirmPasswordTextField text]) {
+                                        self.confirmPasswordTextField.text = @"";
                                     }
 
                                 });
