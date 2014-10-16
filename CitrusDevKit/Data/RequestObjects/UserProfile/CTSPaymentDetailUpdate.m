@@ -11,57 +11,58 @@
 @implementation CTSPaymentDetailUpdate
 @synthesize type, paymentOptions, password,defaultOption;
 - (instancetype)init {
-  self = [super init];
-  if (self) {
-    type = MLC_PROFILE_GET_PAYMENT_QUERY_TYPE;
-    paymentOptions =
+    self = [super init];
+    if (self) {
+        type = MLC_PROFILE_GET_PAYMENT_QUERY_TYPE;
+        paymentOptions =
         (NSMutableArray<CTSPaymentOption>*)[[NSMutableArray alloc] init];
-    password = nil;
-  }
-  return self;
+        password = nil;
+    }
+    return self;
 }
 
 - (void)addCard:(CTSElectronicCardUpdate*)eCard {
-  [paymentOptions addObject:[[CTSPaymentOption alloc] initWithCard:eCard]];
+    eCard.expiryDate = [CTSUtility correctExpiryDate:eCard.expiryDate];
+    [paymentOptions addObject:[[CTSPaymentOption alloc] initWithCard:eCard]];
 }
 
 - (BOOL)addNetBanking:(CTSNetBankingUpdate*)netBankDetail {
-  [paymentOptions
-      addObject:[[CTSPaymentOption alloc] initWithNetBanking:netBankDetail]];
-  return YES;
+    [paymentOptions
+     addObject:[[CTSPaymentOption alloc] initWithNetBanking:netBankDetail]];
+    return YES;
 }
 - (CTSErrorCode)validate {
-  CTSErrorCode error = NoError;
-  for (CTSPaymentOption* payment in paymentOptions) {
-    error = [payment validate];
-    if (error != NoError) {
-      return error;
+    CTSErrorCode error = NoError;
+    for (CTSPaymentOption* payment in paymentOptions) {
+        error = [payment validate];
+        if (error != NoError) {
+            return error;
+        }
     }
-  }
-  return error;
+    return error;
 }
 
 
 - (CTSErrorCode)validateTokenized{
     CTSErrorCode error = NoError;
     for (CTSPaymentOption* payment in paymentOptions) {
-       if(payment.token == nil)
-           error = TokenMissing;
+        if(payment.token == nil)
+            error = TokenMissing;
         break;
     }
     return error;
 }
 
 - (void)clearCVV {
-  for (CTSPaymentOption* payment in paymentOptions) {
-    payment.cvv = nil;
-  }
+    for (CTSPaymentOption* payment in paymentOptions) {
+        payment.cvv = nil;
+    }
 }
 
 - (void)clearNetbankCode {
-  for (CTSPaymentOption* payment in paymentOptions) {
-    payment.code = nil;
-  }
+    for (CTSPaymentOption* payment in paymentOptions) {
+        payment.code = nil;
+    }
 }
 
 @end

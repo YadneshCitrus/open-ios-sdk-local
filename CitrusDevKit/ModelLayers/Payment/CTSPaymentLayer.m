@@ -164,7 +164,7 @@
   LogTrace(@"validation error %d ", error);
 
   if (error != NoError) {
-    [self makeTokenizedPaymentHelper:nil
+    [self makeGuestPaymentHelper:nil
                                error:[CTSError getErrorForCode:error]];
     return;
   }
