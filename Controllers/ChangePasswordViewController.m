@@ -44,6 +44,14 @@
     
     [self setupTextFieldValidation];
 
+    //
+    [self initialize];
+
+}
+
+//
+- (void)initialize {
+    authLayer = [[CTSAuthLayer alloc] init];
 }
 
 
@@ -73,7 +81,7 @@
         [self.confirmPasswordTextField resignFirstResponder];
     }
 
-    [self requestResetPassword];
+    [self requestChangePassword];
 }
 
 - (NSString*)getLastUser {
@@ -82,7 +90,7 @@
 }
 
 
--(void)requestResetPassword
+-(void)requestChangePassword
 {
     
     if([self.usernameTextField validate] & [self.oldPasswordTextField validate] & [self.passwordTextField validate])
@@ -112,6 +120,8 @@
                                       self.confirmPasswordTextField.text = @"";
                                   }
 #endif
+                              }else{
+                                  [UIUtility didPresentErrorAlertView:error];
                               }
                           });
                       }];

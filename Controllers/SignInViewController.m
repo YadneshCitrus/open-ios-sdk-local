@@ -51,6 +51,8 @@
 #if defined (TESTDATA_VERSION)
     self.usernameTextField.text = TEST_EMAIL;
     self.passwordTextField.text = TEST_PASSWORD;
+    
+    [self setLastUser];
 #else
     NSString *username = [self getLastUser];
     self.usernameTextField.text = username;
