@@ -35,4 +35,6 @@
 + (BOOL)validateCVVNumber:(UITextField*)textField replacementString:(NSString*)string shouldChangeCharactersInRange:(NSRange)range;
 + (BOOL)validateCVVNumber:(UITextField*)textField cardNumber:(NSString*)cardNumber replacementString:(NSString*)string shouldChangeCharactersInRange:(NSRange)range;
 + (NSString*)createTXNId;
++(NSString*)correctExpiryDate:(NSString *)date;
+
 @end

@@ -133,12 +133,12 @@
         [self.passwordTextField resignFirstResponder];
     }
 
-    if ([self.usernameTextField.text length] != 0) {
+    if ([self.usernameTextField validate]) {
         UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Reset Password?" message:[NSString stringWithFormat:@"An email will be sent to %@",self.usernameTextField.text] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok",nil];
         alertView.tag = 100;
         [alertView show];
     }else{
-        [UIUtility didPresentInfoAlertView:@"Username field can't be blank!"];
+        [UIUtility didPresentInfoAlertView:@"Please enter valid username."];
     }
 }
 
