@@ -52,11 +52,11 @@
 
 #define TEST_TOKENIZED_CARD_CVV @"000"
 
-#define MLC_GUESTCHECKOUT_REDIRECTURL @"http://103.13.97.20/citrus/index.php"
+#define MLC_GUESTCHECKOUT_REDIRECTURL @"http://www.google.com"
 #define MLC_PAYMENT_REDIRECT_URL \
-  @"https://stgadmin.citruspay.com/prepaid/resources/mobile/onload.html"
+  @"http://www.google.com"
 #define MLC_PAYMENT_REDIRECT_URLCOMPLETE \
-  @"https://stgadmin.citruspay.com/service/v2/mycard/load/complete"
+  @"http://www.google.com"
 
 #define GUEST_PAY_TYPE @"GUEST_PAY_TYPE"
 #define MEMBER_PAY_TYPE @"MEMBER_PAY_TYPE"
