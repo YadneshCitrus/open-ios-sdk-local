@@ -19,16 +19,20 @@ typedef enum {
   InvalidParameter,
   OauthTokenExpired,
   CantFetchSignupToken,
-    TokenMissing
+    TokenMissing,
+    InternetDown
+    
 
 } CTSErrorCode;
 
 #define CITRUS_ERROR_DOMAIN @"com.citrus.errorDomain"
 #define CITRUS_ERROR_DESCRIPTION_KEY @"CTSServerErrorDescription"
+#define INTERNET_DOWN_STATUS_CODE 0
 
 @interface CTSError : NSObject
 // Follwoing methods are for internal use only
 + (NSError*)getErrorForCode:(CTSErrorCode)code;
 + (NSError*)getServerErrorWithCode:(int)errorCode
                           withInfo:(NSDictionary*)information;
++(NSString *)getFakeJsonForCode:(CTSErrorCode)errorCode;
 @end

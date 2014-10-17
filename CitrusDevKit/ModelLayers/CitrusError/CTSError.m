@@ -70,4 +70,23 @@
                          userInfo:userInfo];
 }
 
+
++(NSString *)getFakeJsonForCode:(CTSErrorCode)errorCode{
+    NSString* fakeErrorJson = nil;
+    
+    switch (errorCode) {
+        case InternetDown:
+            fakeErrorJson = @"{\"description\":\"could not connect to internet\",\"type\":\"server error\"}";
+            break;
+
+        default:
+            fakeErrorJson = @"{\"description\":\"NA\",\"type\":\"NA\"}";
+
+            break;
+    }
+    return fakeErrorJson;
+
+}
+
+
 @end
