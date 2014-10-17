@@ -18,11 +18,13 @@
 
 @property (nonatomic, strong) UIPickerView *bankSelect;
 @property (nonatomic, strong)  NSArray *pickerData;
-@property (nonatomic, strong)  NSString *selectedbank;
+@property (nonatomic, strong)  NSString *selectedBank;
+@property (nonatomic, strong)  NSString *issuerCode;
 @end
 
 @implementation NetBankingViewController
-@synthesize rootController, payType, issuerCode;
+@synthesize rootController, payType;
+@synthesize issuerCode, selectedBank;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,7 +43,7 @@
     [self initialize];
     
     [self fetchContactInformation];
-
+    
     [self fetchAddressInformation];
 
     [self fetchAvailableBanks];
@@ -50,6 +52,9 @@
 - (void)initialize {
     // Do any additional setup after loading the view from its nib.
     
+    self.issuerCode = [[NSString alloc] init];
+    self.selectedBank = [[NSString alloc] init];
+
     paymentlayerinfo = [[CTSPaymentLayer alloc] init];
     
     profileLayer = [[CTSProfileLayer alloc] init];
@@ -59,12 +64,30 @@
 -(void)fetchAddressInformation
 {
     addressInfo = [[CTSUserAddress alloc] init];
+    addressInfo.city = TEST_CITY;
+    addressInfo.country = TEST_COUNTRY;
+    addressInfo.state = TEST_STATE;
+    addressInfo.street1 = TEST_STREET1;
+    addressInfo.street2 = TEST_STREET2;
+    addressInfo.zip = TEST_ZIP;
 }
 
 -(void)fetchContactInformation
 {
     aContactInfo = [[CTSContactUpdate alloc] init];
-    [profileLayer requestContactInformationWithCompletionHandler:nil];
+    if ([self.payType isEqualToString:MEMBER_PAY_TYPE]) {
+        [profileLayer requestContactInformationWithCompletionHandler:nil];
+    }else if ([self.payType isEqualToString:GUEST_PAY_TYPE]) {
+        aContactInfo.firstName = TEST_FIRST_NAME;
+        aContactInfo.lastName = TEST_LAST_NAME;
+        aContactInfo.email = TEST_EMAIL;
+        aContactInfo.mobile = TEST_MOBILE;
+    }
+}
+
+-(void)getContactsInformation:(CTSProfileContactRes*)contactSavedResponse
+{
+    aContactInfo = [[CTSContactUpdate alloc] init];
 
     aContactInfo.firstName = contactSavedResponse.firstName;
     aContactInfo.lastName = contactSavedResponse.lastName;
@@ -82,7 +105,7 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
     //[contactInfo logProperties];
     LogTrace(@"contactInfo %@", error);
     
-    contactSavedResponse = contactInfo;
+    [self getContactsInformation:contactInfo];
 }
 
 -(void)fetchAvailableBanks
@@ -161,7 +184,7 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
     //Write the required logic here that should happen after you select a row in Picker View.
     [selectBankButton setTitle:[[self.pickerData objectAtIndex:row] valueForKey:@"bankName"] forState:UIControlStateNormal];
     [self.bankSelect setHidden:YES];
-    self.selectedbank = [[self.pickerData objectAtIndex:row] valueForKey:@"bankName"];
+    self.selectedBank = [[self.pickerData objectAtIndex:row] valueForKey:@"bankName"];
     self.issuerCode = [[self.pickerData objectAtIndex:row] valueForKey:@"issuerCode"];
 }
 
@@ -169,7 +192,7 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
 -(IBAction)netBankingAction:(id)sender
 {
     
-    if ([self.selectedbank length] != 0) {
+    if ([self.selectedBank length] != 0) {
         [self.bankSelect setHidden:YES];
         [UIUtility didPresentLoadingAlertView:@"Connecting..." withActivity:YES];
 
@@ -191,7 +214,7 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
     CTSNetBankingUpdate* netbank = [[CTSNetBankingUpdate alloc] init];
     
     netbank.code = self.issuerCode;
-    netbank.bank = self.selectedbank;
+    netbank.bank = self.selectedBank;
     
     [netBankingPaymentInfo addNetBanking:netbank];
     
@@ -238,7 +261,7 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
     CTSNetBankingUpdate* netBank = [[CTSNetBankingUpdate alloc] init];
     
     netBank.code = self.issuerCode;
-    netBank.bank = self.selectedbank;
+    netBank.bank = self.selectedBank;
 
     [paymentInfo addNetBanking:netBank];
     

@@ -61,8 +61,8 @@
     
     //
     self.netBankingViewController = [[NetBankingViewController alloc] initWithNibName:@"NetBankingViewController" bundle:nil];
-    self.netBankingViewController.view.frame = CGRectMake(0.0f, 92.0f, 320, 476.0f);
     self.netBankingViewController.payType = self.payType;
+    self.netBankingViewController.view.frame = CGRectMake(0.0f, 92.0f, 320, 476.0f);
     self.netBankingViewController.rootController = self;
     [self.view addSubview:self.netBankingViewController.view];
 }

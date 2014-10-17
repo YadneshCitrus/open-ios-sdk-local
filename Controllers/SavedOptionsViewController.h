@@ -27,7 +27,6 @@
     CTSPaymentLayer* paymentlayerinfo;
     CTSContactUpdate* aContactInfo;
     CTSUserAddress* addressInfo;
-    CTSProfileContactRes* contactSavedResponse;
 
     __weak id <SavedOptionsDelegate> savedOptionsDelegate;
 }

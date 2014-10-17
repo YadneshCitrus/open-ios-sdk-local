@@ -18,17 +18,14 @@
     CTSContactUpdate* aContactInfo;
     CTSUserAddress* addressInfo;
     CTSProfileLayer* profileLayer;
-    CTSProfileContactRes* contactSavedResponse;
     
     IBOutlet __weak UIButton *selectBankButton;
     IBOutlet __weak UIActivityIndicatorView *activityIndicatorView;
     UIViewController *rootController;
     NSString *payType;
-    NSString *issuerCode;
 }
 @property(nonatomic,strong) UIViewController *rootController;
 @property(nonatomic,strong) NSString *payType;
-@property(nonatomic,strong) NSString *issuerCode;
 
 /**
  *  called when user request to get bank type for net banking payment as a user or guest

@@ -70,49 +70,29 @@
 -(void)fetchContactInformation
 {
     aContactInfo = [[CTSContactUpdate alloc] init];
-    
-    /**
-     *  TestData
-     *
-     *  use testdata for SDKSandboxTestData applicatin Target
-     */
-#if defined (TESTDATA_VERSION)
-    aContactInfo.firstName = TEST_FIRST_NAME;
-    aContactInfo.lastName = TEST_LAST_NAME;
-    aContactInfo.email = TEST_EMAIL;
-    aContactInfo.mobile = TEST_MOBILE;
-#else
     [profileLayer requestContactInformationWithCompletionHandler:nil];
+}
+
+
+-(void)getContactsInformation:(CTSProfileContactRes*)contactSavedResponse
+{
+    aContactInfo = [[CTSContactUpdate alloc] init];
     
     aContactInfo.firstName = contactSavedResponse.firstName;
     aContactInfo.lastName = contactSavedResponse.lastName;
     aContactInfo.email = contactSavedResponse.email;
     aContactInfo.mobile = contactSavedResponse.mobile;
-#endif
-    
 }
 
 -(void)fetchAddressInformation
 {
     addressInfo = [[CTSUserAddress alloc] init];
-    
-    /**
-     *  TestData
-     *
-     *  use testdata for SDKSandboxTestData applicatin Target
-     */
-#if defined (TESTDATA_VERSION)
     addressInfo.city = TEST_CITY;
     addressInfo.country = TEST_COUNTRY;
     addressInfo.state = TEST_STATE;
     addressInfo.street1 = TEST_STREET1;
     addressInfo.street2 = TEST_STREET2;
     addressInfo.zip = TEST_ZIP;
-#else
-    //
-    
-#endif
-    
 }
 
 -(void)fetchPaymentInformation
@@ -131,9 +111,7 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
     // LogTrace(@"contactInfo %@", contactInfo);
     //[contactInfo logProperties];
     
-    contactSavedResponse = contactInfo;
-
-    LogTrace(@"contactInfo %@", error);
+    [self getContactsInformation:contactInfo];
 }
 
 
