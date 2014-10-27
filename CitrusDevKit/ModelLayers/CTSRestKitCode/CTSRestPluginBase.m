@@ -68,6 +68,15 @@
     } else {
       error.type = error.error;
     }
+      
+      if(error.errorDescription == nil){
+          error.errorDescription = error.description;
+      }
+      else{
+    error.description = error.errorDescription;
+    }
+      
+      
   } else {
     error = [[CTSRestError alloc] init];
   }

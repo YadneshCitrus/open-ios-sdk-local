@@ -124,12 +124,14 @@ didReceiveContactInfo:(CTSProfileContactRes*)contactInfo
                               
                               dispatch_async(dispatch_get_main_queue(), ^{
                                   // Update the UI
-                                  if (error == nil) {
+                                  if(error == nil && error.code != ServerErrorWithCode){
                                       self.pickerData = pgSettings.netBanking;
                                       [activityIndicatorView stopAnimating];
                                       activityIndicatorView.hidden = YES;
                                       [selectBankButton setTitle:@"Select Bank" forState:UIControlStateNormal];
                                       selectBankButton.enabled = YES;
+                                  }else{
+                                      [UIUtility didPresentErrorAlertView:error];
                                   }
                               });
                           }];

@@ -65,14 +65,12 @@ UIAlertView* alertView;
 + (void)didPresentErrorAlertView:(NSError*)error
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSDictionary *userInfo = [error userInfo];
-        CTSRestError *citrusError = (CTSRestError *)[userInfo objectForKey:CITRUS_ERROR_DESCRIPTION_KEY];
-        NSLog(@" citrusError type %@",citrusError.type);
-        NSLog(@" citrusError description %@",citrusError.description);
-        NSLog(@" citrusError error %@",citrusError.errorDescription);
-        NSLog(@" citrusError serverResponse %@",citrusError.serverResponse);
+        CTSRestError *errorCTS = [[error userInfo] objectForKey:CITRUS_ERROR_DESCRIPTION_KEY];
+        LogTrace(@" errorCTS type %@",errorCTS.type);
+        LogTrace(@" errorCTS description %@",errorCTS.description);
+        LogTrace(@" errorCTS responseString %@",errorCTS.serverResponse);
         
-        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:ERROR_TITLE message:citrusError.errorDescription delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:ERROR_TITLE message:errorCTS.description delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alertView show];
     });
 }
